@@ -11,5 +11,5 @@ Versão Atual: 1.1
 Versão Anterior: 1.0
 
 Obs: Este repositório será atualizado até a versão 2.0
-ou seja terá somente mais 9(nove) atualizações dedpois da versão 1.1 .
+ou seja terá somente mais 9(nove) atualizações depois da versão 1.1 .
 
