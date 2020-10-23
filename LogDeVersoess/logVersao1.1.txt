@@ -1,0 +1,49 @@
+Sobre a atualização 1.1
+
+- ### BASE DE DADOS ###
+- Base de dados reconstruida do zero(tccjocelino.sql).
+- Criação do arquivo(consultas.sql) para realizar consultas na DB tccjocelino.sql .
+
+- ### CABEÇALHO ###
+- Retirado o telefone do cabeçalho.
+- Retirado o email do cabeçalho.
+- Retirado os icones de redes sociais do cabeçalho.
+
+- ### PÁGINA index.php###
+- Novo path add ao arquivo index.php, agora ele se encontra dentro da pasta Index(Index/index.php) .
+- Retirado o menu lateral bixos.
+- Retirado o menu lateral parceiros.
+- Retirada a imagem de peixe que era exibida.
+- Seção "Em Destaque" aumentada, agora  ela ocupa todo o espaço horizontal.
+- A Seção "Em Destaque", agora exibe 4 produtos e não 3 como antes.
+- Adicionada uma nova seção chamada "Mais Vendidos".
+- Bugs das imagens na Paginação corrigidos.
+- Retirada Paginação em Numeros.
+
+- ### PÁGINA contato.php ###
+- Renomeado o arquivo contact-us.html para contato.php .
+- Retirado os menus laterais bixos e parceiros.
+- Retirado a imagem de peixe.
+- Adicionado Tabelas de enderecos com os enderecos presenciais e informações de contato.
+- Footer atualizado.
+- Pagina contato.php Remodelada.
+
+- ### PÁGINA login.php ###
+- Adicionado o novo footer a página login.php .
+- Login Centralizado.
+- Novo path add ao arquivo login. Agora o arquivo login.php está dentro da pasta Login(Login/login.php) .
+
+- ### FOOTER ###
+- Alterações foram realizadas no footer.
+- Adicionado desenvolvedores ao footer.
+- Footer otimizado. (O footer agora está em um arquivo separado melhorando o desempenho e evitando repetições de código).
+- Copyright no footer atualizado.
+
+- ### OUTROS ###
+- Criada pasta LogDeVersoes
+- Adicionado o arquivo logVersao1.1.txt a pasta LogDeVersoes.
+- README atualizado.
+- Adicionada Logo dos Desenvolvedores.
+- Criado arquivo photo.css para tratar imagens.
+- Criada pasta ItensNãoUtilizados para alocar itens que podem vir a ser utilizado futuramente,mas que por hora estao ItensNãoUtilizados.
+- Criado arquivo tabelaEndereco.php que exibe a tabela `endereco` podendo ser reutilizado em qualquer outra página.

@@ -1,0 +1,5 @@
+/* folha de estilos focado no tratamento de imagens*/
+.photo img{
+ height: 10%;
+ width: 25%;
+}
