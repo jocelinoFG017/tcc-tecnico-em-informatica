@@ -45,22 +45,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-toggle {
-  background-color: #000;
+  background-color: rgb(14, 190, 23);
 }
 
-a#scrollUp {
-  bottom: 0px;
-  right: 10px;
-  padding: 5px 10px;
-  background: black;
-  color: #000000;
-  -webkit-animation: bounce 2s ease infinite;
-  animation: bounce 2s ease infinite;
-}
-
-a#scrollUp i{
-  font-size: 30px;
-}
 
 
 /*************************
@@ -160,7 +147,7 @@ a#scrollUp i{
 }
 
 .usa:active, .usa.active {
-  background: none repeat scroll 0 0 ;/*apaguei a cor que tinha aqui*/
+  background: none repeat scroll 0 0  red;/*apaguei a cor que tinha aqui*/
   box-shadow: inherit;
   outline: 0 none;
 }

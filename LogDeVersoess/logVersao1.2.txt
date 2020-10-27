@@ -1,0 +1,58 @@
+Sobre a atualização 1.2 (v1.2)
+
+- ### BASE DE DADOS ###
+- Pequena alteração feita nos inserts do usuario(no atributo senha foi colocado padrão md5 de criptografia).
+- Alteração da tabela usuario, FOREIGN KEY da tabela nivesAcesso removida.
+- Tabela niveisAcesso removida temporariamente.
+- Tabela produto foi populada(recebeu inserts).
+- Tabela usuario recebeu novo insert.
+
+- ### CABEÇALHO | HEADER ###
+- Novo path do cabeçalho(header.php),agora ele esta em Header/header.php . 
+- Header otimizado. (O header agora está em um arquivo separado melhorando o desempenho e evitando repetições de código).
+
+- ### PÁGINA index.php ###
+- Adicionado novo header otimizado.
+- Removido scrollUp temporariamente.
+
+- ### PÁGINA contato.php ###
+- Adicionado novo header otimizado.
+
+- ### PÁGINA loginIndex.php ###
+- Adicionado novo header otimizado.
+- Página principal contendo conteudo html foi renomeada. O login.php agora é loginIndex.php .
+- Criado um novo arquivo chamado login.php para efetuar a consulta na DB.
+- ### SISTEMA DE LOGIN ###
+- - Sistema de login adicionado com sucesso e está funcional.
+- - Verificação de login e senha adicionados a página de login(loginIndex.php). Caso sejam digitados dados incorretos uma mensagem de erro aparecera para o usuario.
+- - Adicionado arquivo verificaLogin.php a pasta Login.
+
+- ### DASHBOARD ###
+- Criada pasta dashboard para armazenar arquivos relacionados a dashboard.
+- Botão de sair adicionado a DASHBOARD(FUNCIONAL).
+- Arquivo sair.php adicionado a pasta dashboard.
+- Adicionado novo template da dashboard.
+- A tabela `usuario` agora pode ser visualizada na dashboard.
+- A tabela `endereco` agora pode ser visualizada na dashboard.
+- A tabela `produto` agora pode ser visualizada na dashboard.
+
+
+- ### SISTEMA DE CADASTRO ###
+- Sistema de cadastro adicionado com sucesso.
+- Verificação adicionada ao sistema de cadastro. Caso o usuario digite dados incorretos ou já existentes uma mensagem será exibida para o usuario.
+- Adicionado sistema de cadastro(de usuario).(tabela `usuario`)usuarios podem ser cadastrados agora.
+- Adicionado sistema de cadastro(de produto).(tabela `produto`)produtos podem ser cadastrados agora.
+
+- ### FOOTER | RODAPÉ ###
+- Retirado footer do template da dashboard.
+
+- ### OUTROS | OTHERS###
+- Adicionado o arquivo logVersao1.2.txt a pasta LogDeVersoes.
+- Os seguintes arquivos foram formatados deixando seus códigos mais limpos e otimizados(loginIndex.php, contato.php,index.php).
+- Criado arquivo tabelaUsuario.php que exibe a tabela `usuario` podendo ser reutilizado em qualquer outra página(Evitando repetições de código).
+- Criado arquivo tabelaProduto.php que exibe a tabela `produto`(somente na dashboard).
+- Adicionado Pais e idEndereco a tabela endereco.
+- Removido arquivo do jquery.scrollUp.mim.js e suas dependencias.(foi removido do main.css e no arquivo index.php)
+- Agora é possivel gerar um relatório em .pdf dos usuarios.
+- Agora é possivel gerar um relatório em .pdf dos produtos.
+- Arquivo logVersao2.php revisado.

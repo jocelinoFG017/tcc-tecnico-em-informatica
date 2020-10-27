@@ -7,7 +7,7 @@ USE tccjocelino;
 --
 -- Estrutura da tabela `niveis_acessos`
 -- Somente 2 usuários (o usuario padrao e o admin)
-
+/*
 CREATE TABLE niveisAcesso (
   idNiveisAcesso int(11) NOT NULL auto_increment,
   nome varchar(45) NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE niveisAcesso (
   modified int(11) DEFAULT NULL,
   PRIMARY KEY(idNiveisAcesso)
 ) ENGINE=InnoDB DEFAULT CHARSET = UTF8 COLLATE = utf8_general_ci;
-
+*/
 --
 -- Estrutura da tabela `produto`
 --
@@ -35,12 +35,13 @@ CREATE TABLE produto (
 --
 
 CREATE TABLE usuario (
-    idUsuario int(11) NOT NULL PRIMARY KEY auto_increment,
+    idUsuario int(11) NOT NULL auto_increment,
     nome varchar(45) NOT NULL,
     login varchar(45) NOT NULL,
     senha varchar(45) NOT NULL,-- id niveis d acesso
-    idNiveisAcesso int,
-    CONSTRAINT fk_NiveisAcesso FOREIGN KEY(idNiveisAcesso) REFERENCES usuario(idUsuario)
+    PRIMARY KEY(idUsuario)
+    -- idNiveisAcesso int,
+   -- CONSTRAINT fk_NiveisAcesso FOREIGN KEY(idNiveisAcesso) REFERENCES usuario(idUsuario)
 )CHARSET=utf8;
 --   CONSTRAINT fk_NiveisAcesso FOREIGN KEY (idNiveisAcesso) REFFERENCES usuario(idUsuario)
 -- Normalização do endereco
@@ -94,17 +95,18 @@ CREATE TABLE endereco (
 -- POPULANO TABELAS
 
 -- POPULANDO tabela `niveis_acessos`
-
+/*
 INSERT INTO niveisAcesso (idNiveisAcesso, nome, data, modified)
 VALUES(1, 'administrador', '1928-10-10', NULL),
       (2, 'usuario', '1928-10-10', NULL);
-
+*/
 
 --  POPULANDO tabela`usuarios`
 
-INSERT INTO usuario (idUsuario,nome,login, senha, idNiveisAcesso)
-VALUES (1,'administrador', 'admin@admin.com.br', '202cb962ac59075b964b07152d234b70', 1),
-       (2,'usuario', 'user@user.com.br', '202cb962ac59075b964b07152d234b70', 2);
+INSERT INTO usuario (idUsuario,nome,login, senha)
+VALUES (1,'administrador', 'admin@admin.com.br', md5('1234')),
+       (2,'usuario', 'user@user.com.br', md5('123')),
+       (3,'mega', 'mega@mega.com.br', md5('123'));
 
 --  POPULANDO tabela `Pais`
 INSERT INTO pais(idPais, nome)
@@ -134,3 +136,11 @@ VALUES(1,'Onedo Carvalho','mariquita',2312,1,1,1,55991514169),
       (3,'Jardim da paz','aparicio mariense',9928,3,1,1,55921514469),
       (4,'centro','barao do rio branco',8273,4,1,1,55991514269),
       (5,'andradas','eusébio martins',0192,5,1,1,55991514462);
+
+--  POPULANDO tabela `produto`
+INSERT INTO produto(idProduto,nome,descricao,marca,quantidade,preco)
+VALUES(1,'Ração Martin Dog','Ração para cachorros','Matin Dog','3kg',23.12),
+      (2,'Ração Martin Dog','Ração para cachorros','Matin Dog','5kg',33.17),
+      (3,'Ração Whiskas','Ração para gatos','Whiskas','3kg',13.19),
+      (4,'Ração Whiskas','Ração para gatos','Whiskas','5kg',22.15),
+      (5,'Ração MegaZOO','Ração para aves','MegaZOO','3kg',45.22);
