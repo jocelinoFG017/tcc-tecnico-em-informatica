@@ -13,6 +13,32 @@ body {
   font-weight:400px;
 }
 
+h4.title{
+  text-transform:uppercase;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 1000;
+  margin: 0 15px;
+  color: #FF4500;
+  
+  background:#1C1C1C;
+}
+.category-tab2 ul {
+  background: #1C1C1C;/*muda a cor de fundo em brinqedos/vacinas...*/
+  list-style: none outside none;
+  margin: 0 0 40px;
+  padding: 0;
+  width: 100%;
+  height: 30px;
+  
+}
+
+
+
+
+
+
+
 ul li {
   list-style: none;
 }

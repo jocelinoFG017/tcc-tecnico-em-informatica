@@ -1,10 +1,11 @@
+<?php
+   include("../conexao/conexao.php");
+   ?>
 <!DOCTYPE html>
 <html lang="pt-br">
    <head>
-      <!-- USAR O CARRINHO COMO LISTA DE DESEJOS  -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- Titulo da pagina-->
       <title>Home | ETERNITY</title>
       <!-- Links do CSS-->
       <link href="../css/main.css" rel="stylesheet">
@@ -43,7 +44,7 @@
                               <h1><span>C</span>ACHORROS</h1>
                               <h2>Curiosidades</h2>
                               <p>Um cachorro adulto tem 42 dentes. O olfato canino é 1 milhão de vezes melhor do que o dos humanos.  </p>
-                              <button type="button" class="btn btn-default get">Get it now</button>
+                              <button type="button" class="btn btn-default get">Ver Mais</button>
                            </div>
                            <div class="col-sm-6">
                               <img src="../imagens/home/doguinho.jpg" class="anuncio img-responsive" alt="" />
@@ -54,7 +55,7 @@
                               <h1><span>P</span>ÁSSAROS</h1>
                               <h2>Curiosidades</h2>
                               <p>" Um dia ele se alimenta, outro dia ele voa, mas o dia mais bonito é o dia em que o canário canta ."jo_gar</p>
-                              <button type="button" class="btn btn-default get">Get it now</button>
+                              <button type="button" class="btn btn-default get">Ver Mais</button>
                            </div>
                            <div class="col-sm-6">
                               <img src="../imagens/home/bird.jpg" class="girl img-responsive" alt="" />
@@ -66,7 +67,7 @@
                               <h1><span>G</span>ATOS</h1>
                               <h2>Curiosidades</h2>
                               <p>Os gatos têm cerca de 100 sons vocais ao contrário dos cães que apresentam apenas 10. </p>
-                              <button type="button" class="btn btn-default get">Get it now</button>
+                              <button type="button" class="btn btn-default get">Ver Mais</button>
                            </div>
                            <div class="col-sm-6">
                               <img src="../imagens/home/cat.jpg" class="cat img-responsive" alt="" />
@@ -92,7 +93,14 @@
                <div class="col-sm-12 padding-right">
                   <div class="features_items">
                      <!--features_items-->
-                     <h2 class="title text-center">Em Destaque</h2>
+                     <div class="category-tab2">
+                        <!--category-tab-->
+                        <div class="col-sm-12">
+                           <ul class="nav nav-tabs">
+                              <h4 class="title " style="text-align:center;">Em Destaque</h4>
+                           </ul>
+                        </div>
+                     </div>
                      <div class="col-sm-3">
                         <div class="product-image-wrapper">
                            <div class="single-products">
@@ -100,138 +108,7 @@
                                  <img src="../imagens/home/zorro.jpg" alt="" />
                                  <h2>R$18.90</h2>
                                  <p>Ração Zorro Original</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/zorroj.jpg" alt="" />
-                                 <h2>R$24.49</h2>
-                                 <p>Ração Zorro Filhote</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart"></i>Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/pedigree.jpg" alt="" />
-                                 <h2>R$57.35</h2>
-                                 <p>Ração Pedigree Adulto</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart"></i>Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/biscrock.jpg" alt="" />
-                                 <h2>R$24.25</h2>
-                                 <p>Ração Pedigree Biscrock</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
-                              </div>
-                              <img src="../imagens/home/new.png" class="new" alt="" />
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/salada.jpg" alt="" />
-                                 <h2>R$43.55</h2>
-                                 <p>Ração Pedigree Carne e Vegetais </p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
-                              </div>
-                              <img src="../imagens/home/sale.png" class="new" alt="" />
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/biscrock2.jpg" alt="" />
-                                 <h2>R$27.80</h2>
-                                 <p>Ração pedigree tal</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/biscrock2.jpg" alt="" />
-                                 <h2>R$27.80</h2>
-                                 <p>Ração pedigree tal</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/biscrock2.jpg" alt="" />
-                                 <h2>R$27.80</h2>
-                                 <p>Ração pedigree tal</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <h2 class="title text-center">Mais Vendidos</h2>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/zorro.jpg" alt="" />
-                                 <h2>R$18.90</h2>
-                                 <p>Ração Zorro Original</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
+                                 <a href="../Blog/detalhesProduto.php" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
                               </div>
                            </div>
                            <div class="choose">
@@ -352,6 +229,30 @@
                            </div>
                         </div>
                      </div>
+                     <div class="category-tab2">
+                        <!--category-tab-->
+                        <div class="col-sm-12">
+                           <ul class="nav nav-tabs">
+                              <h4 class="title " style="text-align:center;">Mais Vendidos</h4>
+                           </ul>
+                        </div>
+                     </div>
+                     <?php
+                        $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto LIMIT 0, 8;");
+                        while ($produto = mysqli_fetch_object($sql2)){ ?>
+                     <div class="col-sm-3">
+                        <div class="product-image-wrapper">
+                           <div class="single-products">
+                              <div class="productinfo text-center">
+                                 <?php echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
+                                 <?php echo " <h2>R$ " . $produto->preco . "</h2>";?>
+                                 <?php echo "" . $produto->nome . "";?>
+                                 <a href="../Blog/detalhesProduto.php" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <?php } ?>
                   </div>
                   <!--features_items-->
                   <div class="category-tab">
@@ -370,9 +271,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
-                                       <h2>R$ 5.00</h2>
-                                       <p>Filhote parcialmente vivo</p>
+                                       <img src="../imagens/home/kind.jpg" style=" height: 90%; width: 75%;" alt="" />
+                                       <h2>R$ 35.00</h2>
+                                       <p>Brinquedo de Pelúcia Chalesco Crocodilo</p>
                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -382,9 +283,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
+                                       <img src="../imagens/home/kind.jpg" style=" height: 90%; width: 75%;" alt="" />
                                        <h2>R$32.09</h2>
-                                       <p>Filhote parcialmente vivo</p>
+                                       <p>Brinquedo de Pelúcia Chalesco Crocodilo</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -394,9 +295,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
+                                       <img src="../imagens/home/kind.jpg" style=" height: 90%; width: 75%;" alt="" />
                                        <h2>R$30.00</h2>
-                                       <p>Filhote parcialmente vivo</p>
+                                       <p>Brinquedo de Pelúcia Chalesco Crocodilo</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -406,9 +307,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
-                                       <h2>R$17.00</h2>
-                                       <p>Filhote parcialmente vivo</p>
+                                       <img src="../imagens/home/kind.jpg" style=" height: 90%; width: 75%;" alt="" />
+                                       <h2>R$31.00</h2>
+                                       <p>Brinquedo de Pelúcia Chalesco Crocodilo</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -420,9 +321,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
-                                       <h2>R$28.78</h2>
-                                       <p>Easy Polo Black Edition</p>
+                                       <img src="../imagens/home/casinha.jpg" style=" height: 90%; width: 75%;" alt="" />
+                                       <h2>R$49.78</h2>
+                                       <p>Casinha preta</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -432,9 +333,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
-                                       <h2>R$100.10</h2>
-                                       <p>Easy Polo Black Edition</p>
+                                       <img src="../imagens/home/casinha.jpg" style=" height: 90%; width: 75%;" alt="" />
+                                       <h2>R$49.78</h2>
+                                       <p>Casinha preta</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -444,9 +345,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
+                                       <img src="../imagens/home/casinha.jpg" style=" height: 90%; width: 75%;" alt="" />
                                        <h2>R$49.90</h2>
-                                       <p>Easy Polo Black Edition</p>
+                                       <p>Casinha preta</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -456,9 +357,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
-                                       <h2>R$5.60</h2>
-                                       <p>Easy Polo Black Edition</p>
+                                       <img src="../imagens/home/casinha.jpg" style=" height: 90%; width: 75%;" alt="" />
+                                       <h2>R$49.78</h2>
+                                       <p>Casinha preta</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -470,21 +371,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
-                                       <h2>R$9.99</h2>
-                                       <p>Easy Polo Black Edition</p>
-                                       <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-sm-3">
-                              <div class="product-image-wrapper">
-                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
+                                       <img src="../imagens/home/aquario.jpg" style=" height: 90%; width: 75%;" alt="" />
                                        <h2>R$7.49</h2>
-                                       <p>Easy Polo Black Edition</p>
+                                       <p>Aquario Aquaterráreo</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -494,9 +383,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
-                                       <h2>R$2.50</h2>
-                                       <p>Easy Polo Black Edition</p>
+                                       <img src="../imagens/home/aquario.jpg" style=" height: 90%; width: 75%;" alt="" />
+                                       <h2>R$7.49</h2>
+                                       <p>Aquario Aquaterráreo</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -506,9 +395,21 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
-                                       <h2>R$20.40</h2>
-                                       <p>Easy Polo Black Edition</p>
+                                       <img src="../imagens/home/aquario.jpg" style=" height: 90%; width: 75%;" alt="" />
+                                       <h2>R$7.49</h2>
+                                       <p>Aquario Aquaterráreo</p>
+                                       <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-sm-3">
+                              <div class="product-image-wrapper">
+                                 <div class="single-products">
+                                    <div class="productinfo text-center">
+                                       <img src="../imagens/home/aquario.jpg" style=" height: 90%; width: 75%;" alt="" />
+                                       <h2>R$7.49</h2>
+                                       <p>Aquario Aquaterráreo</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -520,9 +421,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
+                                       <img src="../imagens/home/pote.jpg" style=" height: 90%; width: 75%;" alt="" />
                                        <h2>R$37.50</h2>
-                                       <p>Easy Polo Black Edition</p>
+                                       <p>Porta Ração Petz Azul 1kg</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -532,9 +433,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
+                                       <img src="../imagens/home/pote.jpg" style=" height: 90%; width: 75%;" alt="" />
                                        <h2>R$44.44</h2>
-                                       <p>Easy Polo Black Edition</p>
+                                       <p>Porta Ração Petz Azul 1kg</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -544,9 +445,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
+                                       <img src="../imagens/home/pote.jpg" style=" height: 90%; width: 75%;" alt="" />
                                        <h2>R$43.54</h2>
-                                       <p>Easy Polo Black Edition</p>
+                                       <p>Porta Ração Petz Azul 1kg</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -556,9 +457,9 @@
                               <div class="product-image-wrapper">
                                  <div class="single-products">
                                     <div class="productinfo text-center">
-                                       <img src="../imagens/home/far.jpg" alt="" />
+                                       <img src="../imagens/home/pote.jpg" style=" height: 90%; width: 75%;" alt="" />
                                        <h2>R$34.24</h2>
-                                       <p>Easy Polo Black Edition</p>
+                                       <p>Porta Ração Petz Azul 1kg</p>
                                        <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
                                     </div>
                                  </div>
@@ -572,15 +473,11 @@
             </div>
          </div>
       </section>
-      <?php
-         include("../Footer/footer.php");
-          ?>
-      <!--Rodapé-->
+      <?php include("../Footer/footer.php");?>
       <script src="../js/jquery.js"></script>
       <script src="../js/bootstrap.min.js"></script>
       <script src="../js/price-range.js"></script>
       <script src="../js/jquery.prettyPhoto.js"></script>
       <script src="../js/main.js"></script>
    </body>
-   
 </html>

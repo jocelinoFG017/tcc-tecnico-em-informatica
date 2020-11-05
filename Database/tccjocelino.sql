@@ -27,6 +27,7 @@ CREATE TABLE produto (
   marca varchar(45) NOT NULL,
   quantidade varchar(45) NOT NULL,
   preco float(45) NOT NULL,
+  foto varchar(100) NOT NULL,
   PRIMARY KEY(idProduto)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8 COLLATE=utf8_general_ci;
 
@@ -70,10 +71,9 @@ CREATE TABLE estado(
 CREATE TABLE cidade(
     idCidade int(11) NOT NULL auto_increment,
     nome varchar(45) NOT NULL,
-    cep int(9) not null,
     idEstado int,
-    PRIMARY KEY (idCidade),
-    CONSTRAINT fk_Estado FOREIGN KEY(idEstado) REFERENCES estado(idEstado)
+    PRIMARY KEY (idCidade)
+    -- CONSTRAINT fk_Estado FOREIGN KEY(idEstado) REFERENCES estado(idEstado)
 )CHARSET=utf8;
 -- Estrutura da tabela `endereco`
 
@@ -82,15 +82,27 @@ CREATE TABLE endereco (
     bairro varchar(45) NOT NULL,
     rua varchar(45) NOT NULL,
     numero varchar(45) NOT NULL,
+    cidadeId int NULL,
+    estadoID int NULL,
     telefone varchar(20) NOT NULL,
-    idCidade int,
-    idEstado int,
-    idPais int,
+    -- idPais int NULL,
     PRIMARY KEY (idEndereco),
-    CONSTRAINT fk_EnderecoCidade FOREIGN KEY (idCidade) REFERENCES cidade(idCidade),
-    CONSTRAINT fk_EnderecoEstado FOREIGN KEY (idEstado) REFERENCES estado(idEstado),
-    CONSTRAINT fk_EnderecoPais FOREIGN KEY (idPais) REFERENCES pais(idPais)
+    CONSTRAINT fk_EnderecoCidade FOREIGN KEY (cidadeId) REFERENCES cidade(idCidade),
+   CONSTRAINT fk_EnderecoEstado FOREIGN KEY (estadoId) REFERENCES estado(idEstado)
+    -- CONSTRAINT fk_EnderecoPais FOREIGN KEY (idPais) REFERENCES pais(idPais)
 )CHARSET=utf8;
+
+
+CREATE TABLE artigo(
+      idArtigo int NOT NULL auto_increment,
+      titulo varchar(45) NOT NULL,
+      texto varchar(1200) NOT NULL,
+      autor varchar(45) NOT NULL,
+      data_publicacao DATE,
+      tag varchar(45) NOT NULL,
+      sobreAutor VARCHAR(100) NOT NULL,
+      PRIMARY KEY(idArtigo)
+);
 
 -- POPULANO TABELAS
 
@@ -106,7 +118,9 @@ VALUES(1, 'administrador', '1928-10-10', NULL),
 INSERT INTO usuario (idUsuario,nome,login, senha)
 VALUES (1,'administrador', 'admin@admin.com.br', md5('1234')),
        (2,'usuario', 'user@user.com.br', md5('123')),
-       (3,'mega', 'mega@mega.com.br', md5('123'));
+       (3,'joe', 'joelokao@gmail.com.br', md5('123')),
+       (4,'jenkins', 'jenkins@gmail.com.br', md5('123')),
+       (5,'mega', 'mega@mega.com.br', md5('123'));
 
 --  POPULANDO tabela `Pais`
 INSERT INTO pais(idPais, nome)
@@ -120,27 +134,36 @@ VALUES(1,'Rio Grande do Sul','RS', 1),
       (2,'Santa Catarina','SC', 1);
 
 --  POPULANDO tabela `Cidade`
-INSERT INTO cidade(idCidade, nome, cep,idEstado)
-VALUES(1,'Uruguaiana',99220221, 1),
-      (2,'Blumenau',92820982, 2),
-      (3,'Itaqui',09987621, 1),
-      (4,'Sao Borja',97670000, 1),
-      (5,'Santo Angelo',92860982, 1);
+INSERT INTO cidade(idCidade, nome)
+VALUES(1,'Uruguaiana'),
+      (2,'Blumenau'),
+      (3,'Itaqui'),
+      (4,'Sao Borja');
+      -- (5,'Santo Angelo',92860982, 1);
 
 
 --  POPULANDO tabela `endereco`
-
-INSERT INTO endereco(idEndereco,bairro,rua,numero,idCidade,idEstado,idPais,telefone)
-VALUES(1,'Onedo Carvalho','mariquita',2312,1,1,1,55991514169),
-      (2,'Vila Isabel','Maria Candida',4212,2,2,1,55991514439),
-      (3,'Jardim da paz','aparicio mariense',9928,3,1,1,55921514469),
-      (4,'centro','barao do rio branco',8273,4,1,1,55991514269),
-      (5,'andradas','eusébio martins',0192,5,1,1,55991514462);
+-- INSERT INTO endereco(idEndereco,bairro,rua,numero,idCidade,idEstado,idPais,telefone)
+INSERT INTO endereco(idEndereco,bairro,rua,numero,cidadeId,estadoId,telefone)
+VALUES(1,'Onedo Carvalho','mariquita',2312,1,1,55991514169),
+      (2,'Vila Isabel','Maria Candida',4212,2,1,55991514439);
+      -- (3,'Jardim da paz','aparicio mariense',9928,3,1,1,55921514469),
+      -- (4,'centro','barao do rio branco',8273,4,1,1,55991514269),
+      -- (5,'andradas','eusébio martins',0192,5,1,1,55991514462);
 
 --  POPULANDO tabela `produto`
-INSERT INTO produto(idProduto,nome,descricao,marca,quantidade,preco)
-VALUES(1,'Ração Martin Dog','Ração para cachorros','Matin Dog','3kg',23.12),
-      (2,'Ração Martin Dog','Ração para cachorros','Matin Dog','5kg',33.17),
-      (3,'Ração Whiskas','Ração para gatos','Whiskas','3kg',13.19),
-      (4,'Ração Whiskas','Ração para gatos','Whiskas','5kg',22.15),
-      (5,'Ração MegaZOO','Ração para aves','MegaZOO','3kg',45.22);
+INSERT INTO produto(idProduto,nome,descricao,marca,quantidade,preco,foto)
+VALUES(1,'Ração Pedigree','Ração para cachorros','Pedigree','5kg',24.99,'939dd63bebed93eef687566b8a28aa1e.jpg'),
+      (2,'Ração Pedigree Biscrok Adulto','Ração para cachorros','Pedigree','5kg',34.99,'0d74792eaaccadb05a022026646d294e.jpg'),
+      (3,'Ração Pedigree Carne e Vegetais','Ração para cachorros','Pedigree','5kg',19.99,'725363c7cd502e54716899dd609f5f3a.jpg'),
+      (4,'Ração Pedigree Adulto','Ração para cachorros','Pedigree','9kg',59.15,'939dd63bebed93eef687566b8a28aa1e.jpg'),
+      (5,'Ração Zorro Adulto','Ração para cachorros','Zorro','5kg',25.15,'a40d63c0428b75cd5b563e23a8b82afe.jpg'),
+      (6,'Ração Zorro Filhote','Ração para cachorros','Zorro','7kg',27.15,'a40d63c0428b75cd5b563e23a8b82afe.jpg'),
+      (7,'Ração Pedigree Biscrok Filhote','Ração para cachorros','Pedigree','5kg',24.99,'0d74792eaaccadb05a022026646d294e.jpg'),
+      (8,'Ração MegaZOO','Ração para cachorros','MegaZOO','3kg',45.22,'e737f1f818f5482684dbee524567008d.jpg');
+
+
+
+--  POPULANDO tabela `curiosidades`
+INSERT INTO artigo(idArtigo, titulo, texto, autor, data_publicacao, tag, sobreAutor)
+VALUES (1,'O destino dos cães', 'Os cães nascem para encontrar seu elo perdido', 'Jocelino F.G',2020/12/12,'Gatos' ,'Nascido no RS');

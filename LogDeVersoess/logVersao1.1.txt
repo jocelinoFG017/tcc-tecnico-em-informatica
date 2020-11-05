@@ -45,5 +45,5 @@ Sobre a atualização 1.1
 - README atualizado.
 - Adicionada Logo dos Desenvolvedores.
 - Criado arquivo photo.css para tratar imagens.
-- Criada pasta ItensNãoUtilizados para alocar itens que podem vir a ser utilizado futuramente,mas que por hora estao ItensNãoUtilizados.
-- Criado arquivo tabelaEndereco.php que exibe a tabela `endereco` podendo ser reutilizado em qualquer outra página.
+- Criada pasta ItensNãoUtilizados para alocar itens que podem vir a ser utilizado futuramente,mas que por hora estão em ItensNãoUtilizados.
+- Criado arquivo tabelaEndereco.php que exibe a tabela `endereco` podendo ser reutilizada em qualquer outra página.

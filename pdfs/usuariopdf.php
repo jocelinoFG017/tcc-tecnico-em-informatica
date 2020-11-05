@@ -11,7 +11,7 @@ $busca = mysqli_query($conn, $sql);
 $pdf= new FPDF("P","pt","A4");
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
-$pdf->Cell(0,5,utf8_decode("Relatório de Usuários"),0,1,'C');
+$pdf->Cell(0,5,"Relatório de Usuários",0,1,'C');
 $pdf->Ln(15);
 $pdf->Cell(0,5,"","B",1,'C');
 $pdf->Ln(50);

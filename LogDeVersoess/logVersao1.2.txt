@@ -36,7 +36,6 @@ Sobre a atualização 1.2 (v1.2)
 - A tabela `endereco` agora pode ser visualizada na dashboard.
 - A tabela `produto` agora pode ser visualizada na dashboard.
 
-
 - ### SISTEMA DE CADASTRO ###
 - Sistema de cadastro adicionado com sucesso.
 - Verificação adicionada ao sistema de cadastro. Caso o usuario digite dados incorretos ou já existentes uma mensagem será exibida para o usuario.
@@ -53,6 +52,6 @@ Sobre a atualização 1.2 (v1.2)
 - Criado arquivo tabelaProduto.php que exibe a tabela `produto`(somente na dashboard).
 - Adicionado Pais e idEndereco a tabela endereco.
 - Removido arquivo do jquery.scrollUp.mim.js e suas dependencias.(foi removido do main.css e no arquivo index.php)
-- Agora é possivel gerar um relatório em .pdf dos usuarios.
-- Agora é possivel gerar um relatório em .pdf dos produtos.
+- Agora é possivel gerar um relatório em .pdf dos `usuarios`.
+- Agora é possivel gerar um relatório em .pdf dos `produtos`.
 - Arquivo logVersao2.php revisado.

@@ -55,8 +55,6 @@
                         endif;
                         unset($_SESSION['usuarioExiste']);
                         ?>
-
-
                      <form action="cadastro.php" method="POST">
                         <!-- forma de envio é o post, que vai chamar o cadastrar.php-->    
                         <div class="blank-arrow">

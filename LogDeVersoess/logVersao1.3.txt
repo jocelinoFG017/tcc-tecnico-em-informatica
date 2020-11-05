@@ -1,0 +1,68 @@
+Sobre a atualização 1.3 (v1.3)
+
+** ## BASE DE DADOS ## **
+- Tabela `artigo` adicionada ao BD.
+- Inserts na tabela `artigo` adicionados.
+- Novo atributo foto adicionado a tabela `produto`.
+- Inserts da tabela `produto` atualizados.
+
+** ## PÁGINAS ATUALIZADAS ## **
+
+    - ### index.php ###
+    - Fotos atualizadas.
+    - Produtos disponíveis para visualização(Limite de  8 em 8).
+
+    - ### contato.php ###
+    - tabela `endereco` agora NÃO mostra os dados corretamente, este erro será corrigido no próximo update.
+
+    - ### loginIndex.php ###
+    - Componente Alert atualizado(Bootstrap alert).
+    - Novo estilo de template adicionado para o login.
+
+    - ### blog.php ###
+        - Pagina blog.php adicionada(Destinado a publicação de artigos).
+        - HEADER adicionado.
+        - FOOTER adicionado.
+
+    - ### shop.php ### 
+        - Pagina shop.php adicionada(Destinado a mostrar os itens em estoque(produtos)).
+        - HEADER adicionado.
+        - FOOTER adicionado.
+
+    - ### detalhesProduto.php ### 
+        - Pagina detalhesProduto.php adicionada(Destinada a mostrar os detalhes do produto).
+        - HEADER adicionado.
+        - FOOTER adicionado.
+
+    - ### artigos.php ### 
+    - Arquivo criado para cadastrar,visualizar,editar e excluir artigos(Ligado a tabela `artigo`).
+
+- ## DASHBOARD ##
+- Tabela `artigo` agora pode ser visualizada na DASHBOARD.
+- `Usuarios` agora podem ser excluidos.
+- `Produtos` agora podem ser excluidos.
+- Fotos da tabela `produto` agora podem ser visualizadas.
+
+- ## SISTEMA DE CADASTRO ##
+- Tabela `produto`, agora fotos podem ser gravadas junto ao produto.
+
+- ## OUTROS | OTHERS ##
+- Novo arquivo adicionado a ItensNãoUtilizados(pdf.php).
+- Arquivo logVersao1.3 atualizado (nova organização de itens).
+- Tamanho de fotos cadastradas aumentado. Agora podem ser inseridas fotos com tamanho 400x400 e 100Kb(x<100kb).
+- Diversos icones(icons) atualizados.
+- CkEditor adicionado ao projeto(ainda não funcional).
+- Pasta blog adicionada para armazenar arquivos referentes a tabela artigo.
+- Pasta Excluir adicionada para armazenar arquivos de exclusão de objetos.
+- Novos arquivos adicionados a pasta ItensNãoUtilizados.
+- usuarios2.php removido.
+- savepoint.sql removido.
+- README.md atualizado.
+- Arquivo logVersao1.3 revisado.
+
+- - ## ARQUIVOS QUE FORAM OTIMIZADOS (deixar o código mais limpo e evitar repetições de código).
+- - - header.php (links e novas conexões agora estão disponíveis).
+- - - headerDash.php .
+- - - loginIndex.php .
+- - - usuarios.php .
+- - - produtos.php .

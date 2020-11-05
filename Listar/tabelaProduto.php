@@ -16,6 +16,7 @@ $resultado = mysqli_query($conn,$sql);
          <th scope="col">Marca</th>
          <th scope="col">Quantidade</th>
          <th scope="col">Preço</th>
+         <th scope="col">Ação</th>
       </tr>
    </thead>
    <?php 
@@ -28,6 +29,11 @@ $resultado = mysqli_query($conn,$sql);
          <td><?php echo $dado["marca"] ;?></td>
          <td><?php echo $dado["quantidade"] ;?></td>
          <td><p>R$ <?php echo $dado["preco"] ;?></td></p>
+         <td>
+            <?php echo "<a href='../Excluir/excluirProduto.php?idProduto=" . $dado["idProduto"] . "'> "?>
+            <i class="fas fa-trash-alt"></i> <?php echo "</a>";?>   
+         </td>
+          
    </tbody>
    <?php
       }

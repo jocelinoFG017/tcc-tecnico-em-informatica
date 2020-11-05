@@ -1,6 +1,6 @@
 <?php
    include("../conexao/conexao.php");
-   $path = 'Listar/contato.php'
+   
    ?>
 <!DOCTYPE html>
 <html lang="pt-br">

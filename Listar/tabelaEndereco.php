@@ -1,11 +1,13 @@
 <?php
 include("../conexao/conexao.php");
+
 // consulta varias linhas
-$sql = "SELECT en.idEndereco,c.nome as cidade, en.bairro, en.rua, en.numero, est.nome as estado, en.telefone as telefone, pa.idPais, pa.nome as pais
+// $sql = "SELECT en.idEndereco,c.nome as cidade, en.bairro, en.rua, en.numero, est.nome as estado, en.telefone as telefone, pa.idPais, pa.nome as pais
+$sql = "SELECT en.idEndereco,c.nome as cidade, en.bairro, en.rua, en.numero, en.telefone as telefone, est.nome as estado
 		FROM endereco AS en
-		JOIN cidade AS c ON en.idCidade = c.idCidade
-		JOIN estado AS est ON en.idEstado = est.idEstado
-      JOIN pais AS pa ON en.idPais = pa.idPais
+		JOIN cidade AS c ON en.cidadeId = c.idCidade
+		JOIN estado AS est ON en.estadoId = est.idEstado
+      --  JOIN pais AS pa ON en.idPais = pa.idPais
       ORDER BY idEndereco;";
 $resultado = mysqli_query($conn,$sql);
 
@@ -21,7 +23,7 @@ $resultado = mysqli_query($conn,$sql);
          <th scope="col">Rua</th>
          <th scope="col">Numero</th>
          <th scope="col">Estado</th>
-         <th scope="col">País</th>
+        <!-- <th scope="col">País</th>-->
          <th scope="col">Telefone</th>
       </tr>
    </thead>
@@ -36,7 +38,7 @@ $resultado = mysqli_query($conn,$sql);
          <td><?php echo $dado["numero"] ;?></td>
          <!-- <td><?php //echo $dado["cep"] ;?></td>-->
          <td><?php echo $dado["estado"] ;?></td>
-         <td><?php echo $dado["pais"] ;?></td>
+       <!--  <td><?php //echo $dado["pais"] ;?></td>--> 
          <td><?php echo $dado["telefone"] ;?></td>
    </tbody>
    <?php

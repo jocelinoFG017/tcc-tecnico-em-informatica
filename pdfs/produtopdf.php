@@ -23,7 +23,7 @@ $pdf->Cell(130,20,'Nome',1,0,"L");
 $pdf->Cell(140,20,'Descrição',1,0,"L");
 $pdf->Cell(100,20,'Marca',1,0,"L");
 $pdf->Cell(100,20,'Quantidade',1,0,"L");
-$pdf->Cell(70,20,'Preço',1,0,"L");
+$pdf->Cell(70,20,'Preço R$',1,0,"L");
 // $pdf->Cell(130,20,'Coluna 3',1,0,"L");
 // $pdf->Cell(160,20,'Coluna 4',1,1,"L");
   $pdf->ln();
