@@ -1,5 +1,6 @@
 <div class="app-header header-shadow">
-   <div class="app-header__logo">
+   <!--
+      <div class="app-header__logo">
       <h6>Logo</h6>
       <div class="header__pane ml-auto">
          <div>
@@ -10,7 +11,7 @@
             </button>
          </div>
       </div>
-   </div>
+   </div> -->
    <div class="app-header__mobile-menu">
       <div>
          <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
@@ -46,16 +47,7 @@
                <div class="widget-content-wrapper">
                   <div class="widget-content-left">
                      <div class="btn-group">
-                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                        <i class="fa fa-cog icon-gradient bg-mean-fruit"></i>
-                        </a>
-                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                           <button type="button" tabindex="0" class="dropdown-item">Perfil</button>
-                           <button type="button" tabindex="0" class="dropdown-item">Conta</button>
-                           <button type="button" tabindex="0" class="dropdown-item">Configurações</button>
-                           <div tabindex="-1" class="dropdown-divider"></div>
-                           <button type="button" tabindex="0" class="dropdown-item"><a href="sair.php">Sair</a></button>
-                        </div>
+                        <button type="button" tabindex="0" class="dropdown-item"><a href="sair.php">Sair</a></button>
                      </div>
                   </div>
                </div>

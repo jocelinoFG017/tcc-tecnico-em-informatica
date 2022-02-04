@@ -1,7 +1,5 @@
 <?php
    include_once("../conexao/conexao.php");
-   
-
    ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -103,14 +101,14 @@
       <!--aqui acaba o menu lateral-->
       <div class="main-content">
          <div class="title">
-            Seja bem-vindo, aqui você tem acesso aos enderecos cadastrados
+            Seja bem-vindo, aqui você tem acesso aos endereços cadastrados
          </div>
          <div class="maina">
             <div class="widgete">
                <!--aqui fica aquele fundo branco desproporcional -->
                <div class="container theme-showcase" role="main">
                   <div class="page-header">
-                     <h3><label class="glyphicon glyphicon-book"> </label> enderecos </h3>
+                     <h3><label class="glyphicon glyphicon-book"> </label> endereços </h3>
                   </div>
                   <div class="col-md-12">
                     <?php

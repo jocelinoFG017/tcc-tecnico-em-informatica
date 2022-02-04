@@ -101,134 +101,25 @@
                            </ul>
                         </div>
                      </div>
+                     <?php
+                        $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto DESC LIMIT 0, 8;");
+                        while ($produto = mysqli_fetch_object($sql2)){ ?>
                      <div class="col-sm-3">
                         <div class="product-image-wrapper">
                            <div class="single-products">
                               <div class="productinfo text-center">
-                                 <img src="../imagens/home/zorro.jpg" alt="" />
-                                 <h2>R$18.90</h2>
-                                 <p>Ração Zorro Original</p>
+                                 <?php echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
+                                 <?php echo " <h2>R$ " . $produto->preco . "</h2>";?>
+                                 <?php echo "" . $produto->nome . "";?>
                                  <a href="../Blog/detalhesProduto.php" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
                               </div>
                            </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
                         </div>
                      </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/zorro.jpg" alt="" />
-                                 <h2>R$18.90</h2>
-                                 <p>Ração Zorro Original</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/zorro.jpg" alt="" />
-                                 <h2>R$18.90</h2>
-                                 <p>Ração Zorro Original</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/zorro.jpg" alt="" />
-                                 <h2>R$18.90</h2>
-                                 <p>Ração Zorro Original</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/zorro.jpg" alt="" />
-                                 <h2>R$18.90</h2>
-                                 <p>Ração Zorro Original</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/zorro.jpg" alt="" />
-                                 <h2>R$18.90</h2>
-                                 <p>Ração Zorro Original</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/zorro.jpg" alt="" />
-                                 <h2>R$18.90</h2>
-                                 <p>Ração Zorro Original</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <img src="../imagens/home/zorro.jpg" alt="" />
-                                 <h2>R$18.90</h2>
-                                 <p>Ração Zorro Original</p>
-                                 <a href="product-details.html" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
-                              </div>
-                           </div>
-                           <div class="choose">
-                              <ul class="nav nav-pills nav-justified">
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
+                     <?php } ?>
+                     <!-- A duplicata de registros começa/termina aqui, é necessário criar/adicionar,
+                      registros diferente a partir daqui, pois está pegando os mesmos item de MAIS VENDIDOS-->
+
                      <div class="category-tab2">
                         <!--category-tab-->
                         <div class="col-sm-12">

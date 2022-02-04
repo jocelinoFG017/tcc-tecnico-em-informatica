@@ -9,7 +9,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta http-equiv="Content-Language" content="en">
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-      <title>Usuarios - Dash</title>
+      <title>Usuários - Dash</title>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
       <meta name="description" content="Build whatever layout you need with our Architect framework.">
       <meta name="msapplication-tap-highlight" content="no">
@@ -19,7 +19,7 @@
       <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
          <?php include("../Header/headerDash.php");?>
          <div class="ui-theme-settings">
-            <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
+            
             <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
             </button>
             <div class="theme-settings__inner">
@@ -300,7 +300,7 @@
          <div class="app-main">
             <div class="app-sidebar sidebar-shadow">
                <div class="app-header__logo">
-                  <div class="logo-src">LOGO </div>
+                  <div class="logo-src">LOGO </div>-->
                   <div class="header__pane ml-auto">
                      <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -329,7 +329,7 @@
                   </button>
                   </span>
                </div>
-               <?php include("Sidebar/sidebarUsuario.php");?>
+               <?php include("Sidebar/sidebar.php");?>
             </div>
             <div class="app-main__outer">
                <div class="app-main__inner">
@@ -341,8 +341,8 @@
                               </i>
                            </div>
                            <div>
-                              Formulario de cadastro de usuarios
-                              <div class="page-title-subheading">Visualize e cadastre novos usuarios aqui. </div>
+                              Formulário de cadastro de usuários
+                              <div class="page-title-subheading">Visualize e cadastre novos usuários aqui. </div>
                            </div>
                         </div>
                         <div class="page-title-actions">
@@ -360,12 +360,17 @@
                   <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                      <li class="nav-item">
                         <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
-                        <span>Listar Usuarios</span>
+                        <span>Listar Usuários</span>
                         </a>
                      </li>
                      <li class="nav-item">
                         <a role="tab" class="nav-link" id="tab-1" data-toggle="tab" href="#tab-content-1">
-                        <span>Adicionar Usuario</span>
+                        <span>Adicionar Usuário</span>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a role="tab" class="nav-link" id="tab-1" data-toggle="tab" href="#tab-content-1">
+                        <span>Gerenciar meus dados</span>
                         </a>
                      </li>
                   </ul>
@@ -373,7 +378,7 @@
                      <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                         <div class="main-card mb-3 card">
                            <div class="card-body">
-                              <h5 class="card-title">Tabela de Usuarios</h5>
+                              <h5 class="card-title">Tabela de Usuários</h5>
                               <div class="col-lg-12">
                                  <?php include("../Listar/tabelaUsuario.php");?>
                               </div>
@@ -383,7 +388,7 @@
                      <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
                         <div class="main-card mb-3 card">
                            <div class="card-body">
-                              <h5 class="card-title">Formulário de Cadastro de Usuario</h5>
+                              <h5 class="card-title">Formulário de Cadastro de Usuário</h5>
                               <?php
                                  if(isset($_SESSION['statusCadastro'])):
                                  ?>

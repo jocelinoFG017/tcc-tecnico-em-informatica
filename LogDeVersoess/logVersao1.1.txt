@@ -1,4 +1,4 @@
-Sobre a atualização 1.1
+Sobre a atualização 1.1 (v1.3)
 
 - ### BASE DE DADOS ###
 - Base de dados reconstruida do zero(tccjocelino.sql).
@@ -40,7 +40,7 @@ Sobre a atualização 1.1
 - Copyright no footer atualizado.
 
 - ### OUTROS ###
-- Criada pasta LogDeVersoes
+- Criada pasta LogDeVersoes.
 - Adicionado o arquivo logVersao1.1.txt a pasta LogDeVersoes.
 - README atualizado.
 - Adicionada Logo dos Desenvolvedores.

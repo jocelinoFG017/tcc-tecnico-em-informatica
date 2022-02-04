@@ -30,32 +30,33 @@
    <body>
       <?php include("../Header/header.php");?>
       <div class="login-pagina">
-         <h4 style="text-align:center; text-transform:uppercase;">Formulario de Login</h4>
+         <h4 style="text-align:center; text-transform:uppercase;">Formulário de Login</h4>
          <div class="formulario">
             <?php
                if(isset($_SESSION['naoAutenticado'])):
                ?>
             <div class="card mb-3 widget-content bg-happy-green">
                <div class="alert alert-danger" role="alert">
-                  <p>ERRO: Usuario ou senha inválidos</p>
+                  <p>ERRO: Usuário ou senha inválidos</p>
                </div>
             </div>
             <?php
                endif;
                unset($_SESSION['naoAutencidado']);
                ?>
-            <form class="login-formulario" action="login.php" method="POST">
+               <!-- Formulário de Login -->
+            <form class="login-formulario" method="POST" action="login.php">
                <div class="position-relative row form-group">
                   <label for="exampleEmail" >Login:</label>
-                  <input required type="text" name="login" placeholder="Informe seu login" ><br>
+                  <input required type="text" name="login" id="login" placeholder="Informe seu login" ><br>
                </div>
                <div class="position-relative row form-group">
                   <label for="exampleEmail">Senha:</label>
-                  <input required type="password" name="senha" placeholder="Informe sua senha" ><br>
+                  <input required type="password" name="senha" id="senha" placeholder="Informe sua senha" ><br>
                </div>
-               <button>login</button>
-               <p class="message">Not registered? <a href="#">Create an account</a></p>
-            </form>
+               <button type="submit" value="entrar" id="entrar" name="entrar">login</button><br>
+               <p class="message">Não está cadastrado? <a href="#">Crie uma conta</a></p>
+            </form><!-- Final-Formulário de Login -->
          </div>
       </div>
       <?php include("../Footer/footer.php");?>

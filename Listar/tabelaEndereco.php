@@ -47,4 +47,3 @@ $resultado = mysqli_query($conn,$sql);
 </table>
 </div>
 <!--Fim tabela de enderecos-->
-

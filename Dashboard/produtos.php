@@ -330,7 +330,7 @@
                   </button>
                   </span>
                </div>
-               <?php include("Sidebar/sidebarProduto.php");?>
+               <?php include("Sidebar/sidebar.php");?>
             </div>
             <div class="app-main__outer">
                <div class="app-main__inner">
@@ -342,8 +342,8 @@
                               </i>
                            </div>
                            <div>
-                              Formulario de cadastro de Produtos
-                              <div class="page-title-subheading">Visualize e Cadastre novos produtos aqui.</div>
+                              Formulário de cadastro de Produtos
+                              <div class="page-title-subheading">Visualize e cadastre novos produtos aqui.</div>
                            </div>
                         </div>
                         <div class="page-title-actions">
