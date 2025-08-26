@@ -1,6 +1,3 @@
-<?php
-   include("../conexao/conexao.php");
-   ?>
 <!DOCTYPE html>
 <html lang="pt-br">
    <head>
@@ -8,25 +5,25 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Home | ETERNITY</title>
       <!-- Links do CSS-->
-      <link href="../css/main.css" rel="stylesheet">
-      <link href="../css/bootstrap.min.css" rel="stylesheet">
-      <link href="../css/font-awesome.min.css" rel="stylesheet">
-      <link href="../css/prettyPhoto.css" rel="stylesheet">
-      <link href="../css/price-range.css" rel="stylesheet">
-      <link href="../css/animate.css" rel="stylesheet">
-      <link href="../css/responsive.css" rel="stylesheet">
+      <link href="css/main.css" rel="stylesheet">
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/font-awesome.min.css" rel="stylesheet">
+      <link href="css/prettyPhoto.css" rel="stylesheet">
+      <link href="css/price-range.css" rel="stylesheet">
+      <link href="css/animate.css" rel="stylesheet">
+      <link href="css/responsive.css" rel="stylesheet">
       <link rel="shortcut icon" href="../imagens/ico/favicon.ico">
       <!-- Somente estilizacao e fotos-->
-      <link href="../css/photos.css" rel="stylesheet">
-      <!---->
-      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../imagens/ico/apple-touch-icon-144-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../imagens/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../imagens/ico/apple-touch-icon-72-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" href="../imagens/ico/apple-touch-icon-57-precomposed.png">
+      <link href="css/photos.css" rel="stylesheet">
+      <!-- Chamada das imagens/icones-->
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="imagens/ico/apple-touch-icon-144-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="imagens/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="imagens/ico/apple-touch-icon-72-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" href="imagens/ico/apple-touch-icon-57-precomposed.png">
    </head>
    <!--END HEAD-->
    <body>
-      <?php include("../Header/header.php"); ?>
+      <?php include("Header/header.php"); ?>
       <section id="slider">
          <!--slider-->
          <div class="container">
@@ -102,23 +99,23 @@
                         </div>
                      </div>
                      <?php
-                        $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto DESC LIMIT 0, 8;");
-                        while ($produto = mysqli_fetch_object($sql2)){ ?>
+                        // $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto DESC LIMIT 0, 8;");
+                        // while ($produto = mysqli_fetch_object($sql2)){ ?>
                      <div class="col-sm-3">
                         <div class="product-image-wrapper">
                            <div class="single-products">
                               <div class="productinfo text-center">
-                                 <?php echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
-                                 <?php echo " <h2>R$ " . $produto->preco . "</h2>";?>
-                                 <?php echo "" . $produto->nome . "";?>
+                                 <?php // echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
+                                 <?php //echo " <h2>R$ " . $produto->preco . "</h2>";?>
+                                 <?php //echo "" . $produto->nome . "";?>
                                  <a href="../Blog/detalhesProduto.php" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
                               </div>
                            </div>
                         </div>
                      </div>
-                     <?php } ?>
+                     <?php //} ?>
                      <!-- A duplicata de registros começa/termina aqui, é necessário criar/adicionar,
-                      registros diferente a partir daqui, pois está pegando os mesmos item de MAIS VENDIDOS-->
+                      registros diferente a partir daqui, pois está pegando os mesmos item de MAIS VENDIDOS -->
 
                      <div class="category-tab2">
                         <!--category-tab-->
@@ -129,21 +126,21 @@
                         </div>
                      </div>
                      <?php
-                        $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto LIMIT 0, 8;");
-                        while ($produto = mysqli_fetch_object($sql2)){ ?>
+                        // $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto LIMIT 0, 8;");
+                        // while ($produto = mysqli_fetch_object($sql2)){ ?>
                      <div class="col-sm-3">
                         <div class="product-image-wrapper">
                            <div class="single-products">
                               <div class="productinfo text-center">
-                                 <?php echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
-                                 <?php echo " <h2>R$ " . $produto->preco . "</h2>";?>
-                                 <?php echo "" . $produto->nome . "";?>
+                                 <?php // echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
+                                 <?php //echo " <h2>R$ " . $produto->preco . "</h2>";?>
+                                 <?php //echo "" . $produto->nome . "";?>
                                  <a href="../Blog/detalhesProduto.php" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
                               </div>
                            </div>
                         </div>
                      </div>
-                     <?php } ?>
+                     <?php //} ?>
                   </div>
                   <!--features_items-->
                   <div class="category-tab">
@@ -364,11 +361,11 @@
             </div>
          </div>
       </section>
-      <?php include("../Footer/footer.php");?>
-      <script src="../js/jquery.js"></script>
-      <script src="../js/bootstrap.min.js"></script>
-      <script src="../js/price-range.js"></script>
-      <script src="../js/jquery.prettyPhoto.js"></script>
-      <script src="../js/main.js"></script>
+      <?php include("Footer/footer.php");?>
+      <script src="js/jquery.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/price-range.js"></script>
+      <script src="js/jquery.prettyPhoto.js"></script>
+      <script src="js/main.js"></script>
    </body>
 </html>
