@@ -1,4 +1,4 @@
-<footer id="footer"><!--Footer-->
+<footer id="footer">
     <div class="footer-widget">
         <div class="container">
             <div class="row">
@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="single-widget">
-                        <h2>POLÍTICAS</h2>
+                        <h2>Políticas</h2>
                         <ul class="nav nav-pills nav-stacked">
                             <li><a href="#">Termos de Uso</a></li>
                             <li><a href="#">Política de Privacidade</a></li>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="single-widget">
-                        <h2>SOBRE</h2>
+                        <h2>Sobre</h2>
                         <ul class="nav nav-pills nav-stacked">
                             <li><a href="#">Informação da Companhia</a></li>
                             <li><a href="#">Parceiros</a></li>
@@ -44,8 +44,8 @@
     <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <p class="pull-left">Copyright © 2017-2022 ETERNITY PETSHOP Inc, J2G development and Red Salet Studios. Todos os Direitos Reservados.</p>
+                <p class="pull-left">Copyright © 2017-<?php echo DATE('Y')?> ETERNITY PETSHOP Inc, J2G development and Red Salet Studios. Todos os Direitos Reservados.</p>
             </div>
         </div>
     </div>
-</footer><!--/Footer-->
+</footer>
