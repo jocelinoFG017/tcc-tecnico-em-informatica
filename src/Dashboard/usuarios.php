@@ -347,7 +347,7 @@
                         </div>
                         <div class="page-title-actions">
                            <div class="d-inline-block dropdown">
-                              <a href="../pdfs/usuariopdf.php">
+                              <a href="../pdfs/usuariopdf.php" target="_blank">
                               <button type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">
                               <span class="btn-icon-wrapper pr-2 opacity-7">
                               <i class="fas fa-file-pdf"></i>
