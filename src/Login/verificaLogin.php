@@ -5,4 +5,4 @@
         header('Location: ../Login/loginIndex.php');
         exit();
     }
-    ?>
+?>
