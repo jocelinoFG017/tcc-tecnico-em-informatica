@@ -1,51 +1,52 @@
-<footer id="footer">
-    <div class="footer-widget">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2">
-                    <div class="single-widget">
-                        <h2>Serviços</h2>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Contato</a></li>
-                            <li><a href="#">FAQ’s</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="single-widget">
-                        <h2>Políticas</h2>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Termos de Uso</a></li>
-                            <li><a href="#">Política de Privacidade</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="single-widget">
-                        <h2>Sobre</h2>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">Informação da Companhia</a></li>
-                            <li><a href="#">Parceiros</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-sm-offset-1">
-                    <div class="single-widget">
-                        <h2>Desenvolvido Por</h2>
-                        <figure class="photo">
-                            <a href="https://github.com/jocelinoFG017"><img src="../assets/imagens/parceiros/gameStudio.png" alt="" /></a>
-                            <a href="https://github.com/jocelinoFG017"><img src="../assets/imagens/parceiros/softwareDev.png" alt="" /></a>
-                        </figure>
-                    </div>
+<footer id="footer" class="bg-dark text-light pt-5">
+    <div class="container">
+        <div class="row justify-content-center align-items-start text-start">
+
+            <!-- Serviços -->
+            <div class="col-md-2 col-6 mb-4">
+                <h5 class="text-warning">Serviços</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Contato</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">FAQ’s</a></li>
+                </ul>
+            </div>
+
+            <!-- Políticas -->
+            <div class="col-md-2 col-6 mb-4">
+                <h5 class="text-warning">Políticas</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Termos de Uso</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Política de Privacidade</a></li>
+                </ul>
+            </div>
+
+            <!-- Sobre -->
+            <div class="col-md-2 col-6 mb-4">
+                <h5 class="text-warning">Sobre</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-light text-decoration-none">Informação da Companhia</a></li>
+                    <li><a href="#" class="text-light text-decoration-none">Parceiros</a></li>
+                </ul>
+            </div>
+
+            <!-- Desenvolvido Por -->
+            <div class="col-md-2 col-6 mb-4">
+                <h5 class="text-warning">Desenvolvido Por</h5>
+                <div class="d-flex justify-content-start gap-3 mt-2">
+                    <a href="https://github.com/jocelinoFG017">
+                        <img src="../assets/imagens/parceiros/gameStudio.png" alt="Game Studio" class="img-fluid" style="max-height:50px;">
+                    </a>
+                    <a href="https://github.com/jocelinoFG017">
+                        <img src="../assets/imagens/parceiros/softwareDev.png" alt="Software Dev" class="img-fluid" style="max-height:50px;">
+                    </a>
                 </div>
             </div>
+
         </div>
     </div>
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="row">
-                <p class="pull-left">Copyright © 2017-<?php echo DATE('Y')?> ETERNITY PETSHOP Inc, J2G development and Red Salet Studios. Todos os Direitos Reservados.</p>
-            </div>
-        </div>
+
+    <!-- Rodapé Inferior -->
+    <div class="footer-bottom bg-secondary text-center py-3 mt-4">
+        <p class="mb-0 text-light">Copyright © 2017-<?php echo DATE('Y')?> ETERNITY PETSHOP Inc, J2G development and Red Salet Studios. Todos os Direitos Reservados.</p>
     </div>
 </footer>
