@@ -1,4 +1,4 @@
-DROP SCHEMA tccjocelino;
+DROP SCHEMA IF EXISTS tccjocelino;
 CREATE DATABASE tccjocelino;
 USE tccjocelino;
 
@@ -16,6 +16,18 @@ CREATE TABLE niveisAcesso (
   PRIMARY KEY(idNiveisAcesso)
 ) ENGINE=InnoDB DEFAULT CHARSET = UTF8 COLLATE = utf8_general_ci;
 */
+
+
+--
+-- Estrutura da tabela `tipo`
+--
+CREATE TABLE tipo (
+  idProduto int(11) NOT NULL auto_increment,
+  nome varchar(45) NOT NULL,
+  descricao varchar(45) NOT NULL,
+  PRIMARY KEY(idProduto)
+)ENGINE=InnoDB DEFAULT CHARSET=UTF8 COLLATE=utf8_general_ci;
+
 --
 -- Estrutura da tabela `produto`
 --

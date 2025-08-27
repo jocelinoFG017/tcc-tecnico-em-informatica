@@ -1,17 +1,18 @@
 
-Sobre a atualização 1.4 (v1.4)
+Sobre a atualização 1.5 (v1.5)
 
 
-** ## BASE DE DADOS ## **
-- Correções no insert de artigos
+### BASE DE DADOS ## **
+- Atualização do .sql do banco de dados
+- Adição da tabela `tipo`
 
 
-** ## PÁGINAS/PASTAS ATUALIZADAS ## **
+### PÁGINAS/PASTAS ATUALIZADAS
 - Sidebar/sidebarProduto.php  esse arquivo foi excluído.
 - Sidebar/sidebarUsuario.php agora, chama-se sidebar.php
 - A pasta `ItensNãoUtilizados` e seus arquivos foi deletados(as).
 
-- ## DASHBOARD ##
+### DASHBOARD
 - Retirados alguns componentes da dash que permaneciam da versão do template.
 
 
@@ -19,7 +20,7 @@ Sobre a atualização 1.4 (v1.4)
 - Melhorias e correções feitas na tela de login.
 
 
-- ## SISTEMA DE CADASTRO ##
+### SISTEMA DE CADASTRO ##
 - Tabela `produto`, agora fotos podem ser gravadas junto ao produto.
 
 
@@ -30,6 +31,7 @@ Sobre a atualização 1.4 (v1.4)
 - Correção de caminhos dos assets no arquivo index.php
 - Correções nos arquivos de conexão com o banco de dados
 - Correções nos arquivos docker-compose.yml e Dockerfile
+
 
 
 - ## Bugs/Inconsistências Relatados ##
