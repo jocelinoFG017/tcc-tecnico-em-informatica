@@ -1,65 +1,61 @@
 <?php
    session_start();
-   ?>
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
-   <head>
-      <meta charset="utf-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta http-equiv="Content-Language" content="pt-br" />
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <title>Login - Ethernity</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-      <meta name="description" content="Build whatever layout you need with our Architect framework." />
-      <meta name="msapplication-tap-highlight" content="no" />
-      <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-      <!--Responsavel pelos icones do site-->
-      <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
-      <link href="../assets/css/main.css" rel="stylesheet">
-      <link href="../assets/css/login.css" rel="stylesheet">
-      <!--Responsavel pela responsividade do site-->
-      <link href="../assets/css/responsive.css" rel="stylesheet">
-      <!-- Somente estilizacao e fotos-->
-      <link href="../assets/css/photos.css" rel="stylesheet">
-      <link rel="shortcut icon" href="imagens/ico/favicon.ico">
-      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/imagens/ico/apple-touch-icon-144-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/imagens/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/imagens/ico/apple-touch-icon-72-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" href="../assets/imagens/ico/apple-touch-icon-57-precomposed.png">
-   </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop Login</title>
+    <!-- CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
    <body>
       <?php include("../templates/header.php");?>
-      <div class="login-pagina">
-         <h4 style="text-align:center; text-transform:uppercase;">Formulário de Login</h4>
-         <div class="formulario">
-            <?php
-               if(isset($_SESSION['naoAutenticado'])):
+
+      <div class="container d-flex align-items-center justify-content-center min-vh-100">
+         <div class="col-md-6 col-lg-4">
+            <div class="card shadow-lg p-4">
+               <h4 class="text-center text-uppercase mb-4">Formulário de Login</h4>
+
+               <?php if(isset($_SESSION['naoAutenticado'])): ?>
+                  <div class="alert alert-danger" role="alert">
+                     ERRO: Usuário ou senha inválidos
+                  </div>
+               <?php 
+                  endif; 
+                  unset($_SESSION['naoAutenticado']); 
                ?>
-            <div class="card mb-3 widget-content bg-happy-green">
-               <div class="alert alert-danger" role="alert">
-                  <p>ERRO: Usuário ou senha inválidos</p>
-               </div>
-            </div>
-            <?php
-               endif;
-               unset($_SESSION['naoAutencidado']);
-               ?>
+
                <!-- Formulário de Login -->
-            <form class="login-formulario" method="POST" action="login.php">
-               <div class="position-relative row form-group">
-                  <label for="exampleEmail" >Login:</label>
-                  <input required type="text" name="login" id="login" placeholder="Informe seu login" ><br>
-               </div>
-               <div class="position-relative row form-group">
-                  <label for="exampleEmail">Senha:</label>
-                  <input required type="password" name="senha" id="senha" placeholder="Informe sua senha" ><br>
-               </div>
-               <button type="submit" value="entrar" id="entrar" name="entrar">login</button><br>
-               <p class="message">Não está cadastrado? <a href="#">Crie uma conta</a></p>
-            </form><!-- Final-Formulário de Login -->
+               <form method="POST" action="login.php">
+                  <div class="mb-3">
+                     <label for="login" class="form-label">Login:</label>
+                     <input required type="text" name="login" id="login" class="form-control" placeholder="Informe seu login">
+                  </div>
+                  <div class="mb-3">
+                     <label for="senha" class="form-label">Senha:</label>
+                     <input required type="password" name="senha" id="senha" class="form-control" placeholder="Informe sua senha">
+                  </div>
+                  <div class="d-grid">
+                     <button type="submit" value="entrar" id="entrar" name="entrar" class="btn btn-primary">
+                        <i class="fa fa-sign-in"></i> Login
+                     </button>
+                  </div>
+                  <p class="text-center mt-3 message">
+                     Não está cadastrado? <a href="#">Crie uma conta</a>
+                  </p>
+               </form>
+               <!-- Final Formulário -->
+            </div>
          </div>
       </div>
+
       <?php include("../templates/footer.php");?>
+
+      <script src="../assets/js/bootstrap.bundle.min.js"></script>
       <script src="../assets/js/login.js"></script>
    </body>
 </html>
