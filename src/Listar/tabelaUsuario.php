@@ -25,7 +25,7 @@ $resultado = mysqli_query($conn,$sql);
          <td><?php echo $dado["nome"] ;?></td>
          <td><?php echo $dado["login"] ;?></td>
          <td>
-            <?php echo "<a href='../Excluir/excluirUsuario.php?idUsuario=" . $dado["idUsuario"] . "'> "?>
+            <?php echo "<a href='../crud/editar/eUsuario.php?idUsuario=" . $dado["idUsuario"] . "'> "?>
             <i class="fas fa-edit"></i> <?php echo "</a>";?>
             
             <?php echo "<a href='../Excluir/excluirUsuario.php?idUsuario=" . $dado["idUsuario"] . "'> "?>
