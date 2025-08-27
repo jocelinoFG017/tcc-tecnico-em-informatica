@@ -1,19 +1,20 @@
 # Imagem oficial do PHP com Apache
 FROM php:8.3-apache
 
-# Atualiza pacotes do sistema para corrigir vulnerabilidades
-RUN apt-get update && apt-get upgrade -y && apt-get clean
-
-# Extensões PHP necessárias
-RUN docker-php-ext-install mysqli pdo pdo_mysql 
+# Instala dependências necessárias para mysqli e pdo_mysql
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get install -y default-mysql-client default-libmysqlclient-dev \
+    && docker-php-ext-install mysqli pdo pdo_mysql \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Copia seu site para o Apache
 COPY ./src/ /var/www/html/
 
-# Permitir override e acesso completo ao diretório
+# Permissões do diretório
 RUN chown -R www-data:www-data /var/www/html && \
     chmod -R 755 /var/www/html
 
+# Configuração de permissões do Apache
 RUN echo "<Directory /var/www/html>\n\
     Options Indexes FollowSymLinks\n\
     AllowOverride All\n\
@@ -21,5 +22,5 @@ RUN echo "<Directory /var/www/html>\n\
 </Directory>" > /etc/apache2/conf-available/site-permissions.conf && \
     a2enconf site-permissions
 
-# Define a porta que o contêiner irá expor
+# Porta exposta
 EXPOSE 80

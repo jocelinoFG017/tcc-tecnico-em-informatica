@@ -1,6 +1,8 @@
+version: "3.9"
+
 services:
   web:
-    image: php:8.3.8-apache
+    build: .   # usa o Dockerfile que está na raiz do projeto
     container_name: tcc-informatica
     ports:
       - "8080:80"
@@ -15,9 +17,9 @@ services:
     container_name: banco-tcc-informatica
     environment:
       MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: meu_banco
-      MYSQL_USER: user
-      MYSQL_PASSWORD: senha123
+      MYSQL_DATABASE: tccjocelino
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 123456
     ports:
       - "3306:3306"
     volumes:
