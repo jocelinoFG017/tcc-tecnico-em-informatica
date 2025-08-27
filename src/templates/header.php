@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="../Index/index.php"><img src="../imagens/home/logo.png" alt="" /></a> <!--logo -->
+                        <a href="index.php"><img src="assets/imagens/home/logo.png" alt="" /></a> <!--logo -->
                     </div>
                 </div>
                 <div class="col-sm-8">
@@ -14,7 +14,7 @@
                                 <a href="#"><i class="fa fa-user"></i> Conta</a>
                             </li>
                             <li>
-                                <a href="checkout.html"><i class="fa fa-crosshairs"></i> Carrinho</a>
+                                <a href="checkout.html"><i class="fa fa-shopping-cart"></i> Carrinho</a>
                             </li>
                             <li>
                                 <a href="../Login/loginIndex.php"><i class="fa fa-lock"></i> Login</a>

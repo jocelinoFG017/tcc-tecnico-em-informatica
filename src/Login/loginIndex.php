@@ -12,15 +12,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
       <meta name="description" content="Build whatever layout you need with our Architect framework." />
       <meta name="msapplication-tap-highlight" content="no" />
-      <link href="../css/bootstrap.min.css" rel="stylesheet">
+      <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
       <!--Responsavel pelos icones do site-->
-      <link href="../css/font-awesome.min.css" rel="stylesheet">
-      <link href="../css/main.css" rel="stylesheet">
-      <link href="../css/login.css" rel="stylesheet">
+      <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
+      <link href="../assets/css/main.css" rel="stylesheet">
+      <link href="../assets/css/login.css" rel="stylesheet">
       <!--Responsavel pela responsividade do site-->
-      <link href="../css/responsive.css" rel="stylesheet">
+      <link href="../assets/css/responsive.css" rel="stylesheet">
       <!-- Somente estilizacao e fotos-->
-      <link href="../css/photos.css" rel="stylesheet">
+      <link href="../assets/css/photos.css" rel="stylesheet">
       <link rel="shortcut icon" href="imagens/ico/favicon.ico">
       <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../imagens/ico/apple-touch-icon-144-precomposed.png">
       <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../imagens/ico/apple-touch-icon-114-precomposed.png">
@@ -28,7 +28,7 @@
       <link rel="apple-touch-icon-precomposed" href="../imagens/ico/apple-touch-icon-57-precomposed.png">
    </head>
    <body>
-      <?php include("../Header/header.php");?>
+      <?php include("../templates/header.php");?>
       <div class="login-pagina">
          <h4 style="text-align:center; text-transform:uppercase;">Formulário de Login</h4>
          <div class="formulario">
@@ -59,7 +59,7 @@
             </form><!-- Final-Formulário de Login -->
          </div>
       </div>
-      <?php include("../Footer/footer.php");?>
-      <script src="../js/login.js"></script>
+      <?php include("../templates/footer.php");?>
+      <script src="../assets/js/login.js"></script>
    </body>
 </html>

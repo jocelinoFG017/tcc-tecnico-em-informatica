@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <?php include("../Header/header.php");?>
-        <?php include("../Footer/footer.php");?>
+        <?php include("../templates/header.php");?>
+        <?php include("../templates/footer.php");?>
     </body>
 </html>

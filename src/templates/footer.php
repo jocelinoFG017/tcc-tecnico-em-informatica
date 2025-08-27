@@ -33,8 +33,8 @@
                     <div class="single-widget">
                         <h2>Desenvolvido Por</h2>
                         <figure class="photo">
-                            <a href="https://github.com/jocelinoFG017"><img src="../imagens/parceiros/gameStudio.png" alt="" /></a>
-                            <a href="https://github.com/jocelinoFG017"><img src="../imagens/parceiros/softwareDev.png" alt="" /></a>
+                            <a href="https://github.com/jocelinoFG017"><img src="assets/imagens/parceiros/gameStudio.png" alt="" /></a>
+                            <a href="https://github.com/jocelinoFG017"><img src="assets/imagens/parceiros/softwareDev.png" alt="" /></a>
                         </figure>
                     </div>
                 </div>
