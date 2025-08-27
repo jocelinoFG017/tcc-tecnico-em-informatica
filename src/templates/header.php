@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="index.php"><img src="assets/imagens/home/logo.png" alt="" /></a> <!--logo -->
+                        <a href="../index.php"><img src="../assets/imagens/home/nova_logo.png" alt="" style="height: 80px; width: 205px;" /></a> <!--logo -->
                     </div>
                 </div>
                 <div class="col-sm-8">
@@ -40,7 +40,7 @@
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li class="dropdown">
-                                <a href="../Index/index.php">Início<i class="fa fa-angle-down"></i></a>
+                                <a href="../index.php">Início<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
                                     <li><a href="../Blog/shop.php">Produtos</a></li>
                                 </ul>

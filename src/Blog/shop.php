@@ -2,10 +2,10 @@
     <head>
         <title>Detalhes Produto</title>
         <!-- Somente estilizacao e fotos-->
-        <link href="../css/photos.css" rel="stylesheet">
-        <link href="../css/main.css" rel="stylesheet">
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../assets/css/photos.css" rel="stylesheet">
+        <link href="../assets/css/main.css" rel="stylesheet">
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
     </head>
 
     <body>

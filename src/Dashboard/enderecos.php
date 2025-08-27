@@ -1,8 +1,5 @@
-
-
 <?php
    session_start();
-   
    include("../Login/verificaLogin.php");
    include("../conexao/conexao.php");
    ?>
@@ -31,7 +28,7 @@
    </head>
    <body>
       <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-         <?php include("../Header/headerDash.php");?>
+         <?php include("../templates/headerDash.php");?>
          <div class="ui-theme-settings">
             <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
             <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
