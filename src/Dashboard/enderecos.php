@@ -427,12 +427,6 @@
                                    
                               <div class="col-md-3">
                                    
-
-
-
-
-
-
                                  <div class="position-relative row form-group">
                                     <label for="exampleEmail" class="col-sm-3 col-form-label">Bairro</label>
                                     <div class="col-sm-10"><input required name="bairro" placeholder="Informe seu bairro" type="text" class="form-control"></div>
@@ -443,7 +437,7 @@
                                  </div>
                                  <div class="position-relative row form-group">
                                     <label for="exampleEmail" class="col-sm-3 col-form-label">Numero</label>
-                                    <div class="col-sm-10"><input required name="numero" placeholder="Informe seu numero ex:(55)55 9 9323-9923" type="text" class="form-control"></div>
+                                    <div class="col-sm-10"><input maxlength="14" name="numero" placeholder="Informe seu numero ex:(55)55 9 9323-9923" type="text" class="form-control"></div>
                                  </div>
                                  <!--
                                     <div class="position-relative row form-group">
@@ -456,33 +450,37 @@
                                        <div class="col-sm-10"><input required name="idPais" placeholder="Informe seu idPais)" type="text" class="form-control"></div>
                                     </div>
                                     -->
-                                    <div class="col-md-5">
-                                                    <div class="position-relative form-group"><label required class="">Cidade</label><input name="cidadeId" type="text" class="form-control"></div>
-                                                </div>
-                                                
+                                
                                                 <div class="position-relative form-group">
-                                                       <label class="">Estado</label>
-                                                       <select type="select" name="estadoId" class="custom-select">
-                                          <option>Selecione o Estado</option>
-                                          <?php 
-                                             $resultEstado = "SELECT * FROM estado";
-                                             $resultadoEstado = mysqli_query($conn, $resultEstado);
-                                             while($rowEstado = mysqli_fetch_assoc($resultadoEstado)) { ?>
+    <label>Estado</label>
+    <select name="estadoId" id="estadoSelect" class="custom-select">
+        <option value="">Selecione o Estado</option>
+        <?php 
+        $resultEstado = "SELECT * FROM estado ORDER BY nome";
+        $resultadoEstado = mysqli_query($conn, $resultEstado);
+        while($rowEstado = mysqli_fetch_assoc($resultadoEstado)) { ?>
+            <option value="<?php echo $rowEstado['idEstado']; ?>">
+                <?php echo $rowEstado['nome']; ?>
+            </option>
+        <?php } ?>
+    </select>
+</div>
 
-                                                <option value="<?php echo $rowEstado['idEstado']; ?>"><?php echo $rowEstado['nome'];?>
-                                                </option><?php 
-                                            }
-                                          ?>
-                                      </select>
-                                                      </div>
-                                                </div>
+<div class="position-relative form-group">
+    <label>Cidade</label>
+    <select name="cidadeId" id="cidadeSelect" class="custom-select">
+        <option value="">Selecione a cidade</option>
+    </select>
+</div>
+
+                              </div>
                                                
                                           
                  
 
                                  <div class="position-relative row form-group">
                                     <label for="exampleEmail" class="col-sm-3 col-form-label">Telefone</label>
-                                    <div class="col-sm-10"><input required name="telefone" placeholder="Informe seu telefone" type="text" class="form-control"></div>
+                                    <div class="col-sm-10"><input  maxlength="14" name="telefone" placeholder="Informe seu telefone" type="text" class="form-control"></div>
                                  </div>
                                  <div class="position-relative row form-check">
                                     <div class="col-sm-10 offset-sm-2">
@@ -499,6 +497,29 @@
             </div>
          </div>
       </div>
+      <script>
+document.getElementById('estadoSelect').addEventListener('change', function() {
+    var estadoId = this.value;
+    var cidadeSelect = document.getElementById('cidadeSelect');
+
+    // Limpa o select e coloca mensagem de carregando
+    cidadeSelect.innerHTML = '<option>Carregando...</option>';
+
+    if(estadoId){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '../buscar/buscarCidades.php?estadoId=' + estadoId, true);
+        xhr.onload = function(){
+            if(this.status == 200){
+                cidadeSelect.innerHTML = this.responseText;
+            }
+        }
+        xhr.send();
+    } else {
+        cidadeSelect.innerHTML = '<option value="">Selecione a cidade</option>';
+    }
+});
+</script>
+
       <script type="text/javascript" src="../Dashboard/assets/scripts/main.js"></script>
    </body>
 </html>
