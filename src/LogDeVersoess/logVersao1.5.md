@@ -3,7 +3,7 @@ Sobre a atualização 1.4 (v1.4)
 
 
 ** ## BASE DE DADOS ## **
-- Modelagem do banco atualizada(porém contem alguns erros).
+- Correções no insert de artigos
 
 
 ** ## PÁGINAS/PASTAS ATUALIZADAS ## **
@@ -23,10 +23,13 @@ Sobre a atualização 1.4 (v1.4)
 - Tabela `produto`, agora fotos podem ser gravadas junto ao produto.
 
 
-- ## OUTROS | OTHERS ##
+### OUTROS | OTHERS
 - Adição de ambiente dockerizado ao projeto
 - Adição de padrões de commit ao projeto
-- 
+- Atualização do ano do Rodapé, otimização do código e ortografia
+- Correção de caminhos dos assets no arquivo index.php
+- Correções nos arquivos de conexão com o banco de dados
+- Correções nos arquivos docker-compose.yml e Dockerfile
 
 
 - ## Bugs/Inconsistências Relatados ##

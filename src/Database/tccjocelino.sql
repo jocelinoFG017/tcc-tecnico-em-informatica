@@ -166,4 +166,4 @@ VALUES(1,'Ração Pedigree','Ração para cachorros','Pedigree','5kg',24.99,'939
 
 --  POPULANDO tabela `curiosidades`
 INSERT INTO artigo(idArtigo, titulo, texto, autor, data_publicacao, tag, sobreAutor)
-VALUES (1,'O destino dos cães', 'Os cães nascem para encontrar seu elo perdido', 'Jocelino F.G',2020/12/12,'Gatos' ,'Nascido no RS');
+VALUES (1,'O destino dos cães', 'Os cães nascem para encontrar seu elo perdido', 'Jocelino F.G','2020-12-12','Gatos' ,'Nascido no RS');
