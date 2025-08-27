@@ -141,17 +141,75 @@ VALUES(1,'Brasil'),
       (3,'Bolivia');
 
 --  POPULANDO tabela `Estado`
-INSERT INTO estado(idEstado, nome, UF,idPais)
-VALUES(1,'Rio Grande do Sul','RS', 1),
-      (2,'Santa Catarina','SC', 1);
+INSERT INTO estado (idEstado, nome, sigla, paisId) VALUES
+(1,'Acre','AC',1),
+(2,'Alagoas','AL',1),
+(3,'Amapá','AP',1),
+(4,'Amazonas','AM',1),
+(5,'Bahia','BA',1),
+(6,'Ceará','CE',1),
+(7,'Distrito Federal','DF',1),
+(8,'Espírito Santo','ES',1),
+(9,'Goiás','GO',1),
+(10,'Maranhão','MA',1),
+(11,'Mato Grosso','MT',1),
+(12,'Mato Grosso do Sul','MS',1),
+(13,'Minas Gerais','MG',1),
+(14,'Pará','PA',1),
+(15,'Paraíba','PB',1),
+(16,'Paraná','PR',1),
+(17,'Pernambuco','PE',1),
+(18,'Piauí','PI',1),
+(19,'Rio de Janeiro','RJ',1),
+(20,'Rio Grande do Norte','RN',1),
+(21,'Rio Grande do Sul','RS',1),
+(22,'Rondônia','RO',1),
+(23,'Roraima','RR',1),
+(24,'Santa Catarina','SC',1),
+(25,'São Paulo','SP',1),
+(26,'Sergipe','SE',1),
+(27,'Tocantins','TO',1);
+
 
 --  POPULANDO tabela `Cidade`
-INSERT INTO cidade(idCidade, nome, idEstado)
-VALUES(1,'Uruguaiana', 1),
-      (2,'Blumenau', 2),
-      (3,'Itaqui', 1),
-      (4,'Sao Borja', 1 );
-      -- (5,'Santo Angelo',92860982, 1);
+INSERT INTO cidade(idCidade, nome, idEstado) VALUES
+(1,'Uruguaiana', 1),
+(2,'Porto Alegre', 1),
+(3,'Itaqui', 1),
+(4,'Blumenau', 2),
+(5,'Florianópolis', 2),
+(6,'Curitiba', 3),
+(7,'Londrina', 3),
+(8,'Vitória', 8),
+(9,'Vila Velha', 8),
+(10,'Belo Horizonte', 13),
+(11,'Uberlândia', 13),
+(12,'São Paulo', 25),
+(13,'Campinas', 25),
+(14,'Rio de Janeiro', 19),
+(15,'Niterói', 19),
+(16,'Porto Velho', 22),
+(17,'Ji-Paraná', 22),
+(18,'Boa Vista', 23),
+(19,'Manaus', 4),
+(20,'Belém', 14),
+(21,'Santarém', 14),
+(22,'Recife', 17),
+(23,'Olinda', 17),
+(24,'Fortaleza', 6),
+(25,'Caucaia', 6),
+(26,'Natal', 20),
+(27,'Mossoró', 20),
+(28,'João Pessoa', 15),
+(29,'Campina Grande', 15),
+(30,'Aracaju', 26),
+(31,'Nossa Senhora do Socorro', 26),
+(32,'Teresina', 18),
+(33,'Parnaíba', 18),
+(34,'Goiânia', 9),
+(35,'Aparecida de Goiânia', 9),
+(36,'Palmas', 27);
+
 
 
 --  POPULANDO tabela `endereco`
