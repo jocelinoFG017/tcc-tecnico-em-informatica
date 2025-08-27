@@ -26,8 +26,8 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="../Blog/blog.php">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="../Listar/sobre.php">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../Listar/contato.php">Contato</a></li>
                 </ul>
-
                 <!-- Menu à direita -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-user"></i> Conta</a></li>

@@ -6,7 +6,7 @@
             <div class="col-md-2 col-6 mb-4">
                 <h5 class="text-warning">Serviços</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-light text-decoration-none">Contato</a></li>
+                    <li><a href="../Listar/contato.php" class="text-light text-decoration-none">Contato</a></li>
                     <li><a href="#" class="text-light text-decoration-none">FAQ’s</a></li>
                 </ul>
             </div>
