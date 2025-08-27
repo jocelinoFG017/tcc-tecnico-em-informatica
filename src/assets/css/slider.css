@@ -1,0 +1,104 @@
+/* ===============================
+   Carrossel
+=================================*/
+
+/* Distância do carrossel em relação ao header */
+#slider {
+    margin-top: 80px; /* ajuste conforme a altura do header */
+}
+
+/* Indicadores circulares centrais */
+.carousel-indicators {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 20px;
+    z-index: 5; /* garante que fique acima do slide */
+}
+
+.carousel-indicators button {
+    background-color: #ff5722; /* cor forte para visibilidade */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.carousel-indicators button.active {
+    background-color: #FFC107; /* destaque para o ativo */
+    transform: scale(1.3);
+}
+
+/* Slides */
+.carousel-item h1 span {
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #FFD166; /* letra inicial em amarelo */
+}
+
+.carousel-item h1,
+.carousel-item h2,
+.carousel-item p {
+    margin-bottom: 1rem;
+}
+
+/* ===============================
+   Setas de navegação
+=================================*/
+
+/* Seta esquerda */
+.carousel-control-prev {
+    z-index: 5; /* acima do slide */
+    left: 0;
+    transform: translateX(-50%); /* desloca visualmente sem invadir conteúdo */
+}
+
+/* Seta direita */
+.carousel-control-next {
+    z-index: 5; /* acima do slide */
+    right: 0;
+    transform: translateX(50%);
+}
+
+/* Estilo das setas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #FFD166; /* amarelo PetShop */
+    border-radius: 50%;
+    padding: 15px;
+    background-size: 100%, 100%;
+}
+
+/* ===============================
+   Responsividade
+=================================*/
+@media (max-width: 768px) {
+    #slider {
+        margin-top: 60px; /* menos espaço em telas pequenas */
+    }
+
+    .carousel-control-prev {
+        transform: translateX(-30%);
+    }
+
+    .carousel-control-next {
+        transform: translateX(30%);
+    }
+
+    .carousel-item h1 span {
+        font-size: 2rem;
+    }
+
+    .carousel-item h1,
+    .carousel-item h2,
+    .carousel-item p {
+        text-align: center;
+    }
+
+    .carousel-item .col-md-6 {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}

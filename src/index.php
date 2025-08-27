@@ -3,227 +3,203 @@
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Home | ETERNITY</title>
-      <!-- Links do CSS-->
-      <link href="assets/css/main.css" rel="stylesheet">
-      <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-      <link href="assets/css/font-awesome.min.css" rel="stylesheet">
-      <link href="assets/css/prettyPhoto.css" rel="stylesheet">
-      <link href="assets/css/price-range.css" rel="stylesheet">
-      <link href="assets/css/animate.css" rel="stylesheet">
-      <link href="assets/css/responsive.css" rel="stylesheet">
-      <link rel="shortcut icon" href="assets/imagens/ico/favicon.ico">
-      <!-- Somente estilizacao e fotos-->
-      <link href="assets/css/photos.css" rel="stylesheet">
-      <!-- Chamada das imagens/icones-->
-      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/imagens/ico/apple-touch-icon-144-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/imagens/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/imagens/ico/apple-touch-icon-72-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" href="assets/imagens/ico/apple-touch-icon-57-precomposed.png">
-   </head>
-   <!--END HEAD-->
-   <body>
-      <?php include("templates/header.php"); ?>
-      <section id="slider">
-         <!--slider-->
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-12">
-                  <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                     <ol class="carousel-indicators">
-                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#slider-carousel" data-slide-to="1"></li>
-                        <li data-target="#slider-carousel" data-slide-to="2"></li>
-                     </ol>
-                     <div class="carousel-inner">
-                        <div class="item active">
-                           <div class="col-sm-6">
-                              <h1><span>C</span>ACHORROS</h1>
-                              <h2>Curiosidades</h2>
-                              <p>Um cachorro adulto tem 42 dentes. O olfato canino é 1 milhão de vezes melhor do que o dos humanos.  </p>
-                              <button type="button" class="btn btn-default get">Ver Mais</button>
-                           </div>
-                           <div class="col-sm-6">
-                              <img src="assets/imagens/home/doguinho.jpg" class="anuncio img-responsive" alt="" />
-                           </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetShop Teste</title>
+    <!-- CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/slider.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+<?php include("templates/header.php");?>
+
+<section id="slider" class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="slider-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+
+                    <!-- Indicadores centralizados -->
+                    <div class="carousel-indicators d-flex justify-content-center mb-4">
+                        <button type="button" data-bs-target="#slider-carousel" data-bs-slide-to="0" class="active" 
+                                style="background-color: #ff5722; width: 20px; height: 20px; border-radius: 50%;" 
+                                aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#slider-carousel" data-bs-slide-to="1" 
+                                style="background-color: #ff5722; width: 20px; height: 20px; border-radius: 50%;" 
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#slider-carousel" data-bs-slide-to="2" 
+                                style="background-color: #ff5722; width: 20px; height: 20px; border-radius: 50%;" 
+                                aria-label="Slide 3"></button>
+                    </div>
+
+                    <!-- Slides -->
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <div class="row align-items-center">
+                                <div class="col-md-6 text-start">
+                                    <h1><span class="text-warning">C</span>ACHORROS</h1>
+                                    <h2>Curiosidades</h2>
+                                    <p>Um cachorro adulto tem 42 dentes. O olfato canino é 1 milhão de vezes melhor do que o dos humanos.</p>
+                                    <button class="btn btn-warning">Ver Mais</button>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <img src="assets/imagens/home/doguinho.jpg" class="img-fluid" alt="Cachorro" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="item">
-                           <div class="col-sm-6">
-                              <h1><span>P</span>ÁSSAROS</h1>
-                              <h2>Curiosidades</h2>
-                              <p>" Um dia ele se alimenta, outro dia ele voa, mas o dia mais bonito é o dia em que o canário canta ."jo_gar</p>
-                              <button type="button" class="btn btn-default get">Ver Mais</button>
-                           </div>
-                           <div class="col-sm-6">
-                              <img src="assets/imagens/home/bird.jpg" class="girl img-responsive" alt="" />
-                              <!--<img src="imagens/home/pricing.png"  class="pricing" alt="" />-->
-                           </div>
+
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <div class="row align-items-center">
+                                <div class="col-md-6 text-start">
+                                    <h1><span class="text-warning">P</span>ÁSSAROS</h1>
+                                    <h2>Curiosidades</h2>
+                                    <p>"Um dia ele se alimenta, outro dia ele voa, mas o dia mais bonito é o dia em que o canário canta." – jo_gar</p>
+                                    <button class="btn btn-warning">Ver Mais</button>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <img src="assets/imagens/home/bird.jpg" class="img-fluid" alt="Pássaro" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="item">
-                           <div class="col-sm-6">
-                              <h1><span>G</span>ATOS</h1>
-                              <h2>Curiosidades</h2>
-                              <p>Os gatos têm cerca de 100 sons vocais ao contrário dos cães que apresentam apenas 10. </p>
-                              <button type="button" class="btn btn-default get">Ver Mais</button>
-                           </div>
-                           <div class="col-sm-6">
-                              <img src="assets/imagens/home/cat.jpg" class="cat img-responsive" alt="" />
-                           </div>
+
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                            <div class="row align-items-center">
+                                <div class="col-md-6 text-start">
+                                    <h1><span class="text-warning">G</span>ATOS</h1>
+                                    <h2>Curiosidades</h2>
+                                    <p>Os gatos têm cerca de 100 sons vocais, ao contrário dos cães que apresentam apenas 10.</p>
+                                    <button class="btn btn-warning">Ver Mais</button>
+                                </div>
+                                <div class="col-md-6 text-center">
+                                    <img src="assets/imagens/home/cat.jpg" class="img-fluid" alt="Gato" />
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                     <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                     <i class="fa fa-angle-left"></i>
-                     </a>
-                     <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                     <i class="fa fa-angle-right"></i>
-                     </a>
-                  </div>
-               </div>
+                    </div>
+
+                    <!-- Controles -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#slider-carousel" data-bs-slide="prev" style="left: -50px;">
+                        <span class="carousel-control-prev-icon bg-warning rounded-circle p-3" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#slider-carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-warning rounded-circle p-3" aria-hidden="true"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
+
+                </div>
             </div>
-         </div>
-      </section>
-      <!--/slider-->
-      <!--categorias-->
-      <section>
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-12 padding-right">
-                  <div class="features_items">
-                     <!--features_items-->
-                     <div class="category-tab2">
-                        <!--category-tab-->
-                        <div class="col-sm-12">
-                           <ul class="nav nav-tabs">
-                              <h4 class="title " style="text-align:center;">Em Destaque</h4>
-                           </ul>
-                        </div>
-                     </div>
-                     <?php
-                        $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto DESC LIMIT 0, 8;");
-                        while ($produto = mysqli_fetch_object($sql2)){ 
-                     ?>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <?php echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
-                                 <?php echo " <h2>R$ " . $produto->preco . "</h2>";?>
-                                 <?php echo "" . $produto->nome . "";?>
-                                 <a href="../Blog/detalhesProduto.php" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <?php } ?>
-                     <div class="category-tab2">
-                        <!--category-tab-->
-                        <div class="col-sm-12">
-                           <ul class="nav nav-tabs">
-                              <h4 class="title " style="text-align:center;">Mais Vendidos</h4>
-                           </ul>
-                        </div>
-                     </div>
-                     <?php
-                        $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto LIMIT 0, 8;");
-                        while ($produto = mysqli_fetch_object($sql2)){
-                     ?>
-                     <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                           <div class="single-products">
-                              <div class="productinfo text-center">
-                                 <?php echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
-                                 <?php echo " <h2>R$ " . $produto->preco . "</h2>";?>
-                                 <?php echo "" . $produto->nome . "";?>
-                                 <a href="../Blog/detalhesProduto.php" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <?php } ?>
-                  </div>
-                  <!--features_items-->
-                  <div class="category-tab">
-                     <!--category-tab-->
-                     <div class="col-sm-12">
-                        <ul class="nav nav-tabs">
-                           <li class="active"><a href="#tshirt" data-toggle="tab">brinquedos</a></li>
-                           <li><a href="#sunglass" data-toggle="tab">Casinhas</a></li>
-                           <li><a href="#kids" data-toggle="tab">Aquarios</a></li>
-                           <li><a href="#poloshirt" data-toggle="tab">Potes</a></li>
-                        </ul>
-                     </div>
-                     <div class="tab-content">
-                        <div class="tab-pane fade active in" id="tshirt" >
-                           <div class="col-sm-3">
-                              <div class="product-image-wrapper">
-                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                       <img src="assets/imagens/home/kind.jpg" style=" height: 90%; width: 75%;" alt="" />
-                                       <h2>R$31.00</h2>
-                                       <p>Brinquedo de Pelúcia Chalesco Crocodilo</p>
-                                       <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="tab-pane fade" id="sunglass" >
-                           <div class="col-sm-3">
-                              <div class="product-image-wrapper">
-                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                       <img src="assets/imagens/home/casinha.jpg" style=" height: 90%; width: 75%;" alt="" />
-                                       <h2>R$49.78</h2>
-                                       <p>Casinha preta</p>
-                                       <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="tab-pane fade" id="kids" >
-                           <div class="col-sm-3">
-                              <div class="product-image-wrapper">
-                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                       <img src="assets/imagens/home/aquario.jpg" style=" height: 90%; width: 75%;" alt="" />
-                                       <h2>R$7.49</h2>
-                                       <p>Aquário Aquaterráreo</p>
-                                       <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="tab-pane fade" id="poloshirt" >
-                           <div class="col-sm-3">
-                              <div class="product-image-wrapper">
-                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                       <img src="assets/imagens/home/pote.jpg" style=" height: 90%; width: 75%;" alt="" />
-                                       <h2>R$34.24</h2>
-                                       <p>Porta Ração Petz Azul 1kg</p>
-                                       <a href="product-details.html" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Detalhes do Produto</a>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <!--/category-tab-->
-               </div>
+        </div>
+    </div>
+</section>
+<section class="py-5">
+    <div class="container">
+
+        <!-- =======================
+             Filtros e Título
+             ======================= -->
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+            <h4 class="fw-bold mb-2">Em Destaque</h4>
+            <div class="d-flex gap-2 flex-wrap">
+                <button class="btn btn-outline-primary btn-sm">Preço: Maior</button>
+                <button class="btn btn-outline-primary btn-sm">Preço: Menor</button>
+                <button class="btn btn-outline-primary btn-sm">Nome: A-Z</button>
+                <button class="btn btn-outline-primary btn-sm">Nome: Z-A</button>
+                <button class="btn btn-outline-primary btn-sm">Com Desconto</button>
             </div>
-         </div>
-      </section>
-      <?php include("templates/footer.php");?>
-      <script src="assets/js/jquery.js"></script>
-      <script src="assets/js/bootstrap.min.js"></script>
-      <script src="assets/js/price-range.js"></script>
-      <script src="assets/js/jquery.prettyPhoto.js"></script>
-      <script src="assets/js/main.js"></script>
-   </body>
+        </div>
+
+        <!-- =======================
+             Cards de Produtos
+             ======================= -->
+        <div class="row g-4">
+            <?php
+                $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto DESC LIMIT 0, 8;");
+                while ($produto = mysqli_fetch_object($sql2)){ 
+            ?>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="position-relative">
+                        <img src="../fotos/<?php echo $produto->foto; ?>" class="card-img-top" alt="<?php echo $produto->nome; ?>">
+                        
+                        <?php // if($produto->novo) { ?>
+                        <span class="badge bg-success position-absolute top-0 start-0 m-2">Novo Item</span>
+                        <?php //} ?>
+                        
+                        <?php //if($produto->desconto > 0) { ?>
+                        <!-- <span class="badge bg-danger position-absolute top-0 end-0 m-2">Desconto</span> -->
+                        <?php // } ?>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title"><?php echo $produto->nome; ?></h5>
+                        <?php //if($produto->desconto > 0) { ?>
+                            <!-- <p class="text-muted mb-1"><s>R$ <?php //echo number_format($produto->preco,2,",","."); ?></s></p> -->
+                            <!-- <p class="fw-bold text-danger mb-3">R$ <?php //echo number_format($produto->preco * (1-$produto->desconto/100),2,",","."); ?></p> -->
+                        <?php //} else { ?>
+                            <p class="fw-bold mb-3">R$ <?php echo number_format($produto->preco,2,",","."); ?></p>
+                        <?php // } ?>
+                        <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-warning mt-auto">Detalhes do Produto</a>
+                        <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-warning mt-auto">Adicionar ao Carrinho</a>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+
+        <!-- =======================
+             Mais Vendidos
+             ======================= -->
+        <h4 class="fw-bold mt-5 mb-4">Mais Vendidos</h4>
+        <div class="row g-4">
+            <?php
+                $sql2 = mysqli_query($conn, "SELECT * FROM produto");
+                while ($produto = mysqli_fetch_object($sql2)){
+            ?>
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="position-relative">
+                        <img src="../fotos/<?php echo $produto->foto; ?>" class="card-img-top" alt="<?php echo $produto->nome; ?>">
+                        
+                        <?php //if($produto->novo) { ?>
+                        <span class="badge bg-success position-absolute top-0 start-0 m-2">Novo Item</span>
+                        <?php //} ?>
+                        
+                        <?php //if($produto->desconto > 0) { ?>
+                        <!-- <span class="badge bg-danger position-absolute top-0 end-0 m-2">Desconto</span> -->
+                        <?php //} ?>
+                    </div>
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title"><?php echo $produto->nome; ?></h5>
+                        <?php //if($produto->desconto > 0) { ?>
+                            <!-- <p class="text-muted mb-1"><s>R$ <?php //echo number_format($produto->preco,2,",","."); ?></s></p> -->
+                            <!-- <p class="fw-bold text-danger mb-3">R$ <?php //echo number_format($produto->preco * (1-$produto->desconto/100),2,",","."); ?></p> -->
+                        <?php //} else { ?>
+                            <p class="fw-bold mb-3">R$ <?php echo number_format($produto->preco,2,",","."); ?></p>
+                        <?php //} ?>
+                        <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-warning mt-auto">Detalhes do Produto</a>
+                        <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-warning mt-auto">Adicionar ao Carrinho</a>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+
+    </div>
+</section>
+<?php 
+   include("templates/footer.php");
+?>
+
+<!-- JS do Bootstrap 5 (necessário para dropdown e menu mobile) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
