@@ -26,7 +26,7 @@
    </head>
    <!--END HEAD-->
    <body>
-      <?php include("Header/header.php"); ?>
+      <?php include("templates/header.php"); ?>
       <section id="slider">
          <!--slider-->
          <div class="container">
@@ -102,21 +102,22 @@
                         </div>
                      </div>
                      <?php
-                        // $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto DESC LIMIT 0, 8;");
-                        // while ($produto = mysqli_fetch_object($sql2)){ ?>
+                        $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto DESC LIMIT 0, 8;");
+                        while ($produto = mysqli_fetch_object($sql2)){ 
+                     ?>
                      <div class="col-sm-3">
                         <div class="product-image-wrapper">
                            <div class="single-products">
                               <div class="productinfo text-center">
-                                 <?php // echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
-                                 <?php //echo " <h2>R$ " . $produto->preco . "</h2>";?>
-                                 <?php //echo "" . $produto->nome . "";?>
+                                 <?php echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
+                                 <?php echo " <h2>R$ " . $produto->preco . "</h2>";?>
+                                 <?php echo "" . $produto->nome . "";?>
                                  <a href="../Blog/detalhesProduto.php" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
                               </div>
                            </div>
                         </div>
                      </div>
-                     <?php //} ?>
+                     <?php } ?>
                      <!-- A duplicata de registros começa/termina aqui, é necessário criar/adicionar,
                       registros diferente a partir daqui, pois está pegando os mesmos item de MAIS VENDIDOS -->
 
@@ -129,21 +130,22 @@
                         </div>
                      </div>
                      <?php
-                        // $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto LIMIT 0, 8;");
-                        // while ($produto = mysqli_fetch_object($sql2)){ ?>
+                        $sql2 = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto LIMIT 0, 8;");
+                        while ($produto = mysqli_fetch_object($sql2)){
+                     ?>
                      <div class="col-sm-3">
                         <div class="product-image-wrapper">
                            <div class="single-products">
                               <div class="productinfo text-center">
-                                 <?php // echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
-                                 <?php //echo " <h2>R$ " . $produto->preco . "</h2>";?>
-                                 <?php //echo "" . $produto->nome . "";?>
+                                 <?php echo "<img src='../fotos/".$produto->foto."' alt='Foto de exibição' /><br />";?>
+                                 <?php echo " <h2>R$ " . $produto->preco . "</h2>";?>
+                                 <?php echo "" . $produto->nome . "";?>
                                  <a href="../Blog/detalhesProduto.php" class="btn btn-default add-to-cart" > Detalhes do Produto</a>
                               </div>
                            </div>
                         </div>
                      </div>
-                     <?php //} ?>
+                     <?php } ?>
                   </div>
                   <!--features_items-->
                   <div class="category-tab">
@@ -364,7 +366,7 @@
             </div>
          </div>
       </section>
-      <?php include("Footer/footer.php");?>
+      <?php include("templates/footer.php");?>
       <script src="js/jquery.js"></script>
       <script src="js/bootstrap.min.js"></script>
       <script src="js/price-range.js"></script>
