@@ -9,7 +9,6 @@
             <i class="metismenu-state-icon  caret-left"></i>
             </a>
          </li>
-       
          <li class="app-sidebar__heading">Cadastros</li>
          <li>
             <a href="usuarios.php" >
@@ -19,9 +18,24 @@
          </li>
          <li>
             <a href="enderecos.php" >
-            <i class="metismenu-icon pe-7s-eyedropper">
-            </i>Endereços
+            <i class="metismenu-icon pe-7s-eyedropper"></i>
+            Endereços
+            <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
             </a>
+            <ul>
+               <li>
+                  <a href="./cidades.php">
+                  <i class="metismenu-icon">
+                  </i>Cadastrar Cidades
+                  </a>
+               </li>
+               <li>
+                  <a href="components-accordions.html">
+                  <i class="metismenu-icon">
+                  </i>Accordions
+                  </a>
+               </li>
+            </ul>
          </li>
          <li>
             <a href="produtos.php" >
