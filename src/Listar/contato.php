@@ -24,7 +24,7 @@
    </head>
    <!--/head-->
    <body>
-      <?php include("../Header/header.php"); ?>
+      <?php include("../templates/header.php"); ?>
       <section>
          <div class="container">
             <div class="row">
@@ -48,7 +48,7 @@
             </div>
          </div>
       </section>
-      <?php include("../Footer/footer.php"); ?>
+      <?php include("../templates/footer.php"); ?>
       <script src="../js/jquery.js"></script>
       <script src="../js/price-range.js"></script>
       <script src="../js/jquery.scrollUp.min.js"></script>
