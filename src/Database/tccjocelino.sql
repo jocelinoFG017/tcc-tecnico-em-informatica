@@ -146,11 +146,11 @@ VALUES(1,'Rio Grande do Sul','RS', 1),
       (2,'Santa Catarina','SC', 1);
 
 --  POPULANDO tabela `Cidade`
-INSERT INTO cidade(idCidade, nome)
-VALUES(1,'Uruguaiana'),
-      (2,'Blumenau'),
-      (3,'Itaqui'),
-      (4,'Sao Borja');
+INSERT INTO cidade(idCidade, nome, idEstado)
+VALUES(1,'Uruguaiana', 1),
+      (2,'Blumenau', 2),
+      (3,'Itaqui', 1),
+      (4,'Sao Borja', 1 );
       -- (5,'Santo Angelo',92860982, 1);
 
 
