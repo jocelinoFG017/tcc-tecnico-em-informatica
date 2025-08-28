@@ -5,6 +5,7 @@
     $nome = mysqli_real_escape_string($conn, trim($_POST['nome']));
     $login = mysqli_real_escape_string($conn,trim($_POST['login']));
     $senha = mysqli_real_escape_string($conn,trim(md5($_POST['senha'])));
+    $nivelAcesso = 2;
 
     $sql = "SELECT count(*) as total FROM usuario WHERE login = '$login'";
     $result = mysqli_query($conn,$sql);
@@ -16,7 +17,8 @@
         exit;
     }
 
-    $sql = "INSERT INTO usuario (nome, login, senha) VALUES('$nome','$login','$senha')";
+    $sql = " INSERT INTO usuario( nome, login, senha, fk_idNivelAcesso)
+            VALUES('$nome','$login','$senha', '$nivelAcesso') ";
 
     if($conn->query($sql) === TRUE){
         $_SESSION['statusCadastro'] = true;
