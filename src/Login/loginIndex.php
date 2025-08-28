@@ -15,7 +15,8 @@
    <body>
       <?php include("../templates/header.php");?>
 
-      <div class="container d-flex align-items-center justify-content-center min-vh-100">
+     <main>
+       <div class="container d-flex align-items-center justify-content-center min-vh-100">
          <div class="col-md-6 col-lg-4">
             <div class="card shadow-lg p-4">
                <h4 class="text-center text-uppercase mb-4">Formulário de Login</h4>
@@ -45,13 +46,14 @@
                      </button>
                   </div>
                   <p class="text-center mt-3 message">
-                     Não está cadastrado? <a href="#">Crie uma conta</a>
+                     Não está cadastrado? <a href="../Listar/criarConta.php">Crie uma conta</a>
                   </p>
                </form>
                <!-- Final Formulário -->
             </div>
          </div>
       </div>
+     </main>
 
       <?php include("../templates/footer.php");?>
 

@@ -15,7 +15,7 @@ Uma descrição Mais detalhada sobre o projeto pode ser visualizada nesse link.
 - JavaScript
 - HTML/CSS
 - MySQL
-- Bootstrap
+- Bootstrap 5
 - Docker
 
 ## Como Rodar o Projeto
@@ -27,15 +27,15 @@ Há 2 maneiras de rodar o projeto: Via Docker ou Xampp:
 3. Abra seu navegador e entre no localhost/phpmyadmin
 4. No phpmyadmin rode o script tccjocelino.sql, isso vai criar a database + tabelas
 5. Vá em conexao/conexao.php e troque o servidor de db para localhost
-6. Pronto.
+6. Teste acessando http://localhost:8080 no navegador.
 
 ### Via Docker
 1. Baixe o Docker e docker compose se ainda não tiver.
-2. Clone o repositorio
-3. Abra o projeto no seu editor de código ou via terminal se preferir
+2. Clone o repositório
+3. Abra o projeto no seu editor de código ou via terminal se preferir.
 4. Com o terminal aberto na pasta do projeto rode o seguinte comando: 
  
 ```sh 
     docker-compose up -d --build
 ```
-Teste acessando http://localhost:8080 no navegador.
+5. Teste acessando http://localhost:8080 no navegador.
