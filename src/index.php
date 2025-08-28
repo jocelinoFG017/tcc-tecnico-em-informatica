@@ -145,7 +145,7 @@
                         <?php //} else { ?>
                             <p class="fw-bold mb-3">R$ <?php echo number_format($produto->preco,2,",","."); ?></p>
                         <?php // } ?>
-                        <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-outline-primary btn-sm mb-2">Detalhes</a>
+                        <a href="../Listar/produtoDetalhes.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-outline-primary btn-sm mb-2">Detalhes</a>
                         <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-warning mt-auto">Adicionar ao Carrinho</a>
                     </div>
                 </div>
@@ -183,7 +183,7 @@
                         <?php //} else { ?>
                             <p class="fw-bold mb-3">R$ <?php echo number_format($produto->preco,2,",","."); ?></p>
                         <?php //} ?>
-                        <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-outline-primary btn-sm mb-2">Detalhes</a>
+                        <a href="../Listar/produtoDetalhes.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-outline-primary btn-sm mb-2">Detalhes</a>
                         <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-warning mt-auto">Adicionar ao Carrinho</a>
                     </div>
                 </div>
