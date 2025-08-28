@@ -1,0 +1,4 @@
+SMTP_HOST=insirahostaqui
+SMTP_USER=emaildeusuarioaqui.com
+SMTP_PASS=aquiasenha
+SMTP_PORT=aquiaporta

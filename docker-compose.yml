@@ -11,6 +11,11 @@ services:
     restart: always
     depends_on:
       - db
+    environment:
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - SMTP_PORT=${SMTP_PORT}
 
   db:
     image: mariadb:10.6
