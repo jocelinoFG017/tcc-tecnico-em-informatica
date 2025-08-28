@@ -299,3 +299,10 @@ VALUES
 INSERT INTO artigo (titulo, texto, autor, data_publicacao, tag, sobreAutor)
 VALUES
 ('O destino dos cães', 'Os cães nascem para encontrar seu elo perdido', 'Jocelino F.G','2020-12-12','Gatos','Nascido no RS');
+
+ALTER TABLE artigo
+ADD COLUMN hora_publicacao TIME NOT NULL DEFAULT CURRENT_TIME,
+ADD COLUMN tag2 VARCHAR(45) NULL,
+ADD COLUMN tag3 VARCHAR(45) NULL,
+ADD COLUMN link1 VARCHAR(255) NULL,
+ADD COLUMN link2 VARCHAR(255) NULL;

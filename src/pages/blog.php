@@ -1,3 +1,17 @@
+<?php
+include("../conexao/conexao.php");
+
+// Consulta todos os artigos
+$query = "SELECT * FROM artigo ORDER BY idArtigo DESC";
+$result = mysqli_query($conn, $query);
+
+$artigos = [];
+if ($result && mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_object($result)) {
+        $artigos[] = $row;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,12 +19,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Blog | Ethernity</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
-  <!-- <link href="../assets/css/main.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/cssflex.css">
 </head>
 <body>
   <?php include("../templates/header.php");?>
 
+<main>
   <section class="py-4">
     <div class="container">
       <div class="row">
@@ -19,7 +34,6 @@
           <div class="p-3 bg-light rounded">
             <h5>Curiosidades</h5>
             <div class="accordion" id="accordionCuriosidades">
-
               <!-- Sobre Gatos -->
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingGatos">
@@ -72,100 +86,57 @@
                 </h2>
               </div>
             </div>
-
-            <div class="mt-4 text-center">
-              <img src="imagens/home/pexe.jpg" alt="Peixe" class="img-fluid rounded">
-            </div>
           </div>
         </aside>
 
         <!-- Conteúdo -->
-        <main class="col-lg-9">
+        <div class="col-lg-9">
           <div class="blog-post-area mb-5">
             <h2 class="text-center mb-4">Área do Blog</h2>
 
-            <article class="mb-5">
-              <h3>O destino dos Cães!</h3>
-              <div class="mb-3 d-flex flex-wrap gap-3 align-items-center">
-                <span><i class="fa fa-user"></i> Mac Doe</span>
-                <span><i class="fa fa-clock-o"></i> 1:33 pm</span>
-                <span><i class="fa fa-calendar"></i> DEC 5, 2013</span>
-                <span class="text-warning">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star-half-o"></i>
-                </span>
-              </div>
+            <?php if(count($artigos) > 0): ?>
+              <?php foreach($artigos as $artigo): ?>
+                <article class="mb-5">
+                  <h3><?php echo htmlspecialchars($artigo->titulo); ?></h3>
+                  <div class="mb-3 d-flex flex-wrap gap-3 align-items-center">
+                    <span><i class="fas fa-user"></i> <?php echo htmlspecialchars($artigo->autor); ?></span>
+                    <span><i class="far fa-clock"></i> <?php echo htmlspecialchars($artigo->hora_publicacao); ?></span>
+                    <span><i class="far fa-calendar-alt"></i> <?php echo date('d/m/Y', strtotime($artigo->data_publicacao)); ?></span>
 
-              <a href="#"><img src="imagens/blog/blog-one.jpg" alt="Blog" class="img-fluid mb-3 rounded"></a>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-              <p>Excepteur sint occaecat cupidatat non proident...</p>
-              <p>Nemo enim ipsam voluptatem quia voluptas sit...</p>
-              <p>Neque porro quisquam est qui dolorem ipsum...</p>
+                  </div>
 
-              <nav aria-label="Navegação do post">
-                <ul class="pagination justify-content-end">
-                  <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                  <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
-                </ul>
-              </nav>
-            </article>
+                  <p><?php echo htmlspecialchars($artigo->texto); ?></p>
 
-            <!-- Rating -->
-            <div class="mb-4">
-              <ul class="list-inline mb-2">
-                <li class="list-inline-item fw-bold">Rate this item:</li>
-                <li class="list-inline-item text-warning">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star-o"></i>
-                </li>
-                <li class="list-inline-item text-muted">(6 votes)</li>
-              </ul>
-              <ul class="list-inline">
-                <li class="list-inline-item">TAG:</li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none">Pink</a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none">T-Shirt</a></li>
-                <li class="list-inline-item"><a href="#" class="text-decoration-none">Girls</a></li>
-              </ul>
-            </div>
+                  <nav aria-label="Navegação do post">
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Próximo</a></li>
+                    </ul>
+                  </nav>
 
-            <!-- Social -->
-            <div class="mb-4">
-              <a href="#"><img src="imagens/blog/socials.png" alt="Socials" class="img-fluid"></a>
-            </div>
-
-            <!-- Comentário -->
-            <div class="d-flex mb-4">
-              <img src="imagens/blog/man-one.jpg" alt="User" class="me-3 rounded-circle" width="64">
-              <div>
-                <h5 class="mb-1">Annie Davis</h5>
-                <p>Lorem ipsum dolor sit amet...</p>
-                <div class="d-flex align-items-center gap-2">
-                  <ul class="list-inline mb-0">
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                  </ul>
-                  <a class="btn btn-primary btn-sm ms-3" href="#">Other Posts</a>
-                </div>
-              </div>
-            </div>
+                  <!-- Tags -->
+                  <div class="mb-4">
+                    <ul class="list-inline">
+                      <li class="list-inline-item">TAG:</li>
+                      <li class="list-inline-item"><a href="#" class="text-decoration-none"><?php echo htmlspecialchars($artigo->tag); ?></a></li>
+                    </ul>
+                  </div>
+                </article>
+              <?php endforeach; ?>
+            <?php else: ?>
+              <p>Nenhum artigo encontrado.</p>
+            <?php endif; ?>
 
           </div>
-        </main>
+        </div>
       </div>
     </div>
   </section>
+</main>
 
-  <?php include("../templates/footer.php")?>
+<?php include("../templates/footer.php")?>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
 </body>
 </html>
