@@ -17,7 +17,7 @@
                 <!-- Menu à esquerda -->
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="../index.php" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Início
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="homeDropdown">
