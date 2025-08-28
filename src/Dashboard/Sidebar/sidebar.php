@@ -13,10 +13,11 @@
          <li>
             <a href="painel.php">
             <i class="metismenu-icon pe-7s-diamond"></i>
-            Dashboard
+            Posts do Blog
             <i class="metismenu-state-icon  caret-left"></i>
             </a>
          </li>
+         
          <li class="app-sidebar__heading">Cadastros</li>
          <li>
             <a href="usuarios.php" >
@@ -24,6 +25,7 @@
             </i>Usuários
             </a>
          </li>
+         
          <li>
             <a href="#" >
             <i class="metismenu-icon pe-7s-eyedropper"></i>
