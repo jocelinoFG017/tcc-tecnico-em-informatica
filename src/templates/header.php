@@ -24,7 +24,7 @@
                             <li><a class="dropdown-item" href="../Blog/shop.php">Produtos</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="../Blog/blog.php">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/blog.php">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pages/sobre.php">Sobre</a></li>
                     <li class="nav-item"><a class="nav-link" href="../Listar/contato.php">Contato</a></li>
                 </ul>
