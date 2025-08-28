@@ -26,19 +26,25 @@ $resultado = mysqli_query($conn, $sql);
                     <td><?php echo $dado["nomeCargo"]; ?></td>
                     <td class="d-flex gap-2">
                         <!-- Botão editar -->
-                        <a href="../crud/editar/eUsuario.php?idUsuario=<?php echo $dado['idUsuario']; ?>" class="btn btn-sm btn-primary" title="Editar">
-                            <i class="fas fa-edit"></i>
-                        </a>
+                        <button class="btn btn-sm btn-primary btn-editar" 
+                                data-id="<?= $dado['idUsuario'] ?>" 
+                                data-nome="<?= htmlspecialchars($dado['nome'], ENT_QUOTES) ?>" 
+                                data-login="<?= htmlspecialchars($dado['login'], ENT_QUOTES) ?>" 
+                                data-nivel="<?= $dado['nomeCargo'] ?>" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#modalEditar">
+                            <i class="fas fa-edit"></i> 
+                        </button>
 
-                        <!-- Botão excluir (abre modal via JS) -->
-                        <a href="#" class="btn-excluir" 
-                           data-bs-toggle="modal" 
-                           data-bs-target="#modalExcluir" 
-                           data-id="<?php echo $dado['idUsuario']; ?>">
-                           <i class="fas fa-trash-alt text-danger"></i>
-                        </a>
-
+                        <!-- Botão excluir -->
+                        <button class="btn btn-sm btn-danger btn-excluir" 
+                                data-bs-toggle="modal" 
+                                data-bs-target="#modalExcluir" 
+                                data-id="<?= $dado['idUsuario']; ?>">
+                            <i class="fas fa-trash-alt"></i> 
+                        </button>
                     </td>
+
                 </tr>
             <?php } ?>
         </tbody>
@@ -56,3 +62,27 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var modalEditar = document.getElementById('modalEditar');
+
+    modalEditar.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;
+
+        // Dados do botão
+        var id = button.getAttribute('data-id');
+        var nome = button.getAttribute('data-nome');
+        var login = button.getAttribute('data-login');
+        var nivel = button.getAttribute('data-nivel');
+
+        // Preenche os campos do modal
+        modalEditar.querySelector('#modal-idUsuario').value = id;
+        modalEditar.querySelector('#modal-nome').value = nome;
+        modalEditar.querySelector('#modal-login').value = login;
+        modalEditar.querySelector('#modal-nivel').value = nivel;
+        modalEditar.querySelector('#modal-senha').value = '';
+    });
+});
+</script>
+

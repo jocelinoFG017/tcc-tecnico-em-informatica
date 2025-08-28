@@ -127,7 +127,6 @@
                            <li class="list-group-item">
                               <h5 class="pb-2">Choose Color Scheme
                               </h5>
-                             
                            </li>
                         </ul>
                      </div>
@@ -315,6 +314,57 @@
     </div>
   </div>
 </div>
+
+<!-- Modal Editar Usuário -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="formEditarUsuario" method="POST" action="../crud/editar/salvarUsuario.php">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalEditarLabel">Editar Usuário</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="idUsuario" id="modal-idUsuario">
+
+          <div class="mb-3">
+            <label for="modal-nome" class="form-label">Nome</label>
+            <input type="text" name="nome" class="form-control" id="modal-nome" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="modal-login" class="form-label">Login</label>
+            <input type="email" name="login" class="form-control" id="modal-login" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="modal-senha" class="form-label">Senha (deixe em branco para não alterar)</label>
+            <input type="password" name="senha" class="form-control" id="modal-senha">
+          </div>
+
+          <div class="mb-3">
+            <label for="modal-nivel" class="form-label">Nível de Acesso</label>
+            <select name="fk_idNivelAcesso" class="form-select" id="modal-nivel" required>
+              <?php
+              $sqlNivel = "SELECT * FROM nivelacesso";
+              $resNivel = mysqli_query($conn, $sqlNivel);
+              while ($nivel = mysqli_fetch_assoc($resNivel)) {
+                  echo "<option value='{$nivel['idNivelAcesso']}'>{$nivel['cargo']}</option>";
+              }
+              ?>
+            </select>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
