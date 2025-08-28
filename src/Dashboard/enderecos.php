@@ -382,6 +382,7 @@
                         <span>ADD Novo Endereço</span>
                         </a>
                      </li>
+                     
                   </ul>
                   <div class="tab-content">
                      <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
@@ -439,6 +440,10 @@
                                     <label for="exampleEmail" class="col-sm-3 col-form-label">Numero</label>
                                     <div class="col-sm-10"><input maxlength="14" name="numero" placeholder="Informe seu numero ex:(55)55 9 9323-9923" type="text" class="form-control"></div>
                                  </div>
+                                  <div class="position-relative row form-group">
+                                    <label for="exampleEmail" class="col-sm-3 col-form-label">Telefone</label>
+                                    <div class="col-sm-10"><input  maxlength="14" name="telefone" placeholder="Informe seu telefone" type="text" class="form-control"></div>
+                                 </div>
                                  <!--
                                     <div class="position-relative row form-group">
                                        <label for="exampleEmail" class="col-sm-2 col-form-label">Estado</label>
@@ -474,14 +479,7 @@
 </div>
 
                               </div>
-                                               
-                                          
-                 
-
-                                 <div class="position-relative row form-group">
-                                    <label for="exampleEmail" class="col-sm-3 col-form-label">Telefone</label>
-                                    <div class="col-sm-10"><input  maxlength="14" name="telefone" placeholder="Informe seu telefone" type="text" class="form-control"></div>
-                                 </div>
+                                
                                  <div class="position-relative row form-check">
                                     <div class="col-sm-10 offset-sm-2">
                                        <button type="submit" class="mb-2 mr-2 btn btn-primary">Cadastrar</button>
@@ -492,6 +490,7 @@
                            </div>
                         </div>
                      </div>
+                   
                   </div>
                </div>
             </div>
