@@ -26,7 +26,6 @@ $order = " ORDER BY idProduto DESC ";
 if (!empty($_GET['ordenar'])) {
     if ($_GET['ordenar'] == "preco") $order = " ORDER BY preco ASC ";
     if ($_GET['ordenar'] == "nome") $order = " ORDER BY nome ASC ";
-    if ($_GET['ordenar'] == "desconto") $order = " ORDER BY desconto DESC ";
 }
 
 // Query principal
@@ -59,7 +58,7 @@ include("../templates/header.php");
       <h5 class="mb-3">Categorias</h5>
       <ul class="list-group">
         <?php 
-        $categorias = ["Cachorro","Gato","Peixe","Roedores","Brinquedos","Acessórios","Rações","Vitaminas","Vacinas"];
+        $categorias = ["Cães","Gatos","Peixes","Roedores","Brinquedos","Acessórios","Rações","Vitaminas","Vacinas"];
         foreach($categorias as $cat){ ?>
           <a href="?categoria=<?php echo $cat; ?>" class="list-group-item list-group-item-action <?php if(isset($_GET['categoria']) && $_GET['categoria']==$cat) echo 'active'; ?>">
             <?php echo $cat; ?>
@@ -81,7 +80,6 @@ include("../templates/header.php");
             <option value="">Ordenar por...</option>
             <option value="preco" <?php if(($_GET['ordenar']??'')=='preco') echo 'selected'; ?>>Preço</option>
             <option value="nome" <?php if(($_GET['ordenar']??'')=='nome') echo 'selected'; ?>>Nome</option>
-            <option value="desconto" <?php if(($_GET['ordenar']??'')=='desconto') echo 'selected'; ?>>Desconto</option>
           </select>
         </div>
         <div class="col-md-2">
@@ -92,19 +90,16 @@ include("../templates/header.php");
       <!-- Lista de produtos -->
       <div class="row g-4">
         <?php while ($produto = mysqli_fetch_object($sql)){ ?>
-          <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="col-sm-6 col-md-4 col-lg-2">
             <div class="card h-100 shadow-sm">
               <div class="position-relative">
-                <img src="../fotos/<?php echo $produto->foto; ?>" class="card-img-top" alt="<?php echo $produto->nome; ?>">
-                <?php //if($produto->desconto > 0) { ?>
-                  <!-- <span class="badge bg-danger position-absolute top-0 end-0 m-2">-<?php //echo $produto->desconto; ?>%</span> -->
-                <?php //} ?>
+                <img src="../../fotos/<?php echo $produto->foto; ?>" class="card-img-top" alt="<?php echo $produto->nome; ?>">
               </div>
               <div class="card-body text-center d-flex flex-column">
-                <h6 class="card-title"><?php echo $produto->nome; ?></h6>
+                <h6 class="card-title  text-truncate"><?php echo $produto->nome; ?></h6>
                 <p class="fw-bold mb-3">R$ <?php echo number_format($produto->preco,2,",","."); ?></p>
-                <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-outline-primary btn-sm mb-2">Detalhes</a>
-                <a href="../Blog/carrinho.php?add=<?php echo $produto->idProduto; ?>" class="btn btn-warning btn-sm mt-auto">Adicionar ao Carrinho</a>
+                <a href="produtoDetalhes.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-outline-primary btn-sm mb-2">Detalhes</a>
+                <a href="../Blog/carrinho.php?add=<?php echo $produto->idProduto; ?>" class="btn btn-warning btn-sm ">Adicionar ao Carrinho</a>
               </div>
             </div>
           </div>

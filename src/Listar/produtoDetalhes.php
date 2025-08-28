@@ -1,14 +1,22 @@
+<?php
+  include("../conexao/conexao.php");
+// Aqui você pode adicionar código para buscar os detalhes do produto no banco de dados usando o ID passado via GET
+  $produtoId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+  // Exemplo de consulta (ajuste conforme sua tabela e campos)
+  $query = mysqli_query($conn, "SELECT * FROM produto WHERE idProduto = $produtoId");
+  $produto = mysqli_fetch_object($query);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalhes do Produto - Eternity Petshop</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
+ <meta charset="UTF-8">
+  <title>Loja PetShop - Detalhes do Produto</title>
+    <!-- CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/cssflex.css">
+    <style>
     .product-gallery img {
       border-radius: 10px;
       cursor: pointer;
@@ -33,10 +41,14 @@
     }
   </style>
 </head>
+
+
 <body>
 <?php
     include("../templates/header.php");
 ?>
+<main>
+
 <!-- Container principal -->
 <div class="container py-5">
   <div class="row g-4">
@@ -47,18 +59,16 @@
         <img id="mainImage" src="https://via.placeholder.com/500" class="img-fluid rounded shadow" alt="Produto">
       </div>
       <div class="d-flex justify-content-center gap-2 product-gallery">
-        <img src="https://via.placeholder.com/150" class="img-thumbnail" width="100" onclick="trocarImagem(this)">
-        <img src="https://via.placeholder.com/150/ffc107" class="img-thumbnail" width="100" onclick="trocarImagem(this)">
-        <img src="https://via.placeholder.com/150/000000" class="img-thumbnail" width="100" onclick="trocarImagem(this)">
+          <img src="../../fotos/<?php echo $produto->foto; ?>" class="img-thumbnail" width="400" alt="<?php echo $produto->nome; ?>" onclick="trocarImagem(this)">
       </div>
     </div>
 
     <!-- Detalhes do produto -->
     <div class="col-md-6">
-      <h2 class="fw-bold">Ração Premium Eternity</h2>
-      <p class="text-muted">Ração balanceada e nutritiva para cães adultos, desenvolvida com ingredientes selecionados para a saúde e bem-estar do seu pet.</p>
+      <h2 class="fw-bold"><?php echo $produto->nome; ?></h2>
+      <p class="text-muted"><?php echo $produto->descricao; ?></p>
       
-      <p class="price">R$ 149,90</p>
+      <p class="price"> <?php echo "R$" . number_format($produto->preco,2,",","."); ?> </p>
 
       <!-- Seletor de quantidade -->
       <div class="d-flex align-items-center mb-3">
@@ -75,7 +85,7 @@
       <div class="mt-4">
         <h5 class="fw-bold">Informações do Produto</h5>
         <ul>
-          <li>Peso: 10kg</li>
+          <li>Marca: <?php echo $produto->marca; ?></li>
           <li>Indicado para: Cães Adultos</li>
           <li>Sabor: Carne e Vegetais</li>
           <li>Validade: 12 meses</li>
@@ -84,15 +94,11 @@
     </div>
   </div>
 </div>
-
+</main>
 <?php
     include("../templates/footer.php");
 ?>
-<script>
-  function trocarImagem(img) {
-    document.getElementById("mainImage").src = img.src;
-  }
-</script>
+
 
 </body>
 </html>
