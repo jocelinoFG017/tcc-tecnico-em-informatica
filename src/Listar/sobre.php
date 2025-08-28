@@ -19,8 +19,9 @@
            <div class="container">
             <div class="text-center mb-4">
 
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit pariatur voluptatibus mollitia quam, debitis incidunt ratione eveniet ipsa sequi cupiditate est expedita culpa iste, commodi nihil rerum, minus aliquam quia!</p>
-            <p> Lorem Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos molestias quam tempore nostrum, voluptas quidem omnis veritatis, doloremque perferendis nihil odio at odit doloribus, qui culpa! Voluptatem beatae consequatur et! </p>
+            <?php 
+                include("sobreTexto.php");
+            ?>
             </div>
             </div>      
 </section>
@@ -35,11 +36,7 @@
                 <?php include("tabelaEndereco.php"); ?>
             </div>
 
-            <div class="text-center mt-4">
-                <a href="#">
-                    <img src="../imagens/blog/socials.png" alt="Redes sociais" class="img-fluid" style="max-width:250px;">
-                </a>
-            </div>
+            
         </div>
     </section>
 
