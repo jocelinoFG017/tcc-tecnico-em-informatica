@@ -1,3 +1,23 @@
+<?php
+   include("../conexao/conexao.php");
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre | Ethernity</title>
+    <!-- CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/slider.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <?php include("../templates/header.php"); ?>
+    <section class="py-5">
+           <div class="container">
+                <div class="text-center mb-4">
 <section id="sobre" style="max-width: 900px; margin: 40px auto; padding: 20px; font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
     <h2 style="font-size: 2em; margin-bottom: 15px; text-align: center; color: #444;">Sobre a Ethernity</h2>
     
@@ -25,3 +45,28 @@
             
     </div>
 </section>
+               
+                </div>
+            </div>      
+</section>
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <!-- <h2 class="fw-bold">Lista de Endereços</h2> -->
+                <h3 class="text-uppercase text-muted">Nossos endereços presenciais</h3>
+            </div>
+
+            <div class="card shadow-sm border-0 p-4">
+                <?php include("../Listar/tabelas/tabelaEndereco.php"); ?>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <?php include("../templates/footer.php"); ?>
+
+    <!-- JS Bootstrap 5 (sem jQuery) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
