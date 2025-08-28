@@ -4,7 +4,7 @@ include("../conexao/conexao.php");
 if(isset($_GET['estadoId'])){
     $estadoId = intval($_GET['estadoId']);
 
-    $sql = "SELECT idCidade, nome FROM cidade WHERE idEstado = $estadoId ORDER BY nome";
+    $sql = "SELECT idCidade, nome FROM cidade WHERE fk_idEstado = $estadoId ORDER BY nome";
     $result = mysqli_query($conn, $sql);
 
     echo '<option value="">Selecione a cidade</option>';
