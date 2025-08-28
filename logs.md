@@ -5,9 +5,9 @@ ou seja terá somente mais 9(nove) atualizações depois da versão 1.1 .
 
 Nome do Projeto: DxD Remaster 2.0
 
-Versão Atual: 1.5
+Versão Atual: 1.6
 
-Versão Anterior: 1.4
+Versão Anterior: 1.5
 
 
 

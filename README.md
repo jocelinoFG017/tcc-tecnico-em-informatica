@@ -1,4 +1,4 @@
-## TCC-Tecnico-em-Informatica.
+## TCC Tecnico em Informática - IFFAR - Campus São Borja
 Este repositório contém o meu TCC de Técnico em Informática do IFFAR - Campus São Borja.
 
 A proposta do projeto é desenvolver um website para a venda de alimentos e itens para petshops, com o objetivo de facilitar a compra desses produtos para os clientes.
