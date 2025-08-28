@@ -17,11 +17,11 @@
                 <!-- Menu à esquerda -->
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="../index.php" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="../../index.php" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Início
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="homeDropdown">
-                            <li><a class="dropdown-item" href="../Blog/shop.php">Produtos</a></li>
+                            <li><a class="dropdown-item" href="../Listar/produtoLista.php">Produtos</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="../pages/blog.php">Blog</a></li>
