@@ -390,7 +390,7 @@
                            <div class="card-body">
                               <h5 class="card-title">Tabela de Endereços</h5>
                               <div class="col-lg-12">
-                                 <?php include("../Listar/tabelaEndereco.php");?>
+                                 <?php include("../Listar/tabelas/tabelaEndereco.php");?>
                               </div>
                            </div>
                         </div>

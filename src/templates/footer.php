@@ -24,7 +24,7 @@
             <div class="col-md-2 col-6 mb-4">
                 <h5 class="text-warning">Sobre</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-light text-decoration-none">Informação da Companhia</a></li>
+                    <li><a href="../pages/sobre.php" class="text-light text-decoration-none">Informação da Companhia</a></li>
                     <li><a href="#" class="text-light text-decoration-none">Parceiros</a></li>
                 </ul>
             </div>

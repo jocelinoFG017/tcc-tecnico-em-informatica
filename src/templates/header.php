@@ -25,13 +25,13 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="../Blog/blog.php">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../Listar/sobre.php">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../pages/sobre.php">Sobre</a></li>
                     <li class="nav-item"><a class="nav-link" href="../Listar/contato.php">Contato</a></li>
                 </ul>
                 <!-- Menu à direita -->
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-user"></i> Conta</a></li>
-                    <li class="nav-item"><a class="nav-link" href="checkout.html"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-user"></i> Conta</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="../Listar/carrinho.php"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
                     <li class="nav-item"><a class="nav-link" href="../Login/loginIndex.php"><i class="fa fa-lock"></i> Login</a></li>
                 </ul>
             </div>
