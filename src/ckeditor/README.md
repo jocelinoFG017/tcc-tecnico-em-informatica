@@ -1,9 +1,13 @@
-CKEditor 5 classic editor build v23.1.0
-=======================================
+# CKEditor 5 sample
 
-In order to start using CKEditor 5 Builds, configure or customize them, please visit http://docs.ckeditor.com/ckeditor5/latest/builds/index.html
+Thank you for downloading the sample. To run it, start a web server (`nginx`, `caddy` or any other) that will serve the file.
 
-## License
+Want to test more features? Get started with CKEditor 5 Builder 🚀
 
-Licensed under the terms of [GNU General Public License Version 2 or later](http://www.gnu.org/licenses/gpl.html).
-For full details about the license, please check the LICENSE.md file.
+With [CKEditor’s interactive builder](https://ckeditor.com/ckeditor-5/builder/), select:
+
+* The features you need.
+* Your preferred framework (React, Angular, Vue, or Vanilla JS).
+* Your preferred distribution method (CDN or npm).
+
+You’ll get ready-to-use code snippets, tailored to your needs.
