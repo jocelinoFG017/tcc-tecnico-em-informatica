@@ -31,34 +31,7 @@
                     </button>
                 </span>
             </div>    <div class="app-header__content">
-                <div class="app-header-left">
-                    <div class="search-wrapper">
-                        <div class="input-holder">
-                            <input type="text" class="search-input" placeholder="Type to search">
-                            <button class="search-icon"><span></span></button>
-                        </div>
-                        <button class="close"></button>
-                    </div>
-                    <ul class="header-menu nav">
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-database"> </i>
-                                Statistics
-                            </a>
-                        </li>
-                        <li class="btn-group nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-edit"></i>
-                                Projects
-                            </a>
-                        </li>
-                        <li class="dropdown nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon fa fa-cog"></i>
-                                Settings
-                            </a>
-                        </li>
-                    </ul>        </div>
+           
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
                         <div class="widget-content p-0">
@@ -84,7 +57,7 @@
                                        <?php echo $_SESSION['nome']; ?>
                                     </div>
                                     <div class="widget-subheading">
-                                        VP People Manager
+                                         <?php echo $_SESSION['nomeNivelAcesso']; ?>
                                     </div>
                                 </div>
                                 <div class="widget-content-right header-user-info ml-3">

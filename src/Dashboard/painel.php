@@ -1,7 +1,17 @@
 <?php
 session_start();
 include("../Login/verificaLogin.php");
+include("../conexao/conexao.php");
+
+$sql = " SELECT COUNT(*) AS total FROM usuario ";
+
+$result = mysqli_query($conn,$sql);
+
+$totalUsuarios = mysqli_fetch_assoc($result);
+
 ?>
+
+
 
 <!doctype html>
 <html lang="ptbr">
@@ -638,8 +648,8 @@ include("../Login/verificaLogin.php");
                                         <i class="pe-7s-car icon-gradient bg-mean-fruit">
                                         </i>
                                     </div>
-                                    <div>Analytics Dashboard
-                                        <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
+                                    <div> Dashboard Analítica
+                                        <div class="page-title-subheading">Aqui estão reunidos todos os dados principais do sistema.
                                         </div>
                                     </div>
                                 </div>
@@ -699,11 +709,11 @@ include("../Login/verificaLogin.php");
                                 <div class="card mb-3 widget-content bg-midnight-bloom">
                                     <div class="widget-content-wrapper text-white">
                                         <div class="widget-content-left">
-                                            <div class="widget-heading">Total Orders</div>
-                                            <div class="widget-subheading">Last year expenses</div>
+                                            <div class="widget-heading">Total de usuários</div>
+                                           
                                         </div>
                                         <div class="widget-content-right">
-                                            <div class="widget-numbers text-white"><span>1896</span></div>
+                                            <div class="widget-numbers text-white"><span> <?php echo $totalUsuarios['total'];?></span></div>
                                         </div>
                                     </div>
                                 </div>
