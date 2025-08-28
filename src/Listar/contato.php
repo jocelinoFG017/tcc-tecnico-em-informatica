@@ -20,7 +20,7 @@
     Responderemos o mais breve possível! 🐾
   </p>
   
-  <form action="enviarContato.php" method="post" class="row g-3">
+  <form action="../enviar/enviarContato.php" method="post" class="row g-3">
     
     <div class="col-12">
       <label for="nome" class="form-label">Nome</label>
