@@ -138,14 +138,14 @@
                         <?php // } ?>
                     </div>
                     <div class="card-body text-center d-flex flex-column">
-                        <h5 class="card-title"><?php echo $produto->nome; ?></h5>
+                        <h6 class="card-title"><?php echo $produto->nome; ?></h6>
                         <?php //if($produto->desconto > 0) { ?>
                             <!-- <p class="text-muted mb-1"><s>R$ <?php //echo number_format($produto->preco,2,",","."); ?></s></p> -->
                             <!-- <p class="fw-bold text-danger mb-3">R$ <?php //echo number_format($produto->preco * (1-$produto->desconto/100),2,",","."); ?></p> -->
                         <?php //} else { ?>
                             <p class="fw-bold mb-3">R$ <?php echo number_format($produto->preco,2,",","."); ?></p>
                         <?php // } ?>
-                        <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-warning mt-auto">Detalhes do Produto</a>
+                        <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-outline-primary btn-sm mb-2">Detalhes</a>
                         <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-warning mt-auto">Adicionar ao Carrinho</a>
                     </div>
                 </div>
@@ -176,14 +176,14 @@
                         <?php //} ?>
                     </div>
                     <div class="card-body text-center d-flex flex-column">
-                        <h5 class="card-title"><?php echo $produto->nome; ?></h5>
+                        <h6 class="card-title"><?php echo $produto->nome; ?></h6>
                         <?php //if($produto->desconto > 0) { ?>
                             <!-- <p class="text-muted mb-1"><s>R$ <?php //echo number_format($produto->preco,2,",","."); ?></s></p> -->
                             <!-- <p class="fw-bold text-danger mb-3">R$ <?php //echo number_format($produto->preco * (1-$produto->desconto/100),2,",","."); ?></p> -->
                         <?php //} else { ?>
                             <p class="fw-bold mb-3">R$ <?php echo number_format($produto->preco,2,",","."); ?></p>
                         <?php //} ?>
-                        <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-warning mt-auto">Detalhes do Produto</a>
+                        <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-outline-primary btn-sm mb-2">Detalhes</a>
                         <a href="../Blog/detalhesProduto.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-warning mt-auto">Adicionar ao Carrinho</a>
                     </div>
                 </div>

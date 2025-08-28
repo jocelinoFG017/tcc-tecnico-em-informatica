@@ -45,6 +45,7 @@ $totalPages = ceil($total / $limit);
   <meta charset="UTF-8">
   <title>Loja PetShop - Produtos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 <?php
@@ -95,9 +96,9 @@ include("../templates/header.php");
             <div class="card h-100 shadow-sm">
               <div class="position-relative">
                 <img src="../fotos/<?php echo $produto->foto; ?>" class="card-img-top" alt="<?php echo $produto->nome; ?>">
-                <?php if($produto->desconto > 0) { ?>
-                  <span class="badge bg-danger position-absolute top-0 end-0 m-2">-<?php echo $produto->desconto; ?>%</span>
-                <?php } ?>
+                <?php //if($produto->desconto > 0) { ?>
+                  <!-- <span class="badge bg-danger position-absolute top-0 end-0 m-2">-<?php //echo $produto->desconto; ?>%</span> -->
+                <?php //} ?>
               </div>
               <div class="card-body text-center d-flex flex-column">
                 <h6 class="card-title"><?php echo $produto->nome; ?></h6>
