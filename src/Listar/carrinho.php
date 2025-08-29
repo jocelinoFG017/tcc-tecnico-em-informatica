@@ -106,6 +106,30 @@ if(isset($_GET['remove'])){
     exit();
 }
 
+// ----------------------
+// Atualizar quantidade do item
+// ----------------------
+if(isset($_POST['atualizar'])){
+    $idPedidoItem = (int)$_POST['idPedidoItem'];
+    $novaQtd = (int)$_POST['quantidade'];
+
+    if($novaQtd < 1) $novaQtd = 1; // evita zero ou negativo
+
+    // Atualiza apenas se o item pertencer a um pedido do usuário logado
+    $sqlUpdate = "
+        UPDATE pedido_item pi
+        INNER JOIN pedido pe ON pi.fk_idPedido = pe.idPedido
+        SET pi.quantidade = $novaQtd
+        WHERE pi.idPedidoItem = $idPedidoItem AND pe.fk_idUsuario = $idUsuario AND pe.status = 'carrinho'
+    ";
+    mysqli_query($conn, $sqlUpdate);
+
+    // Redireciona para evitar reenvio do formulário
+    header("Location: carrinho.php");
+    exit();
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -139,7 +163,12 @@ if(isset($_GET['remove'])){
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo htmlspecialchars($item['nome']); ?></h5>
-                                    <p class="card-text">Quantidade: <?php echo $item['quantidade']; ?></p>
+                                    <form method="POST" action="carrinho.php" class="d-flex align-items-center">
+                                        <input type="hidden" name="idPedidoItem" value="<?php echo $item['idPedidoItem']; ?>">
+                                        <input type="number" name="quantidade" class="form-control w-auto me-2" value="<?php echo $item['quantidade']; ?>" min="1">
+                                        <button type="submit" name="atualizar" class="btn btn-primary btn-sm">Atualizar</button>
+                                    </form>
+
                                     <p class="card-text"><strong>Preço unitário: R$ <?php echo number_format($item['precoUnitario'],2,",","."); ?></strong></p>
                                     <p class="card-text"><strong>Subtotal: R$ <?php echo number_format($item['subtotal'],2,",","."); ?></strong></p>
                                 </div>
@@ -160,9 +189,9 @@ if(isset($_GET['remove'])){
                 <hr>
                 <h5>Total: <span class="float-end">R$ <?php echo number_format($total,2,",","."); ?></span></h5>
                 <?php if(count($itensCarrinho) > 0): ?>
-                    <a href="../loja/finalizarCompra.php" class="btn btn-success w-100 mt-3">Finalizar Compra</a>
+                    <a href="../loja/checkout.php" class="btn btn-success w-100 mt-3">Finalizar Compra</a>
                 <?php endif; ?>
-                <a href="produtosLista.php" class="btn btn-secondary w-100 mt-2">Continuar Comprando</a>
+                <a href="../Listar/produtoLista.php" class="btn btn-secondary w-100 mt-2">Continuar Comprando</a>
             </div>
         </div>
     </div>
