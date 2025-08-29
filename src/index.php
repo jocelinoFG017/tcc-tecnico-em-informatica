@@ -36,53 +36,29 @@
                                 aria-label="Slide 3"></button>
                     </div>
 
-                    <!-- Slides -->
-                    <div class="carousel-inner">
-                        <!-- Slide 1 -->
-                        <div class="carousel-item active">
-                            <div class="row align-items-center">
-                                <div class="col-md-6 text-start">
-                                    <h1><span class="text-warning">C</span>ACHORROS</h1>
-                                    <h2>Curiosidades</h2>
-                                    <p>Um cachorro adulto tem 42 dentes. O olfato canino é 1 milhão de vezes melhor do que o dos humanos.</p>
-                                    <button class="btn btn-warning">Ver Mais</button>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <img src="assets/imagens/home/doguinho.jpg" class="img-fluid" alt="Cachorro" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 2 -->
-                        <div class="carousel-item">
-                            <div class="row align-items-center">
-                                <div class="col-md-6 text-start">
-                                    <h1><span class="text-warning">P</span>ÁSSAROS</h1>
-                                    <h2>Curiosidades</h2>
-                                    <p>"Um dia ele se alimenta, outro dia ele voa, mas o dia mais bonito é o dia em que o canário canta." – jo_gar</p>
-                                    <button class="btn btn-warning">Ver Mais</button>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <img src="assets/imagens/home/bird.jpg" class="img-fluid" alt="Pássaro" />
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 3 -->
-                        <div class="carousel-item">
-                            <div class="row align-items-center">
-                                <div class="col-md-6 text-start">
-                                    <h1><span class="text-warning">G</span>ATOS</h1>
-                                    <h2>Curiosidades</h2>
-                                    <p>Os gatos têm cerca de 100 sons vocais, ao contrário dos cães que apresentam apenas 10.</p>
-                                    <button class="btn btn-warning">Ver Mais</button>
-                                </div>
-                                <div class="col-md-6 text-center">
-                                    <img src="assets/imagens/home/cat.jpg" class="img-fluid" alt="Gato" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  <!-- Slides -->
+<div class="carousel-inner">
+    <?php
+        // Puxa os 3 artigos mais recentes
+        $sql_artigos = mysqli_query($conn, "SELECT * FROM artigo ORDER BY idArtigo DESC LIMIT 3");
+        $primeiro = true;
+        while($artigo = mysqli_fetch_object($sql_artigos)){
+    ?>
+    <div class="carousel-item <?php if($primeiro){ echo 'active'; $primeiro = false; } ?>">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-start">
+                <h1><?php echo $artigo->tag; ?></h1>
+                <h2>Curiosidade</h2>
+                <p><?php echo $artigo->texto; ?></p>
+                <a href="pages/blog.php?id=<?php echo $artigo->idArtigo; ?>" class="btn btn-warning">Ver Mais</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="fotos/<?php echo $artigo->foto; ?>" class="img-fluid" alt="<?php echo $artigo->titulo; ?>" />
+            </div>
+        </div>
+    </div>
+    <?php } ?>
+</div>
 
                     <!-- Controles -->
                     <button class="carousel-control-prev" type="button" data-bs-target="#slider-carousel" data-bs-slide="prev" style="left: -50px;">
