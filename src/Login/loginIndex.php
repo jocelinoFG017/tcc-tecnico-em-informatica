@@ -45,6 +45,13 @@
                         <i class="fa fa-sign-in"></i> Login
                      </button>
                   </div>
+                   <div class="d-grid">
+                       <a href="googleLogin.php" class="btn btn-danger w-100 mb-3">
+                  <i class="fab fa-google"></i> Entrar com Google
+                  </a>
+                  </div>
+                
+
                   <p class="text-center mt-3 message">
                      Não está cadastrado? <a href="../Listar/criarConta.php">Crie uma conta</a>
                   </p>

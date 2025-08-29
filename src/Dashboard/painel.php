@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("../Login/verificaLogin.php"); 
 include("../conexao/conexao.php");
 
@@ -13,8 +12,8 @@ if(!isset($_SESSION['nomeNivelAcesso']) || strtolower($_SESSION['nomeNivelAcesso
 $sql = "SELECT COUNT(*) AS total FROM usuario";
 $result = mysqli_query($conn, $sql);
 $totalUsuarios = mysqli_fetch_assoc($result);
-
 ?>
+
 <!doctype html>
 <html lang="ptbr">
 
