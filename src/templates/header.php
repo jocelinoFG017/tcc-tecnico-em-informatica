@@ -1,5 +1,4 @@
 <header class="sticky-top">
-    <!-- Navbar principal -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <!-- Logo -->
@@ -28,11 +27,17 @@
                     <li class="nav-item"><a class="nav-link" href="../pages/sobre.php">Sobre</a></li>
                     <li class="nav-item"><a class="nav-link" href="../Listar/contato.php">Contato</a></li>
                 </ul>
+
                 <!-- Menu à direita -->
                 <ul class="navbar-nav ms-auto">
-                    <!-- <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-user"></i> Conta</a></li> -->
-                    <li class="nav-item"><a class="nav-link" href="../Listar/carrinho.php"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../Login/loginIndex.php"><i class="fa fa-lock"></i> Login</a></li>
+                    <?php if (isset($_SESSION['idUsuario'])): ?>
+                        <!-- Usuário logado -->
+                        <li class="nav-item"><a class="nav-link" href="../Listar/carrinho.php"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../loja/minhaConta.php"><i class="fa fa-user"></i> Minha Conta</a></li>
+                    <?php else: ?>
+                        <!-- Usuário não logado -->
+                        <li class="nav-item"><a class="nav-link" href="../Login/loginIndex.php"><i class="fa fa-lock"></i> Login</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
