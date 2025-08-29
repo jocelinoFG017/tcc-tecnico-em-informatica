@@ -1,18 +1,20 @@
 <?php
 session_start();
-include("../Login/verificaLogin.php");
+include("../Login/verificaLogin.php"); 
 include("../conexao/conexao.php");
 
-$sql = " SELECT COUNT(*) AS total FROM usuario ";
+// Verifica se é administrador
+if(!isset($_SESSION['nomeNivelAcesso']) || strtolower($_SESSION['nomeNivelAcesso']) != 'administrador'){
+    header('Location: ../Login/loginIndex.php');
+    exit();
+}
 
-$result = mysqli_query($conn,$sql);
-
+// Consulta total de usuários
+$sql = "SELECT COUNT(*) AS total FROM usuario";
+$result = mysqli_query($conn, $sql);
 $totalUsuarios = mysqli_fetch_assoc($result);
 
 ?>
-
-
-
 <!doctype html>
 <html lang="ptbr">
 
