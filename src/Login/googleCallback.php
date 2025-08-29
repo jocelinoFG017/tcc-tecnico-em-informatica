@@ -8,8 +8,8 @@ if(session_status() == PHP_SESSION_NONE){
 
 // Configurações do Google Client
 $client = new Google_Client();
-$client->setClientId('GOOGLE_CLIENT_ID');
-$client->setClientSecret('GOOGLE_CLIENT_SECRET');
+$client->setClientId(getenv('GOOGLE_CLIENT_ID'));
+$client->setClientSecret(getenv('GOOGLE_CLIENT_SECRET'));
 $client->setRedirectUri('http://localhost:8080/Login/googleCallback.php');
 $client->addScope("email");
 $client->addScope("profile");
