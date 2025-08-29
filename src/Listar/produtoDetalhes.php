@@ -1,7 +1,7 @@
 <?php
   include("../conexao/conexao.php");
 // Aqui você pode adicionar código para buscar os detalhes do produto no banco de dados usando o ID passado via GET
-  $produtoId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+  $produtoId = isset($_GET['add']) ? (int)$_GET['add'] : 0;
   // Exemplo de consulta (ajuste conforme sua tabela e campos)
   $query = mysqli_query($conn, "SELECT * FROM produto WHERE idProduto = $produtoId");
   $produto = mysqli_fetch_object($query);
@@ -59,7 +59,7 @@
         <img id="mainImage" src="https://via.placeholder.com/500" class="img-fluid rounded shadow" alt="Produto">
       </div>
       <div class="d-flex justify-content-center gap-2 product-gallery">
-          <img src="../../fotos/<?php echo $produto->foto; ?>" class="img-thumbnail" width="400" alt="<?php echo $produto->nome; ?>" onclick="trocarImagem(this)">
+          <img src="../fotos/<?php echo $produto->foto; ?>" class="img-thumbnail" width="400" alt="<?php echo $produto->nome; ?>" onclick="trocarImagem(this)">
       </div>
     </div>
 
@@ -77,9 +77,14 @@
       </div>
 
       <!-- Botão de adicionar -->
-      <button class="btn btn-add-cart btn-lg">
+      <form action="../Listar/carrinho.php" method="GET" class="d-inline">
+    <input type="hidden" name="add" value="<?php echo $produto->idProduto; ?>">
+    <input type="hidden" name="quantidade" id="quantidadeInput" value="1">
+    <button type="submit" class="btn btn-add-cart btn-lg">
         🛒 Adicionar ao Carrinho
-      </button>
+    </button>
+</form>
+
 
       <!-- Informações extras -->
       <div class="mt-4">
@@ -99,6 +104,14 @@
     include("../templates/footer.php");
 ?>
 
+<script>
+  const quantidadeInput = document.getElementById('quantidade');
+  const hiddenQtd = document.getElementById('quantidadeInput');
+
+  quantidadeInput.addEventListener('input', () => {
+    hiddenQtd.value = quantidadeInput.value;
+  });
+</script>
 
 </body>
 </html>
