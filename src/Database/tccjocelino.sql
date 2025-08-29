@@ -153,6 +153,37 @@ CREATE TABLE `artigo` (
   PRIMARY KEY (`idArtigo`)
 );
 
+CREATE TABLE pedido (
+  idPedido INT NOT NULL AUTO_INCREMENT,
+  fk_idUsuario INT NOT NULL,
+  status ENUM('carrinho','finalizado','pago','cancelado') DEFAULT 'carrinho',
+  dataCriacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  dataFinalizacao DATETIME NULL,
+  PRIMARY KEY (idPedido),
+  CONSTRAINT fk_pedido_usuario
+    FOREIGN KEY (fk_idUsuario) REFERENCES usuario(idUsuario)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+CREATE TABLE pedido_item (
+  idPedidoItem INT NOT NULL AUTO_INCREMENT,
+  fk_idPedido INT NOT NULL,
+  fk_idProduto INT NOT NULL,
+  quantidade INT NOT NULL,
+  precoUnitario DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (idPedidoItem),
+  CONSTRAINT fk_pedidoitem_pedido
+    FOREIGN KEY (fk_idPedido) REFERENCES pedido(idPedido)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT fk_pedidoitem_produto
+    FOREIGN KEY (fk_idProduto) REFERENCES produto(idProduto)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE
+);
+
+
 
 -- -----------------------------------------------------
 -- POPULANDO tabela nivelacesso
@@ -308,3 +339,7 @@ ADD COLUMN foto VARCHAR(255) NULL;
 ALTER TABLE artigo
 MODIFY COLUMN data_publicacao DATE NOT NULL DEFAULT (CURRENT_DATE),
 MODIFY COLUMN hora_publicacao TIME NOT NULL DEFAULT (CURRENT_TIME);
+
+
+alter table usuario
+add column dataCadastro DATETIME DEFAULT CURRENT_TIMESTAMP;
