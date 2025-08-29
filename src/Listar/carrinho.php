@@ -160,7 +160,7 @@ if(isset($_GET['remove'])){
                 <hr>
                 <h5>Total: <span class="float-end">R$ <?php echo number_format($total,2,",","."); ?></span></h5>
                 <?php if(count($itensCarrinho) > 0): ?>
-                    <a href="finalizarCompra.php" class="btn btn-success w-100 mt-3">Finalizar Compra</a>
+                    <a href="../loja/finalizarCompra.php" class="btn btn-success w-100 mt-3">Finalizar Compra</a>
                 <?php endif; ?>
                 <a href="produtosLista.php" class="btn btn-secondary w-100 mt-2">Continuar Comprando</a>
             </div>
