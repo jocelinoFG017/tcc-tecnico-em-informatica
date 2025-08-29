@@ -75,7 +75,6 @@ document.getElementById("whatsapp").addEventListener("input", function(e) {
 });
 </script>
 
-
 <?php include("../templates/footer.php"); ?>
 </body>
 </html>

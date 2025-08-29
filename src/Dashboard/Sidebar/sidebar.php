@@ -48,9 +48,15 @@
             </ul>
          </li>
          <li>
-            <a href="produtos.php" >
+            <a href="./produtos.php" >
             <i class="metismenu-icon pe-7s-box2">
             </i>Produtos
+            </a>
+         </li>
+          <li>
+            <a href="./artigos.php" >
+            <i class="metismenu-icon pe-7s-box2">
+            </i>Artigos
             </a>
          </li>
       </ul>

@@ -1,10 +1,7 @@
 <?php
 include("../conexao/conexao.php");
-// consulta varias linhas
 $sql = "SELECT * FROM artigo";
 $resultado = mysqli_query($conn,$sql);
-
-//$con = $mysqli->query($consulta) or die($mysqli->error);
 ?>
 <div class="table-responsive">
 <table class="table">
@@ -13,9 +10,9 @@ $resultado = mysqli_query($conn,$sql);
          <th scope="col">#</th>
          <th scope="col">Titulo</th>
          <th scope="col">Autor</th>
-         <th scope="col">Data</th>
-         <th scope="col">Tag</th>
-         <th scope="col">Ação</th>
+         <th scope="col">Tags</th>
+         <th scope="col">Data de Publicação</th>
+         <th scope="col">Ações</th>
       </tr>
    </thead>
    <?php 
@@ -25,8 +22,12 @@ $resultado = mysqli_query($conn,$sql);
          <td><?php echo $dado["idArtigo"] ;?></td>
          <td><?php echo $dado["titulo"] ;?></td>
          <td><?php echo $dado["autor"] ;?></td>
-         <td><?php echo $dado["data_publicacao"] ;?></td>
-         <td><?php echo $dado["tag"] ;?></td>
+         <td><?php echo $dado["tag"] . " " . $dado["tag2"] . " " . $dado["tag3"]  ;?></td>
+         <td><?php echo date('d/m/Y',strtotime($dado["data_publicacao"]));?></td>
+         <td>
+            <?php echo "<a href='../Excluir/excluirArtigo.php?idArtigo=" . $dado["idArtigo"] . "'> "?>
+            <i class="fas fa-trash-alt"></i> <?php echo "</a>";?>   
+         </td>
          
    </tbody>
    <?php
@@ -34,5 +35,4 @@ $resultado = mysqli_query($conn,$sql);
       ?>
 </table>
 </div>
-<!--Fim tabela de artigos-->
 
