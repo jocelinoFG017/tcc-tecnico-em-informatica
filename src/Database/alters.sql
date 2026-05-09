@@ -1,0 +1,2 @@
+ALTER TABLE artigo
+ADD COLUMN sobreAutor TEXT;

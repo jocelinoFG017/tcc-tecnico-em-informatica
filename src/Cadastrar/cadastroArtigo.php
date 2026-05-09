@@ -16,9 +16,9 @@ if (isset($_POST['cadastrar'])) {
     if (!empty($foto["name"])) {
         
         // Largura máxima em pixels
-        $largura = 400;
+        $largura = 500;
         // Altura máxima em pixels
-        $altura = 400;
+        $altura = 500;
         // Tamanho máximo do arquivo em bytes
         $tamanho = 100000;
 

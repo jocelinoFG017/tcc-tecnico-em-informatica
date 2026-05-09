@@ -1,5 +1,5 @@
 <?php
-	$servidor = "db";
+	$servidor = "banco-tcc-informatica";
 	$usuario = "admin";
 	$senha = "123456";
 	$dbname = "tccjocelino";
