@@ -184,9 +184,28 @@ CREATE TABLE pedido_item (
 );
 
 
+-- ALTERS
+
+ALTER TABLE artigo
+ADD COLUMN hora_publicacao TIME NOT NULL DEFAULT CURRENT_TIME,
+ADD COLUMN tag2 VARCHAR(45) NULL,
+ADD COLUMN tag3 VARCHAR(45) NULL,
+ADD COLUMN foto VARCHAR(255) NULL;
+
+ALTER TABLE artigo
+MODIFY COLUMN data_publicacao DATE NOT NULL DEFAULT (CURRENT_DATE),
+MODIFY COLUMN hora_publicacao TIME NOT NULL DEFAULT (CURRENT_TIME);
+
+ALTER TABLE artigo
+ADD COLUMN sobreAutor TEXT;
+
+
+alter table usuario
+add column dataCadastro DATETIME DEFAULT CURRENT_TIMESTAMP;
+
 -- -----------------------------------------------------
 -- POPULANDO tabela nivelacesso
---------------------------------------------------------
+-- -----------------------------------------------------
 
 insert into nivelacesso(idNivelAcesso, cargo)
 values 
@@ -195,7 +214,7 @@ values
 
 -- -----------------------------------------------------
 -- POPULANDO tabela Usuario
---------------------------------------------------------
+-- -----------------------------------------------------
 INSERT INTO usuario (nome, login, senha, fk_idNivelAcesso)
 VALUES 
   ('administrador', 'admin@admin.com.br', md5('1234'), 1),
@@ -206,7 +225,7 @@ VALUES
 
 -- -----------------------------------------------------
 -- POPULANDO tabela Pais
---------------------------------------------------------
+-- -----------------------------------------------------
 INSERT INTO pais (nome)
 VALUES
   ('Brasil'),
@@ -215,7 +234,7 @@ VALUES
 
 -- -----------------------------------------------------
 -- POPULANDO tabela Categoria
---------------------------------------------------------
+-- -----------------------------------------------------
 INSERT INTO categoria (nome, descricao)
 VALUES
   ('Cães', 'Produtos para cães'),
@@ -230,7 +249,7 @@ VALUES
 
 -- -----------------------------------------------------
 -- POPULANDO tabela Tipo
---------------------------------------------------------
+-- -----------------------------------------------------
 INSERT INTO tipo (nome, descricao)
 VALUES
   ('Racao', 'Rações para cães, gatos, peixes e roedores'),
@@ -246,7 +265,7 @@ VALUES
 
 -- -----------------------------------------------------
 -- POPULANDO tabela Estado
---------------------------------------------------------
+-- -----------------------------------------------------
 INSERT INTO estado (nome, uf, fk_idPais) VALUES
 ('Acre','AC',1),
 ('Alagoas','AL',1),
@@ -278,7 +297,7 @@ INSERT INTO estado (nome, uf, fk_idPais) VALUES
 
 -- -----------------------------------------------------
 -- POPULANDO tabela Cidade
---------------------------------------------------------
+-- -----------------------------------------------------
 INSERT INTO cidade (nome, fk_idEstado) VALUES
 ('Uruguaiana',21),
 ('Porto Alegre',21),
@@ -313,7 +332,7 @@ INSERT INTO cidade (nome, fk_idEstado) VALUES
 
 -- -----------------------------------------------------
 -- POPULANDO tabela Endereco
---------------------------------------------------------
+-- -----------------------------------------------------
 INSERT INTO endereco (bairro, rua, numero, telefone, fk_idCidade)
 VALUES
 ('Onedo Carvalho','Mariquita',2312,55991514169,1),
@@ -321,7 +340,7 @@ VALUES
 
 -- -----------------------------------------------------
 -- POPULANDO tabela Produto
---------------------------------------------------------
+-- -----------------------------------------------------
 INSERT INTO produto (nome, descricao, marca, quantidade, preco, foto, fk_idCategoria, fk_idTipo)
 VALUES
 ('Racao Pedigree','Racao para cachorros','Pedigree',5,24.99,'939dd63bebed93eef687566b8a28aa1e.jpg',1,1),
@@ -335,24 +354,7 @@ VALUES
 
 -- -----------------------------------------------------
 -- POPULANDO tabela Artigo
---------------------------------------------------------
+-- -----------------------------------------------------
 INSERT INTO artigo (titulo, texto, autor, data_publicacao, tag, sobreAutor)
 VALUES
 ('O destino dos cães', 'Os cães nascem para encontrar seu elo perdido', 'Jocelino F.G','2020-12-12','Gatos','Nascido no RS');
-
-ALTER TABLE artigo
-ADD COLUMN hora_publicacao TIME NOT NULL DEFAULT CURRENT_TIME,
-ADD COLUMN tag2 VARCHAR(45) NULL,
-ADD COLUMN tag3 VARCHAR(45) NULL,
-ADD COLUMN foto VARCHAR(255) NULL;
-
-ALTER TABLE artigo
-MODIFY COLUMN data_publicacao DATE NOT NULL DEFAULT (CURRENT_DATE),
-MODIFY COLUMN hora_publicacao TIME NOT NULL DEFAULT (CURRENT_TIME);
-
-ALTER TABLE artigo
-ADD COLUMN sobreAutor TEXT;
-
-
-alter table usuario
-add column dataCadastro DATETIME DEFAULT CURRENT_TIMESTAMP;

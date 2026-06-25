@@ -30,6 +30,7 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
+      - ./src/Database/tccjocelino.sql:/docker-entrypoint-initdb.d/tccjocelino.sql
     restart: always
 
   phpmyadmin:
