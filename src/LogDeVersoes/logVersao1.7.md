@@ -1,30 +1,30 @@
-Sobre a atualização 1.6 (v1.6)
+# Sobre a atualização 1.6 (v1.6)
 
-🗄️ BASE DE DADOS
+### 🗄️ BASE DE DADOS
     Adição da imagem do phpmyadmin ao docker
     Otimização dos alters e inserts no arquivo tccjocelino.sql
     Adição de criação do banco e tabelas ao subir o container pela 1ª vez
 
-📂 PÁGINAS/PASTAS ATUALIZADAS
+### 📂 PÁGINAS/PASTAS ATUALIZADAS
 
     N/A
 
-📊 DASHBOARD
+### 📊 DASHBOARD
     Refatoração nos estilos e no código para o Bootstrap 5 nas páginas de endereço, produtos, usuários e artigos
     Refatoração nos estilos e no código de sidebar e headerdash para Bootstrap 5
     Correção e Refatoração do modal de excluir usuário
     Correção e Refatoração do modal de editar usuário
     Correção do select de nível de acesso no modal de editar usuário(não trazia o valor, ficava em branco)
 
-🔑 SISTEMA DE CADASTRO E LOGIN
+### 🔑 SISTEMA DE CADASTRO E LOGIN
 
     N/A
 
-⚙️ OUTROS | OTHERS
+### ⚙️ OUTROS | OTHERS
 
     N/A
 
-🐞 Bugs/Inconsistências Relatados
+### 🐞 Bugs/Inconsistências Relatados
 
     CkEditor adicionado ao projeto (ainda não funcional).
     Necessário criar uma tela para o usuário normal, atualmente qualquer um cadastrado pode acessar o SISTEMA
@@ -32,21 +32,15 @@ Sobre a atualização 1.6 (v1.6)
     Área do Blog precisa de uma atenção especial.
     Por padrão todo usuário cadastrado é do nivel 2(usuario comum)
     Ver mais no carrosel não redireciona para lugar nenhum.
+    - Crie um conta não está funcional
+    
 
-✅ Bugs/Inconsistências Corrigidos na versão atual
+### ✅ Bugs/Inconsistências Corrigidos na versão atual
 
-    N/A
 
-🚀 Melhorias previstas na próxima versão
 
-    Sistema de níveis de acesso ao usuários, com acesso a telas diferentes dependendo do seu grau de autorização dentro do sistema.
-    Finalização do Remake do modelo.mwb.
-    Adicionar carteirinha digital de vacinação
-    Estados terem sigla, e nos relatórios pegar a sigla
-    Formulário de Login animado
-    Logar com o google
-    Formulário de contato funcional
-    Sistema de busca funcional
-    Sistema de filtros funcionais
-    Sistema de blog funcional
-    Sistema de carrinho funcional
+### 🚀 Melhorias previstas na próxima versão
+
+- Adicionar carteirinha digital de vacinação para pets
+- Formulário de Login animado  
+- Sistema de filtros funcionais
