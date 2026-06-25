@@ -9,45 +9,52 @@ $resultado = mysqli_query($conn, $sql);
 ?>
 
 <div class="table-responsive">
-    <table class="mb-0 table table-striped table-hover">
-        <thead class="thead-dark">
+    <table class="table table-striped table-hover align-middle">
+
+        <thead class="table-dark">
             <tr>
-                <th scope="col">Nome</th>
-                <th scope="col">Login</th>
-                <th scope="col">Nível de Acesso</th>
-                <th scope="col">Ações</th>
+                <th>Nome</th>
+                <th>Login</th>
+                <th>Nível de Acesso</th>
+                <th style="width: 120px;">Ações</th>
             </tr>
         </thead>
+
         <tbody>
             <?php while ($dado = mysqli_fetch_assoc($resultado)) { ?>
                 <tr>
-                    <td><?php echo $dado["nome"]; ?></td>
-                    <td><?php echo $dado["login"]; ?></td>
-                    <td><?php echo $dado["nomeCargo"]; ?></td>
-                    <td class="d-flex gap-2">
-                        <!-- Botão editar -->
-                        <button class="btn btn-sm btn-primary btn-editar" 
-                                data-id="<?= $dado['idUsuario'] ?>" 
-                                data-nome="<?= htmlspecialchars($dado['nome'], ENT_QUOTES) ?>" 
-                                data-login="<?= htmlspecialchars($dado['login'], ENT_QUOTES) ?>" 
-                                data-nivel="<?= $dado['nomeCargo'] ?>" 
-                                data-bs-toggle="modal" 
+                    <td><?= htmlspecialchars($dado["nome"]) ?></td>
+                    <td><?= htmlspecialchars($dado["login"]) ?></td>
+                    <td><?= htmlspecialchars($dado["nomeCargo"]) ?></td>
+
+                    <td>
+                        <div class="d-flex gap-2">
+
+                            <button class="btn btn-sm btn-primary btn-editar"
+                                data-id="<?= $dado['idUsuario'] ?>"
+                                data-nome="<?= htmlspecialchars($dado['nome'], ENT_QUOTES) ?>"
+                                data-login="<?= htmlspecialchars($dado['login'], ENT_QUOTES) ?>"
+                                data-nivel="<?= htmlspecialchars($dado['nomeCargo'], ENT_QUOTES) ?>"
+                                data-bs-toggle="modal"
                                 data-bs-target="#modalEditar">
-                            <i class="fas fa-edit"></i> 
-                        </button>
 
-                        <!-- Botão excluir -->
-                        <button class="btn btn-sm btn-danger btn-excluir" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#modalExcluir" 
+                                <i class="fas fa-edit"></i>
+                            </button>
+
+                            <button class="btn btn-sm btn-danger btn-excluir"
+                                data-bs-toggle="modal"
+                                data-bs-target="#modalExcluir"
                                 data-id="<?= $dado['idUsuario']; ?>">
-                            <i class="fas fa-trash-alt"></i> 
-                        </button>
-                    </td>
 
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+
+                        </div>
+                    </td>
                 </tr>
             <?php } ?>
         </tbody>
+
     </table>
 </div>
 
