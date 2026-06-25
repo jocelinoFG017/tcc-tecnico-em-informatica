@@ -172,7 +172,7 @@ include("../Login/verificaLogin.php");
                             </div>
 
                             <div class="col-md-6">
-                                <input id="modal-senha" name="senha" class="form-control">
+                                <input id="modal-senha" name="senha" class="form-control" placeholder="Senha aqui">
                             </div>
 
                             <div class="col-md-6">
