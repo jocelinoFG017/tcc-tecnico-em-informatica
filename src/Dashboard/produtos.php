@@ -1,452 +1,149 @@
 <?php
-   session_start();
-   include("../Login/verificaLogin.php");
-   //    $imagem = $_FILES["imagem"];
-   ?>
+session_start();
+include("../Login/verificaLogin.php");
+?>
 <!doctype html>
 <html lang="pt-br">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta http-equiv="Content-Language" content="en">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-      <title>Produtos - Dash</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-      <meta name="description" content="Build whatever layout you need with our Architect framework.">
-      <meta name="msapplication-tap-highlight" content="no">
-      <link href="../Dashboard/main.css" rel="stylesheet">
-   </head>
-   <body>
-      <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-         <?php include("../templates/headerDash.php");?>
-         <div class="ui-theme-settings">
-            <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
-            <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
-            </button>
-            <div class="theme-settings__inner">
-               <div class="scrollbar-container">
-                  <div class="theme-settings__options-wrapper">
-                     <h3 class="themeoptions-heading">Layout Options
-                     </h3>
-                     <div class="p-3">
-                        <ul class="list-group">
-                           <li class="list-group-item">
-                              <div class="widget-content p-0">
-                                 <div class="widget-content-wrapper">
-                                    <div class="widget-content-left mr-3">
-                                       <div class="switch has-switch switch-container-class" data-class="fixed-header">
-                                          <div class="switch-animate switch-on">
-                                             <input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="widget-content-left">
-                                       <div class="widget-heading">Fixed Header
-                                       </div>
-                                       <div class="widget-subheading">Makes the header top fixed, always visible!
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </li>
-                           <li class="list-group-item">
-                              <div class="widget-content p-0">
-                                 <div class="widget-content-wrapper">
-                                    <div class="widget-content-left mr-3">
-                                       <div class="switch has-switch switch-container-class" data-class="fixed-sidebar">
-                                          <div class="switch-animate switch-on">
-                                             <input type="checkbox" checked data-toggle="toggle" data-onstyle="success">
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="widget-content-left">
-                                       <div class="widget-heading">Fixed Sidebar
-                                       </div>
-                                       <div class="widget-subheading">Makes the sidebar left fixed, always visible!
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </li>
-                           <li class="list-group-item">
-                              <div class="widget-content p-0">
-                                 <div class="widget-content-wrapper">
-                                    <div class="widget-content-left mr-3">
-                                       <div class="switch has-switch switch-container-class" data-class="fixed-footer">
-                                          <div class="switch-animate switch-off">
-                                             <input type="checkbox" data-toggle="toggle" data-onstyle="success">
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="widget-content-left">
-                                       <div class="widget-heading">Fixed Footer
-                                       </div>
-                                       <div class="widget-subheading">Makes the app footer bottom fixed, always visible!
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </li>
-                        </ul>
-                     </div>
-                     <h3 class="themeoptions-heading">
-                        <div>
-                           Header Options
-                        </div>
-                        <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-header-cs-class" data-class="">
-                        Restore Default
-                        </button>
-                     </h3>
-                     <div class="p-3">
-                        <ul class="list-group">
-                           <li class="list-group-item">
-                              <h5 class="pb-2">Choose Color Scheme
-                              </h5>
-                              <div class="theme-settings-swatches">
-                                 <div class="swatch-holder bg-primary switch-header-cs-class" data-class="bg-primary header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-secondary switch-header-cs-class" data-class="bg-secondary header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-success switch-header-cs-class" data-class="bg-success header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-info switch-header-cs-class" data-class="bg-info header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-warning switch-header-cs-class" data-class="bg-warning header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-danger switch-header-cs-class" data-class="bg-danger header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-light switch-header-cs-class" data-class="bg-light header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-dark switch-header-cs-class" data-class="bg-dark header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-focus switch-header-cs-class" data-class="bg-focus header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-alternate switch-header-cs-class" data-class="bg-alternate header-text-light">
-                                 </div>
-                                 <div class="divider">
-                                 </div>
-                                 <div class="swatch-holder bg-vicious-stance switch-header-cs-class" data-class="bg-vicious-stance header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-midnight-bloom switch-header-cs-class" data-class="bg-midnight-bloom header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-night-sky switch-header-cs-class" data-class="bg-night-sky header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-slick-carbon switch-header-cs-class" data-class="bg-slick-carbon header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-asteroid switch-header-cs-class" data-class="bg-asteroid header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-royal switch-header-cs-class" data-class="bg-royal header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-warm-flame switch-header-cs-class" data-class="bg-warm-flame header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-night-fade switch-header-cs-class" data-class="bg-night-fade header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-sunny-morning switch-header-cs-class" data-class="bg-sunny-morning header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-tempting-azure switch-header-cs-class" data-class="bg-tempting-azure header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-amy-crisp switch-header-cs-class" data-class="bg-amy-crisp header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-heavy-rain switch-header-cs-class" data-class="bg-heavy-rain header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-mean-fruit switch-header-cs-class" data-class="bg-mean-fruit header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-malibu-beach switch-header-cs-class" data-class="bg-malibu-beach header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-deep-blue switch-header-cs-class" data-class="bg-deep-blue header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-ripe-malin switch-header-cs-class" data-class="bg-ripe-malin header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-arielle-smile switch-header-cs-class" data-class="bg-arielle-smile header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-plum-plate switch-header-cs-class" data-class="bg-plum-plate header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-happy-fisher switch-header-cs-class" data-class="bg-happy-fisher header-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-happy-itmeo switch-header-cs-class" data-class="bg-happy-itmeo header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-mixed-hopes switch-header-cs-class" data-class="bg-mixed-hopes header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-strong-bliss switch-header-cs-class" data-class="bg-strong-bliss header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-grow-early switch-header-cs-class" data-class="bg-grow-early header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-love-kiss switch-header-cs-class" data-class="bg-love-kiss header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-premium-dark switch-header-cs-class" data-class="bg-premium-dark header-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-happy-green switch-header-cs-class" data-class="bg-happy-green header-text-light">
-                                 </div>
-                              </div>
-                           </li>
-                        </ul>
-                     </div>
-                     <h3 class="themeoptions-heading">
-                        <div>Sidebar Options</div>
-                        <button type="button" class="btn-pill btn-shadow btn-wide ml-auto btn btn-focus btn-sm switch-sidebar-cs-class" data-class="">
-                        Restore Default
-                        </button>
-                     </h3>
-                     <div class="p-3">
-                        <ul class="list-group">
-                           <li class="list-group-item">
-                              <h5 class="pb-2">Choose Color Scheme
-                              </h5>
-                              <div class="theme-settings-swatches">
-                                 <div class="swatch-holder bg-primary switch-sidebar-cs-class" data-class="bg-primary sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-secondary switch-sidebar-cs-class" data-class="bg-secondary sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-success switch-sidebar-cs-class" data-class="bg-success sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-info switch-sidebar-cs-class" data-class="bg-info sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-warning switch-sidebar-cs-class" data-class="bg-warning sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-danger switch-sidebar-cs-class" data-class="bg-danger sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-light switch-sidebar-cs-class" data-class="bg-light sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-dark switch-sidebar-cs-class" data-class="bg-dark sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-focus switch-sidebar-cs-class" data-class="bg-focus sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-alternate switch-sidebar-cs-class" data-class="bg-alternate sidebar-text-light">
-                                 </div>
-                                 <div class="divider">
-                                 </div>
-                                 <div class="swatch-holder bg-vicious-stance switch-sidebar-cs-class" data-class="bg-vicious-stance sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-midnight-bloom switch-sidebar-cs-class" data-class="bg-midnight-bloom sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-night-sky switch-sidebar-cs-class" data-class="bg-night-sky sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-slick-carbon switch-sidebar-cs-class" data-class="bg-slick-carbon sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-asteroid switch-sidebar-cs-class" data-class="bg-asteroid sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-royal switch-sidebar-cs-class" data-class="bg-royal sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-warm-flame switch-sidebar-cs-class" data-class="bg-warm-flame sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-night-fade switch-sidebar-cs-class" data-class="bg-night-fade sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-sunny-morning switch-sidebar-cs-class" data-class="bg-sunny-morning sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-tempting-azure switch-sidebar-cs-class" data-class="bg-tempting-azure sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-amy-crisp switch-sidebar-cs-class" data-class="bg-amy-crisp sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-heavy-rain switch-sidebar-cs-class" data-class="bg-heavy-rain sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-mean-fruit switch-sidebar-cs-class" data-class="bg-mean-fruit sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-malibu-beach switch-sidebar-cs-class" data-class="bg-malibu-beach sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-deep-blue switch-sidebar-cs-class" data-class="bg-deep-blue sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-ripe-malin switch-sidebar-cs-class" data-class="bg-ripe-malin sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-arielle-smile switch-sidebar-cs-class" data-class="bg-arielle-smile sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-plum-plate switch-sidebar-cs-class" data-class="bg-plum-plate sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-happy-fisher switch-sidebar-cs-class" data-class="bg-happy-fisher sidebar-text-dark">
-                                 </div>
-                                 <div class="swatch-holder bg-happy-itmeo switch-sidebar-cs-class" data-class="bg-happy-itmeo sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-mixed-hopes switch-sidebar-cs-class" data-class="bg-mixed-hopes sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-strong-bliss switch-sidebar-cs-class" data-class="bg-strong-bliss sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-grow-early switch-sidebar-cs-class" data-class="bg-grow-early sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-love-kiss switch-sidebar-cs-class" data-class="bg-love-kiss sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-premium-dark switch-sidebar-cs-class" data-class="bg-premium-dark sidebar-text-light">
-                                 </div>
-                                 <div class="swatch-holder bg-happy-green switch-sidebar-cs-class" data-class="bg-happy-green sidebar-text-light">
-                                 </div>
-                              </div>
-                           </li>
-                        </ul>
-                     </div>
-                     <h3 class="themeoptions-heading">
-                        <div>Main Content Options</div>
-                        <button type="button" class="btn-pill btn-shadow btn-wide ml-auto active btn btn-focus btn-sm">Restore Default
-                        </button>
-                     </h3>
-                     <div class="p-3">
-                        <ul class="list-group">
-                           <li class="list-group-item">
-                              <h5 class="pb-2">Page Section Tabs
-                              </h5>
-                              <div class="theme-settings-swatches">
-                                 <div role="group" class="mt-2 btn-group">
-                                    <button type="button" class="btn-wide btn-shadow btn-primary btn btn-secondary switch-theme-class" data-class="body-tabs-line">
-                                    Line
-                                    </button>
-                                    <button type="button" class="btn-wide btn-shadow btn-primary active btn btn-secondary switch-theme-class" data-class="body-tabs-shadow">
-                                    Shadow
-                                    </button>
-                                 </div>
-                              </div>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="app-main">
-            <div class="app-sidebar sidebar-shadow">
-               <div class="app-header__logo">
-                  <div class="logo-src"></div>
-                  <div class="header__pane ml-auto">
-                     <div>
-                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                        <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                        </span>
-                        </button>
-                     </div>
-                  </div>
-               </div>
-               <div class="app-header__mobile-menu">
-                  <div>
-                     <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
-                     <span class="hamburger-box">
-                     <span class="hamburger-inner"></span>
-                     </span>
-                     </button>
-                  </div>
-               </div>
-               <div class="app-header__menu">
-                  <span>
-                  <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                  <span class="btn-icon-wrapper">
-                  <i class="fa fa-ellipsis-v fa-w-6"></i>
-                  </span>
-                  </button>
-                  </span>
-               </div>
-               <?php include("Sidebar/sidebar.php");?>
-            </div>
-            <div class="app-main__outer">
-               <div class="app-main__inner">
-                  <div class="app-page-title">
-                     <div class="page-title-wrapper">
-                        <div class="page-title-heading">
-                           <div class="page-title-icon">
-                              <i class="pe-7s-box2 text-success">
-                              </i>
-                           </div>
-                           <div>
-                              Formulário de cadastro de Produtos
-                              <div class="page-title-subheading">Visualize e cadastre novos produtos aqui.</div>
-                           </div>
-                        </div>
-                        <div class="page-title-actions">
-                           <div class="d-inline-block dropdown">
-                              <a href="../pdfs/produtopdf.php">
-                              <button type="button" aria-haspopup="true" aria-expanded="false" class="btn-shadow btn btn-info">
-                              <span class="btn-icon-wrapper pr-2 opacity-7">
-                              <i class="fas fa-file-pdf"></i>
-                              </span>PDF
-                              </button></a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
-                     <li class="nav-item">
-                        <a role="tab" class="nav-link active" id="tab-0" data-toggle="tab" href="#tab-content-0">
-                        <span>Listar Produtos</span>
-                        </a>
-                     </li>
-                     <li class="nav-item">
-                        <a role="tab" class="nav-link" id="tab-1" data-toggle="tab" href="#tab-content-1">
-                        <span>ADD Novo Produto</span>
-                        </a>
-                     </li>
-                  </ul>
-                  <div class="tab-content">
-                     <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
-                        <div class="main-card mb-3 card">
-                           <div class="card-body">
-                              <h5 class="card-title">Tabela de Produtos</h5>
-                              <div class="col-lg-12">
-                                 <?php include("../Listar/tabelaProduto.php");?>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
-                        <div class="main-card mb-3 card">
-                           <div class="card-body">
-                              <h5 class="card-title">Formulário de Cadastro de Produtos</h5>
-                              <?php
-                                 if(isset($_SESSION['statusCadastro'])):
-                                 ?>
-                              <div class="notification is-danger">
-                                 <p>Cadastro efetuado</p>
-                              </div>
-                              <?php
-                                 endif;
-                                 unset($_SESSION['statusCadastro']);
-                                 ?>
-                              <!-- asdasd-->
-                              <?php
-                                 if(isset($_SESSION['usuarioExiste'])):
-                                 ?>
-                              <div class="notification is-danger">
-                                 <p>ERRO: login já existe</p>
-                              </div>
-                              <?php
-                                 endif;
-                                 unset($_SESSION['usuarioExiste']);
-                                 ?>
-                              <form action="../Cadastrar/cadastroProduto.php" method="POST"  enctype="multipart/form-data" name="cadastroProduto" >
-                                 <div class="position-relative row form-group">
-                                    <label for="exampleEmail" class="col-sm-2 col-form-label">Nome</label>
-                                    <div class="col-sm-10"><input required name="nome" placeholder="Informe o nome do produto" type="text" class="form-control"></div>
-                                 </div>
-                                 <div class="position-relative row form-group">
-                                    <label for="exampleEmail" class="col-sm-2 col-form-label">Descricao</label>
-                                    <div class="col-sm-10"><input required name="descricao" placeholder="Informe a descrição do produto" type="text" class="form-control"></div>
-                                 </div>
-                                 <div class="position-relative row form-group">
-                                    <label for="exampleEmail" class="col-sm-2 col-form-label">Marca</label>
-                                    <div class="col-sm-10"><input required name="marca" placeholder="Informe a marca do produto" type="text" class="form-control"></div>
-                                 </div>
-                                 <div class="position-relative row form-group">
-                                    <label for="exampleEmail" class="col-sm-2 col-form-label">Quantidade</label>
-                                    <div class="col-sm-10"><input required name="quantidade" placeholder="Informe a quantidade" type="text" class="form-control"></div>
-                                 </div>
-                                 <div class="position-relative row form-group">
-                                    <label for="exampleEmail" class="col-sm-2 col-form-label">Preço</label>
-                                    <div class="col-sm-10"><input required name="preco" placeholder="Informe o preço" type="text" class="form-control"></div>
-                                 </div>
-                                 <div class="position-relative row form-group ">
-                                    <label for="exampleFile" class="col-sm-2 col-form-label">Imagem</label>
-                                    <div class="col-sm-10"><input name="foto" id="foto" type="file" class="form-control-file">
-                                       <small class="form-text text-muted ">Procure e anexe a imagem aqui</small>
-                                    </div>
-                                 </div>
-                                 <div class="position-relative row form-check">
-                                    <div class="col-sm-10 offset-sm-2">
-                                       <input type="submit" name="cadastrar" value="Cadastrar" />
-                                    </div>
-                                 </div>
-                              </form>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Dashboard - Produtos</title>
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+   <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <!-- HEADER -->
+   <?php include("../templates/headerDash_r.php"); ?>
+
+   <div class="d-flex">
+
+      <!-- SIDEBAR -->
+      <div id="sidebar">
+         <?php include("Sidebar/sidebar_r.php"); ?>
       </div>
-      <script type="text/javascript" src="../Dashboard/assets/scripts/main.js"></script>
-   </body>
+
+      <!-- CONTEÚDO -->
+      <div id="content" class="content flex-grow-1">
+
+         <!-- HEADER DA PÁGINA -->
+         <div class="p-3 border-bottom bg-light d-flex justify-content-between align-items-center">
+            <div>
+               <h4 class="mb-0 d-flex align-items-center gap-2">
+                  <i class="fa-solid fa-box text-primary"></i>
+                  Formulário de cadastro de produtos
+               </h4>
+               <small class="text-muted">Visualize e cadastre novos produtos aqui.</small>
+            </div>
+
+            <a href="../pdfs/produtopdf.php" target="_blank" class="btn btn-info">
+               <i class="fas fa-file-pdf me-1"></i> PDF
+            </a>
+         </div>
+
+         <!-- TABS -->
+         <ul class="nav nav-tabs px-3 mt-3">
+            <li class="nav-item">
+               <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#listar">
+                  Listar Produtos
+               </button>
+            </li>
+
+            <li class="nav-item">
+               <button class="nav-link" data-bs-toggle="tab" data-bs-target="#add">
+                  Adicionar Produto
+               </button>
+            </li>
+         </ul>
+
+         <!-- CONTEÚDO TABS -->
+         <div class="tab-content p-3">
+
+            <!-- LISTAR -->
+            <div class="tab-pane fade show active" id="listar">
+               <div class="card">
+                  <div class="card-body">
+                     <h5 class="card-title">Tabela de Produtos</h5>
+
+                     <?php include("../Listar/tabelaProduto.php"); ?>
+                  </div>
+               </div>
+            </div>
+
+            <!-- FORM -->
+            <div class="tab-pane fade" id="add">
+               <div class="card">
+                  <div class="card-body">
+
+                     <h5 class="card-title">Cadastro de Produtos</h5>
+
+                     <?php if (isset($_SESSION['statusCadastro'])): ?>
+                        <div class="alert alert-success">Cadastro efetuado</div>
+                     <?php unset($_SESSION['statusCadastro']);
+                     endif; ?>
+
+                     <?php if (isset($_SESSION['usuarioExiste'])): ?>
+                        <div class="alert alert-danger">Erro: já existe</div>
+                     <?php unset($_SESSION['usuarioExiste']);
+                     endif; ?>
+
+                     <form action="../Cadastrar/cadastroProduto.php" method="POST" enctype="multipart/form-data">
+
+                        <div class="mb-3">
+                           <label class="form-label">Nome</label>
+                           <input name="nome" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                           <label class="form-label">Descrição</label>
+                           <input name="descricao" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                           <label class="form-label">Marca</label>
+                           <input name="marca" class="form-control" required>
+                        </div>
+
+                        <div class="row">
+                           <div class="col-md-6 mb-3">
+                              <label class="form-label">Quantidade</label>
+                              <input name="quantidade" class="form-control" required>
+                           </div>
+
+                           <div class="col-md-6 mb-3">
+                              <label class="form-label">Preço</label>
+                              <input name="preco" class="form-control" required>
+                           </div>
+                        </div>
+
+                        <div class="mb-3">
+                           <label class="form-label">Imagem</label>
+                           <input type="file" name="foto" class="form-control">
+                           <small class="text-muted">Envie a imagem do produto</small>
+                        </div>
+
+                        <button class="btn btn-primary">
+                           Cadastrar
+                        </button>
+
+                     </form>
+
+                  </div>
+               </div>
+            </div>
+
+         </div>
+
+      </div>
+
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
 </html>

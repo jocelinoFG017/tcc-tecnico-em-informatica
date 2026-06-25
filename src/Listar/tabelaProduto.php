@@ -1,43 +1,49 @@
 <?php
 include("../conexao/conexao.php");
-// consulta varias linhas
-$sql = "SELECT * FROM produto";
-$resultado = mysqli_query($conn,$sql);
 
-//$con = $mysqli->query($consulta) or die($mysqli->error);
+$sql = "SELECT * FROM produto";
+$resultado = mysqli_query($conn, $sql);
 ?>
+
 <div class="table-responsive">
-<table class="table">
-   <thead class="thead-dark">
-      <tr>
-         <th scope="col">#</th>
-         <th scope="col">Nome</th>
-         <th scope="col">Descrição</th>
-         <th scope="col">Marca</th>
-         <th scope="col">Quantidade</th>
-         <th scope="col">Preço</th>
-         <th scope="col">Ação</th>
-      </tr>
-   </thead>
-   <?php 
-      while($dado = mysqli_fetch_array($resultado)){ ?>
-   <tbody>
-      <tr>
-         <td><?php echo $dado["idProduto"] ;?></td>
-         <td><?php echo $dado["nome"] ;?></td>
-         <td><?php echo $dado["descricao"] ;?></td>
-         <td><?php echo $dado["marca"] ;?></td>
-         <td><?php echo $dado["quantidade"] ;?></td>
-         <td><p>R$ <?php echo $dado["preco"] ;?></td></p>
-         <td>
-            <?php echo "<a href='../Excluir/excluirProduto.php?idProduto=" . $dado["idProduto"] . "'> "?>
-            <i class="fas fa-trash-alt"></i> <?php echo "</a>";?>   
-         </td>
-          
-   </tbody>
-   <?php
-      }
-      ?>
-</table>
+
+    <table class="table table-striped table-hover align-middle">
+
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Marca</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <?php while ($dado = mysqli_fetch_array($resultado)) { ?>
+
+                <tr>
+                    <td><?= $dado["idProduto"] ?></td>
+                    <td><?= $dado["nome"] ?></td>
+                    <td><?= $dado["descricao"] ?></td>
+                    <td><?= $dado["marca"] ?></td>
+                    <td><?= $dado["quantidade"] ?></td>
+                    <td>R$ <?= number_format($dado["preco"], 2, ',', '.') ?></td>
+
+                    <td>
+                        <a href="../Excluir/excluirProduto.php?idProduto=<?= $dado["idProduto"] ?>"
+                           class="btn btn-sm btn-danger">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </td>
+                </tr>
+
+            <?php } ?>
+
+        </tbody>
+
+    </table>
 </div>
-<!--Fim tabela produtos-->
