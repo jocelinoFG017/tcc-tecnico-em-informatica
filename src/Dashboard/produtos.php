@@ -19,13 +19,10 @@ include("../Login/verificaLogin.php");
 
    <!-- HEADER -->
    <?php include("../templates/headerDash_r.php"); ?>
+   <!-- SIDEBAR -->
+   <?php include("Sidebar/sidebar_r.php"); ?>
 
    <div class="d-flex">
-
-      <!-- SIDEBAR -->
-      <div id="sidebar">
-         <?php include("Sidebar/sidebar_r.php"); ?>
-      </div>
 
       <!-- CONTEÚDO -->
       <div id="content" class="content flex-grow-1">
@@ -143,7 +140,28 @@ include("../Login/verificaLogin.php");
    </div>
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <script>
+      const sidebar = document.getElementById("sidebar");
+      const content = document.getElementById("content");
+      const icon = document.getElementById("iconMenu");
+      const btn = document.getElementById("toggleSidebar");
 
+      // estado inicial correto (sidebar começa ABERTO)
+      let isOpen = true;
+
+      // garante sincronização ao carregar página
+      icon.innerHTML = "☰";
+
+      btn.addEventListener("click", function() {
+
+         isOpen = !isOpen;
+
+         sidebar.classList.toggle("closed");
+         content.classList.toggle("expanded");
+
+         icon.innerHTML = isOpen ? "☰" : "✖";
+      });
+   </script>
 </body>
 
 </html>
