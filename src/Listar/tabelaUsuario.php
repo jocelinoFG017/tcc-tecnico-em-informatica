@@ -1,10 +1,14 @@
 <?php
 include("../conexao/conexao.php");
 
-$sql = "SELECT u.idUsuario, u.nome, u.login, n.cargo AS nomeCargo
+$sql = "SELECT 
+            u.idUsuario, 
+            u.nome, 
+            u.login, 
+            u.fk_idNivelAcesso,
+            n.cargo AS nomeCargo
         FROM usuario u
         LEFT JOIN nivelacesso n ON u.fk_idNivelAcesso = n.idNivelAcesso";
-        
 $resultado = mysqli_query($conn, $sql);
 ?>
 
@@ -34,7 +38,7 @@ $resultado = mysqli_query($conn, $sql);
                                 data-id="<?= $dado['idUsuario'] ?>"
                                 data-nome="<?= htmlspecialchars($dado['nome'], ENT_QUOTES) ?>"
                                 data-login="<?= htmlspecialchars($dado['login'], ENT_QUOTES) ?>"
-                                data-nivel="<?= htmlspecialchars($dado['nomeCargo'], ENT_QUOTES) ?>"
+                                data-nivel="<?= htmlspecialchars($dado['fk_idNivelAcesso'], ENT_QUOTES) ?>"
                                 data-bs-toggle="modal"
                                 data-bs-target="#modalEditar">
 
@@ -59,36 +63,36 @@ $resultado = mysqli_query($conn, $sql);
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function(){
-    var modalEl = document.getElementById('modalExcluir');
-    modalEl.addEventListener('show.bs.modal', function(event){
-        var button = event.relatedTarget; // botão que abriu o modal
-        var id = button.getAttribute('data-id');
-        var btnConfirm = document.getElementById('btnExcluirConfirmado');
-        btnConfirm.setAttribute('href', '../Excluir/excluirUsuario.php?idUsuario=' + id);
+    document.addEventListener('DOMContentLoaded', function() {
+        var modalEl = document.getElementById('modalExcluir');
+        modalEl.addEventListener('show.bs.modal', function(event) {
+            var button = event.relatedTarget; // botão que abriu o modal
+            var id = button.getAttribute('data-id');
+            var btnConfirm = document.getElementById('btnExcluirConfirmado');
+            btnConfirm.setAttribute('href', '../Excluir/excluirUsuario.php?idUsuario=' + id);
+        });
     });
-});
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    var modalEditar = document.getElementById('modalEditar');
+    document.addEventListener('DOMContentLoaded', function() {
+        var modalEditar = document.getElementById('modalEditar');
 
-    modalEditar.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget;
+        modalEditar.addEventListener('show.bs.modal', function(event) {
+            var button = event.relatedTarget;
 
-        // Dados do botão
-        var id = button.getAttribute('data-id');
-        var nome = button.getAttribute('data-nome');
-        var login = button.getAttribute('data-login');
-        var nivel = button.getAttribute('data-nivel');
+            // Dados do botão
+            var id = button.getAttribute('data-id');
+            var nome = button.getAttribute('data-nome');
+            var login = button.getAttribute('data-login');
+            var nivel = button.getAttribute('data-nivel');
 
-        // Preenche os campos do modal
-        modalEditar.querySelector('#modal-idUsuario').value = id;
-        modalEditar.querySelector('#modal-nome').value = nome;
-        modalEditar.querySelector('#modal-login').value = login;
-        modalEditar.querySelector('#modal-nivel').value = nivel;
-        modalEditar.querySelector('#modal-senha').value = '';
+            // Preenche os campos do modal
+            modalEditar.querySelector('#modal-idUsuario').value = id;
+            modalEditar.querySelector('#modal-nome').value = nome;
+            modalEditar.querySelector('#modal-login').value = login;
+            modalEditar.querySelector('#modal-nivel').value = nivel;
+            modalEditar.querySelector('#modal-senha').value = '';
+        });
     });
-});
 </script>
