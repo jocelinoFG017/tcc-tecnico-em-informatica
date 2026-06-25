@@ -36,6 +36,6 @@ Há 2 maneiras de rodar o projeto: Via Docker ou Xampp:
 4. Com o terminal aberto na pasta do projeto rode o seguinte comando: 
  
 ```sh 
-    docker-compose up -d --build
+    docker compose up -d --build
 ```
 5. Teste acessando http://localhost:8080 no navegador.
