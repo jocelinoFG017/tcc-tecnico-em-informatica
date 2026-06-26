@@ -1,32 +1,34 @@
 <?php
-   include("../Login/verificaLogin.php"); 
-   include("../conexao/conexao.php");
-   
-   // Verifica se é administrador
-   if(!isset($_SESSION['nomeNivelAcesso']) || strtolower($_SESSION['nomeNivelAcesso']) != 'administrador'){
-       header('Location: ../Login/loginIndex.php');
-       exit();
-   }
-   
-   $sql = "SELECT COUNT(*) AS total FROM usuario";
-   $result = mysqli_query($conn, $sql);
-   $totalUsuarios = mysqli_fetch_assoc($result);
-   ?>
+include("../Login/verificaLogin.php");
+include("../conexao/conexao.php");
+
+// Verifica se é administrador
+if (!isset($_SESSION['nomeNivelAcesso']) || strtolower($_SESSION['nomeNivelAcesso']) != 'administrador') {
+   header('Location: ../Login/loginIndex.php');
+   exit();
+}
+
+$sql = "SELECT COUNT(*) AS total FROM usuario";
+$result = mysqli_query($conn, $sql);
+$totalUsuarios = mysqli_fetch_assoc($result);
+?>
 <!doctype html>
 <html lang="ptbr">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta http-equiv="Content-Language" content="en">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-      <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-      <meta name="description" content="This is an example dashboard created using build-in elements and components.">
-      <meta name="msapplication-tap-highlight" content="no">
-      <link href="./main.css" rel="stylesheet">
-   </head>
-   <body>
-      <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta http-equiv="Content-Language" content="en">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+   <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+   <meta name="msapplication-tap-highlight" content="no">
+   <link href="./main.css" rel="stylesheet">
+</head>
+
+<body>
+   <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
       <?php include("../templates/headerDash.php"); ?>
       <div class="app-main">
          <div class="app-sidebar sidebar-shadow">
@@ -35,9 +37,9 @@
                <div class="header__pane ml-auto">
                   <div>
                      <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                     <span class="hamburger-box">
-                     <span class="hamburger-inner"></span>
-                     </span>
+                        <span class="hamburger-box">
+                           <span class="hamburger-inner"></span>
+                        </span>
                      </button>
                   </div>
                </div>
@@ -45,19 +47,19 @@
             <div class="app-header__mobile-menu">
                <div>
                   <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
-                  <span class="hamburger-box">
-                  <span class="hamburger-inner"></span>
-                  </span>
+                     <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                     </span>
                   </button>
                </div>
             </div>
             <div class="app-header__menu">
                <span>
-               <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-               <span class="btn-icon-wrapper">
-               <i class="fa fa-ellipsis-v fa-w-6"></i>
-               </span>
-               </button>
+                  <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                     <span class="btn-icon-wrapper">
+                        <i class="fa fa-ellipsis-v fa-w-6"></i>
+                     </span>
+                  </button>
                </span>
             </div>
             <?php include("Sidebar/sidebar.php"); ?>
@@ -79,14 +81,14 @@
                      </div>
                      <div class="page-title-actions">
                         <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
-                        <i class="fa fa-star"></i>
+                           <i class="fa fa-star"></i>
                         </button>
                         <div class="d-inline-block dropdown">
                            <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
-                           <span class="btn-icon-wrapper pr-2 opacity-7">
-                           <i class="fa fa-business-time fa-w-20"></i>
-                           </span>
-                           PDF
+                              <span class="btn-icon-wrapper pr-2 opacity-7">
+                                 <i class="fa fa-business-time fa-w-20"></i>
+                              </span>
+                              PDF
                            </button>
                         </div>
                      </div>
@@ -100,7 +102,7 @@
                               <div class="widget-heading">Total de usuários</div>
                            </div>
                            <div class="widget-content-right">
-                              <div class="widget-numbers text-white"><span> <?php echo $totalUsuarios['total'];?></span></div>
+                              <div class="widget-numbers text-white"><span> <?php echo $totalUsuarios['total']; ?></span></div>
                            </div>
                         </div>
                      </div>
@@ -187,7 +189,7 @@
                                                          <small class="opacity-5 pr-1">$</small>
                                                          <span>129</span>
                                                          <small class="text-danger pl-2">
-                                                         <i class="fa fa-angle-down"></i>
+                                                            <i class="fa fa-angle-down"></i>
                                                          </small>
                                                       </div>
                                                    </div>
@@ -209,7 +211,7 @@
                                                          <small class="opacity-5 pr-1">$</small>
                                                          <span>54</span>
                                                          <small class="text-success pl-2">
-                                                         <i class="fa fa-angle-up"></i>
+                                                            <i class="fa fa-angle-up"></i>
                                                          </small>
                                                       </div>
                                                    </div>
@@ -231,7 +233,7 @@
                                                          <small class="opacity-5 pr-1">$</small>
                                                          <span>429</span>
                                                          <small class="text-warning pl-2">
-                                                         <i class="fa fa-dot-circle"></i>
+                                                            <i class="fa fa-dot-circle"></i>
                                                          </small>
                                                       </div>
                                                    </div>
@@ -253,7 +255,7 @@
                                                          <small class="opacity-5 pr-1">$</small>
                                                          <span>129</span>
                                                          <small class="text-danger pl-2">
-                                                         <i class="fa fa-angle-down"></i>
+                                                            <i class="fa fa-angle-down"></i>
                                                          </small>
                                                       </div>
                                                    </div>
@@ -275,7 +277,7 @@
                                                          <small class="opacity-5 pr-1">$</small>
                                                          <span>54</span>
                                                          <small class="text-success pl-2">
-                                                         <i class="fa fa-angle-up"></i>
+                                                            <i class="fa fa-angle-up"></i>
                                                          </small>
                                                       </div>
                                                    </div>
@@ -478,5 +480,6 @@
          </div>
       </div>
       <script type="text/javascript" src="./assets/scripts/main.js"></script>
-   </body>
+</body>
+
 </html>
