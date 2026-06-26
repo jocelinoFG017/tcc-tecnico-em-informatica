@@ -36,7 +36,7 @@ include("../../conexao/conexao.php");
                <small class="text-muted">Visualize e cadastre novos artigos aqui.</small>
             </div>
 
-            <a href="../pdfs/enderecopdf.php" class="btn btn-info">
+            <a href="../../pdfs/enderecopdf.php" class="btn btn-info">
                <i class="fas fa-file-pdf me-1"></i> PDF
             </a>
          </div>

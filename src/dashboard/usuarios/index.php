@@ -34,7 +34,7 @@ include("../../login/verificaLogin.php");
                 <small class="text-muted">Visualize e cadastre novos usuários aqui.</small>
             </div>
 
-            <a href="../pdfs/usuariopdf.php" target="_blank" class="btn btn-info">
+            <a href="../../pdfs/usuariopdf.php" target="_blank" class="btn btn-info">
                 <i class="fas fa-file-pdf me-1"></i> PDF
             </a>
         </div>
