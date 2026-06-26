@@ -21,7 +21,7 @@ include("../Login/verificaLogin.php");
     <?php include("../templates/headerDash_r.php"); ?>
 
     <!-- SIDEBAR -->
-    <?php include("Sidebar/sidebar_r.php"); ?>
+    <?php include("Sidebar/sidebar.php"); ?>
 
     <!-- CONTEÚDO -->
     <div id="content" class="content">

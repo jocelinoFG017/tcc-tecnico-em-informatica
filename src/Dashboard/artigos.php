@@ -24,7 +24,7 @@ include("../conexao/conexao.php");
 
       <!-- SIDEBAR (PADRÃO IGUAL PRODUTOS) -->
       <div id="sidebar">
-         <?php include("Sidebar/sidebar_r.php"); ?>
+         <?php include("Sidebar/sidebar.php"); ?>
       </div>
 
       <!-- CONTEÚDO -->

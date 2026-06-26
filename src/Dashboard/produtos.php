@@ -20,7 +20,7 @@ include("../Login/verificaLogin.php");
    <!-- HEADER -->
    <?php include("../templates/headerDash_r.php"); ?>
    <!-- SIDEBAR -->
-   <?php include("Sidebar/sidebar_r.php"); ?>
+   <?php include("Sidebar/sidebar.php"); ?>
 
    <div class="d-flex">
 

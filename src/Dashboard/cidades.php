@@ -19,7 +19,7 @@ include("../conexao/conexao.php");
 <body>
 
 <?php include("../templates/headerDash_r.php"); ?>
-<?php include("Sidebar/sidebar_r.php"); ?>
+<?php include("Sidebar/sidebar.php"); ?>
 
 <div id="content" class="content">
 

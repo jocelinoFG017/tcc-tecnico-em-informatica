@@ -23,7 +23,7 @@ include("../conexao/conexao.php");
 <?php include("../templates/headerDash_r.php"); ?>
 
 <!-- SIDEBAR -->
-<?php include("Sidebar/sidebar_r.php"); ?>
+<?php include("Sidebar/sidebar.php"); ?>
 
 <div class="d-flex">
 
