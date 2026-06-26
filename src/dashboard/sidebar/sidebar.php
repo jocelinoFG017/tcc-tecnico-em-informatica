@@ -74,7 +74,7 @@
         </li>
 
         <li class="nav-item">
-            <a href="./produtos.php" class="nav-link text-white">
+            <a href="/dashboard/produtos/index.php" class="nav-link text-white">
                 <i class="fa-solid fa-box"></i>
                 <span class="text-label">Produtos</span>
             </a>
