@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../Login/verificaLogin.php");
+include("../login/verificaLogin.php");
 include("../conexao/conexao.php");
 ?>
 <!doctype html>
@@ -21,7 +21,7 @@ include("../conexao/conexao.php");
    <?php include("../templates/headerDash.php"); ?>
 
    <div class="d-flex">
-      <?php include("Sidebar/sidebar.php"); ?>
+      <?php include("sidebar/sidebar.php"); ?>
 
       <!-- CONTEÚDO -->
       <div id="content" class="content flex-grow-1">
@@ -63,7 +63,7 @@ include("../conexao/conexao.php");
                <div class="card">
                   <div class="card-body">
                      <h5 class="card-title">Tabela de Artigos</h5>
-                     <?php include("../Listar/tabelaArtigo.php"); ?>
+                     <?php include("../listar/tabelaArtigo.php"); ?>
                   </div>
                </div>
             </div>

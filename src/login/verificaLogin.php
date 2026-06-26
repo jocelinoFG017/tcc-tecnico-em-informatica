@@ -4,7 +4,7 @@ if(session_status() == PHP_SESSION_NONE){
 }
 
 if(!isset($_SESSION['login']) || empty($_SESSION['login'])){
-    header('Location: ../Login/loginIndex.php');
+    header('Location: ../login/loginIndex.php');
     exit();
 }
 ?>

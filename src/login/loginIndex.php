@@ -53,7 +53,7 @@
                 
 
                   <p class="text-center mt-3 message">
-                     Não está cadastrado? <a href="../Listar/criarConta.php">Crie uma conta</a>
+                     Não está cadastrado? <a href="../listar/criarConta.php">Crie uma conta</a>
                   </p>
                </form>
                <!-- Final Formulário -->

@@ -4,7 +4,7 @@ include("../conexao/conexao.php");
 
 // Verifica se usuário está logado
 if(!isset($_SESSION['idUsuario'])){
-    header("Location: ../Login/loginIndex.php");
+    header("Location: ../login/loginIndex.php");
     exit();
 }
 
@@ -191,7 +191,7 @@ if(isset($_POST['atualizar'])){
                 <?php if(count($itensCarrinho) > 0): ?>
                     <a href="../loja/checkout.php" class="btn btn-success w-100 mt-3">Finalizar Compra</a>
                 <?php endif; ?>
-                <a href="../Listar/produtoLista.php" class="btn btn-secondary w-100 mt-2">Continuar Comprando</a>
+                <a href="../listar/produtoLista.php" class="btn btn-secondary w-100 mt-2">Continuar Comprando</a>
             </div>
         </div>
     </div>

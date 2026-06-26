@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../Login/verificaLogin.php");
+include("../login/verificaLogin.php");
 include("../conexao/conexao.php");
 ?>
 <!doctype html>
@@ -19,7 +19,7 @@ include("../conexao/conexao.php");
 <body>
 
    <?php include("../templates/headerDash.php"); ?>
-   <?php include("Sidebar/sidebar.php"); ?>
+   <?php include("sidebar/sidebar.php"); ?>
 
    <div id="content" class="content">
 
@@ -61,7 +61,7 @@ include("../conexao/conexao.php");
                <div class="card-body">
                   <h5 class="card-title">Tabela de Cidades</h5>
 
-                  <?php include("../Listar/tabelas/tabelaCidade.php"); ?>
+                  <?php include("../listar/tabelas/tabelaCidade.php"); ?>
                </div>
             </div>
          </div>

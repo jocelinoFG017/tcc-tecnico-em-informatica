@@ -3,7 +3,7 @@ session_start();
 include("../conexao/conexao.php");
 
 if (empty($_POST['login']) || empty($_POST['senha'])) {
-    header('Location: ../Login/loginIndex.php');
+    header('Location: ../login/loginIndex.php');
     exit();
 }
 
@@ -45,7 +45,7 @@ if (mysqli_num_rows($result) == 1) {
 
 } else {
     $_SESSION['naoAutenticado'] = true;
-    header('Location: ../Login/loginIndex.php');
+    header('Location: ../login/loginIndex.php');
     exit();
 }
 ?>

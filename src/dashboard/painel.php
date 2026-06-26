@@ -1,10 +1,10 @@
 <?php
-include("../Login/verificaLogin.php");
+include("../login/verificaLogin.php");
 include("../conexao/conexao.php");
 
 // Verifica se é administrador
 if (!isset($_SESSION['nomeNivelAcesso']) || strtolower($_SESSION['nomeNivelAcesso']) != 'administrador') {
-    header('Location: ../Login/loginIndex.php');
+    header('Location: ../login/loginIndex.php');
     exit();
 }
 
@@ -27,7 +27,7 @@ $totalUsuarios = mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="styles.css">
 </head>
 <?php include("../templates/headerDash.php"); ?>
-<?php include("Sidebar/sidebar.php"); ?>
+<?php include("sidebar/sidebar.php"); ?>
 
 <div id="content" class="content">
 

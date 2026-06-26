@@ -28,7 +28,8 @@
 
 ### ⚙️ OUTROS | OTHERS
 
-    N/A
+    Adiciona padrão ao nome de pastas
+    Corrigido os links quebrados pela adição do padrão de nomes de pastas
 
 ### 🐞 Bugs/Inconsistências Relatados
 

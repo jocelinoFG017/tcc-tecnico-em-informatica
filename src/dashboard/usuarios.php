@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../Login/verificaLogin.php");
+include("../login/verificaLogin.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,7 +21,7 @@ include("../Login/verificaLogin.php");
     <?php include("../templates/headerDash.php"); ?>
 
     <!-- SIDEBAR -->
-    <?php include("Sidebar/sidebar.php"); ?>
+    <?php include("sidebar/sidebar.php"); ?>
 
     <!-- CONTEÚDO -->
     <div id="content" class="content">
@@ -58,7 +58,7 @@ include("../Login/verificaLogin.php");
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Tabela de Usuários</h5>
-                        <?php include("../Listar/tabelaUsuario.php"); ?>
+                        <?php include("../listar/tabelaUsuario.php"); ?>
                     </div>
                 </div>
             </div>

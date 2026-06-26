@@ -82,8 +82,8 @@ session_start(); // inicia a sessão para verificar login
                 $sql_produtos = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto DESC LIMIT 0,8");
                 while ($produto = mysqli_fetch_object($sql_produtos)):
                     $adicionar_link = isset($_SESSION['idUsuario'])
-                        ? "../Listar/carrinho.php?add={$produto->idProduto}"
-                        : "../Login/loginIndex.php";
+                        ? "../listar/carrinho.php?add={$produto->idProduto}"
+                        : "../login/loginIndex.php";
                 ?>
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="card h-100 shadow-sm">
@@ -91,7 +91,7 @@ session_start(); // inicia a sessão para verificar login
                             <div class="card-body text-center d-flex flex-column">
                                 <h6 class="card-title"><?= $produto->nome ?></h6>
                                 <p class="fw-bold mb-3">R$ <?= number_format($produto->preco, 2, ",", ".") ?></p>
-                                <a href="../Listar/produtoDetalhes.php?add=<?= $produto->idProduto ?>" class="btn btn-outline-primary btn-sm mb-2">Detalhes</a>
+                                <a href="../listar/produtoDetalhes.php?add=<?= $produto->idProduto ?>" class="btn btn-outline-primary btn-sm mb-2">Detalhes</a>
                                 <a href="<?= $adicionar_link ?>" class="btn btn-warning mt-auto">
                                     <?= isset($_SESSION['idUsuario']) ? 'Adicionar ao Carrinho' : 'Login para Comprar' ?>
                                 </a>

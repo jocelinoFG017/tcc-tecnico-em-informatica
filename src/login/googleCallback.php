@@ -56,7 +56,7 @@ if (!isset($_GET['code'])) {
 
     // Redireciona conforme nível
     if($fkNivel == 1){
-        header('Location: ../Dashboard/painel.php');
+        header('Location: ../dashboard/painel.php');
     } else {
         header('Location: ../loja/minhaConta.php');
     }

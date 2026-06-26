@@ -20,23 +20,23 @@
                             Início
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="homeDropdown">
-                            <li><a class="dropdown-item" href="../Listar/produtoLista.php">Produtos</a></li>
+                            <li><a class="dropdown-item" href="../listar/produtoLista.php">Produtos</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="../pages/blog.php">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pages/sobre.php">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../Listar/contato.php">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../listar/contato.php">Contato</a></li>
                 </ul>
 
                 <!-- Menu à direita -->
                 <ul class="navbar-nav ms-auto">
                     <?php if (isset($_SESSION['idUsuario'])): ?>
                         <!-- Usuário logado -->
-                        <li class="nav-item"><a class="nav-link" href="../Listar/carrinho.php"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../listar/carrinho.php"><i class="fa fa-shopping-cart"></i> Carrinho</a></li>
                         <li class="nav-item"><a class="nav-link" href="../loja/minhaConta.php"><i class="fa fa-user"></i> Minha Conta</a></li>
                     <?php else: ?>
                         <!-- Usuário não logado -->
-                        <li class="nav-item"><a class="nav-link" href="../Login/loginIndex.php"><i class="fa fa-lock"></i> Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../login/loginIndex.php"><i class="fa fa-lock"></i> Login</a></li>
                     <?php endif; ?>
                 </ul>
             </div>
