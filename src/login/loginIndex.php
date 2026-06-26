@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
    <body>
-      <?php include("../templates/header.php");?>
+      <?php include("../includes/header.php"); ?>
 
      <main>
        <div class="container d-flex align-items-center justify-content-center min-vh-100">
@@ -62,7 +62,7 @@
       </div>
      </main>
 
-      <?php include("../templates/footer.php");?>
+      <?php include("../includes/footer.php");?>
 
       <script src="../assets/js/bootstrap.bundle.min.js"></script>
       <script src="../assets/js/login.js"></script>

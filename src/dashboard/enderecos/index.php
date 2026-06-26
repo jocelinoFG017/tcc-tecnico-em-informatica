@@ -20,7 +20,7 @@ include("../../conexao/conexao.php");
 <body>
 
     <!-- HEADER -->
-    <?php include("../../templates/headerDash.php"); ?>
+    <?php include("../../includes/headerDash.php"); ?>
 
     <!-- SIDEBAR -->
     <?php include("../sidebar/sidebar.php"); ?>
@@ -99,13 +99,13 @@ include("../../conexao/conexao.php");
                                 <div class="mb-3">
                                     <label class="form-label">Bairro</label>
                                     <input name="bairro" class="form-control" required
-                                    placeholder="Insira o bairo">
+                                        placeholder="Insira o bairo">
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Rua</label>
                                     <input name="rua" class="form-control" required
-                                    placeholder="Insira  a rua">
+                                        placeholder="Insira  a rua">
                                 </div>
 
                                 <div class="row">

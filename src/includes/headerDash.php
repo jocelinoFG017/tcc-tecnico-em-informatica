@@ -3,7 +3,7 @@
     <div class="d-flex align-items-center gap-2">
 
         <!-- LOGO -->
-        <img src="/../assets/imagens/home/nova_logo.png"
+        <img src="/../assets/images/home/nova_logo.png"
             alt="PetShop Logo"
             style="height: 45px;">
 

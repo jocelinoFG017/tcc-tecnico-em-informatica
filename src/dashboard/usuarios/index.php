@@ -18,7 +18,7 @@ include("../../login/verificaLogin.php");
 
 <body>
 
-    <?php include("../../templates/headerDash.php"); ?>
+    <?php include("../../includes/headerDash.php"); ?>
 
     <!-- SIDEBAR -->
     <?php include("../sidebar/sidebar.php"); ?>

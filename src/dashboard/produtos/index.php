@@ -18,7 +18,7 @@ include("../../login/verificaLogin.php");
 <body>
 
     <!-- HEADER -->
-    <?php include("../../templates/headerDash.php"); ?>
+    <?php include("../../includes/headerDash.php"); ?>
     <!-- SIDEBAR -->
     <?php include("../sidebar/sidebar.php"); ?>
 
@@ -98,13 +98,13 @@ include("../../login/verificaLogin.php");
                                 <div class="mb-3">
                                     <label class="form-label">Descrição</label>
                                     <input name="descricao" class="form-control"
-                                    placeholder="Insira a descrição do produto" required>
+                                        placeholder="Insira a descrição do produto" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Marca</label>
                                     <input name="marca" class="form-control"
-                                     placeholder="Insira a marca do produto" required>
+                                        placeholder="Insira a marca do produto" required>
                                 </div>
 
                                 <div class="row">
@@ -272,9 +272,9 @@ include("../../login/verificaLogin.php");
     </script>
 
     <script>
-        document.getElementById('quantidade').addEventListener('input', function () {
-    this.value = this.value.replace(/[^0-9]/g, '');
-});
+        document.getElementById('quantidade').addEventListener('input', function() {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
     </script>
 </body>
 

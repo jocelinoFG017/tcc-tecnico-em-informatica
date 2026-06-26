@@ -52,7 +52,7 @@ $artigoProximo = mysqli_fetch_object($resultProximo);
   <link rel="stylesheet" href="../assets/css/cssflex.css">
 </head>
 <body>
-<?php include("../templates/header.php");?>
+<?php include("../includes/header.php");?>
 
 <main>
   <section class="py-4">
@@ -141,7 +141,7 @@ $artigoProximo = mysqli_fetch_object($resultProximo);
   </section>
 </main>
 
-<?php include("../templates/footer.php")?>
+<?php include("../includes/footer.php")?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

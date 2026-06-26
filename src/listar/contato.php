@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
-    <?php include("../templates/header.php"); ?>
+    <?php include("../includes/header.php"); ?>
 
 <section id="contato" class="container my-5">
   <h2 class="text-center mb-4">Fale Conosco</h2>
@@ -75,6 +75,6 @@ document.getElementById("whatsapp").addEventListener("input", function(e) {
 });
 </script>
 
-<?php include("../templates/footer.php"); ?>
+<?php include("../includes/footer.php"); ?>
 </body>
 </html>

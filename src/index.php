@@ -18,7 +18,7 @@ session_start(); // inicia a sessão para verificar login
 
 <body>
 
-    <?php include("templates/header.php"); ?>
+    <?php include("includes/header.php"); ?>
 
     <section id="slider" class="mt-4">
         <div class="container">
@@ -103,7 +103,7 @@ session_start(); // inicia a sessão para verificar login
         </div>
     </section>
 
-    <?php include("templates/footer.php"); ?>
+    <?php include("includes/footer.php"); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>

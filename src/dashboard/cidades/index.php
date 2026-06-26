@@ -31,7 +31,7 @@ include("../../conexao/conexao.php");
 
 <body>
 
-   <?php include("../../templates/headerDash.php"); ?>
+   <?php include("../../includes/headerDash.php"); ?>
    <?php include("../sidebar/sidebar.php"); ?>
 
    <div id="content" class="content">
