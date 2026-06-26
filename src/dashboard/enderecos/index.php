@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("../login/verificaLogin.php");
-include("../conexao/conexao.php");
+include("../../login/verificaLogin.php");
+include("../../conexao/conexao.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,16 +14,16 @@ include("../conexao/conexao.php");
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- HEADER -->
-    <?php include("../templates/headerDash.php"); ?>
+    <?php include("../../templates/headerDash.php"); ?>
 
     <!-- SIDEBAR -->
-    <?php include("sidebar/sidebar.php"); ?>
+    <?php include("../sidebar/sidebar.php"); ?>
 
     <div class="d-flex">
 
@@ -71,7 +71,7 @@ include("../conexao/conexao.php");
                         <div class="card-body">
                             <h5 class="card-title">Tabela de Endereços</h5>
 
-                            <?php include("../listar/tabelas/tabelaEndereco.php"); ?>
+                            <?php include("tabela.php"); ?>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ include("../conexao/conexao.php");
                             endif; ?>
 
                             <!-- FORM -->
-                            <form action="../Cadastrar/cadastroEndereco.php" method="POST">
+                            <form action="cadastrar.php" method="POST">
 
                                 <div class="mb-3">
                                     <label class="form-label">Bairro</label>
@@ -142,7 +142,7 @@ include("../conexao/conexao.php");
                                     </select>
                                 </div>
 
-                                <button class="btn btn-primary">
+                                <button type="submit" name="cadastrar" class="btn btn-primary">
                                     Cadastrar
                                 </button>
 
@@ -160,22 +160,137 @@ include("../conexao/conexao.php");
 
     <!-- MODAL EXCLUIR -->
     <div class="modal fade" id="modalExcluir" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content border-0 shadow-lg rounded-4">
 
                 <div class="modal-header bg-danger text-white">
-                    <h5 class="modal-title">Confirmar exclusão</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title">
+                        <i class="fa-solid fa-triangle-exclamation me-2"></i>
+                        Confirmar exclusão
+                    </h5>
+
+                    <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"></button>
                 </div>
 
                 <div class="modal-body text-center">
-                    Tem certeza que deseja excluir este endereço?
+                    <p>Tem certeza que deseja excluir este endereço?</p>
+                    <p class="text-danger small">Esta ação não poderá ser desfeita.</p>
                 </div>
 
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <a id="btnExcluirConfirmado" class="btn btn-danger">Excluir</a>
+                <div class="modal-footer border-0 d-flex justify-content-between">
+                    <button class="btn btn-outline-secondary"
+                        data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+
+                    <a id="btnExcluirConfirmado"
+                        class="btn btn-danger">
+                        Excluir
+                    </a>
                 </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL EDITAR -->
+    <div class="modal fade" id="modalEditar" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <form method="POST" action="editar.php">
+
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title">
+                            <i class="fa-solid fa-location-dot me-2"></i>
+                            Editar Endereço
+                        </h5>
+
+                        <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <input type="hidden"
+                            name="idEndereco"
+                            id="modal-idEndereco">
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+                                <label class="form-label">Bairro</label>
+                                <input id="modal-bairro"
+                                    name="bairro"
+                                    class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Rua</label>
+                                <input id="modal-rua"
+                                    name="rua"
+                                    class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Número</label>
+                                <input id="modal-numero"
+                                    name="numero"
+                                    class="form-control">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Telefone</label>
+                                <input id="modal-telefone"
+                                    name="telefone"
+                                    class="form-control">
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Cidade</label>
+
+                                <select id="modal-cidade"
+                                    name="cidadeId"
+                                    class="form-select"
+                                    required>
+
+                                    <?php
+                                    $sqlCidade = "SELECT idCidade, nome FROM cidade ORDER BY nome";
+                                    $resCidade = mysqli_query($conn, $sqlCidade);
+
+                                    while ($cidade = mysqli_fetch_assoc($resCidade)) {
+                                        echo "<option value='{$cidade['idCidade']}'>{$cidade['nome']}</option>";
+                                    }
+                                    ?>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer border-0 d-flex justify-content-between">
+
+                        <button type="button"
+                            class="btn btn-outline-secondary"
+                            data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+
+                        <button class="btn btn-primary">
+                            Salvar
+                        </button>
+
+                    </div>
+
+                </form>
 
             </div>
         </div>
@@ -192,7 +307,7 @@ include("../conexao/conexao.php");
 
             if (estadoId) {
 
-                fetch('../buscar/buscarCidades.php?estadoId=' + estadoId)
+                fetch('../../buscar/buscarCidades.php?estadoId=' + estadoId)
                     .then(res => res.text())
                     .then(data => {
                         cidadeSelect.innerHTML = data;
@@ -206,7 +321,7 @@ include("../conexao/conexao.php");
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/sidebar.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
 
 </body>
 

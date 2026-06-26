@@ -59,12 +59,12 @@
 
             <div class="collapse ps-3" id="menuEnderecos">
 
-                <a href="./enderecos.php" class="nav-link text-white submenu-text">
+                <a href="/dashboard/enderecos/index.php" class="nav-link text-white submenu-text">
                     <i class="fa-solid fa-map-pin"></i>
                     <span>Cadastrar Endereços</span>
                 </a>
 
-                <a href="./cidades.php" class="nav-link text-white submenu-text">
+                <a href="/dashboard/cidades/index.php" class="nav-link text-white submenu-text">
                     <i class="fa-solid fa-city"></i>
                     <span>Cadastrar Cidades</span>
                 </a>

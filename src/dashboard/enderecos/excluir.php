@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../conexao/conexao.php");
+include("../../conexao/conexao.php");
 
 $idEndereco = filter_input(INPUT_GET, 'idEndereco', FILTER_SANITIZE_NUMBER_INT);
 
@@ -11,13 +11,13 @@ if(!empty($idEndereco)){
 
     if(mysqli_affected_rows($conn)){
         $_SESSION['msg'] = "<p style='color:green;'> Endereco excluido</p>";
-        header("Location: ../../Dashboard/enderecos.php");
+        header("Location: /dashboard/enderecos/index.php");
     }else{
         $_SESSION['msg'] = "<p style='color:red;'> Endereco não excluido</p>";
-        header("Location: ../../Dashboard/enderecos.php");
+        header("Location: /dashboard/enderecos/index.php");
     }
 }else{
     $_SESSION['msg'] = "<p style='color:red;'> Necessário selecionar um Endereco</p>";
-    header("Location: ../../Dashboard/enderecos.php");
+    header("Location: /dashboard/enderecos/index.php");
 }
 ?>
