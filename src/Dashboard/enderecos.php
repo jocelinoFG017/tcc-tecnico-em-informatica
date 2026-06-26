@@ -19,213 +19,195 @@ include("../conexao/conexao.php");
 
 <body>
 
-<!-- HEADER -->
-<?php include("../templates/headerDash.php"); ?>
+    <!-- HEADER -->
+    <?php include("../templates/headerDash.php"); ?>
 
-<!-- SIDEBAR -->
-<?php include("Sidebar/sidebar.php"); ?>
+    <!-- SIDEBAR -->
+    <?php include("Sidebar/sidebar.php"); ?>
 
-<div class="d-flex">
+    <div class="d-flex">
 
-    <!-- CONTEÚDO -->
-    <div id="content" class="content flex-grow-1">
+        <!-- CONTEÚDO -->
+        <div id="content" class="content flex-grow-1">
 
-        <!-- HEADER DA PÁGINA -->
-        <div class="p-3 border-bottom bg-light d-flex justify-content-between align-items-center">
+            <!-- HEADER DA PÁGINA -->
+            <div class="p-3 border-bottom bg-light d-flex justify-content-between align-items-center">
 
-            <div>
-                <h4 class="mb-0 d-flex align-items-center gap-2">
-                    <i class="fa-solid fa-location-dot text-primary"></i>
-                    Formulário de cadastro de endereços
-                </h4>
-                <small class="text-muted">Visualize e cadastre novos endereços aqui.</small>
+                <div>
+                    <h4 class="mb-0 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-location-dot text-primary"></i>
+                        Formulário de cadastro de endereços
+                    </h4>
+                    <small class="text-muted">Visualize e cadastre novos endereços aqui.</small>
+                </div>
+
+                <a href="../pdfs/enderecopdf.php" target="_blank" class="btn btn-info">
+                    <i class="fas fa-file-pdf me-1"></i> PDF
+                </a>
+
             </div>
 
-            <a href="../pdfs/enderecopdf.php" target="_blank" class="btn btn-info">
-                <i class="fas fa-file-pdf me-1"></i> PDF
-            </a>
+            <!-- TABS -->
+            <ul class="nav nav-tabs px-3 mt-3">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#listar">
+                        Listar Endereços
+                    </button>
+                </li>
 
-        </div>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#add">
+                        Adicionar Endereço
+                    </button>
+                </li>
+            </ul>
 
-        <!-- TABS -->
-        <ul class="nav nav-tabs px-3 mt-3">
-            <li class="nav-item">
-                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#listar">
-                    Listar Endereços
-                </button>
-            </li>
+            <!-- CONTENT -->
+            <div class="tab-content p-3">
 
-            <li class="nav-item">
-                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#add">
-                    Adicionar Endereço
-                </button>
-            </li>
-        </ul>
+                <!-- LISTAR -->
+                <div class="tab-pane fade show active" id="listar">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Tabela de Endereços</h5>
 
-        <!-- CONTENT -->
-        <div class="tab-content p-3">
-
-            <!-- LISTAR -->
-            <div class="tab-pane fade show active" id="listar">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Tabela de Endereços</h5>
-
-                        <?php include("../Listar/tabelas/tabelaEndereco.php"); ?>
+                            <?php include("../Listar/tabelas/tabelaEndereco.php"); ?>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- FORM -->
-            <div class="tab-pane fade" id="add">
-                <div class="card">
-                    <div class="card-body">
+                <!-- FORM -->
+                <div class="tab-pane fade" id="add">
+                    <div class="card">
+                        <div class="card-body">
 
-                        <h5 class="card-title">Cadastro de Endereço</h5>
+                            <h5 class="card-title">Cadastro de Endereço</h5>
 
-                        <?php if (isset($_SESSION['statusCadastro'])): ?>
-                            <div class="alert alert-success">Cadastro efetuado</div>
-                        <?php unset($_SESSION['statusCadastro']); endif; ?>
+                            <?php if (isset($_SESSION['statusCadastro'])): ?>
+                                <div class="alert alert-success">Cadastro efetuado</div>
+                            <?php unset($_SESSION['statusCadastro']);
+                            endif; ?>
 
-                        <?php if (isset($_SESSION['usuarioExiste'])): ?>
-                            <div class="alert alert-danger">Erro: já existe</div>
-                        <?php unset($_SESSION['usuarioExiste']); endif; ?>
+                            <?php if (isset($_SESSION['usuarioExiste'])): ?>
+                                <div class="alert alert-danger">Erro: já existe</div>
+                            <?php unset($_SESSION['usuarioExiste']);
+                            endif; ?>
 
-                        <!-- FORM -->
-                        <form action="../Cadastrar/cadastroEndereco.php" method="POST">
+                            <!-- FORM -->
+                            <form action="../Cadastrar/cadastroEndereco.php" method="POST">
 
-                            <div class="mb-3">
-                                <label class="form-label">Bairro</label>
-                                <input name="bairro" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label">Rua</label>
-                                <input name="rua" class="form-control" required>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label">Número</label>
-                                    <input name="numero" class="form-control">
+                                <div class="mb-3">
+                                    <label class="form-label">Bairro</label>
+                                    <input name="bairro" class="form-control" required>
                                 </div>
 
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label">Telefone</label>
-                                    <input name="telefone" class="form-control">
+                                <div class="mb-3">
+                                    <label class="form-label">Rua</label>
+                                    <input name="rua" class="form-control" required>
                                 </div>
-                            </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">Estado</label>
-                                <select name="estadoId" id="estadoSelect" class="form-select">
-                                    <option value="">Selecione o Estado</option>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Número</label>
+                                        <input name="numero" class="form-control">
+                                    </div>
 
-                                    <?php
-                                    $resultEstado = "SELECT * FROM estado ORDER BY nome";
-                                    $resultadoEstado = mysqli_query($conn, $resultEstado);
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Telefone</label>
+                                        <input name="telefone" class="form-control">
+                                    </div>
+                                </div>
 
-                                    while ($rowEstado = mysqli_fetch_assoc($resultadoEstado)) {
-                                        echo "<option value='{$rowEstado['idEstado']}'>{$rowEstado['nome']}</option>";
-                                    }
-                                    ?>
+                                <div class="mb-3">
+                                    <label class="form-label">Estado</label>
+                                    <select name="estadoId" id="estadoSelect" class="form-select">
+                                        <option value="">Selecione o Estado</option>
 
-                                </select>
-                            </div>
+                                        <?php
+                                        $resultEstado = "SELECT * FROM estado ORDER BY nome";
+                                        $resultadoEstado = mysqli_query($conn, $resultEstado);
 
-                            <div class="mb-3">
-                                <label class="form-label">Cidade</label>
-                                <select name="cidadeId" id="cidadeSelect" class="form-select">
-                                    <option value="">Selecione a cidade</option>
-                                </select>
-                            </div>
+                                        while ($rowEstado = mysqli_fetch_assoc($resultadoEstado)) {
+                                            echo "<option value='{$rowEstado['idEstado']}'>{$rowEstado['nome']}</option>";
+                                        }
+                                        ?>
 
-                            <button class="btn btn-primary">
-                                Cadastrar
-                            </button>
+                                    </select>
+                                </div>
 
-                        </form>
+                                <div class="mb-3">
+                                    <label class="form-label">Cidade</label>
+                                    <select name="cidadeId" id="cidadeSelect" class="form-select">
+                                        <option value="">Selecione a cidade</option>
+                                    </select>
+                                </div>
 
+                                <button class="btn btn-primary">
+                                    Cadastrar
+                                </button>
+
+                            </form>
+
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
 
     </div>
 
-</div>
+    <!-- MODAL EXCLUIR -->
+    <div class="modal fade" id="modalExcluir" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
 
-<!-- MODAL EXCLUIR -->
-<div class="modal fade" id="modalExcluir" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title">Confirmar exclusão</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
 
-            <div class="modal-header bg-danger text-white">
-                <h5 class="modal-title">Confirmar exclusão</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                <div class="modal-body text-center">
+                    Tem certeza que deseja excluir este endereço?
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <a id="btnExcluirConfirmado" class="btn btn-danger">Excluir</a>
+                </div>
+
             </div>
-
-            <div class="modal-body text-center">
-                Tem certeza que deseja excluir este endereço?
-            </div>
-
-            <div class="modal-footer">
-                <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <a id="btnExcluirConfirmado" class="btn btn-danger">Excluir</a>
-            </div>
-
         </div>
     </div>
-</div>
 
-<!-- JS cidade -->
-<script>
-document.getElementById('estadoSelect').addEventListener('change', function () {
+    <!-- JS cidade -->
+    <script>
+        document.getElementById('estadoSelect').addEventListener('change', function() {
 
-    const estadoId = this.value;
-    const cidadeSelect = document.getElementById('cidadeSelect');
+            const estadoId = this.value;
+            const cidadeSelect = document.getElementById('cidadeSelect');
 
-    cidadeSelect.innerHTML = '<option>Carregando...</option>';
+            cidadeSelect.innerHTML = '<option>Carregando...</option>';
 
-    if (estadoId) {
+            if (estadoId) {
 
-        fetch('../buscar/buscarCidades.php?estadoId=' + estadoId)
-            .then(res => res.text())
-            .then(data => {
-                cidadeSelect.innerHTML = data;
-            });
+                fetch('../buscar/buscarCidades.php?estadoId=' + estadoId)
+                    .then(res => res.text())
+                    .then(data => {
+                        cidadeSelect.innerHTML = data;
+                    });
 
-    } else {
-        cidadeSelect.innerHTML = '<option>Selecione a cidade</option>';
-    }
+            } else {
+                cidadeSelect.innerHTML = '<option>Selecione a cidade</option>';
+            }
 
-});
-</script>
+        });
+    </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-   <script>
-      const sidebar = document.getElementById("sidebar");
-      const content = document.getElementById("content");
-      const icon = document.getElementById("iconMenu");
-      const btn = document.getElementById("toggleSidebar");
-
-      // estado inicial correto (sidebar começa ABERTO)
-      let isOpen = true;
-
-      // garante sincronização ao carregar página
-      icon.innerHTML = "☰";
-
-      btn.addEventListener("click", function() {
-
-         isOpen = !isOpen;
-
-         sidebar.classList.toggle("closed");
-         content.classList.toggle("expanded");
-
-         icon.innerHTML = isOpen ? "☰" : "✖";
-      });
-   </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/sidebar.js"></script>
 
 </body>
+
 </html>

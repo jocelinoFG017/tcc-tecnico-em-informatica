@@ -21,11 +21,7 @@ include("../conexao/conexao.php");
    <?php include("../templates/headerDash.php"); ?>
 
    <div class="d-flex">
-
-      <!-- SIDEBAR (PADRÃO IGUAL PRODUTOS) -->
-      <div id="sidebar">
-         <?php include("Sidebar/sidebar.php"); ?>
-      </div>
+      <?php include("Sidebar/sidebar.php"); ?>
 
       <!-- CONTEÚDO -->
       <div id="content" class="content flex-grow-1">
@@ -143,36 +139,7 @@ include("../conexao/conexao.php");
       </div>
    </div>
 
-   <!-- CKEDITOR -->
-   <script src="../assets/ckeditor/build/ckeditor.js"></script>
-   <script>
-      ClassicEditor.create(document.querySelector('#texto'))
-         .catch(error => console.error(error));
-   </script>
-
-   <!-- SIDEBAR TOGGLE (MESMO PADRÃO DOS OUTROS) -->
-   <script>
-      const sidebar = document.getElementById("sidebar");
-      const content = document.getElementById("content");
-      const icon = document.getElementById("iconMenu");
-      const btn = document.getElementById("toggleSidebar");
-
-      if (btn && sidebar && content && icon) {
-         let isOpen = true;
-         icon.innerHTML = "☰";
-
-         btn.addEventListener("click", function () {
-            isOpen = !isOpen;
-
-            sidebar.classList.toggle("closed");
-            content.classList.toggle("expanded");
-
-            icon.innerHTML = isOpen ? "☰" : "✖";
-         });
-      }
-   </script>
-
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+   <script src="assets/js/sidebar.js"></script>
 </body>
+
 </html>
