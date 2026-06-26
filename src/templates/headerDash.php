@@ -1,68 +1,71 @@
-<div class="app-header header-shadow">
-   <div class="app-header__logo">
-      <div>
-         <img src="../assets/imagens/home/nova_logo.png" alt="PetShop Logo" style="height: 60px;">
-      </div>
-      <div class="header__pane ml-auto">
-         <div>
-            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-            <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-            </span>
-            </button>
-         </div>
-      </div>
-   </div>
-   <div class="app-header__mobile-menu">
-      <div>
-         <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
-         <span class="hamburger-box">
-         <span class="hamburger-inner"></span>
-         </span>
-         </button>
-      </div>
-   </div>
-   <div class="app-header__menu">
-      <span>
-      <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-      <span class="btn-icon-wrapper">
-      <i class="fa fa-ellipsis-v fa-w-6"></i>
-      </span>
-      </button>
-      </span>
-   </div>
-   <div class="app-header__content">
-      <div class="app-header-right">
-         <div class="header-btn-lg pr-0">
-            <div class="widget-content p-0">
-               <div class="widget-content-wrapper">
-                  <div class="widget-content-left">
-                     <div class="btn-group">
-                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                        <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg" alt="">
-                        <i class="fa fa-angle-down ml-2 opacity-8"></i>
-                        </a>
-                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                           <button type="button" tabindex="0" class="dropdown-item">User Account</button>
-                           <button type="button" tabindex="0" class="dropdown-item">Settings</button>
-                           <h6 tabindex="-1" class="dropdown-header">Header</h6>
-                           <button type="button" tabindex="0" class="dropdown-item">Actions</button>
-                           <div tabindex="-1" class="dropdown-divider"></div>
-                           <button type="button" tabindex="0" class="dropdown-item"><a href="sair.php">Sair</a></button>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="widget-content-left  ml-3 header-user-info">
-                     <div class="widget-heading">
+<nav class="navbar navbar-light bg-light shadow-sm px-3 border-bottom">
+
+    <div class="d-flex align-items-center gap-2">
+
+        <!-- LOGO -->
+        <img src="../assets/imagens/home/nova_logo.png"
+            alt="PetShop Logo"
+            style="height: 45px;">
+
+        <!-- HAMBÚRGUER -->
+        <button id="toggleSidebar"
+            class="btn btn-outline-secondary d-flex align-items-center justify-content-center"
+            style="width: 42px; height: 42px;">
+
+            <span id="iconMenu">☰</span>
+
+        </button>
+
+    </div>
+    <!-- USER -->
+    <div class="ms-auto d-flex align-items-center">
+
+        <div class="dropdown">
+
+            <button class="btn btn-light dropdown-toggle d-flex align-items-center gap-2"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+
+                <img src="assets/images/avatars/1.jpg"
+                    class="rounded-circle"
+                    width="38"
+                    height="38">
+
+                <div class="text-start d-none d-md-block">
+                    <div class="fw-semibold text-dark">
                         <?php echo $_SESSION['nome']; ?>
-                     </div>
-                     <div class="widget-subheading">
+                    </div>
+                    <small class="text-muted">
                         <?php echo $_SESSION['nomeNivelAcesso']; ?>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
+                    </small>
+                </div>
+
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+
+                <li>
+                    <h6 class="dropdown-header">Conta</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">User Account</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+
+                <li>
+                    <a class="dropdown-item text-danger" href="sair.php">
+                        Sair
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>

@@ -6,7 +6,7 @@
     <ul class="nav flex-column mb-3">
 
         <li class="nav-item">
-            <a href="painel_r.php" class="nav-link text-white">
+            <a href="painel.php" class="nav-link text-white">
                 <i class="fa-solid fa-gauge"></i>
                 <span class="text-label">Dashboard</span>
             </a>

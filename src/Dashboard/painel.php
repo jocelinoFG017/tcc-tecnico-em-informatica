@@ -26,7 +26,7 @@ $totalUsuarios = mysqli_fetch_assoc($result);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<?php include("../templates/headerDash_r.php"); ?>
+<?php include("../templates/headerDash.php"); ?>
 <?php include("Sidebar/sidebar.php"); ?>
 
 <div id="content" class="content">
