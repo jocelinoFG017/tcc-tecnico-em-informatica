@@ -15,6 +15,12 @@
     Correção e Refatoração do modal de excluir usuário
     Correção e Refatoração do modal de editar usuário
     Correção do select de nível de acesso no modal de editar usuário(não trazia o valor, ficava em branco)
+    Refatoração do painel da dashboard
+    Remoção do architect UI
+    Otimização do código JS de sidebar
+    Correção de links da dashboard
+    Remoção de arquivos e imagens não utilizados
+
 
 ### 🔑 SISTEMA DE CADASTRO E LOGIN
 

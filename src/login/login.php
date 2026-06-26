@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) == 1) {
 
     // Redireciona conforme nível
     if (strtolower($nivel['nomeCargo']) == 'administrador') {
-        header('Location: ../Dashboard/painel.php');
+        header('Location: ../dashboard/painel.php');
         exit();
     } else {
         header('Location: ../loja/minhaConta.php'); 
