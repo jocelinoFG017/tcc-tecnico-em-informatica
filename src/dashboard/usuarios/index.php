@@ -79,26 +79,43 @@ include("../../login/verificaLogin.php");
                         <?php unset($_SESSION['usuarioExiste']);
                         endif; ?>
 
-                        <form action="cadastrar.php" method="POST">
+                        <form action="cadastrar.php" method="POST" autocomplete="off">
+
+                            <!-- anti-autofill invisível (Chrome fix) -->
+                            <input type="text" name="fake_user" style="display:none">
+                            <input type="password" name="fake_pass" style="display:none">
 
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Nome</label>
                                 <div class="col-sm-10">
-                                    <input name="nome" required class="form-control">
+                                    <input name="nome"
+                                        required
+                                        class="form-control"
+                                        autocomplete="off"
+                                        placeholder="Insira o nome">
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input name="login" required class="form-control">
+                                    <input name="login"
+                                        required
+                                        class="form-control"
+                                        autocomplete="off"
+                                        placeholder="Insira o email">
                                 </div>
                             </div>
 
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Senha</label>
                                 <div class="col-sm-10">
-                                    <input type="password" name="senha" required class="form-control">
+                                    <input type="password"
+                                        name="senha"
+                                        required
+                                        class="form-control"
+                                        autocomplete="new-password"
+                                        placeholder="Insira a senha">
                                 </div>
                             </div>
 

@@ -92,28 +92,30 @@ include("../../login/verificaLogin.php");
 
                                 <div class="mb-3">
                                     <label class="form-label">Nome</label>
-                                    <input name="nome" class="form-control" required>
+                                    <input name="nome" class="form-control" placeholder="Insira o nome do produto" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Descrição</label>
-                                    <input name="descricao" class="form-control" required>
+                                    <input name="descricao" class="form-control"
+                                    placeholder="Insira a descrição do produto" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Marca</label>
-                                    <input name="marca" class="form-control" required>
+                                    <input name="marca" class="form-control"
+                                     placeholder="Insira a marca do produto" required>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Quantidade</label>
-                                        <input name="quantidade" class="form-control" required>
+                                        <input name="quantidade" id="quantidade" type="text" class="form-control" placeholder="Insira a quantidade" required>
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Preço</label>
-                                        <input name="preco" class="form-control" required>
+                                        <input name="preco" type="number" step="0.01" class="form-control" placeholder="Insira o preço" required>
                                     </div>
                                 </div>
 
@@ -267,6 +269,12 @@ include("../../login/verificaLogin.php");
             });
 
         });
+    </script>
+
+    <script>
+        document.getElementById('quantidade').addEventListener('input', function () {
+    this.value = this.value.replace(/[^0-9]/g, '');
+});
     </script>
 </body>
 

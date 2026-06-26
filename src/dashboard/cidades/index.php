@@ -127,7 +127,7 @@ include("../../conexao/conexao.php");
 
                      <div class="mb-3">
                         <label class="form-label">Cidade</label>
-                        <input type="text" name="cidade" class="form-control" required>
+                        <input type="text" name="cidade" class="form-control" placeholder="Insira o nome da cidade" required>
                      </div>
 
                      <button class="btn btn-primary">

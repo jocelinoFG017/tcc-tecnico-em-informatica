@@ -89,33 +89,38 @@ include("../../conexao/conexao.php");
 
                         <div class="mb-3">
                            <label class="form-label">Título</label>
-                           <input name="titulo" class="form-control">
+                           <input name="titulo" class="form-control"
+                           placeholder="Insira um título">
                         </div>
 
                         <div class="mb-3">
                            <label class="form-label">Texto</label>
-                           <textarea name="texto" id="texto" class="form-control" rows="6"></textarea>
+                           <textarea name="texto" id="texto" class="form-control" rows="6" placeholder="Insira o texto"></textarea>
                         </div>
 
                         <div class="row">
                            <div class="col-md-6 mb-3">
                               <label class="form-label">Autor</label>
-                              <input name="autor" class="form-control">
+                              <input name="autor" class="form-control"
+                              placeholder="Insira o Autor">
                            </div>
 
                            <div class="col-md-6 mb-3">
                               <label class="form-label">Tag</label>
-                              <input name="tag" class="form-control">
+                              <input name="tag" class="form-control"
+                              placeholder="Insira a Tag">
                            </div>
 
                            <div class="col-md-6 mb-3">
                               <label class="form-label">Tag 2</label>
-                              <input name="tag2" class="form-control">
+                              <input name="tag2" class="form-control"
+                              placeholder="Insira a Tag 2">
                            </div>
 
                            <div class="col-md-6 mb-3">
                               <label class="form-label">Tag 3</label>
-                              <input name="tag3" class="form-control">
+                              <input name="tag3" class="form-control"
+                              placeholder="Insira a Tag 3">
                            </div>
 
                            <div class="col-12 mb-3">

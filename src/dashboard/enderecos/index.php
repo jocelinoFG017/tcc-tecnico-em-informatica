@@ -98,23 +98,25 @@ include("../../conexao/conexao.php");
 
                                 <div class="mb-3">
                                     <label class="form-label">Bairro</label>
-                                    <input name="bairro" class="form-control" required>
+                                    <input name="bairro" class="form-control" required
+                                    placeholder="Insira o bairo">
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Rua</label>
-                                    <input name="rua" class="form-control" required>
+                                    <input name="rua" class="form-control" required
+                                    placeholder="Insira  a rua">
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Número</label>
-                                        <input name="numero" class="form-control">
+                                        <input name="numero" class="form-control" placeholder="Insira o número">
                                     </div>
 
                                     <div class="col-md-6 mb-3">
                                         <label class="form-label">Telefone</label>
-                                        <input name="telefone" class="form-control">
+                                        <input name="telefone" class="form-control" placeholder="Insira o telefone">
                                     </div>
                                 </div>
 

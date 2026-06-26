@@ -57,7 +57,7 @@
                 </li>
 
                 <li>
-                    <a class="dropdown-item text-danger" href="sair.php">
+                    <a class="dropdown-item text-danger" href="/dashboard/sair.php">
                         Sair
                     </a>
                 </li>
