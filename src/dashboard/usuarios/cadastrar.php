@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../conexao/conexao.php");
+    include("../../conexao/conexao.php");
 
     $nome = mysqli_real_escape_string($conn, trim($_POST['nome']));
     $login = mysqli_real_escape_string($conn,trim($_POST['login']));
@@ -13,7 +13,7 @@
 
     if($row['total'] == 1){
         $_SESSION['usuarioExiste'] = true;
-        header('Location: ../Dashboard/usuarios.php'); 
+        header('Location: /dashboard/usuarios/index.php'); 
         exit;
     }
 
@@ -25,6 +25,6 @@
     
     }
     $conn->close();
-    header('Location: ../Dashboard/usuarios.php'); 
+    header('Location: /dashboard/usuarios/index.php'); 
     exit;
 ?>

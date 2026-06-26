@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../login/verificaLogin.php");
+include("../../login/verificaLogin.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,16 +12,16 @@ include("../login/verificaLogin.php");
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 
 </head>
 
 <body>
 
-    <?php include("../templates/headerDash.php"); ?>
+    <?php include("../../templates/headerDash.php"); ?>
 
     <!-- SIDEBAR -->
-    <?php include("sidebar/sidebar.php"); ?>
+    <?php include("../sidebar/sidebar.php"); ?>
 
     <!-- CONTEÚDO -->
     <div id="content" class="content">
@@ -58,7 +58,7 @@ include("../login/verificaLogin.php");
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Tabela de Usuários</h5>
-                        <?php include("../listar/tabelaUsuario.php"); ?>
+                        <?php include("tabela.php"); ?>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@ include("../login/verificaLogin.php");
                         <?php unset($_SESSION['usuarioExiste']);
                         endif; ?>
 
-                        <form action="../Cadastrar/cadastroUsuario.php" method="POST">
+                        <form action="cadastrar.php" method="POST">
 
                             <div class="mb-3 row">
                                 <label class="col-sm-2 col-form-label">Nome</label>
@@ -147,7 +147,7 @@ include("../login/verificaLogin.php");
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content border-0 shadow-lg rounded-4">
 
-                <form method="POST" action="../crud/editar/salvarUsuario.php">
+                <form method="POST" action="editar.php">
 
                     <div class="modal-header bg-primary text-white">
                         <h5 class="modal-title">
@@ -204,7 +204,7 @@ include("../login/verificaLogin.php");
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="assets/js/sidebar.js"></script>
+    <script src="../assets/js/sidebar.js"></script>
 </body>
 
 </html>

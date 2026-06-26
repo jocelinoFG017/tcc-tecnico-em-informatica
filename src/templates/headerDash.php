@@ -3,7 +3,7 @@
     <div class="d-flex align-items-center gap-2">
 
         <!-- LOGO -->
-        <img src="../assets/imagens/home/nova_logo.png"
+        <img src="/../assets/imagens/home/nova_logo.png"
             alt="PetShop Logo"
             style="height: 45px;">
 
@@ -27,7 +27,7 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false">
 
-                <img src="assets/images/avatars/1.jpg"
+                <img src="/dashboard/assets/images/avatars/1.jpg"
                     class="rounded-circle"
                     width="38"
                     height="38">

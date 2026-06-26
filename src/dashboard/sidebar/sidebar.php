@@ -6,7 +6,7 @@
     <ul class="nav flex-column mb-3">
 
         <li class="nav-item">
-            <a href="painel.php" class="nav-link text-white">
+            <a href="/dashboard/painel.php" class="nav-link text-white">
                 <i class="fa-solid fa-gauge"></i>
                 <span class="text-label">Dashboard</span>
             </a>
@@ -34,7 +34,7 @@
     <ul class="nav flex-column mb-3">
 
         <li class="nav-item">
-            <a href="usuarios.php" class="nav-link text-white active">
+            <a href="/dashboard/usuarios/index.php" class="nav-link text-white active">
                 <i class="fa-solid fa-users"></i>
                 <span class="text-label">Usuários</span>
             </a>
@@ -81,7 +81,7 @@
         </li>
 
         <li class="nav-item">
-            <a href="./artigos.php" class="nav-link text-white">
+            <a href="/dashboard/artigos/index.php" class="nav-link text-white">
                 <i class="fa-solid fa-newspaper"></i>
                 <span class="text-label">Artigos</span>
             </a>

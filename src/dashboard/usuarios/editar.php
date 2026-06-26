@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (mysqli_query($conn, $sql)) {
-        header("Location: ../../Dashboard/usuarios.php?msg=editado");
+        header("Location: /dashboard/usuarios/index.php?msg=editado");
         exit;
     } else {
         echo "Erro ao atualizar: " . mysqli_error($conn);

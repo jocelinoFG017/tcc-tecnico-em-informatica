@@ -1,5 +1,5 @@
 <?php
-include("../conexao/conexao.php");
+include("../../conexao/conexao.php");
 
 $sql = "SELECT 
             u.idUsuario, 
@@ -69,7 +69,7 @@ $resultado = mysqli_query($conn, $sql);
             var button = event.relatedTarget; // botão que abriu o modal
             var id = button.getAttribute('data-id');
             var btnConfirm = document.getElementById('btnExcluirConfirmado');
-            btnConfirm.setAttribute('href', '../Excluir/excluirUsuario.php?idUsuario=' + id);
+            btnConfirm.setAttribute('href', 'excluir.php?idUsuario=' + id);
         });
     });
 </script>

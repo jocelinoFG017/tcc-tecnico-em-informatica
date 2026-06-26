@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../conexao/conexao.php");
+include("../../conexao/conexao.php");
 
 $idArtigo = filter_input(INPUT_GET, 'idArtigo', FILTER_SANITIZE_NUMBER_INT);
 
@@ -11,13 +11,13 @@ if(!empty($idArtigo)){
 
     if(mysqli_affected_rows($conn)){
         $_SESSION['msg'] = "<p style='color:green;'> Artigo excluido</p>";
-        header("Location: ../Dashboard/artigos.php");
+        header("Location: /dashboard/artigos/index.php");
     }else{
         $_SESSION['msg'] = "<p style='color:red;'> Artigo não excluido</p>";
-        header("Location: ../Dashboard/artigos.php");
+        header("Location: /dashboard/artigos/index.php");
     }
 }else{
     $_SESSION['msg'] = "<p style='color:red;'> Necessário selecionar um artigo</p>";
-    header("Location: ../Dashboard/artigos.php");
+    header("Location: /dashboard/artigos/index.php");
 }
 ?>

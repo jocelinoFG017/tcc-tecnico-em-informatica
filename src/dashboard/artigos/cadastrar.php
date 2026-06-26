@@ -1,5 +1,8 @@
 <?php
-include("../conexao/conexao.php");
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+include("../../conexao/conexao.php");
+
 
 if (isset($_POST['cadastrar'])) {
 
@@ -11,7 +14,6 @@ if (isset($_POST['cadastrar'])) {
      $tag3 = mysqli_real_escape_string($conn,trim($_POST['tag3']));
 
      $foto = $_FILES["foto"];
-    
     // Se a foto estiver sido selecionada
     if (!empty($foto["name"])) {
         
@@ -57,7 +59,7 @@ if (isset($_POST['cadastrar'])) {
             $nome_imagem = md5(uniqid(time())) . "." . $ext[1];
 
             // Caminho de onde ficará a foto
-            $caminho_imagem = "../fotos/" . $nome_imagem;
+            $caminho_imagem = "../../fotos/" . $nome_imagem;
 
             // Faz o upload da foto para seu respectivo caminho
             move_uploaded_file($foto["tmp_name"], $caminho_imagem);
@@ -68,7 +70,7 @@ if (isset($_POST['cadastrar'])) {
             // Se os dados forem inseridos com sucesso
             if ($sql){
                 // echo "Foto cadastrada com sucesso.";
-                header('Location: ../Dashboard/artigos.php');
+                header('Location: /dashboard/artigos/index.php');
             }
         }
         // Se houver mensagens de erro, exibe-as
