@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("../login/verificaLogin.php");
-include("../conexao/conexao.php");
+include("../../login/verificaLogin.php");
+include("../../conexao/conexao.php");
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -13,13 +13,26 @@ include("../conexao/conexao.php");
 
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="../styles.css">
+
+   <style>
+      .tabela-fixa {
+         table-layout: fixed;
+         width: 100%;
+      }
+
+      .tabela-fixa td {
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+      }
+   </style>
 </head>
 
 <body>
 
-   <?php include("../templates/headerDash.php"); ?>
-   <?php include("sidebar/sidebar.php"); ?>
+   <?php include("../../templates/headerDash.php"); ?>
+   <?php include("../sidebar/sidebar.php"); ?>
 
    <div id="content" class="content">
 
@@ -57,13 +70,25 @@ include("../conexao/conexao.php");
 
          <!-- LISTAR -->
          <div class="tab-pane fade show active" id="listar">
+
             <div class="card">
                <div class="card-body">
+
                   <h5 class="card-title">Tabela de Cidades</h5>
 
-                  <?php include("../listar/tabelas/tabelaCidade.php"); ?>
+                  <!-- CONTAINER DA TABELA (AJAX) -->
+                  <div id="tabela-container">
+                     <?php include("tabela.php"); ?>
+                  </div>
+
+                  <!-- PAGINAÇÃO (AJAX) -->
+                  <nav class="mt-3">
+                     <ul class="pagination justify-content-center" id="paginacao"></ul>
+                  </nav>
+
                </div>
             </div>
+
          </div>
 
          <!-- FORM -->
@@ -83,7 +108,7 @@ include("../conexao/conexao.php");
                   <?php unset($_SESSION['usuarioExiste']);
                   endif; ?>
 
-                  <form action="../Cadastrar/cadastroCidade.php" method="POST">
+                  <form action="cadastrar.php" method="POST">
 
                      <div class="mb-3">
                         <label class="form-label">Estado</label>
@@ -119,11 +144,198 @@ include("../conexao/conexao.php");
 
    </div>
 
+   <div class="modal fade" id="modalExcluir" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+         <div class="modal-content border-0 shadow-lg rounded-4">
+
+            <div class="modal-header bg-danger text-white">
+               <h5 class="modal-title">
+                  <i class="fa-solid fa-triangle-exclamation me-2"></i>
+                  Confirmar exclusão
+               </h5>
+
+               <button type="button"
+                  class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body text-center">
+               <p>Tem certeza que deseja excluir esta cidade?</p>
+               <p class="text-danger small">Esta ação não poderá ser desfeita.</p>
+            </div>
+
+            <div class="modal-footer border-0 d-flex justify-content-between">
+               <button class="btn btn-outline-secondary"
+                  data-bs-dismiss="modal">
+                  Cancelar
+               </button>
+
+               <a id="btnExcluirConfirmado"
+                  class="btn btn-danger">
+                  Excluir
+               </a>
+            </div>
+
+         </div>
+      </div>
+   </div>
+   <div class="modal fade" id="modalEditar" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+         <div class="modal-content border-0 shadow-lg rounded-4">
+
+            <form method="POST" action="editar.php">
+
+               <div class="modal-header bg-primary text-white">
+                  <h5 class="modal-title">
+                     <i class="fa-solid fa-city me-2"></i>
+                     Editar Cidade
+                  </h5>
+
+                  <button type="button"
+                     class="btn-close btn-close-white"
+                     data-bs-dismiss="modal"></button>
+               </div>
+
+               <div class="modal-body">
+
+                  <input type="hidden"
+                     name="idCidade"
+                     id="modal-idCidade">
+
+                  <div class="row g-3">
+
+                     <div class="col-md-6">
+                        <label class="form-label">Cidade</label>
+                        <input type="text"
+                           name="cidade"
+                           id="modal-cidade"
+                           class="form-control"
+                           required>
+                     </div>
+
+                     <div class="col-md-6">
+                        <label class="form-label">Estado</label>
+
+                        <select name="estadoId"
+                           id="modal-estado"
+                           class="form-select"
+                           required>
+
+                           <?php
+                           $sqlEstado = "SELECT idEstado, nome FROM estado ORDER BY nome";
+                           $resEstado = mysqli_query($conn, $sqlEstado);
+
+                           while ($estado = mysqli_fetch_assoc($resEstado)) {
+                              echo "<option value='{$estado['idEstado']}'>{$estado['nome']}</option>";
+                           }
+                           ?>
+
+                        </select>
+
+                     </div>
+
+                  </div>
+
+               </div>
+
+               <div class="modal-footer border-0 d-flex justify-content-between">
+
+                  <button type="button"
+                     class="btn btn-outline-secondary"
+                     data-bs-dismiss="modal">
+                     Cancelar
+                  </button>
+
+                  <button class="btn btn-primary">
+                     Salvar
+                  </button>
+
+               </div>
+
+            </form>
+
+         </div>
+      </div>
+   </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
    <!-- Sidebar toggle (se você usa esse padrão global) -->
-   <script src="assets/js/sidebar.js"></script>
+   <script src="../assets/js/sidebar.js"></script>
+   <script>
+      document.addEventListener("DOMContentLoaded", function() {
 
+         function carregarTabela(pagina = 1) {
+            fetch("tabela.php?pagina=" + pagina)
+               .then(res => res.text())
+               .then(data => {
+                  document.getElementById("tabela-container").innerHTML = data;
+               });
+         }
+
+         function carregarPaginacao() {
+            fetch("buscarCidadesPaginacao.php")
+               .then(res => res.text())
+               .then(data => {
+                  document.getElementById("paginacao").innerHTML = data;
+               });
+         }
+
+         // clique na paginação
+         document.addEventListener("click", function(e) {
+            if (e.target.classList.contains("pagina-link")) {
+               e.preventDefault();
+
+               const pagina = e.target.getAttribute("data-pagina");
+               carregarTabela(pagina);
+            }
+         });
+
+         carregarTabela();
+         carregarPaginacao();
+
+      });
+   </script>
+
+   <script>
+      document.addEventListener('DOMContentLoaded', function() {
+
+         const modalExcluir = document.getElementById('modalExcluir');
+
+         modalExcluir.addEventListener('show.bs.modal', function(event) {
+
+            const button = event.relatedTarget;
+            const id = button.getAttribute('data-id');
+
+            document.getElementById('btnExcluirConfirmado')
+               .setAttribute('href', 'excluir.php?idCidade=' + id);
+
+         });
+
+      });
+   </script>
+
+   <script>
+      document.addEventListener('DOMContentLoaded', function() {
+
+         const modalEditar = document.getElementById('modalEditar');
+
+         modalEditar.addEventListener('show.bs.modal', function(event) {
+
+            const button = event.relatedTarget;
+
+            modalEditar.querySelector('#modal-idCidade').value =
+               button.getAttribute('data-id');
+
+            modalEditar.querySelector('#modal-cidade').value =
+               button.getAttribute('data-cidade');
+
+            modalEditar.querySelector('#modal-estado').value =
+               button.getAttribute('data-estado');
+
+         });
+
+      });
+   </script>
 </body>
 
 </html>

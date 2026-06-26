@@ -1,18 +1,18 @@
 <?php
     session_start();
-    include("../conexao/conexao.php");
+    include("../../conexao/conexao.php");
 
 
     $nomeCidade = mysqli_real_escape_string($conn, trim($_POST['cidade']));
     $idEstado = mysqli_real_escape_string($conn,trim($_POST['estadoId'])); //fk
 
-    $sql = "INSERT INTO cidade(nome, idEstado)
+    $sql = "INSERT INTO cidade(nome, fk_idEstado)
             VALUES('$nomeCidade', '$idEstado')";
     
     if($conn->query($sql) === TRUE){
         $_SESSION['statusCadastro'] = true;
     }
     $conn->close();
-    header('Location: ../Dashboard/cidades.php');
+    header('Location: /dashboard/cidades/index.php');
     exit;
 ?>
