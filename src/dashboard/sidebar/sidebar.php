@@ -14,19 +14,34 @@
 
     </ul>
 
-    <!-- CONTROLE -->
-    <div class="section-label">Controle</div>
+    <!-- CARTEIRA DE VACINAÇÃO -->
+    <div class="section-label">Carteira de Vacinação</div>
 
     <ul class="nav flex-column mb-3">
 
         <li class="nav-item">
-            <a href="painel.php" class="nav-link text-white">
-                <i class="fa-solid fa-pen-to-square"></i>
-                <span class="text-label">Posts do Blog</span>
+            <a href="/dashboard/carteira_vacinacao/animais/index.php" class="nav-link text-white">
+                <i class="fa-solid fa-paw"></i>
+                <span class="text-label">Animais</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="/dashboard/carteira_vacinacao/carteira/index.php" class="nav-link text-white">
+                <i class="fa-solid fa-syringe"></i>
+                <span class="text-label">Carteiras</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a href="/dashboard/carteira_vacinacao/vacinas/index.php" class="nav-link text-white">
+                <i class="fa-solid fa-shield-virus"></i>
+                <span class="text-label">Vacinas</span>
             </a>
         </li>
 
     </ul>
+
 
     <!-- CADASTROS -->
     <div class="section-label">Cadastros</div>
@@ -40,7 +55,7 @@
             </a>
         </li>
 
-        <!-- ENDEREÇOS (COM INDICADOR DE SUBMENU) -->
+        <!-- ENDEREÇOS -->
         <li class="nav-item">
 
             <a class="nav-link text-white submenu-parent d-flex align-items-center"
@@ -48,13 +63,9 @@
                 href="#menuEnderecos">
 
                 <i class="fa-solid fa-location-dot"></i>
-
-                <span class="text-label flex-grow-1">
-                    Endereços
-                </span>
+                <span class="text-label flex-grow-1">Endereços</span>
 
                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
-
             </a>
 
             <div class="collapse ps-3" id="menuEnderecos">
@@ -72,6 +83,8 @@
             </div>
 
         </li>
+
+        <!-- PRODUTOS -->
         <li class="nav-item">
 
             <a class="nav-link text-white submenu-parent d-flex align-items-center"
@@ -79,13 +92,9 @@
                 href="#menuProdutos">
 
                 <i class="fa-solid fa-box"></i>
-
-                <span class="text-label flex-grow-1">
-                    Produtos
-                </span>
+                <span class="text-label flex-grow-1">Produtos</span>
 
                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
-
             </a>
 
             <div class="collapse ps-3" id="menuProdutos">
@@ -99,6 +108,7 @@
                     <i class="fa-solid fa-tag"></i>
                     <span>Cadastrar Marcas</span>
                 </a>
+
                 <a href="/dashboard/produtos/categorias/index.php" class="nav-link text-white submenu-text">
                     <i class="fa-solid fa-tags"></i>
                     <span>Cadastrar Categorias</span>
@@ -108,6 +118,7 @@
 
         </li>
 
+        <!-- BLOG -->
         <li class="nav-item">
 
             <a class="nav-link text-white submenu-parent d-flex align-items-center"
@@ -115,13 +126,9 @@
                 href="#menuArtigos">
 
                 <i class="fa-solid fa-newspaper"></i>
-
-                <span class="text-label flex-grow-1">
-                    Blog
-                </span>
+                <span class="text-label flex-grow-1">Blog</span>
 
                 <i class="fa-solid fa-chevron-down toggle-icon"></i>
-
             </a>
 
             <div class="collapse ps-3" id="menuArtigos">
@@ -139,6 +146,7 @@
             </div>
 
         </li>
+
     </ul>
 
 </div>

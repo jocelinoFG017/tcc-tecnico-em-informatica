@@ -226,6 +226,77 @@ CREATE TABLE pedido_item (
     ON UPDATE CASCADE
 );
 
+-- -----------------------------------------------------
+-- Animal
+-- -----------------------------------------------------
+
+CREATE TABLE animal (
+    idAnimal INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    especie VARCHAR(50),
+    raca VARCHAR(50),
+    data_nascimento DATE,
+    fk_idUsuario INT NOT NULL,
+
+    PRIMARY KEY (idAnimal),
+
+    FOREIGN KEY (fk_idUsuario)
+        REFERENCES usuario(idUsuario)
+        ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- -----------------------------------------------------
+-- Animal
+-- -----------------------------------------------------
+
+CREATE TABLE vacina (
+    idVacina INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+
+    PRIMARY KEY (idVacina)
+) ENGINE=InnoDB;
+
+-- -----------------------------------------------------
+-- carteira_vacinacao
+-- -----------------------------------------------------
+
+CREATE TABLE carteira_vacinacao (
+    idCarteira INT NOT NULL AUTO_INCREMENT,
+    fk_idAnimal INT NOT NULL,
+    data_criacao DATE DEFAULT CURRENT_DATE,
+
+    PRIMARY KEY (idCarteira),
+
+    FOREIGN KEY (fk_idAnimal)
+        REFERENCES animal(idAnimal)
+        ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- -----------------------------------------------------
+-- aplicacao_vacina
+-- -----------------------------------------------------
+
+CREATE TABLE aplicacao_vacina (
+    idAplicacao INT NOT NULL AUTO_INCREMENT,
+    fk_idCarteira INT NOT NULL,
+    fk_idVacina INT NOT NULL,
+
+    data_aplicacao DATE NOT NULL,
+    proxima_dose DATE NULL,
+    dose VARCHAR(50),
+    observacao TEXT,
+
+    PRIMARY KEY (idAplicacao),
+
+    FOREIGN KEY (fk_idCarteira)
+        REFERENCES carteira_vacinacao(idCarteira)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (fk_idVacina)
+        REFERENCES vacina(idVacina)
+        ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
 
 -- Alters
 
@@ -378,12 +449,18 @@ VALUES
 -- -----------------------------------------------------
 -- POPULANDO tabela Artigo
 -- -----------------------------------------------------
-INSERT INTO artigo (titulo, texto, fk_idUsuario, data_publicacao)
+INSERT INTO artigo (titulo, texto, imagem, fk_idUsuario, data_publicacao)
 VALUES
-('O destino dos cães', 'Os cães nascem para encontrar seu elo perdido', 1, '2020-12-12');
+('O destino dos cães', 'Os cães nascem para encontrar seu elo perdido', '02e0a774834ca3aab7b23606d06cc273.jpg', 1, '2020-12-12'),
+('O destino dos Gatos', 'Os gatos nascem para encontrar seu elo perdido', '02e0a774834ca3aab7b23606d06cc273.jpg', 1, '2020-12-12');
 
 INSERT INTO tag (nome)
-VALUES ('Gatos');
+VALUES ('Gatos'),
+       ('Cães'),
+       ('Pássaros'),
+       ('Peixes'),
+       ('Roedores');
 
 INSERT INTO artigo_tag (fk_idArtigo, fk_idTag)
-VALUES (1, 1);
+VALUES (1, 1),
+       (2, 1);

@@ -26,6 +26,7 @@
                     <li class="nav-item"><a class="nav-link" href="/../pages/blog.php">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="/../pages/sobre.php">Sobre</a></li>
                     <li class="nav-item"><a class="nav-link" href="/../listar/contato.php">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/../listar/contato.php">Carteirinha</a></li>
                 </ul>
 
                 <!-- Menu à direita -->
