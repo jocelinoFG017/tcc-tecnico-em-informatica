@@ -3,12 +3,12 @@ include("../../../conexao/conexao.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $idMarca  = (int) $_POST["idMarca"];
+    $idTag  = (int) $_POST["idTag"];
     $nome     = mysqli_real_escape_string($conn, $_POST["nome"]);
 
-    $sql = "UPDATE marca SET
+    $sql = "UPDATE tag SET
                 nome = '$nome'
-            WHERE idMarca = '$idMarca'";
+            WHERE idTag = '$idTag'";
 
     $resultado = mysqli_query($conn, $sql);
 

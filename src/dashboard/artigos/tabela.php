@@ -1,7 +1,15 @@
 <?php
 include("../../conexao/conexao.php");
 
-$sql = "SELECT * FROM artigo";
+$sql = "SELECT 
+            artigo.idArtigo,
+            artigo.titulo,
+            artigo.texto,
+            artigo.data_publicacao,
+            usuario.nome AS autor
+        FROM artigo
+        INNER JOIN usuario 
+            ON artigo.fk_idUsuario = usuario.idUsuario";
 $resultado = mysqli_query($conn, $sql);
 ?>
 
@@ -28,9 +36,12 @@ $resultado = mysqli_query($conn, $sql);
                     <td><?= $dado["idArtigo"]; ?></td>
                     <td><?= $dado["titulo"]; ?></td>
                     <td><?= $dado["autor"]; ?></td>
+
                     <td>
-                        <?= trim($dado["tag"] . " " . $dado["tag2"] . " " . $dado["tag3"]); ?>
+                        <!-- tags ainda não implementadas corretamente -->
+                        -
                     </td>
+
                     <td>
                         <?= date('d/m/Y', strtotime($dado["data_publicacao"])); ?>
                     </td>
@@ -42,13 +53,9 @@ $resultado = mysqli_query($conn, $sql);
                                 class="btn btn-sm btn-primary btn-editar"
                                 data-bs-toggle="modal"
                                 data-bs-target="#modalEditar"
-
                                 data-id="<?= $dado['idArtigo'] ?>"
                                 data-titulo="<?= htmlspecialchars($dado['titulo'], ENT_QUOTES) ?>"
                                 data-autor="<?= htmlspecialchars($dado['autor'], ENT_QUOTES) ?>"
-                                data-tag="<?= htmlspecialchars($dado['tag'], ENT_QUOTES) ?>"
-                                data-tag2="<?= htmlspecialchars($dado['tag2'], ENT_QUOTES) ?>"
-                                data-tag3="<?= htmlspecialchars($dado['tag3'], ENT_QUOTES) ?>"
                                 data-data="<?= $dado['data_publicacao'] ?>">
 
                                 <i class="fas fa-edit"></i>
@@ -76,33 +83,33 @@ $resultado = mysqli_query($conn, $sql);
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const modalExcluir = document.getElementById('modalExcluir');
+    document.addEventListener('DOMContentLoaded', function() {
+        const modalExcluir = document.getElementById('modalExcluir');
 
-    modalExcluir.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
-        const id = button.getAttribute('data-id');
+        modalExcluir.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const id = button.getAttribute('data-id');
 
-        document.getElementById('btnExcluirConfirmado')
-            .setAttribute('href', 'excluir.php?idArtigo=' + id);
+            document.getElementById('btnExcluirConfirmado')
+                .setAttribute('href', 'excluir.php?idArtigo=' + id);
+        });
     });
-});
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const modalEditar = document.getElementById('modalEditar');
+    document.addEventListener('DOMContentLoaded', function() {
+        const modalEditar = document.getElementById('modalEditar');
 
-    modalEditar.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
+        modalEditar.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
 
-        modalEditar.querySelector('#modal-idArtigo').value = button.getAttribute('data-id');
-        modalEditar.querySelector('#modal-titulo').value = button.getAttribute('data-titulo');
-        modalEditar.querySelector('#modal-autor').value = button.getAttribute('data-autor');
-        modalEditar.querySelector('#modal-tag').value = button.getAttribute('data-tag');
-        modalEditar.querySelector('#modal-tag2').value = button.getAttribute('data-tag2');
-        modalEditar.querySelector('#modal-tag3').value = button.getAttribute('data-tag3');
-        modalEditar.querySelector('#modal-data').value = button.getAttribute('data-data');
+            modalEditar.querySelector('#modal-idArtigo').value = button.getAttribute('data-id');
+            modalEditar.querySelector('#modal-titulo').value = button.getAttribute('data-titulo');
+            modalEditar.querySelector('#modal-autor').value = button.getAttribute('data-autor');
+            modalEditar.querySelector('#modal-tag').value = button.getAttribute('data-tag');
+            modalEditar.querySelector('#modal-tag2').value = button.getAttribute('data-tag2');
+            modalEditar.querySelector('#modal-tag3').value = button.getAttribute('data-tag3');
+            modalEditar.querySelector('#modal-data').value = button.getAttribute('data-data');
+        });
     });
-});
 </script>

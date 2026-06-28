@@ -11,6 +11,29 @@ if (!isset($_SESSION['nomeNivelAcesso']) || strtolower($_SESSION['nomeNivelAcess
 $sql = "SELECT COUNT(*) AS total FROM usuario";
 $result = mysqli_query($conn, $sql);
 $totalUsuarios = mysqli_fetch_assoc($result);
+
+$sql2 = "SELECT COUNT(*) AS total FROM produto";
+$result2 = mysqli_query($conn, $sql2);
+$totalProdutos = mysqli_fetch_assoc($result2);
+
+
+$sql3 = "SELECT COUNT(*) AS total FROM artigo";
+$result3 = mysqli_query($conn, $sql3);
+$totalArtigos = mysqli_fetch_assoc($result3);
+
+
+$sqlArtigos = "
+    SELECT 
+        artigo.titulo,
+        usuario.nome AS autor
+    FROM artigo
+    INNER JOIN usuario 
+        ON usuario.idUsuario = artigo.fk_idUsuario
+    ORDER BY artigo.idArtigo DESC
+";
+
+$resultArtigos = mysqli_query($conn, $sqlArtigos);
+
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +89,7 @@ $totalUsuarios = mysqli_fetch_assoc($result);
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <div>
                             <h6 class="text-muted mb-1">Produtos</h6>
-                            <h2 class="fw-bold mb-0">15</h2>
+                            <h2 class="fw-bold mb-0"><?= $totalProdutos['total']; ?></h2>
                         </div>
                         <i class="fa-solid fa-box fa-3x text-success opacity-75"></i>
                     </div>
@@ -78,7 +101,7 @@ $totalUsuarios = mysqli_fetch_assoc($result);
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <div>
                             <h6 class="text-muted mb-1">Artigos</h6>
-                            <h2 class="fw-bold mb-0">8</h2>
+                            <h2 class="fw-bold mb-0"><?= $totalArtigos['total']; ?></h2>
                         </div>
                         <i class="fa-solid fa-newspaper fa-3x text-warning opacity-75"></i>
                     </div>
@@ -90,12 +113,22 @@ $totalUsuarios = mysqli_fetch_assoc($result);
         <!-- gráficos -->
         <div class="row mt-4">
             <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-header">
-                        Artigos Publicados
-                    </div>
-                    <div class="card-body">
-                        <canvas id="canvas"></canvas>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            Artigos Publicados
+                        </div>
+
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush mt-2">
+                                <?php while ($row = mysqli_fetch_assoc($resultArtigos)) { ?>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <span><?= $row['titulo']; ?></span>
+                                        <small class="text-muted"><?= $row['autor']; ?></small>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -115,7 +148,6 @@ $totalUsuarios = mysqli_fetch_assoc($result);
     </div>
 
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
