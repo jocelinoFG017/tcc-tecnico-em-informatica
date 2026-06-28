@@ -103,8 +103,23 @@ include("../../login/verificaLogin.php");
 
                                 <div class="mb-3">
                                     <label class="form-label">Marca</label>
-                                    <input name="marca" class="form-control"
-                                        placeholder="Insira a marca do produto" required>
+
+                                    <select name="marca" class="form-select" required>
+
+                                        <option value="">Selecione uma marca</option>
+
+                                        <?php
+                                        $sqlMarca = "SELECT idMarca, nome FROM marca ORDER BY nome";
+                                        $resultadoMarca = mysqli_query($conn, $sqlMarca);
+
+                                        while ($marca = mysqli_fetch_assoc($resultadoMarca)) {
+                                        ?>
+                                            <option value="<?= $marca['idMarca']; ?>">
+                                                <?= htmlspecialchars($marca['nome']); ?>
+                                            </option>
+                                        <?php } ?>
+
+                                    </select>
                                 </div>
 
                                 <div class="row">
@@ -140,6 +155,7 @@ include("../../login/verificaLogin.php");
         </div>
 
     </div>
+    <!-- Modal de Exclusão -->
     <div class="modal fade" id="modalExcluir" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content border-0 shadow-lg rounded-4">
@@ -171,6 +187,8 @@ include("../../login/verificaLogin.php");
             </div>
         </div>
     </div>
+
+    <!-- Modal de Edição -->
     <div class="modal fade" id="modalEditar" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content border-0 shadow-lg rounded-4">
@@ -204,7 +222,21 @@ include("../../login/verificaLogin.php");
 
                             <div class="col-md-6">
                                 <label class="form-label">Marca</label>
-                                <input id="modal-marca" name="marca" class="form-control">
+
+                                <select id="modal-marca" name="marca" class="form-select" required>
+
+                                    <?php
+                                    $sqlMarca = "SELECT idMarca, nome FROM marca ORDER BY nome";
+                                    $resultadoMarca = mysqli_query($conn, $sqlMarca);
+
+                                    while ($marca = mysqli_fetch_assoc($resultadoMarca)) {
+                                    ?>
+                                        <option value="<?= $marca['idMarca']; ?>">
+                                            <?= htmlspecialchars($marca['nome']); ?>
+                                        </option>
+                                    <?php } ?>
+
+                                </select>
                             </div>
 
                             <div class="col-md-3">
@@ -238,7 +270,7 @@ include("../../login/verificaLogin.php");
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/sidebar.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 

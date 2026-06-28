@@ -3,17 +3,17 @@ include("../../conexao/conexao.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $idProduto   = $_POST["idProduto"];
-    $nome        = $_POST["nome"];
-    $descricao   = $_POST["descricao"];
-    $marca       = $_POST["marca"];
-    $quantidade  = $_POST["quantidade"];
-    $preco       = $_POST["preco"];
+    $idProduto  = (int) $_POST["idProduto"];
+    $nome       = mysqli_real_escape_string($conn, $_POST["nome"]);
+    $descricao  = mysqli_real_escape_string($conn, $_POST["descricao"]);
+    $idMarca    = (int) $_POST["marca"];
+    $quantidade = (int) $_POST["quantidade"];
+    $preco      = str_replace(",", ".", $_POST["preco"]);
 
-    $sql = "UPDATE produto SET 
+    $sql = "UPDATE produto SET
                 nome = '$nome',
                 descricao = '$descricao',
-                marca = '$marca',
+                fk_idMarca = '$idMarca',
                 quantidade = '$quantidade',
                 preco = '$preco'
             WHERE idProduto = '$idProduto'";

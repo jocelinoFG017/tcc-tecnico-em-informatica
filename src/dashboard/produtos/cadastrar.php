@@ -4,20 +4,15 @@ error_reporting(E_ALL);
 // Conexão com o banco de dados
 include("../../conexao/conexao.php");
 
-
-
-
 // Se o usuário clicou no botão cadastrar efetua as ações
 if (isset($_POST['cadastrar'])) {
 
-    // Recupera os dados dos campos
-    $nome = mysqli_real_escape_string($conn, trim($_POST['nome']));
-    $descricao = mysqli_real_escape_string($conn, trim($_POST['descricao']));
-    $marca = mysqli_real_escape_string($conn, trim($_POST['marca']));
-    $quantidade = mysqli_real_escape_string($conn, trim($_POST['quantidade']));
-    $preco = mysqli_real_escape_string($conn, trim($_POST['preco']));
-    // $email = $_POST['email'];
-    $foto = $_FILES["foto"];
+    $nome        = mysqli_real_escape_string($conn, trim($_POST['nome']));
+    $descricao   = mysqli_real_escape_string($conn, trim($_POST['descricao']));
+    $idMarca     = (int) $_POST['marca'];
+    $quantidade  = (int) $_POST['quantidade'];
+    $preco       = str_replace(',', '.', trim($_POST['preco']));
+    $foto        = $_FILES["foto"];
 
     // Se a foto estiver sido selecionada
     if (!empty($foto["name"])) {
@@ -72,26 +67,24 @@ if (isset($_POST['cadastrar'])) {
             // Insere os dados no banco
             // $sql = mysql_query("INSERT INTO produto VALUES ('', '".$nome."', '".$email."', '".$nome_imagem."')");
             $sql = mysqli_query($conn, "
-                    INSERT INTO produto (
-                        nome,
-                        descricao,
-                        marca,
-                        quantidade,
-                        preco,
-                        foto,
-                        fk_idCategoria,
-                        fk_idTipo
-                    ) VALUES (
-                        '$nome',
-                        '$descricao',
-                        '$marca',
-                        '$quantidade',
-                        '$preco',
-                        '$nome_imagem',
-                        1,
-                        1
-                    )
-                ");
+                INSERT INTO produto (
+                    nome,
+                    descricao,
+                    fk_idMarca,
+                    quantidade,
+                    preco,
+                    foto,
+                    fk_idCategoria
+                ) VALUES (
+                    '$nome',
+                    '$descricao',
+                    '$idMarca',
+                    '$quantidade',
+                    '$preco',
+                    '$nome_imagem',
+                    1
+                )
+            ");
             // Se os dados forem inseridos com sucesso
             if ($sql) {
                 header('Location: /dashboard/produtos/index.php');

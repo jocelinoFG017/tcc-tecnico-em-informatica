@@ -1,18 +1,7 @@
 <?php
-include("../../conexao/conexao.php");
+include("../../../conexao/conexao.php");
 
-$sql = "SELECT
-            p.idProduto,
-            p.nome,
-            p.descricao,
-            p.fk_idMarca,
-            p.quantidade,
-            p.preco,
-            m.nome AS marca
-        FROM produto p
-        INNER JOIN marca m
-            ON p.fk_idMarca = m.idMarca
-        ORDER BY p.nome";
+$sql = "SELECT * FROM marca";
 
 $resultado = mysqli_query($conn, $sql);
 ?>
@@ -25,11 +14,7 @@ $resultado = mysqli_query($conn, $sql);
             <tr>
                 <th>#</th>
                 <th>Nome</th>
-                <th>Descrição</th>
-                <th>Marca</th>
-                <th>Quantidade</th>
-                <th>Preço</th>
-                <th>Ação</th>
+                <th>Ações</th>
             </tr>
         </thead>
 
@@ -42,24 +27,14 @@ $resultado = mysqli_query($conn, $sql);
                 <tr>
                     <td><?= $contador++ ?></td>
                     <td><?= $dado["nome"] ?></td>
-                    <td><?= $dado["descricao"] ?></td>
-                    <td><?= $dado["marca"] ?></td>
-                    <td><?= $dado["quantidade"] ?></td>
-                    <td>R$ <?= number_format($dado["preco"], 2, ',', '.') ?></td>
-
                     <td>
                         <div class="d-flex gap-2">
 
                             <button class="btn btn-sm btn-primary btn-editar"
                                 data-bs-toggle="modal"
                                 data-bs-target="#modalEditar"
-
-                                data-id="<?= $dado['idProduto'] ?>"
-                                data-nome="<?= htmlspecialchars($dado['nome'], ENT_QUOTES) ?>"
-                                data-descricao="<?= htmlspecialchars($dado['descricao'], ENT_QUOTES) ?>"
-                                data-marca="<?= htmlspecialchars($dado['fk_idMarca'], ENT_QUOTES) ?>"
-                                data-quantidade="<?= $dado['quantidade'] ?>"
-                                data-preco="<?= $dado['preco'] ?>">
+                                data-id="<?= $dado['idMarca'] ?>"
+                                data-nome="<?= htmlspecialchars($dado['nome'], ENT_QUOTES) ?>">
 
                                 <i class="fas fa-edit"></i>
                             </button>
@@ -67,7 +42,7 @@ $resultado = mysqli_query($conn, $sql);
                             <button class="btn btn-sm btn-danger btn-excluir"
                                 data-bs-toggle="modal"
                                 data-bs-target="#modalExcluir"
-                                data-id="<?= $dado['idProduto'] ?>">
+                                data-id="<?= $dado['idMarca'] ?>">
 
                                 <i class="fas fa-trash-alt"></i>
                             </button>
@@ -92,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const id = button.getAttribute('data-id');
 
         document.getElementById('btnExcluirConfirmado')
-            .setAttribute('href', 'excluir.php?idProduto=' + id);
+            .setAttribute('href', 'excluir.php?idMarca=' + id);
     });
 });
 </script>
@@ -104,12 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
     modalEditar.addEventListener('show.bs.modal', function (event) {
         const button = event.relatedTarget;
 
-        modalEditar.querySelector('#modal-idProduto').value = button.getAttribute('data-id');
+        modalEditar.querySelector('#modal-idMarca').value = button.getAttribute('data-id');
         modalEditar.querySelector('#modal-nome').value = button.getAttribute('data-nome');
-        modalEditar.querySelector('#modal-descricao').value = button.getAttribute('data-descricao');
-        modalEditar.querySelector('#modal-marca').value = button.getAttribute('data-marca');
-        modalEditar.querySelector('#modal-quantidade').value = button.getAttribute('data-quantidade');
-        modalEditar.querySelector('#modal-preco').value = button.getAttribute('data-preco');
     });
 });
 </script>
