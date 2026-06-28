@@ -2,8 +2,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <!-- Logo -->
-            <a class="navbar-brand" href="../index.php">
-                <img src="../assets/images/home/nova_logo.png" alt="PetShop Logo" style="height: 60px;">
+            <a class="navbar-brand" href="/../index.php">
+                <img src="/../../assets/images/home/nova_logo.png" alt="PetShop Logo" style="height: 60px;">
             </a>
 
             <!-- Botão toggler mobile -->
@@ -20,12 +20,12 @@
                             Início
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="homeDropdown">
-                            <li><a class="dropdown-item" href="../listar/produtoLista.php">Produtos</a></li>
+                            <li><a class="dropdown-item" href="/../listar/produtoLista.php">Produtos</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/blog.php">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/sobre.php">Sobre</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../listar/contato.php">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/../pages/blog.php">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/../pages/sobre.php">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/../listar/contato.php">Contato</a></li>
                 </ul>
 
                 <!-- Menu à direita -->
@@ -36,7 +36,7 @@
                         <li class="nav-item"><a class="nav-link" href="../loja/minhaConta.php"><i class="fa fa-user"></i> Minha Conta</a></li>
                     <?php else: ?>
                         <!-- Usuário não logado -->
-                        <li class="nav-item"><a class="nav-link" href="../login/loginIndex.php"><i class="fa fa-lock"></i> Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/../login/loginIndex.php"><i class="fa fa-lock"></i> Login</a></li>
                     <?php endif; ?>
                 </ul>
             </div>

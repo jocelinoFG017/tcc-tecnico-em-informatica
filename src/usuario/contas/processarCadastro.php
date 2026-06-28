@@ -1,0 +1,31 @@
+<?php
+session_start();
+include("../../conexao/conexao.php");
+
+$nome = mysqli_real_escape_string($conn, trim($_POST['nome']));
+$login = mysqli_real_escape_string($conn, trim($_POST['login']));
+$senha = mysqli_real_escape_string($conn, trim(md5($_POST['senha'])));
+$nivelAcesso = 2;
+
+$sql = "SELECT count(*) as total FROM usuario WHERE login = '$login'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+
+if ($row['total'] == 1) {
+    $_SESSION['usuarioExiste'] = true;
+    header('Location: ../../login/loginIndex.php');
+    exit;
+}
+
+$sql = " INSERT INTO usuario( nome, login, senha, fk_idNivelAcesso)
+            VALUES('$nome','$login','$senha', '$nivelAcesso') ";
+
+if ($conn->query($sql) === TRUE) {
+    $_SESSION['cadastro_sucesso'] = true;
+    header('Location: ../../usuario/contas/sucessoCadastro.php');
+    exit;
+}
+
+$conn->close();
+header('Location: ../../login/loginIndex.php');
+exit;
