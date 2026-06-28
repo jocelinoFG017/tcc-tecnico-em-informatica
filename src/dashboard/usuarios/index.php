@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../login/verificaLogin.php");
+include("../../login/verificaAdmin.php");
 include("../../conexao/conexao.php");
 
 $sqlNivel = "SELECT idNivelAcesso, cargo FROM nivelacesso ORDER BY cargo ASC";

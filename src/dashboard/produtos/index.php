@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../login/verificaLogin.php");
+include("../../login/verificaAdmin.php");
 ?>
 <!doctype html>
 <html lang="pt-br">

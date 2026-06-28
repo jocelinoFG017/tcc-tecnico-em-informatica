@@ -37,7 +37,7 @@ $totalCarrinho = mysqli_fetch_assoc($sqlCarrinho)['totalCarrinho'] ?? 0;
     </style>
 </head>
 <body>
-<?php include("../templates/header.php"); ?>
+<?php include("../includes/header.php"); ?>
 
 <main class="container py-5">
     <div class="text-center mb-5">
@@ -104,7 +104,7 @@ $totalCarrinho = mysqli_fetch_assoc($sqlCarrinho)['totalCarrinho'] ?? 0;
     </div>
 </main>
 
-<?php include("../templates/footer.php"); ?>
+<?php include("../includes/footer.php"); ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -7,3 +7,9 @@ if (!isset($_SESSION['login']) || empty($_SESSION['login'])) {
     header('Location: ../login/loginIndex.php');
     exit();
 }
+
+if (isset($_SESSION['fk_idNivelAcesso']) && $_SESSION['fk_idNivelAcesso'] == 1) {
+    header('Location: ../dashboard/painel.php');
+    exit();
+}
+?>
