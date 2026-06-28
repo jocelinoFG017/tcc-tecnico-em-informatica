@@ -148,16 +148,24 @@ CREATE TABLE IF NOT EXISTS `endereco` (
 -- Artigo
 -- -----------------------------------------------------
 CREATE TABLE artigo (
-  idArtigo INT NOT NULL AUTO_INCREMENT,
-  titulo VARCHAR(255) NOT NULL,
-  texto TEXT NOT NULL,
-  fk_idUsuario INT NOT NULL,
-  data_publicacao DATE,
+    idArtigo INT NOT NULL AUTO_INCREMENT,
+    titulo VARCHAR(255) NOT NULL,
+    texto TEXT NOT NULL,
+    imagem VARCHAR(255) DEFAULT NULL,
+    fk_idUsuario INT NOT NULL,
+    data_publicacao DATE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP,
 
-  PRIMARY KEY (idArtigo),
-  FOREIGN KEY (fk_idUsuario) REFERENCES usuario(idUsuario)
-);
+    PRIMARY KEY (idArtigo),
 
+    CONSTRAINT fk_artigo_usuario
+        FOREIGN KEY (fk_idUsuario)
+        REFERENCES usuario(idUsuario)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
 -- -----------------------------------------------------
 -- Tag
 -- -----------------------------------------------------
@@ -172,13 +180,18 @@ CREATE TABLE tag (
 -- -----------------------------------------------------
 
 CREATE TABLE artigo_tag (
-  fk_idArtigo INT NOT NULL,
-  fk_idTag INT NOT NULL,
+    fk_idArtigo INT NOT NULL,
+    fk_idTag INT NOT NULL,
 
-  PRIMARY KEY (fk_idArtigo, fk_idTag),
+    PRIMARY KEY (fk_idArtigo, fk_idTag),
 
-  FOREIGN KEY (fk_idArtigo) REFERENCES artigo(idArtigo),
-  FOREIGN KEY (fk_idTag) REFERENCES tag(idTag)
+    FOREIGN KEY (fk_idArtigo)
+        REFERENCES artigo(idArtigo)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (fk_idTag)
+        REFERENCES tag(idTag)
+        ON DELETE CASCADE
 );
 -- -----------------------------------------------------
 -- Pedido

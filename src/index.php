@@ -44,26 +44,25 @@ session_start(); // inicia a sessão para verificar login
                                     <?php $primeiro = false; ?>
                                     <div class="row align-items-center">
                                         <div class="col-md-6 text-start">
-                                            <h1><?= $artigo->tag ?></h1>
+                                            <h1>tag here</h1>
                                             <h2>Curiosidade</h2>
                                             <p><?= $artigo->texto ?></p>
                                             <a href="pages/blog.php?id=<?= $artigo->idArtigo ?>" class="btn btn-warning">Ver Mais</a>
                                         </div>
                                         <div class="col-md-6 text-center">
-                                            <img src="uploads/artigos/<?= $artigo->foto ?>" class="img-fluid" alt="<?= $artigo->titulo ?>" />
+                                            <img src="/uploads/artigos/<?= $artigo->imagem ?>" class="img-fluid" alt="<?= $artigo->titulo ?>" />
                                         </div>
                                     </div>
                                 </div>
                             <?php endwhile; ?>
                         </div>
 
-                        <button class="carousel-control-prev" type="button" data-bs-target="#slider-carousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev" type="button" data-bs-target="#slider-carousel" data-bs-slide="prev" style="width:60px;">
                             <span class="carousel-control-prev-icon bg-warning rounded-circle p-3"></span>
-                            <span class="visually-hidden">Anterior</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#slider-carousel" data-bs-slide="next">
+
+                        <button class="carousel-control-next" type="button" data-bs-target="#slider-carousel" data-bs-slide="next" style="width:60px;">
                             <span class="carousel-control-next-icon bg-warning rounded-circle p-3"></span>
-                            <span class="visually-hidden">Próximo</span>
                         </button>
                     </div>
                 </div>
@@ -106,6 +105,9 @@ session_start(); // inicia a sessão para verificar login
     <?php include("includes/footer.php"); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        console.log('Bootstrap loaded');
+    </script>
 </body>
 
 </html>

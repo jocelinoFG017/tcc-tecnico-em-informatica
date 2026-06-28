@@ -3,82 +3,121 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 include("../../conexao/conexao.php");
 
-
 if (isset($_POST['cadastrar'])) {
 
-     $titulo = mysqli_real_escape_string($conn, trim($_POST['titulo']));
-     $texto = mysqli_real_escape_string($conn,trim($_POST['texto']));
-     $autor = mysqli_real_escape_string($conn,trim($_POST['autor']));
-     $tag = mysqli_real_escape_string($conn,trim($_POST['tag']));
-     $tag2 = mysqli_real_escape_string($conn,trim($_POST['tag2']));
-     $tag3 = mysqli_real_escape_string($conn,trim($_POST['tag3']));
+    $titulo = mysqli_real_escape_string($conn, trim($_POST['titulo']));
+    $texto = mysqli_real_escape_string($conn, trim($_POST['texto']));
+    $autor = (int)$_POST['autor'];
+    $data_publicacao = $_POST['data_publicacao'];
 
-     $foto = $_FILES["foto"];
-    // Se a foto estiver sido selecionada
+    $tags = $_POST['tags'] ?? [];
+
+    // Limita a 3 tags
+    if (count($tags) > 3) {
+        die("Selecione no máximo 3 tags.");
+    }
+
+    $foto = $_FILES["imagem"];
+    $nome_imagem = "";
+
+    // Se foi enviada uma imagem
     if (!empty($foto["name"])) {
-        
-        // Largura máxima em pixels
+
         $largura = 500;
-        // Altura máxima em pixels
         $altura = 500;
-        // Tamanho máximo do arquivo em bytes
         $tamanho = 100000;
 
         $error = array();
 
-        // Verifica se o arquivo é uma foto
-        if(!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $foto["type"])){
-            $error[1] = "Isso não é uma foto.";
-            } 
-    
-        // Pega as dimensões da foto
+        // Verifica se é imagem
+        if (!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp|webp)$/", $foto["type"])) {
+            $error[] = "Isso não é uma imagem.";
+        }
+
         $dimensoes = getimagesize($foto["tmp_name"]);
-    
-        // Verifica se a largura da foto é maior que a largura permitida
-        if($dimensoes[0] > $largura) {
-            $error[2] = "A largura da foto não deve ultrapassar ".$largura." pixels";
+
+        if ($dimensoes[0] > $largura) {
+            $error[] = "A largura da imagem não deve ultrapassar {$largura}px.";
         }
 
-        // Verifica se a altura da foto é maior que a altura permitida
-        if($dimensoes[1] > $altura) {
-            $error[3] = "Altura da foto não deve ultrapassar ".$altura." pixels";
-        }
-        
-        // Verifica se o tamanho da foto é maior que o tamanho permitido
-        if($foto["size"] > $tamanho) {
-                $error[4] = "A foto deve ter no máximo ".$tamanho." bytes";
+        if ($dimensoes[1] > $altura) {
+            $error[] = "A altura da imagem não deve ultrapassar {$altura}px.";
         }
 
-        // Se não houver nenhum erro
+        if ($foto["size"] > $tamanho) {
+            $error[] = "A imagem deve ter no máximo {$tamanho} bytes.";
+        }
+
         if (count($error) == 0) {
-        
-            // Pega extensão da foto
-            preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
 
-            // Gera um nome único para a foto
-            $nome_imagem = md5(uniqid(time())) . "." . $ext[1];
+            preg_match("/\.(gif|bmp|png|jpg|jpeg|webp)$/i", $foto["name"], $ext);
 
-            // Caminho de onde ficará a foto
-            $caminho_imagem = "../../fotos/" . $nome_imagem;
+            $nome_imagem = md5(uniqid(time())) . "." . strtolower($ext[1]);
 
-            // Faz o upload da foto para seu respectivo caminho
+            $caminho_imagem = "../../uploads/artigos/" . $nome_imagem;
+
             move_uploaded_file($foto["tmp_name"], $caminho_imagem);
-        
-            $sql = mysqli_query($conn, "INSERT INTO artigo (titulo, texto, autor, tag, tag2, tag3, foto) 
-                                                        VALUES ('$titulo', '$texto', '$autor', '$tag', '$tag2', '$tag3', '$nome_imagem')");
+        } else {
 
-            // Se os dados forem inseridos com sucesso
-            if ($sql){
-                // echo "Foto cadastrada com sucesso.";
-                header('Location: /dashboard/artigos/index.php');
-            }
-        }
-        // Se houver mensagens de erro, exibe-as
-        if (count($error) != 0) {
             foreach ($error as $erro) {
-                echo $erro . "<br />";
+                echo $erro . "<br>";
             }
+
+            exit;
         }
     }
+
+    // Cadastra o artigo
+    $sql = mysqli_query($conn, "
+        INSERT INTO artigo
+        (
+            titulo,
+            texto,
+            imagem,
+            fk_idUsuario,
+            data_publicacao
+        )
+        VALUES
+        (
+            '$titulo',
+            '$texto',
+            '$nome_imagem',
+            $autor,
+            '$data_publicacao'
+        )
+    ");
+
+    if ($sql) {
+
+        // ID do artigo recém cadastrado
+        $idArtigo = mysqli_insert_id($conn);
+
+        // Cadastra as tags
+        foreach ($tags as $idTag) {
+
+            $idTag = (int)$idTag;
+
+            mysqli_query($conn, "
+                INSERT INTO artigo_tag
+                (
+                    fk_idArtigo,
+                    fk_idTag
+                )
+                VALUES
+                (
+                    $idArtigo,
+                    $idTag
+                )
+            ");
+        }
+
+        header("Location: /dashboard/artigos/index.php");
+        exit;
+    } else {
+
+        echo "Erro ao cadastrar artigo: " . mysqli_error($conn);
+
+    }
+
 }
 ?>

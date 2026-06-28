@@ -89,47 +89,104 @@ include("../../conexao/conexao.php");
 
                         <div class="mb-3">
                            <label class="form-label">Título</label>
-                           <input name="titulo" class="form-control"
-                              placeholder="Insira um título">
+                           <input type="text" name="titulo" class="form-control" required>
                         </div>
 
                         <div class="mb-3">
                            <label class="form-label">Texto</label>
-                           <textarea name="texto" id="texto" class="form-control" rows="6" placeholder="Insira o texto"></textarea>
+                           <textarea name="texto" class="form-control" rows="8" required></textarea>
                         </div>
 
                         <div class="row">
+
+                           <!-- Autor -->
                            <div class="col-md-6 mb-3">
                               <label class="form-label">Autor</label>
-                              <input name="autor" class="form-control"
-                                 placeholder="Insira o Autor">
+
+                              <select name="autor" class="form-select" required>
+
+                                 <option value="">Selecione...</option>
+
+                                 <?php
+                                 $sqlAutor = "SELECT idUsuario, nome
+                             FROM usuario
+                             ORDER BY nome";
+
+                                 $resultadoAutor = mysqli_query($conn, $sqlAutor);
+
+                                 while ($autor = mysqli_fetch_assoc($resultadoAutor)) {
+                                 ?>
+
+                                    <option value="<?= $autor['idUsuario']; ?>">
+                                       <?= $autor['nome']; ?>
+                                    </option>
+
+                                 <?php } ?>
+
+                              </select>
+
                            </div>
 
+                           <!-- Data -->
                            <div class="col-md-6 mb-3">
-                              <label class="form-label">Tag</label>
-                              <input name="tag" class="form-control"
-                                 placeholder="Insira a Tag">
+                              <label class="form-label">Data da publicação</label>
+                              <input type="date"
+                                 name="data_publicacao"
+                                 class="form-control"
+                                 value="<?= date('Y-m-d'); ?>">
                            </div>
 
-                           <div class="col-md-6 mb-3">
-                              <label class="form-label">Tag 2</label>
-                              <input name="tag2" class="form-control"
-                                 placeholder="Insira a Tag 2">
+                           <!-- Tags -->
+                           <div class="col-12 mb-3">
+
+                              <label class="form-label">
+                                 Tags (máximo 3)
+                              </label>
+
+                              <select
+                                 name="tags[]"
+                                 class="form-select"
+                                 multiple>
+
+                                 <?php
+
+                                 $sqlTag = "SELECT * FROM tag ORDER BY nome";
+
+                                 $resultadoTag = mysqli_query($conn, $sqlTag);
+
+                                 while ($tag = mysqli_fetch_assoc($resultadoTag)) {
+                                 ?>
+
+                                    <option value="<?= $tag['idTag']; ?>">
+                                       <?= $tag['nome']; ?>
+                                    </option>
+
+                                 <?php } ?>
+
+                              </select>
+
+                              <small class="text-muted">
+                                 Segure Ctrl para selecionar até 3 tags.
+                              </small>
+
                            </div>
 
-                           <div class="col-md-6 mb-3">
-                              <label class="form-label">Tag 3</label>
-                              <input name="tag3" class="form-control"
-                                 placeholder="Insira a Tag 3">
-                           </div>
-
+                           <!-- Imagem -->
                            <div class="col-12 mb-3">
                               <label class="form-label">Imagem</label>
-                              <input type="file" name="foto" class="form-control">
+                              <input
+                                 type="file"
+                                 name="imagem"
+                                 class="form-control"
+                                 accept=".jpg,.jpeg,.png,.webp">
                            </div>
+
                         </div>
 
-                        <button type="submit" name="cadastrar" class="btn btn-primary">
+                        <button
+                           type="submit"
+                           name="cadastrar"
+                           class="btn btn-primary">
                            Cadastrar
                         </button>
 

@@ -1,15 +1,40 @@
 <?php
 include("../../conexao/conexao.php");
 
-$sql = "SELECT 
-            artigo.idArtigo,
-            artigo.titulo,
-            artigo.texto,
-            artigo.data_publicacao,
-            usuario.nome AS autor
-        FROM artigo
-        INNER JOIN usuario 
-            ON artigo.fk_idUsuario = usuario.idUsuario";
+$sql = "
+SELECT
+    a.idArtigo,
+    a.titulo,
+    a.texto,
+    a.imagem,
+    a.data_publicacao,
+    u.idUsuario,
+    u.nome AS autor,
+    GROUP_CONCAT(t.nome ORDER BY t.nome SEPARATOR ', ') AS tags
+
+FROM artigo a
+
+INNER JOIN usuario u
+    ON a.fk_idUsuario = u.idUsuario
+
+LEFT JOIN artigo_tag at
+    ON at.fk_idArtigo = a.idArtigo
+
+LEFT JOIN tag t
+    ON t.idTag = at.fk_idTag
+
+GROUP BY
+    a.idArtigo,
+    a.titulo,
+    a.texto,
+    a.imagem,
+    a.data_publicacao,
+    u.idUsuario,
+    u.nome
+
+ORDER BY a.data_publicacao DESC
+";
+
 $resultado = mysqli_query($conn, $sql);
 ?>
 
@@ -30,51 +55,63 @@ $resultado = mysqli_query($conn, $sql);
 
         <tbody>
 
-            <?php while ($dado = mysqli_fetch_array($resultado)) { ?>
+        <?php while ($dado = mysqli_fetch_assoc($resultado)) { ?>
 
-                <tr>
-                    <td><?= $dado["idArtigo"]; ?></td>
-                    <td><?= $dado["titulo"]; ?></td>
-                    <td><?= $dado["autor"]; ?></td>
+            <tr>
 
-                    <td>
-                        <!-- tags ainda não implementadas corretamente -->
-                        -
-                    </td>
+                <td><?= $dado["idArtigo"]; ?></td>
 
-                    <td>
-                        <?= date('d/m/Y', strtotime($dado["data_publicacao"])); ?>
-                    </td>
+                <td><?= htmlspecialchars($dado["titulo"]); ?></td>
 
-                    <td>
-                        <div class="d-flex gap-2">
+                <td><?= htmlspecialchars($dado["autor"]); ?></td>
 
-                            <button
-                                class="btn btn-sm btn-primary btn-editar"
-                                data-bs-toggle="modal"
-                                data-bs-target="#modalEditar"
-                                data-id="<?= $dado['idArtigo'] ?>"
-                                data-titulo="<?= htmlspecialchars($dado['titulo'], ENT_QUOTES) ?>"
-                                data-autor="<?= htmlspecialchars($dado['autor'], ENT_QUOTES) ?>"
-                                data-data="<?= $dado['data_publicacao'] ?>">
+                <td>
+                    <?= $dado["tags"] ? htmlspecialchars($dado["tags"]) : "-" ?>
+                </td>
 
-                                <i class="fas fa-edit"></i>
-                            </button>
+                <td>
+                    <?= !empty($dado["data_publicacao"])
+                        ? date('d/m/Y', strtotime($dado["data_publicacao"]))
+                        : "-"; ?>
+                </td>
 
-                            <button
-                                class="btn btn-sm btn-danger btn-excluir"
-                                data-bs-toggle="modal"
-                                data-bs-target="#modalExcluir"
-                                data-id="<?= $dado['idArtigo'] ?>">
+                <td>
 
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
+                    <div class="d-flex gap-2">
 
-                        </div>
-                    </td>
-                </tr>
+                        <button
+                            class="btn btn-sm btn-primary btn-editar"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalEditar"
 
-            <?php } ?>
+                            data-id="<?= $dado['idArtigo']; ?>"
+                            data-titulo="<?= htmlspecialchars($dado['titulo'], ENT_QUOTES); ?>"
+                            data-texto="<?= htmlspecialchars($dado['texto'], ENT_QUOTES); ?>"
+                            data-autor="<?= $dado['idUsuario']; ?>"
+                            data-data="<?= $dado['data_publicacao']; ?>"
+                            data-imagem="<?= htmlspecialchars($dado['imagem'], ENT_QUOTES); ?>">
+
+                            <i class="fas fa-edit"></i>
+
+                        </button>
+
+                        <button
+                            class="btn btn-sm btn-danger btn-excluir"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalExcluir"
+                            data-id="<?= $dado['idArtigo']; ?>">
+
+                            <i class="fas fa-trash-alt"></i>
+
+                        </button>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        <?php } ?>
 
         </tbody>
 
@@ -83,33 +120,43 @@ $resultado = mysqli_query($conn, $sql);
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const modalExcluir = document.getElementById('modalExcluir');
+document.addEventListener('DOMContentLoaded', function () {
 
-        modalExcluir.addEventListener('show.bs.modal', function(event) {
-            const button = event.relatedTarget;
-            const id = button.getAttribute('data-id');
+    const modalExcluir = document.getElementById('modalExcluir');
 
-            document.getElementById('btnExcluirConfirmado')
-                .setAttribute('href', 'excluir.php?idArtigo=' + id);
-        });
+    modalExcluir.addEventListener('show.bs.modal', function (event) {
+
+        const button = event.relatedTarget;
+
+        document
+            .getElementById('btnExcluirConfirmado')
+            .href = 'excluir.php?idArtigo=' + button.dataset.id;
+
     });
+
+});
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const modalEditar = document.getElementById('modalEditar');
+document.addEventListener('DOMContentLoaded', function () {
 
-        modalEditar.addEventListener('show.bs.modal', function(event) {
-            const button = event.relatedTarget;
+    const modalEditar = document.getElementById('modalEditar');
 
-            modalEditar.querySelector('#modal-idArtigo').value = button.getAttribute('data-id');
-            modalEditar.querySelector('#modal-titulo').value = button.getAttribute('data-titulo');
-            modalEditar.querySelector('#modal-autor').value = button.getAttribute('data-autor');
-            modalEditar.querySelector('#modal-tag').value = button.getAttribute('data-tag');
-            modalEditar.querySelector('#modal-tag2').value = button.getAttribute('data-tag2');
-            modalEditar.querySelector('#modal-tag3').value = button.getAttribute('data-tag3');
-            modalEditar.querySelector('#modal-data').value = button.getAttribute('data-data');
-        });
+    modalEditar.addEventListener('show.bs.modal', function (event) {
+
+        const button = event.relatedTarget;
+
+        document.getElementById('modal-idArtigo').value = button.dataset.id;
+        document.getElementById('modal-titulo').value = button.dataset.titulo;
+        document.getElementById('modal-texto').value = button.dataset.texto;
+        document.getElementById('modal-autor').value = button.dataset.autor;
+        document.getElementById('modal-data').value = button.dataset.data;
+
+        // A seleção das tags será carregada posteriormente.
+        // As tags não podem mais ser preenchidas por data-tag, data-tag2 e data-tag3,
+        // pois agora elas ficam na tabela artigo_tag.
+
     });
+
+});
 </script>
