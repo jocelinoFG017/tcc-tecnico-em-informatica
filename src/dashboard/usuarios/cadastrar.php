@@ -5,7 +5,7 @@
     $nome = mysqli_real_escape_string($conn, trim($_POST['nome']));
     $login = mysqli_real_escape_string($conn,trim($_POST['login']));
     $senha = mysqli_real_escape_string($conn,trim(md5($_POST['senha'])));
-    $nivelAcesso = 2;
+    $nivelAcesso = mysqli_real_escape_string($conn,trim($_POST['nivel_acesso']));
 
     $sql = "SELECT count(*) as total FROM usuario WHERE login = '$login'";
     $result = mysqli_query($conn,$sql);

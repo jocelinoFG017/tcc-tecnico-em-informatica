@@ -1,6 +1,10 @@
 <?php
 session_start();
 include("../../login/verificaLogin.php");
+include("../../conexao/conexao.php");
+
+$sqlNivel = "SELECT idNivelAcesso, cargo FROM nivelacesso ORDER BY cargo ASC";
+$resultNivel = mysqli_query($conn, $sqlNivel);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -81,38 +85,57 @@ include("../../login/verificaLogin.php");
                             <!-- anti-autofill invisível (Chrome fix) -->
                             <input type="text" name="fake_user" style="display:none">
                             <input type="password" name="fake_pass" style="display:none">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="col-sm-2 col-form-label">Nome</label>
+                                    <div class="col-sm-10">
+                                        <input name="nome"
+                                            required
+                                            class="form-control"
+                                            autocomplete="off"
+                                            placeholder="Insira o nome">
+                                    </div>
+                                </div>
 
-                            <div class="mb-3 row">
-                                <label class="col-sm-2 col-form-label">Nome</label>
-                                <div class="col-sm-10">
-                                    <input name="nome"
-                                        required
-                                        class="form-control"
-                                        autocomplete="off"
-                                        placeholder="Insira o nome">
+                                <div class="col-md-6 mb-3">
+                                    <label class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input name="login"
+                                            required
+                                            class="form-control"
+                                            autocomplete="off"
+                                            placeholder="Insira o email">
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="mb-3 row">
-                                <label class="col-sm-2 col-form-label">Email</label>
-                                <div class="col-sm-10">
-                                    <input name="login"
-                                        required
-                                        class="form-control"
-                                        autocomplete="off"
-                                        placeholder="Insira o email">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="col-sm-2 col-form-label">Senha</label>
+                                    <div class="col-sm-10">
+                                        <input type="password"
+                                            name="senha"
+                                            required
+                                            class="form-control"
+                                            autocomplete="new-password"
+                                            placeholder="Insira a senha">
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="col-sm-2 col-form-label">Nível de Acesso</label>
 
-                            <div class="mb-3 row">
-                                <label class="col-sm-2 col-form-label">Senha</label>
-                                <div class="col-sm-10">
-                                    <input type="password"
-                                        name="senha"
-                                        required
-                                        class="form-control"
-                                        autocomplete="new-password"
-                                        placeholder="Insira a senha">
+                                    <div class="col-sm-10">
+                                        <select name="nivel_acesso" class="form-select" required>
+
+                                            <option value="">Selecione...</option>
+
+                                            <?php while ($nivel = mysqli_fetch_assoc($resultNivel)) { ?>
+                                                <option value="<?= $nivel['idNivelAcesso']; ?>">
+                                                    <?= $nivel['cargo']; ?>
+                                                </option>
+                                            <?php } ?>
+
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
