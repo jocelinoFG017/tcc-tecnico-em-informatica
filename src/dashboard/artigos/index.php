@@ -18,7 +18,7 @@ include("../../conexao/conexao.php");
 
 <body>
 
-  <?php include("../../includes/headerDash.php"); ?>
+   <?php include("../../includes/headerDash.php"); ?>
 
    <div class="d-flex">
       <?php include("../sidebar/sidebar.php"); ?>
@@ -90,7 +90,7 @@ include("../../conexao/conexao.php");
                         <div class="mb-3">
                            <label class="form-label">Título</label>
                            <input name="titulo" class="form-control"
-                           placeholder="Insira um título">
+                              placeholder="Insira um título">
                         </div>
 
                         <div class="mb-3">
@@ -102,25 +102,25 @@ include("../../conexao/conexao.php");
                            <div class="col-md-6 mb-3">
                               <label class="form-label">Autor</label>
                               <input name="autor" class="form-control"
-                              placeholder="Insira o Autor">
+                                 placeholder="Insira o Autor">
                            </div>
 
                            <div class="col-md-6 mb-3">
                               <label class="form-label">Tag</label>
                               <input name="tag" class="form-control"
-                              placeholder="Insira a Tag">
+                                 placeholder="Insira a Tag">
                            </div>
 
                            <div class="col-md-6 mb-3">
                               <label class="form-label">Tag 2</label>
                               <input name="tag2" class="form-control"
-                              placeholder="Insira a Tag 2">
+                                 placeholder="Insira a Tag 2">
                            </div>
 
                            <div class="col-md-6 mb-3">
                               <label class="form-label">Tag 3</label>
                               <input name="tag3" class="form-control"
-                              placeholder="Insira a Tag 3">
+                                 placeholder="Insira a Tag 3">
                            </div>
 
                            <div class="col-12 mb-3">
@@ -253,6 +253,14 @@ include("../../conexao/conexao.php");
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
    <script src="../assets/js/sidebar.js"></script>
+   <script src="../../libs/ckeditor/build/ckeditor.js"></script>
+   <script>
+      ClassicEditor
+         .create(document.querySelector('#texto'))
+         .catch(error => {
+            console.error(error);
+         });
+   </script>
 </body>
 
 </html>
