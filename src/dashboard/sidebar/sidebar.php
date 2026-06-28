@@ -99,6 +99,10 @@
                     <i class="fa-solid fa-tag"></i>
                     <span>Cadastrar Marcas</span>
                 </a>
+                <a href="/dashboard/produtos/categorias/index.php" class="nav-link text-white submenu-text">
+                    <i class="fa-solid fa-tags"></i>
+                    <span>Cadastrar Categorias</span>
+                </a>
 
             </div>
 
