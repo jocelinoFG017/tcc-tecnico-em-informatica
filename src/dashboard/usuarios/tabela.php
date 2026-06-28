@@ -17,6 +17,7 @@ $resultado = mysqli_query($conn, $sql);
 
         <thead class="table-dark">
             <tr>
+                <th>#</th>
                 <th>Nome</th>
                 <th>Login</th>
                 <th>Nível de Acesso</th>
@@ -25,8 +26,11 @@ $resultado = mysqli_query($conn, $sql);
         </thead>
 
         <tbody>
-            <?php while ($dado = mysqli_fetch_assoc($resultado)) { ?>
+            <?php 
+            $contador = 1;
+            while ($dado = mysqli_fetch_assoc($resultado)) { ?>
                 <tr>
+                    <td><?= $contador++ ?></td>
                     <td><?= htmlspecialchars($dado["nome"]) ?></td>
                     <td><?= htmlspecialchars($dado["login"]) ?></td>
                     <td><?= htmlspecialchars($dado["nomeCargo"]) ?></td>

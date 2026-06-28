@@ -23,10 +23,12 @@ $resultado = mysqli_query($conn, $sql);
 
         <tbody>
 
-            <?php while ($dado = mysqli_fetch_array($resultado)) { ?>
+            <?php 
+            $contador = 1;
+            while ($dado = mysqli_fetch_array($resultado)) { ?>
 
                 <tr>
-                    <td><?= $dado["idProduto"] ?></td>
+                    <td><?= $contador++ ?></td>
                     <td><?= $dado["nome"] ?></td>
                     <td><?= $dado["descricao"] ?></td>
                     <td><?= $dado["marca"] ?></td>

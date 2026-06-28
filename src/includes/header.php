@@ -3,7 +3,7 @@
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand" href="../index.php">
-                <img src="../assets/imagens/home/nova_logo.png" alt="PetShop Logo" style="height: 60px;">
+                <img src="../assets/images/home/nova_logo.png" alt="PetShop Logo" style="height: 60px;">
             </a>
 
             <!-- Botão toggler mobile -->

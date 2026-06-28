@@ -51,7 +51,7 @@ $produto = mysqli_fetch_object($query);
 
 <body>
   <?php
-  include("../templates/header.php");
+  include("../includes/header.php");
   ?>
   <main>
 
@@ -65,7 +65,7 @@ $produto = mysqli_fetch_object($query);
             <img id="mainImage" src="https://via.placeholder.com/500" class="img-fluid rounded shadow" alt="Produto">
           </div>
           <div class="d-flex justify-content-center gap-2 product-gallery">
-            <img src="../fotos/<?php echo $produto->foto; ?>" class="img-thumbnail" width="400" alt="<?php echo $produto->nome; ?>" onclick="trocarImagem(this)">
+            <img src="../uploads/produtos/<?php echo $produto->foto; ?>" class="img-thumbnail" width="400" alt="<?php echo $produto->nome; ?>" onclick="trocarImagem(this)">
           </div>
         </div>
 
@@ -107,7 +107,7 @@ $produto = mysqli_fetch_object($query);
     </div>
   </main>
   <?php
-  include("../templates/footer.php");
+  include("../includes/footer.php");
   ?>
 
   <script>

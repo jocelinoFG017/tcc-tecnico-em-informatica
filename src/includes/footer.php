@@ -34,10 +34,10 @@
                 <h5 class="text-warning">Desenvolvido Por</h5>
                 <div class="d-flex justify-content-start gap-3 mt-2">
                     <a href="https://github.com/jocelinoFG017">
-                        <img src="../../assets/imagens/parceiros/gameStudio.png" alt="Game Studio" class="img-fluid" style="max-height:50px;">
+                        <img src="../../assets/images/parceiros/gameStudio.png" alt="Game Studio" class="img-fluid" style="max-height:50px;">
                     </a>
                     <a href="https://github.com/jocelinoFG017">
-                        <img src="../../assets/imagens/parceiros/softwareDev.png" alt="Software Dev" class="img-fluid" style="max-height:50px;">
+                        <img src="../../assets/images/parceiros/softwareDev.png" alt="Software Dev" class="img-fluid" style="max-height:50px;">
                     </a>
                 </div>
             </div>

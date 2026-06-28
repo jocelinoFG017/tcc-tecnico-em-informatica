@@ -72,13 +72,38 @@
             </div>
 
         </li>
-
         <li class="nav-item">
-            <a href="/dashboard/produtos/index.php" class="nav-link text-white">
+
+            <a class="nav-link text-white submenu-parent d-flex align-items-center"
+                data-bs-toggle="collapse"
+                href="#menuProdutos">
+
                 <i class="fa-solid fa-box"></i>
-                <span class="text-label">Produtos</span>
+
+                <span class="text-label flex-grow-1">
+                    Produtos
+                </span>
+
+                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+
             </a>
+
+            <div class="collapse ps-3" id="menuProdutos">
+
+                <a href="/dashboard/produtos/index.php" class="nav-link text-white submenu-text">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Cadastrar Produtos</span>
+                </a>
+
+                <a href="/dashboard/produtos/marcas/index.php" class="nav-link text-white submenu-text">
+                    <i class="fa-solid fa-tag"></i>
+                    <span>Cadastrar Marcas</span>
+                </a>
+
+            </div>
+
         </li>
+
         <li class="nav-item">
 
             <a class="nav-link text-white submenu-parent d-flex align-items-center"

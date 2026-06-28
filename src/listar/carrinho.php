@@ -142,7 +142,7 @@ if(isset($_POST['atualizar'])){
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
-<?php include("../templates/header.php");?>
+<?php include("../includes/header.php");?>
 <main>
 <div class="container my-5">
     <h2 class="mb-4">Seu Carrinho</h2>
@@ -197,7 +197,7 @@ if(isset($_POST['atualizar'])){
     </div>
 </div>
 </main>
-<?php include("../templates/footer.php");?>
+<?php include("../includes/footer.php");?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

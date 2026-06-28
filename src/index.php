@@ -50,7 +50,7 @@ session_start(); // inicia a sessão para verificar login
                                             <a href="pages/blog.php?id=<?= $artigo->idArtigo ?>" class="btn btn-warning">Ver Mais</a>
                                         </div>
                                         <div class="col-md-6 text-center">
-                                            <img src="fotos/<?= $artigo->foto ?>" class="img-fluid" alt="<?= $artigo->titulo ?>" />
+                                            <img src="uploads/artigos/<?= $artigo->foto ?>" class="img-fluid" alt="<?= $artigo->titulo ?>" />
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@ session_start(); // inicia a sessão para verificar login
                 ?>
                     <div class="col-sm-6 col-md-4 col-lg-3">
                         <div class="card h-100 shadow-sm">
-                            <img src="../fotos/<?= $produto->foto ?>" class="card-img-top" alt="<?= $produto->nome ?>">
+                            <img src="../uploads/produtos/<?= $produto->foto ?>" class="card-img-top" alt="<?= $produto->nome ?>">
                             <div class="card-body text-center d-flex flex-column">
                                 <h6 class="card-title"><?= $produto->nome ?></h6>
                                 <p class="fw-bold mb-3">R$ <?= number_format($produto->preco, 2, ",", ".") ?></p>
