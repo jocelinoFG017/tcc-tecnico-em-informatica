@@ -100,7 +100,7 @@ $totalCarrinho = mysqli_fetch_assoc($sqlCarrinho)['totalCarrinho'] ?? 0;
     </div>
 
     <div class="text-center mt-5">
-        <a href="../Login/logout.php" class="btn btn-outline-danger btn-lg">Sair</a>
+        <a href="../login/logout.php" class="btn btn-outline-danger btn-lg">Sair</a>
     </div>
 </main>
 

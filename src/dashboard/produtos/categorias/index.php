@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../login/verificaAdmin.php");
+include("../../../login/verificaAdmin.php");
 include("../../../conexao/conexao.php");
 ?>
 <!doctype html>
