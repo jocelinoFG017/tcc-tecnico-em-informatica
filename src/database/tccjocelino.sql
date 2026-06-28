@@ -147,16 +147,42 @@ CREATE TABLE IF NOT EXISTS `endereco` (
 -- -----------------------------------------------------
 -- Artigo
 -- -----------------------------------------------------
-CREATE TABLE `artigo` (
-  `idArtigo` INT NOT NULL AUTO_INCREMENT,
-  `titulo` VARCHAR(45) NOT NULL,
-  `texto` VARCHAR(1200) NOT NULL,
-  `autor` VARCHAR(45) NOT NULL,
-  `data_publicacao` DATE,
-  `tag` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idArtigo`)
+CREATE TABLE artigo (
+  idArtigo INT NOT NULL AUTO_INCREMENT,
+  titulo VARCHAR(255) NOT NULL,
+  texto TEXT NOT NULL,
+  fk_idUsuario INT NOT NULL,
+  data_publicacao DATE,
+
+  PRIMARY KEY (idArtigo),
+  FOREIGN KEY (fk_idUsuario) REFERENCES usuario(idUsuario)
 );
 
+-- -----------------------------------------------------
+-- Tag
+-- -----------------------------------------------------
+CREATE TABLE tag (
+  idTag INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(45) NOT NULL,
+  PRIMARY KEY (idTag)
+);
+
+-- -----------------------------------------------------
+-- Argito_Tag
+-- -----------------------------------------------------
+
+CREATE TABLE artigo_tag (
+  fk_idArtigo INT NOT NULL,
+  fk_idTag INT NOT NULL,
+
+  PRIMARY KEY (fk_idArtigo, fk_idTag),
+
+  FOREIGN KEY (fk_idArtigo) REFERENCES artigo(idArtigo),
+  FOREIGN KEY (fk_idTag) REFERENCES tag(idTag)
+);
+-- -----------------------------------------------------
+-- Pedido
+-- -----------------------------------------------------
 CREATE TABLE pedido (
   idPedido INT NOT NULL AUTO_INCREMENT,
   fk_idUsuario INT NOT NULL,
@@ -188,20 +214,7 @@ CREATE TABLE pedido_item (
 );
 
 
--- ALTERS
-
-ALTER TABLE artigo
-ADD COLUMN hora_publicacao TIME NOT NULL DEFAULT CURRENT_TIME,
-ADD COLUMN tag2 VARCHAR(45) NULL,
-ADD COLUMN tag3 VARCHAR(45) NULL,
-ADD COLUMN foto VARCHAR(255) NULL;
-
-ALTER TABLE artigo
-MODIFY COLUMN data_publicacao DATE NOT NULL DEFAULT (CURRENT_DATE),
-MODIFY COLUMN hora_publicacao TIME NOT NULL DEFAULT (CURRENT_TIME);
-
-ALTER TABLE artigo
-ADD COLUMN sobreAutor TEXT;
+-- Alters
 
 
 alter table usuario
@@ -352,6 +365,12 @@ VALUES
 -- -----------------------------------------------------
 -- POPULANDO tabela Artigo
 -- -----------------------------------------------------
-INSERT INTO artigo (titulo, texto, autor, data_publicacao, tag, sobreAutor)
+INSERT INTO artigo (titulo, texto, fk_idUsuario, data_publicacao)
 VALUES
-('O destino dos cães', 'Os cães nascem para encontrar seu elo perdido', 'Jocelino F.G','2020-12-12','Gatos','Nascido no RS');
+('O destino dos cães', 'Os cães nascem para encontrar seu elo perdido', 1, '2020-12-12');
+
+INSERT INTO tag (nome)
+VALUES ('Gatos');
+
+INSERT INTO artigo_tag (fk_idArtigo, fk_idTag)
+VALUES (1, 1);

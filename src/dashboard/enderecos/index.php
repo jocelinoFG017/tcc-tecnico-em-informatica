@@ -96,16 +96,19 @@ include("../../conexao/conexao.php");
                             <!-- FORM -->
                             <form action="cadastrar.php" method="POST">
 
-                                <div class="mb-3">
-                                    <label class="form-label">Bairro</label>
-                                    <input name="bairro" class="form-control" required
-                                        placeholder="Insira o bairo">
-                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Bairro</label>
+                                        <input name="bairro" class="form-control" required
+                                            placeholder="Insira o bairo">
+                                    </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Rua</label>
-                                    <input name="rua" class="form-control" required
-                                        placeholder="Insira  a rua">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Rua</label>
+                                        <input name="rua" class="form-control" required
+                                            placeholder="Insira  a rua">
+                                    </div>
+
                                 </div>
 
                                 <div class="row">
@@ -119,29 +122,31 @@ include("../../conexao/conexao.php");
                                         <input name="telefone" class="form-control" placeholder="Insira o telefone">
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Estado</label>
+                                        <select name="estadoId" id="estadoSelect" class="form-select">
+                                            <option value="">Selecione o Estado</option>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Estado</label>
-                                    <select name="estadoId" id="estadoSelect" class="form-select">
-                                        <option value="">Selecione o Estado</option>
+                                            <?php
+                                            $resultEstado = "SELECT * FROM estado ORDER BY nome";
+                                            $resultadoEstado = mysqli_query($conn, $resultEstado);
 
-                                        <?php
-                                        $resultEstado = "SELECT * FROM estado ORDER BY nome";
-                                        $resultadoEstado = mysqli_query($conn, $resultEstado);
+                                            while ($rowEstado = mysqli_fetch_assoc($resultadoEstado)) {
+                                                echo "<option value='{$rowEstado['idEstado']}'>{$rowEstado['nome']}</option>";
+                                            }
+                                            ?>
 
-                                        while ($rowEstado = mysqli_fetch_assoc($resultadoEstado)) {
-                                            echo "<option value='{$rowEstado['idEstado']}'>{$rowEstado['nome']}</option>";
-                                        }
-                                        ?>
+                                        </select>
+                                    </div>
 
-                                    </select>
-                                </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Cidade</label>
+                                        <select name="cidadeId" id="cidadeSelect" class="form-select">
+                                            <option value="">Selecione a cidade</option>
+                                        </select>
+                                    </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Cidade</label>
-                                    <select name="cidadeId" id="cidadeSelect" class="form-select">
-                                        <option value="">Selecione a cidade</option>
-                                    </select>
                                 </div>
 
                                 <button type="submit" name="cadastrar" class="btn btn-primary">

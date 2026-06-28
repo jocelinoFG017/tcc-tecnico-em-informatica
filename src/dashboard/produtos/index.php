@@ -89,10 +89,33 @@ include("../../login/verificaLogin.php");
                             endif; ?>
 
                             <form action="cadastrar.php" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Nome</label>
+                                        <input name="nome" class="form-control" placeholder="Insira o nome do produto" required>
+                                    </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Nome</label>
-                                    <input name="nome" class="form-control" placeholder="Insira o nome do produto" required>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Marca</label>
+
+                                        <select name="marca" class="form-select" required>
+
+                                            <option value="">Selecione uma marca</option>
+
+                                            <?php
+                                            $sqlMarca = "SELECT idMarca, nome FROM marca ORDER BY nome";
+                                            $resultadoMarca = mysqli_query($conn, $sqlMarca);
+
+                                            while ($marca = mysqli_fetch_assoc($resultadoMarca)) {
+                                            ?>
+                                                <option value="<?= $marca['idMarca']; ?>">
+                                                    <?= htmlspecialchars($marca['nome']); ?>
+                                                </option>
+                                            <?php } ?>
+
+                                        </select>
+                                    </div>
+
                                 </div>
 
                                 <div class="mb-3">
@@ -101,26 +124,7 @@ include("../../login/verificaLogin.php");
                                         placeholder="Insira a descrição do produto" required>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Marca</label>
 
-                                    <select name="marca" class="form-select" required>
-
-                                        <option value="">Selecione uma marca</option>
-
-                                        <?php
-                                        $sqlMarca = "SELECT idMarca, nome FROM marca ORDER BY nome";
-                                        $resultadoMarca = mysqli_query($conn, $sqlMarca);
-
-                                        while ($marca = mysqli_fetch_assoc($resultadoMarca)) {
-                                        ?>
-                                            <option value="<?= $marca['idMarca']; ?>">
-                                                <?= htmlspecialchars($marca['nome']); ?>
-                                            </option>
-                                        <?php } ?>
-
-                                    </select>
-                                </div>
 
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
