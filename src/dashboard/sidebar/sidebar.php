@@ -79,14 +79,37 @@
                 <span class="text-label">Produtos</span>
             </a>
         </li>
-
         <li class="nav-item">
-            <a href="/dashboard/artigos/index.php" class="nav-link text-white">
-                <i class="fa-solid fa-newspaper"></i>
-                <span class="text-label">Artigos</span>
-            </a>
-        </li>
 
+            <a class="nav-link text-white submenu-parent d-flex align-items-center"
+                data-bs-toggle="collapse"
+                href="#menuArtigos">
+
+                <i class="fa-solid fa-newspaper"></i>
+
+                <span class="text-label flex-grow-1">
+                    Blog
+                </span>
+
+                <i class="fa-solid fa-chevron-down toggle-icon"></i>
+
+            </a>
+
+            <div class="collapse ps-3" id="menuArtigos">
+
+                <a href="/dashboard/artigos/index.php" class="nav-link text-white submenu-text">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <span>Cadastrar Artigos</span>
+                </a>
+
+                <a href="/dashboard/artigos/tags/index.php" class="nav-link text-white submenu-text">
+                    <i class="fa-solid fa-hashtag"></i>
+                    <span>Cadastrar Tags</span>
+                </a>
+
+            </div>
+
+        </li>
     </ul>
 
 </div>

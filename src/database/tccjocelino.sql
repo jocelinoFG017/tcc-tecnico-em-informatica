@@ -343,14 +343,14 @@ VALUES
 -- -----------------------------------------------------
 INSERT INTO produto (nome, descricao, marca, quantidade, preco, foto, fk_idCategoria, fk_idTipo)
 VALUES
-('Racao Pedigree','Racao para cachorros','Pedigree',5,24.99,'939dd63bebed93eef687566b8a28aa1e.jpg',1,1),
-('Racao Pedigree Biscrok Adulto','Racao para cachorros','Pedigree',5,34.99,'0d74792eaaccadb05a022026646d294e.jpg',1,1),
-('Racao Pedigree Carne e Vegetais','Racao para cachorros','Pedigree',5,19.99,'725363c7cd502e54716899dd609f5f3a.jpg',1,1),
-('Racao Pedigree Adulto','Racao para cachorros','Pedigree',9,59.15,'939dd63bebed93eef687566b8a28aa1e.jpg',1,1),
-('Racao Zorro Adulto','Racao para cachorros','Zorro',5,25.15,'a40d63c0428b75cd5b563e23a8b82afe.jpg',1,1),
-('Racao Zorro Filhote','Racao para cachorros','Zorro',7,27.15,'a40d63c0428b75cd5b563e23a8b82afe.jpg',1,1),
-('Racao Pedigree Biscrok Filhote','Racao para cachorros','Pedigree',5,24.99,'0d74792eaaccadb05a022026646d294e.jpg',1,1),
-('Racao MegaZOO','Racao para cachorros','MegaZOO',3,45.22,'e737f1f818f5482684dbee524567008d.jpg',1,1);
+('Racao Pedigree','Racao para cachorros','Pedigree',5,24.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao Pedigree Biscrok Adulto','Racao para cachorros','Pedigree',5,34.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao Pedigree Carne e Vegetais','Racao para cachorros','Pedigree',5,19.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao Pedigree Adulto','Racao para cachorros','Pedigree',9,59.15,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao Zorro Adulto','Racao para cachorros','Zorro',5,25.15,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao Zorro Filhote','Racao para cachorros','Zorro',7,27.15,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao Pedigree Biscrok Filhote','Racao para cachorros','Pedigree',5,24.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao MegaZOO','Racao para cachorros','MegaZOO',3,45.22,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1);
 
 -- -----------------------------------------------------
 -- POPULANDO tabela Artigo

@@ -93,13 +93,13 @@ include("../includes/header.php");
           <div class="col-sm-6 col-md-4 col-lg-2">
             <div class="card h-100 shadow-sm">
               <div class="position-relative">
-                <img src="../../fotos/<?php echo $produto->foto; ?>" class="card-img-top" alt="<?php echo $produto->nome; ?>">
+                <img src="../../uploads/produtos/<?php echo $produto->foto; ?>" class="card-img-top" alt="<?php echo $produto->nome; ?>">
               </div>
               <div class="card-body text-center d-flex flex-column">
                 <h6 class="card-title  text-truncate"><?php echo $produto->nome; ?></h6>
                 <p class="fw-bold mb-3">R$ <?php echo number_format($produto->preco,2,",","."); ?></p>
                 <a href="produtoDetalhes.php?id=<?php echo $produto->idProduto; ?>" class="btn btn-outline-primary btn-sm mb-2">Detalhes</a>
-                <a href="../Listar/carrinho.php?add=<?php echo $produto->idProduto; ?>" class="btn btn-warning btn-sm ">Adicionar ao Carrinho</a>
+                <a href="../listar/carrinho.php?add=<?php echo $produto->idProduto; ?>" class="btn btn-warning btn-sm ">Adicionar ao Carrinho</a>
               </div>
             </div>
           </div>
