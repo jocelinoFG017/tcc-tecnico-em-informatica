@@ -42,13 +42,13 @@ CREATE TABLE IF NOT EXISTS `categoria` (
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
--- Tipo
+-- Marca
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tipo` (
-  `idTipo` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(50) NOT NULL,
-  `descricao` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`idTipo`)
+CREATE TABLE IF NOT EXISTS `marca` (
+  `idMarca` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`idMarca`),
+  UNIQUE KEY `uk_marca_nome` (`nome`)
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
@@ -57,26 +57,30 @@ CREATE TABLE IF NOT EXISTS `tipo` (
 CREATE TABLE IF NOT EXISTS `produto` (
   `idProduto` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) NOT NULL,
-  `descricao` VARCHAR(255) NOT NULL,
-  `marca` VARCHAR(100) NOT NULL,
-  `quantidade` INT NOT NULL,
+  `descricao` VARCHAR(255),
+  `quantidade` INT NOT NULL DEFAULT 0,
   `preco` DECIMAL(10,2) NOT NULL,
-  `foto` VARCHAR(255) NOT NULL,
+  `foto` VARCHAR(255),
   `fk_idCategoria` INT NOT NULL,
-  `fk_idTipo` INT NOT NULL,
+  `fk_idMarca` INT NOT NULL,
+
   PRIMARY KEY (`idProduto`),
-  INDEX (`fk_idCategoria`),
-  INDEX (`fk_idTipo`),
-  CONSTRAINT `fk_produtoCategoria`
+
+  INDEX `idx_produto_categoria` (`fk_idCategoria`),
+  INDEX `idx_produto_marca` (`fk_idMarca`),
+
+  CONSTRAINT `fk_produto_categoria`
     FOREIGN KEY (`fk_idCategoria`)
-    REFERENCES `categoria`(`idCategoria`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_produtoTipo`
-    FOREIGN KEY (`fk_idTipo`)
-    REFERENCES `tipo`(`idTipo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
+    REFERENCES `categoria` (`idCategoria`)
+    ON UPDATE CASCADE
+    ON DELETE RESTRICT,
+
+  CONSTRAINT `fk_produto_marca`
+    FOREIGN KEY (`fk_idMarca`)
+    REFERENCES `marca` (`idMarca`)
+    ON UPDATE CASCADE
+    ON DELETE RESTRICT
+
 ) ENGINE=InnoDB;
 
 -- -----------------------------------------------------
@@ -248,22 +252,6 @@ VALUES
   ('Higiene', 'Produtos de higiene em geral');
 
 -- -----------------------------------------------------
--- POPULANDO tabela Tipo
--- -----------------------------------------------------
-INSERT INTO tipo (nome, descricao)
-VALUES
-  ('Racao', 'Rações para cães, gatos, peixes e roedores'),
-  ('Alimento Umido', 'Alimentos enlatados ou úmidos para pets'),
-  ('Suplemento / Vitamina', 'Suplementos e vitaminas para pets'),
-  ('Brinquedo', 'Brinquedos para cães, gatos e outros animais'),
-  ('Coleira / Acessorio', 'Coleiras, guias e acessórios em geral'),
-  ('Vacina', 'Vacinas para prevenção de doenças'),
-  ('Medicamento', 'Medicamentos para tratamento de pets'),
-  ('Higiene', 'Produtos de higiene e cuidados'),
-  ('Cama / Casa', 'Camas, casinhas e locais de descanso'),
-  ('Acessorio para aquario', 'Filtros, decorações e acessórios para peixes');
-
--- -----------------------------------------------------
 -- POPULANDO tabela Estado
 -- -----------------------------------------------------
 INSERT INTO estado (nome, uf, fk_idPais) VALUES
@@ -339,18 +327,27 @@ VALUES
 ('Vila Isabel','Maria Candida',4212,55991514439,2);
 
 -- -----------------------------------------------------
+-- POPULANDO tabela Marca
+-- -----------------------------------------------------
+INSERT INTO marca (nome)
+VALUES
+('Pedigree'),
+('Zorro'),
+('MegaZOO');
+
+-- -----------------------------------------------------
 -- POPULANDO tabela Produto
 -- -----------------------------------------------------
-INSERT INTO produto (nome, descricao, marca, quantidade, preco, foto, fk_idCategoria, fk_idTipo)
+INSERT INTO produto (nome, descricao, quantidade, preco, foto, fk_idCategoria, fk_idMarca)
 VALUES
-('Racao Pedigree','Racao para cachorros','Pedigree',5,24.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
-('Racao Pedigree Biscrok Adulto','Racao para cachorros','Pedigree',5,34.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
-('Racao Pedigree Carne e Vegetais','Racao para cachorros','Pedigree',5,19.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
-('Racao Pedigree Adulto','Racao para cachorros','Pedigree',9,59.15,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
-('Racao Zorro Adulto','Racao para cachorros','Zorro',5,25.15,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
-('Racao Zorro Filhote','Racao para cachorros','Zorro',7,27.15,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
-('Racao Pedigree Biscrok Filhote','Racao para cachorros','Pedigree',5,24.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
-('Racao MegaZOO','Racao para cachorros','MegaZOO',3,45.22,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1);
+('Racao Pedigree','Racao para cachorros',5,24.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao Pedigree Biscrok Adulto','Racao para cachorros',5,34.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao Pedigree Carne e Vegetais','Racao para cachorros',5,19.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao Pedigree Adulto','Racao para cachorros',9,59.15,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao Zorro Adulto','Racao para cachorros',5,25.15,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,2),
+('Racao Zorro Filhote','Racao para cachorros',7,27.15,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,2),
+('Racao Pedigree Biscrok Filhote','Racao para cachorros',5,24.99,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,1),
+('Racao MegaZOO','Racao para cachorros',3,45.22,'fe789e71ac8bcff434c8474aee52f4f1.jpg',1,3);
 
 -- -----------------------------------------------------
 -- POPULANDO tabela Artigo
