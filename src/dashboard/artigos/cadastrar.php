@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-include("../../conexao/conexao.php");
+include_once("../../conexao/conexao.php");
 
 if (isset($_POST['cadastrar'])) {
 

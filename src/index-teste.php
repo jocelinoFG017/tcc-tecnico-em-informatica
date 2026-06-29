@@ -1,5 +1,5 @@
 <?php
-   include("conexao/conexao.php");
+   include_once("conexao/conexao.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<?php include("templates/header.php");?>
+<?php include_once("templates/header.php");?>
 
 <section id="slider" class="mt-4">
     <div class="container">

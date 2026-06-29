@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../login/verificaUsuario.php");
+include_once("../login/verificaUsuario.php");
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ include("../login/verificaUsuario.php");
 </head>
 <body>
 
-<?php include("../includes/header.php"); ?>
+<?php include_once("../includes/header.php"); ?>
 
 <div class="container mt-5">
 
@@ -48,7 +48,7 @@ include("../login/verificaUsuario.php");
 
 </div>
 
-<?php include("../includes/footer.php"); ?>
+<?php include_once("../includes/footer.php"); ?>
 
 </body>
 </html>

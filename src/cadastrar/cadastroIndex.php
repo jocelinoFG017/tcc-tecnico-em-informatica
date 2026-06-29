@@ -24,7 +24,7 @@
    </head>
    <!--fim head-->
    <body>
-      <?php include("../Header/header.php"); ?>
+      <?php include_once("../Header/header.php"); ?>
       <section id="form">
          <div class="container">
             <div class="row">
@@ -73,7 +73,7 @@
             </div>
          </div>
       </section>	
-      <?php include("../Footer/footer.php"); ?>
+      <?php include_once("../includes/footer.php"); ?>
    </body>
    <script src="js/main.js"></script>
 </html>

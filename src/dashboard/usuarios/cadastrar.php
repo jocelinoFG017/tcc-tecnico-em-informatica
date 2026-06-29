@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../../conexao/conexao.php");
+    include_once("../../conexao/conexao.php");
 
     $nome = mysqli_real_escape_string($conn, trim($_POST['nome']));
     $login = mysqli_real_escape_string($conn,trim($_POST['login']));

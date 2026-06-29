@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../login/verificaAdmin.php");
+include_once("../../login/verificaAdmin.php");
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -18,9 +18,9 @@ include("../../login/verificaAdmin.php");
 <body>
 
     <!-- HEADER -->
-    <?php include("../../includes/headerDash.php"); ?>
+    <?php include_once("../../includes/headerDash.php"); ?>
     <!-- SIDEBAR -->
-    <?php include("../sidebar/sidebar.php"); ?>
+    <?php include_once("../sidebar/sidebar.php"); ?>
 
     <div class="d-flex">
 
@@ -66,7 +66,7 @@ include("../../login/verificaAdmin.php");
                         <div class="card-body">
                             <h5 class="card-title">Tabela de Produtos</h5>
 
-                            <?php include("tabela.php"); ?>
+                            <?php include_once("tabela.php"); ?>
                         </div>
                     </div>
                 </div>

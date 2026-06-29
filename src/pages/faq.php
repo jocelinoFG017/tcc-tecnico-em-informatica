@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/css/cssflex.css">
 </head>
 <body>
-    <?php include("../templates/header.php"); ?>
+    <?php include_once("../templates/header.php"); ?>
 <main>
 <section class="container my-5">
     <h1 class="text-center mb-4">Perguntas Frequentes</h1>
@@ -80,7 +80,7 @@
     </div>
 </section>
 </main>
-<?php include("../templates/footer.php"); ?>
+<?php include_once("../templates/footer.php"); ?>
 
 <!-- Bootstrap 5 JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

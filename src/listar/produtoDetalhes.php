@@ -1,5 +1,5 @@
 <?php
-include("../conexao/conexao.php");
+include_once("../conexao/conexao.php");
 // Aqui você pode adicionar código para buscar os detalhes do produto no banco de dados usando o ID passado via GET
 $produtoId = isset($_GET['add']) ? (int)$_GET['add'] : 0;
 // Exemplo de consulta (ajuste conforme sua tabela e campos)
@@ -51,7 +51,7 @@ $produto = mysqli_fetch_object($query);
 
 <body>
   <?php
-  include("../includes/header.php");
+  include_once("../includes/header.php");
   ?>
   <main>
 
@@ -107,7 +107,7 @@ $produto = mysqli_fetch_object($query);
     </div>
   </main>
   <?php
-  include("../includes/footer.php");
+  include_once("../includes/footer.php");
   ?>
 
   <script>

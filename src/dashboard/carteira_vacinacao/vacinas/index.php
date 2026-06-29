@@ -1,6 +1,6 @@
 <?php
-include("../../../login/verificaAdmin.php");
-include("../../../conexao/conexao.php");
+include_once("../../../login/verificaAdmin.php");
+include_once("../../../conexao/conexao.php");
 
 $sql = "SELECT * FROM vacina ORDER BY idVacina DESC";
 $resultado = mysqli_query($conn, $sql);
@@ -21,11 +21,11 @@ $resultado = mysqli_query($conn, $sql);
 
 <body>
 
-<?php include("../../../includes/headerDash.php"); ?>
+<?php include_once("../../../includes/headerDash.php"); ?>
 
 <div class="d-flex">
 
-    <?php include("../../sidebar/sidebar.php"); ?>
+    <?php include_once("../../sidebar/sidebar.php"); ?>
 
     <div id="content" class="content flex-grow-1">
 

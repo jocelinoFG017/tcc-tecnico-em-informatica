@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 // Conexão com o banco de dados
-include("../../conexao/conexao.php");
+include_once("../../conexao/conexao.php");
 
 // Se o usuário clicou no botão cadastrar efetua as ações
 if (isset($_POST['cadastrar'])) {

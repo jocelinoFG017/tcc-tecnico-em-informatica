@@ -1,7 +1,7 @@
 <?php 
 define('FPDF_FONTPATH', 'font/');
 require("./fpdf/fpdf.php");
-include("../conexao/conexao.php");
+include_once("../conexao/conexao.php");
 
 $sql=("SELECT en.idEndereco, en.bairro, en.rua, en.numero ,en.telefone, c.nome as cidade, est.uf as estado
 from endereco as en

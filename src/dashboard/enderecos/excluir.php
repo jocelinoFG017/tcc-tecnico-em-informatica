@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../conexao/conexao.php");
+include_once("../../conexao/conexao.php");
 
 $idEndereco = filter_input(INPUT_GET, 'idEndereco', FILTER_SANITIZE_NUMBER_INT);
 

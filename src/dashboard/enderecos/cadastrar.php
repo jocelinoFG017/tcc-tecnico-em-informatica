@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("../../conexao/conexao.php");
+    include_once("../../conexao/conexao.php");
     // vars que serão cadastradas no banco
     $bairro = mysqli_real_escape_string($conn,trim($_POST['bairro']));
     $rua = mysqli_real_escape_string($conn,trim($_POST['rua']));

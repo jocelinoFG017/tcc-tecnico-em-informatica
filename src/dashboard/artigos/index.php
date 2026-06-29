@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("../../login/verificaAdmin.php");
-include("../../conexao/conexao.php");
+include_once("../../login/verificaAdmin.php");
+include_once("../../conexao/conexao.php");
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -18,10 +18,10 @@ include("../../conexao/conexao.php");
 
 <body>
 
-   <?php include("../../includes/headerDash.php"); ?>
+   <?php include_once("../../includes/headerDash.php"); ?>
 
    <div class="d-flex">
-      <?php include("../sidebar/sidebar.php"); ?>
+      <?php include_once("../sidebar/sidebar.php"); ?>
 
       <!-- CONTEÚDO -->
       <div id="content" class="content flex-grow-1">
@@ -63,7 +63,7 @@ include("../../conexao/conexao.php");
                <div class="card">
                   <div class="card-body">
                      <h5 class="card-title">Tabela de Artigos</h5>
-                     <?php include("tabela.php"); ?>
+                     <?php include_once("tabela.php"); ?>
                   </div>
                </div>
             </div>

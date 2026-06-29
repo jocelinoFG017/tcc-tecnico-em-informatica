@@ -1,6 +1,6 @@
 <?php
-include("../login/verificaLogin.php");
-include("../conexao/conexao.php");
+include_once("../login/verificaLogin.php");
+include_once("../conexao/conexao.php");
 
 // Verifica se é administrador
 if (!isset($_SESSION['nomeNivelAcesso']) || strtolower($_SESSION['nomeNivelAcesso']) != 'administrador') {
@@ -49,8 +49,8 @@ $resultArtigos = mysqli_query($conn, $sqlArtigos);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<?php include("../includes/headerDash.php"); ?>
-<?php include("sidebar/sidebar.php"); ?>
+<?php include_once("../includes/headerDash.php"); ?>
+<?php include_once("sidebar/sidebar.php"); ?>
 
 <div id="content" class="content">
 

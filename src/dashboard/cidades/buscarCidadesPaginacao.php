@@ -1,5 +1,5 @@
 <?php
-include("../../conexao/conexao.php");
+include_once("../../conexao/conexao.php");
 
 $porPagina = 10;
 

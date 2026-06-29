@@ -1,5 +1,5 @@
 <?php
-include("../conexao/conexao.php");
+include_once("../conexao/conexao.php");
 
 // Recebe o id do artigo via GET, se não houver pega o último artigo
 $idAtual = isset($_GET['id']) ? (int)$_GET['id'] : 0;
@@ -172,7 +172,7 @@ $artigoProximo = mysqli_fetch_object($resultProximo);
 
 <body>
 
-  <?php include("../includes/header.php"); ?>
+  <?php include_once("../includes/header.php"); ?>
 
   <main>
 
@@ -382,7 +382,7 @@ $artigoProximo = mysqli_fetch_object($resultProximo);
 
   </main>
 
-  <?php include("../includes/footer.php"); ?>
+  <?php include_once("../includes/footer.php"); ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

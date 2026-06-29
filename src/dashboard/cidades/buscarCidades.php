@@ -1,5 +1,5 @@
 <?php
-include("../../conexao/conexao.php");
+include_once("../../conexao/conexao.php");
 
 $pagina = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 $porPagina = 10;

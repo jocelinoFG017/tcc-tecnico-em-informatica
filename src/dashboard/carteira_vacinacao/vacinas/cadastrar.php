@@ -1,6 +1,6 @@
 <?php
-include("../../../login/verificaAdmin.php");
-include("../../../conexao/conexao.php");
+include_once("../../../login/verificaAdmin.php");
+include_once("../../../conexao/conexao.php");
 
 if (isset($_POST['cadastrar'])) {
 

@@ -112,7 +112,7 @@
                   </div>
                   <div class="col-md-12">
                     <?php
-                    include("tabelaEndereco.php");?>
+                    include_once("tabelaEndereco.php");?>
                   </div>
                </div>
             </div>

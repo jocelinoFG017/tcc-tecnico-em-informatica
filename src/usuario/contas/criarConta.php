@@ -97,7 +97,7 @@
 
 <body>
 
-<?php include("../../includes/header.php"); ?>
+<?php include_once("../../includes/header.php"); ?>
 
 <div class="container py-5">
 
@@ -294,7 +294,7 @@
 
 </div>
 
-<?php include("../../includes/footer.php"); ?>
+<?php include_once("../../includes/footer.php"); ?>
 
 <script>
 

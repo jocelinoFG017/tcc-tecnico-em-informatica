@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../conexao/conexao.php");
+include_once("../conexao/conexao.php");
 
 // Se não estiver logado, manda pro login
 if(!isset($_SESSION['login'])) {
@@ -37,7 +37,7 @@ $totalCarrinho = mysqli_fetch_assoc($sqlCarrinho)['totalCarrinho'] ?? 0;
     </style>
 </head>
 <body>
-<?php include("../includes/header.php"); ?>
+<?php include_once("../includes/header.php"); ?>
 
 <main class="container py-5">
     <div class="text-center mb-5">
@@ -104,7 +104,7 @@ $totalCarrinho = mysqli_fetch_assoc($sqlCarrinho)['totalCarrinho'] ?? 0;
     </div>
 </main>
 
-<?php include("../includes/footer.php"); ?>
+<?php include_once("../includes/footer.php"); ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

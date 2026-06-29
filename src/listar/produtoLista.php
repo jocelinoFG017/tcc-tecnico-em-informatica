@@ -1,5 +1,5 @@
 <?php
-include("../conexao/conexao.php");
+include_once("../conexao/conexao.php");
 
 // Paginação
 $limit = 8; 
@@ -48,7 +48,7 @@ $totalPages = ceil($total / $limit);
 </head>
 <body class="bg-light">
 <?php
-include("../includes/header.php");
+include_once("../includes/header.php");
 ?>
 <div class="container-fluid">
   <div class="row">
@@ -123,7 +123,7 @@ include("../includes/header.php");
   </div>
 </div>
 <?php
-include("../includes/footer.php");
+include_once("../includes/footer.php");
 ?>
 </body>
 </html>

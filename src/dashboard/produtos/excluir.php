@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../conexao/conexao.php");
+include_once("../../conexao/conexao.php");
 
 $idProduto = filter_input(INPUT_GET, 'idProduto', FILTER_SANITIZE_NUMBER_INT);
 

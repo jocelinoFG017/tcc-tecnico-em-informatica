@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../conexao/conexao.php");
+include_once("../conexao/conexao.php");
 
 if (empty($_POST['login']) || empty($_POST['senha'])) {
     header('Location: ../login/loginIndex.php');
