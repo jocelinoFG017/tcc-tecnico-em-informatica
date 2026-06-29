@@ -44,18 +44,6 @@
             </button>
 
             <ul class="dropdown-menu dropdown-menu-end shadow">
-
-                <li>
-                    <h6 class="dropdown-header">Conta</h6>
-                </li>
-
-                <li><a class="dropdown-item" href="#">User Account</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
                 <li>
                     <a class="dropdown-item text-danger" href="/dashboard/sair.php">
                         Sair

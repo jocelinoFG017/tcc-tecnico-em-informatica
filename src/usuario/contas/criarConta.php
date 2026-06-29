@@ -4,90 +4,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Conta - Petshop</title>
-    <!-- Bootstrap 5 CSS -->
+    <title>Criar Conta - Carteira de Vacinação Animal</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/css/cssflex.css">
 
     <style>
-        body {
-            background-color: #f8f9fa;
+
+        body{
+            background:linear-gradient(135deg,#0d6efd,#4dabf7);
+            min-height:100vh;
         }
 
-        .card {
-            border-radius: 12px;
+        .register-card{
+            border:none;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 20px 40px rgba(0,0,0,.18);
         }
 
-        .google-btn {
-            background-color: #4285F4;
-            color: #fff;
+        .left-side{
+            background:#0d6efd;
+            color:#fff;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            padding:50px;
+            text-align:center;
         }
 
-        .google-btn:hover {
-            background-color: #357ae8;
-            color: #fff;
+        .left-side i{
+            font-size:70px;
+            margin-bottom:20px;
         }
 
-        .form-label {
-            font-weight: 500;
+        .right-side{
+            background:#fff;
+            padding:45px;
         }
+
+        .form-control{
+            height:50px;
+            border-radius:10px;
+        }
+
+        .input-group-text{
+            border-radius:10px 0 0 10px;
+        }
+
+        .btn{
+            height:48px;
+            border-radius:10px;
+            font-weight:600;
+        }
+
+        .divider{
+            display:flex;
+            align-items:center;
+            margin:25px 0;
+        }
+
+        .divider::before,
+        .divider::after{
+            content:'';
+            flex:1;
+            border-bottom:1px solid #ddd;
+        }
+
+        .divider span{
+            padding:0 15px;
+            color:#777;
+            font-size:14px;
+        }
+
+        @media(max-width:768px){
+
+            .left-side{
+                display:none;
+            }
+
+            .right-side{
+                padding:30px;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
-    <?php include("../../includes/header.php"); ?>
-    <main>
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-7 col-sm-9">
-                    <div class="card shadow-sm p-4">
-                        <h3 class="text-center mb-4">Criar Conta</h3>
 
-                        <!-- Formulário de cadastro -->
+<?php include("../../includes/header.php"); ?>
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-10">
+
+            <div class="card register-card">
+
+                <div class="row g-0">
+
+                    <div class="col-md-5 left-side">
+
+                        <i class="fa-solid fa-paw"></i>
+
+                        <h2>Carteira de Vacinação Animal</h2>
+
+                        <p class="mt-3">
+
+                            Cadastre-se gratuitamente e acompanhe a vacinação dos seus animais em qualquer lugar.
+
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-7 right-side">
+
+                        <div class="text-center mb-4">
+
+                            <h3 class="fw-bold">Criar Conta</h3>
+
+                            <p class="text-muted">
+
+                                Preencha os dados abaixo para começar.
+
+                            </p>
+
+                        </div>
+
                         <form action="processarCadastro.php" method="POST">
-                            <div class="mb-3">
-                                <label for="nome" class="form-label">Nome Completo</label>
-                                <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome" required>
-                            </div>
 
                             <div class="mb-3">
-                                <label for="login">Email</label>
-                                <input type="email" class="form-control" id="login" name="login" placeholder="email@exemplo.com" required>
+
+                                <label class="form-label">Nome Completo</label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fa fa-user"></i>
+
+                                    </span>
+
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="nome"
+                                        id="nome"
+                                        placeholder="Digite seu nome"
+                                        required>
+
+                                </div>
+
                             </div>
 
                             <div class="mb-3">
-                                <label for="senha" class="form-label">Senha</label>
-                                <input type="password" class="form-control" id="senha" name="senha" placeholder="********" required>
+
+                                <label class="form-label">E-mail</label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fa fa-envelope"></i>
+
+                                    </span>
+
+                                    <input
+                                        type="email"
+                                        class="form-control"
+                                        name="login"
+                                        id="login"
+                                        placeholder="email@exemplo.com"
+                                        required>
+
+                                </div>
+
                             </div>
 
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="termos" name="termos" required>
-                                <label class="form-check-label" for="termos">Aceito os <a href="#">termos de uso</a></label>
+                            <div class="mb-3">
+
+                                <label class="form-label">Senha</label>
+
+                                <div class="input-group">
+
+                                    <span class="input-group-text">
+
+                                        <i class="fa fa-lock"></i>
+
+                                    </span>
+
+                                    <input
+                                        type="password"
+                                        class="form-control"
+                                        id="senha"
+                                        name="senha"
+                                        placeholder="Digite sua senha"
+                                        required>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-outline-secondary"
+                                        id="mostrarSenha">
+
+                                        <i class="fa fa-eye"></i>
+
+                                    </button>
+
+                                </div>
+
                             </div>
 
-                            <button type="submit" class="btn btn-primary w-100">Criar Conta</button>
+                            <div class="form-check mb-4">
+
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="termos"
+                                    required>
+
+                                <label class="form-check-label">
+
+                                    Aceito os <a href="#">Termos de Uso</a>
+
+                                </label>
+
+                            </div>
+
+                            <div class="d-grid">
+
+                                <button
+                                    class="btn btn-primary"
+                                    type="submit">
+
+                                    <i class="fa-solid fa-user-plus"></i>
+
+                                    Criar Conta
+
+                                </button>
+
+                            </div>
+
+                            <div class="divider">
+
+                                <span>OU</span>
+
+                            </div>
+
+                            <div class="d-grid">
+
+                                <a href="../login/googleLogin.php" class="btn btn-danger">
+
+                                    <i class="fab fa-google"></i>
+
+                                    Continuar com Google
+
+                                </a>
+
+                            </div>
+
+                            <p class="text-center mt-4">
+
+                                Já possui uma conta?
+
+                                <a href="../../login/loginIndex.php">
+
+                                    Entrar
+
+                                </a>
+
+                            </p>
+
                         </form>
 
-                        <hr class="my-4">
-
-                        <!-- Login com Google (não funcional) -->
-                        <button class="btn google-btn w-100 mb-2">
-                            <i class="bi bi-google me-2"></i> Continuar com Google
-                        </button>
-
-                        <p class="text-center mt-3">Já tem conta? <a href="../../login/loginIndex.php">Entrar</a></p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </main>
 
-    <?php include("../../includes/footer.php"); ?>
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Bootstrap Icons (para ícone do Google) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<?php include("../../includes/footer.php"); ?>
+
+<script>
+
+const senha=document.getElementById("senha");
+const btn=document.getElementById("mostrarSenha");
+
+btn.onclick=function(){
+
+    if(senha.type==="password"){
+
+        senha.type="text";
+        btn.innerHTML='<i class="fa fa-eye-slash"></i>';
+
+    }else{
+
+        senha.type="password";
+        btn.innerHTML='<i class="fa fa-eye"></i>';
+
+    }
+
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

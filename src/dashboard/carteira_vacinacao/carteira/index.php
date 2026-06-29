@@ -1,4 +1,5 @@
 <?php
+include("../../../login/verificaAdmin.php");
 include("../../../conexao/conexao.php");
 
 // ID do animal
@@ -51,11 +52,7 @@ while ($row = mysqli_fetch_assoc($resVacinas)) {
     $vacinas[] = $row;
 }
 
-while ($row = mysqli_fetch_assoc($resVacinas)) {
-    $vacinas[] = $row;
-}
 ?>
-
 <!doctype html>
 <html lang="pt-br">
 
@@ -64,81 +61,126 @@ while ($row = mysqli_fetch_assoc($resVacinas)) {
     <title>Carteira de Vacinação</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+    <!-- NÃO MEXER -->
+    <link href="../../styles.css" rel="stylesheet">
 </head>
 
 <body>
 
 <?php include("../../../includes/headerDash.php"); ?>
 
-<div class="container mt-4">
+<div class="d-flex">
 
-    <!-- ANIMAL -->
-    <div class="card mb-4">
-        <div class="card-body">
-            <h3><?= htmlspecialchars($animal['nome']); ?></h3>
+    <!-- SIDEBAR -->
+    <?php include("../../sidebar/sidebar.php"); ?>
 
-            <p>
-                <strong>Espécie:</strong> <?= $animal['especie']; ?> |
-                <strong>Raça:</strong> <?= $animal['raca']; ?> |
-                <strong>Dono:</strong> <?= $animal['dono']; ?>
-            </p>
+    <!-- CONTENT -->
+    <div id="content" class="content flex-grow-1">
+
+        <div class="container mt-4">
+
+            <!-- HEADER PADRÃO -->
+            <div class="p-3 border-bottom bg-light d-flex justify-content-between align-items-center mb-3">
+
+                <div>
+                    <h4 class="mb-0 d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-syringe text-success"></i>
+                        Carteira de Vacinação
+                    </h4>
+
+                    <small class="text-muted">
+                        Histórico de vacinas do animal
+                    </small>
+                </div>
+
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalVacina">
+                    <i class="fa-solid fa-plus"></i> Adicionar Vacina
+                </button>
+
+            </div>
+
+            <!-- ANIMAL INFO -->
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+
+                    <h5 class="mb-2">
+                        🐾 <?= htmlspecialchars($animal['nome']); ?>
+                    </h5>
+
+                    <div class="text-muted">
+                        <strong>Espécie:</strong> <?= $animal['especie']; ?> |
+                        <strong>Raça:</strong> <?= $animal['raca']; ?> |
+                        <strong>Dono:</strong> <?= $animal['dono']; ?>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TABELA VACINAS -->
+            <div class="card shadow-sm">
+
+                <div class="card-body">
+
+                    <?php if (count($vacinas) > 0): ?>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Vacina</th>
+                                        <th>Data Aplicação</th>
+                                        <th>Próxima Dose</th>
+                                        <th>Observação</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <?php foreach ($vacinas as $v): ?>
+                                        <tr>
+                                            <td><?= $v['vacina']; ?></td>
+
+                                            <td>
+                                                <?= date('d/m/Y', strtotime($v['data_aplicacao'])); ?>
+                                            </td>
+
+                                            <td>
+                                                <?= $v['proxima_dose']
+                                                    ? date('d/m/Y', strtotime($v['proxima_dose']))
+                                                    : '-'; ?>
+                                            </td>
+
+                                            <td>
+                                                <?= $v['observacao']; ?>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    <?php else: ?>
+                        <div class="text-muted text-center py-4">
+                            Nenhuma vacina registrada ainda.
+                        </div>
+                    <?php endif; ?>
+
+                </div>
+            </div>
+
         </div>
+
     </div>
-
-    <!-- CARTEIRA -->
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h4>💉 Carteira de Vacinação</h4>
-
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalVacina">
-            + Adicionar Vacina
-        </button>
-    </div>
-
-    <!-- LISTA VACINAS -->
-    <div class="card">
-        <div class="card-body">
-
-            <?php if (count($vacinas) > 0): ?>
-
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Vacina</th>
-                            <th>Data</th>
-                            <th>Próxima Dose</th>
-                            <th>Observação</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <?php foreach ($vacinas as $v): ?>
-                            <tr>
-                                <td><?= $v['vacina']; ?></td>
-                                <td><?= date('d/m/Y', strtotime($v['data_aplicacao'])); ?></td>
-                                <td>
-                                    <?= $v['proxima_dose']
-                                        ? date('d/m/Y', strtotime($v['proxima_dose']))
-                                        : '-'; ?>
-                                </td>
-                                <td><?= $v['observacao']; ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-
-            <?php else: ?>
-                <p class="text-muted">Nenhuma vacina registrada.</p>
-            <?php endif; ?>
-
-        </div>
-    </div>
-
 </div>
 
-<!-- MODAL VACINA (base pronta) -->
+<!-- MODAL VACINA -->
 <div class="modal fade" id="modalVacina" tabindex="-1">
+
     <div class="modal-dialog">
+
         <div class="modal-content">
 
             <form action="adicionarVacina.php" method="POST">
@@ -156,8 +198,8 @@ while ($row = mysqli_fetch_assoc($resVacinas)) {
                         <option value="">Selecione a vacina</option>
                         <?php
                         $vacinasList = mysqli_query($conn, "SELECT * FROM vacina");
-                        while ($v = mysqli_fetch_assoc($vacinasList)) {
-                            echo "<option value='{$v['idVacina']}'>{$v['nome']}</option>";
+                        while ($vac = mysqli_fetch_assoc($vacinasList)) {
+                            echo "<option value='{$vac['idVacina']}'>{$vac['nome']}</option>";
                         }
                         ?>
                     </select>
@@ -169,16 +211,21 @@ while ($row = mysqli_fetch_assoc($resVacinas)) {
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-success">Salvar</button>
+                    <button class="btn btn-success">
+                        Salvar
+                    </button>
                 </div>
 
             </form>
 
         </div>
+
     </div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../../assets/js/sidebar.js"></script>
 
 </body>
 </html>

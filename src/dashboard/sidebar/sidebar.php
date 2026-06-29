@@ -25,14 +25,6 @@
                 <span class="text-label">Animais</span>
             </a>
         </li>
-
-        <li class="nav-item">
-            <a href="/dashboard/carteira_vacinacao/carteira/index.php" class="nav-link text-white">
-                <i class="fa-solid fa-syringe"></i>
-                <span class="text-label">Carteiras</span>
-            </a>
-        </li>
-
         <li class="nav-item">
             <a href="/dashboard/carteira_vacinacao/vacinas/index.php" class="nav-link text-white">
                 <i class="fa-solid fa-shield-virus"></i>
