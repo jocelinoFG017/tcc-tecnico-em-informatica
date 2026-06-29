@@ -21,7 +21,7 @@ include_once "../../conexao/conexao.php";
    <?php include_once "../../includes/headerDash.php"; ?>
 
    <div class="d-flex">
-      <?php include_once("../sidebar/sidebar.php"); ?>
+      <?php include_once "../sidebar/sidebar.php"; ?>
 
       <!-- CONTEÚDO -->
       <div id="content" class="content flex-grow-1">
@@ -63,7 +63,7 @@ include_once "../../conexao/conexao.php";
                <div class="card">
                   <div class="card-body">
                      <h5 class="card-title">Tabela de Artigos</h5>
-                     <?php include_once("tabela.php"); ?>
+                     <?php include_once "tabela.php"; ?>
                   </div>
                </div>
             </div>

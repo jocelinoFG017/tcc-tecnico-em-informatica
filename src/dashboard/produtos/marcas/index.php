@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once("../../../login/verificaAdmin.php");
-include_once("../../../conexao/conexao.php");
+include_once "../../../login/verificaAdmin.php";
+include_once "../../../conexao/conexao.php";
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -19,7 +19,7 @@ include_once("../../../conexao/conexao.php");
 <body>
 
     <?php include_once "../../../includes/headerDash.php"; ?>
-    <?php include_once("../../sidebar/sidebar.php"); ?>
+    <?php include_once "../../sidebar/sidebar.php"; ?>
 
     <div class="d-flex">
 
@@ -78,7 +78,7 @@ include_once("../../../conexao/conexao.php");
                                 Tabela de Marcas
                             </h5>
 
-                            <?php include_once("tabela.php"); ?>
+                            <?php include_once "tabela.php"; ?>
 
                         </div>
 

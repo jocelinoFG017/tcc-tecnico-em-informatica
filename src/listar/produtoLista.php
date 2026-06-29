@@ -1,5 +1,5 @@
 <?php
-include_once("../conexao/conexao.php");
+include_once "../conexao/conexao.php";
 
 // Paginação
 $limit = 8; 

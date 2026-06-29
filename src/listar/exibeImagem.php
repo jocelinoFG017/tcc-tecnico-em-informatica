@@ -1,5 +1,5 @@
 <?php
-include_once("../conexao/conexao.php");
+include_once "../conexao/conexao.php";
 // Seleciona todos os usuários
 $sql = mysqli_query($conn, "SELECT * FROM produto ORDER BY idProduto;");
 // Exibe as informações de cada usuário

@@ -20,7 +20,7 @@ include_once "../../login/verificaAdmin.php";
     <!-- HEADER -->
     <?php include_once "../../includes/headerDash.php"; ?>
     <!-- SIDEBAR -->
-    <?php include_once("../sidebar/sidebar.php"); ?>
+    <?php include_once "../sidebar/sidebar.php"; ?>
 
     <div class="d-flex">
 
@@ -66,7 +66,7 @@ include_once "../../login/verificaAdmin.php";
                         <div class="card-body">
                             <h5 class="card-title">Tabela de Produtos</h5>
 
-                            <?php include_once("tabela.php"); ?>
+                            <?php include_once "tabela.php"; ?>
                         </div>
                     </div>
                 </div>

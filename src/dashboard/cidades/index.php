@@ -32,7 +32,7 @@ include_once "../../conexao/conexao.php";
 <body>
 
    <?php include_once "../../includes/headerDash.php"; ?>
-   <?php include_once("../sidebar/sidebar.php"); ?>
+   <?php include_once "../sidebar/sidebar.php"; ?>
 
    <div id="content" class="content">
 
@@ -78,7 +78,7 @@ include_once "../../conexao/conexao.php";
 
                   <!-- CONTAINER DA TABELA (AJAX) -->
                   <div id="tabela-container">
-                     <?php include_once("tabela.php"); ?>
+                     <?php include_once "tabela.php"; ?>
                   </div>
 
                   <!-- PAGINAÇÃO (AJAX) -->

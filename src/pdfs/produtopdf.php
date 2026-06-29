@@ -3,7 +3,7 @@ define('FPDF_FONTPATH', 'font/');
 require("./fpdf/fpdf.php");
 
 //conexão com banco de dados
-include_once("../conexao/conexao.php");
+include_once "../conexao/conexao.php";
 
 $sql=("SELECT * FROM produto"); 
 $busca = mysqli_query($conn, $sql);

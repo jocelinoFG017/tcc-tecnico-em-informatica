@@ -1,6 +1,6 @@
 <?php
-include_once("../login/verificaLogin.php");
-include_once("../conexao/conexao.php");
+include_once "../login/verificaLogin.php";
+include_once "../conexao/conexao.php";
 
 // Verifica se é administrador
 if (!isset($_SESSION['nomeNivelAcesso']) || strtolower($_SESSION['nomeNivelAcesso']) != 'administrador') {

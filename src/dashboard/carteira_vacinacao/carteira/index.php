@@ -1,6 +1,6 @@
 <?php
-include_once("../../../login/verificaAdmin.php");
-include_once("../../../conexao/conexao.php");
+include_once "../../../login/verificaAdmin.php";
+include_once "../../../conexao/conexao.php";
 
 // ID do animal
 $idAnimal = isset($_GET['animal']) ? (int)$_GET['animal'] : 0;
@@ -74,7 +74,7 @@ while ($row = mysqli_fetch_assoc($resVacinas)) {
 <div class="d-flex">
 
     <!-- SIDEBAR -->
-    <?php include_once("../../sidebar/sidebar.php"); ?>
+    <?php include_once "../../sidebar/sidebar.php"; ?>
 
     <!-- CONTENT -->
     <div id="content" class="content flex-grow-1">

@@ -1,5 +1,5 @@
 <?php
-include_once("../../../conexao/conexao.php");
+include_once "../../../conexao/conexao.php";
 
 $sql = "SELECT * FROM categoria";
 

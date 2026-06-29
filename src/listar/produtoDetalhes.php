@@ -1,5 +1,5 @@
 <?php
-include_once("../conexao/conexao.php");
+include_once "../conexao/conexao.php";
 // Aqui você pode adicionar código para buscar os detalhes do produto no banco de dados usando o ID passado via GET
 $produtoId = isset($_GET['add']) ? (int)$_GET['add'] : 0;
 // Exemplo de consulta (ajuste conforme sua tabela e campos)

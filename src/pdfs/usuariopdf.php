@@ -1,7 +1,7 @@
 <?php 
 define('FPDF_FONTPATH', 'font/');
 require("./fpdf/fpdf.php");
-include_once("../conexao/conexao.php");
+include_once "../conexao/conexao.php";
 
 $sql = ("SELECT u.idUsuario, u.nome, u.login, n.cargo AS nomeCargo
           FROM usuario as u

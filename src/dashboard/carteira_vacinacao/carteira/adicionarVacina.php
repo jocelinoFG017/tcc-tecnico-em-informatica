@@ -1,6 +1,6 @@
 <?php
-include_once("../../../login/verificaAdmin.php");
-include_once("../../../conexao/conexao.php");
+include_once "../../../login/verificaAdmin.php";
+include_once "../../../conexao/conexao.php";
 
 if (!isset($_POST['idAnimal'], $_POST['idVacina'])) {
     header("Location: index.php");

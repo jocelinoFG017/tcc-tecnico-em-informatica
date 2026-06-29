@@ -1,5 +1,5 @@
 <?php
-include_once("../conexao/conexao.php");
+include_once "../conexao/conexao.php";
 
 if(isset($_GET['estadoId'])){
     $estadoId = intval($_GET['estadoId']);

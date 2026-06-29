@@ -1,6 +1,6 @@
 <?php
-include_once("../../../login/verificaAdmin.php");
-include_once("../../../conexao/conexao.php");
+include_once "../../../login/verificaAdmin.php";
+include_once "../../../conexao/conexao.php";
 
 // LISTA ANIMAIS
 $sql = "SELECT 
@@ -43,7 +43,7 @@ $usuarios = mysqli_query($conn, "SELECT idUsuario, nome FROM usuario ORDER BY no
     <div class="d-flex">
 
         <!-- SIDEBAR -->
-        <?php include_once("../../sidebar/sidebar.php"); ?>
+        <?php include_once "../../sidebar/sidebar.php"; ?>
 
         <!-- CONTEÚDO -->
         <div id="content" class="content flex-grow-1">

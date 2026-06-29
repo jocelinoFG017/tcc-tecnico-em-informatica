@@ -1,6 +1,6 @@
 <?php
-include_once("../../../login/verificaAdmin.php");
-include_once("../../../conexao/conexao.php");
+include_once "../../../login/verificaAdmin.php";
+include_once "../../../conexao/conexao.php";
 
 $sql = "SELECT * FROM vacina ORDER BY idVacina DESC";
 $resultado = mysqli_query($conn, $sql);
@@ -25,7 +25,7 @@ $resultado = mysqli_query($conn, $sql);
 
 <div class="d-flex">
 
-    <?php include_once("../../sidebar/sidebar.php"); ?>
+    <?php include_once "../../sidebar/sidebar.php"; ?>
 
     <div id="content" class="content flex-grow-1">
 

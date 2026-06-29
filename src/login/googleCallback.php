@@ -1,5 +1,5 @@
 <?php
-include_once("../conexao/conexao.php");
+include_once "../conexao/conexao.php";
 require_once '../vendor/autoload.php'; // se estiver usando composer para Google Client
 
 if(session_status() == PHP_SESSION_NONE){

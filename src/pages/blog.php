@@ -1,5 +1,5 @@
 <?php
-include_once("../conexao/conexao.php");
+include_once "../conexao/conexao.php";
 
 // Recebe o id do artigo via GET, se não houver pega o último artigo
 $idAtual = isset($_GET['id']) ? (int)$_GET['id'] : 0;

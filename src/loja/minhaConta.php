@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../conexao/conexao.php");
+include_once "../conexao/conexao.php";
 
 // Se não estiver logado, manda pro login
 if(!isset($_SESSION['login'])) {
