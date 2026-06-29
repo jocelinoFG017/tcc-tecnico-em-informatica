@@ -1,50 +1,176 @@
+version: "3.9"
+
 services:
+
+  #################################################
+  # Aplicação PHP
+  #################################################
+
   web:
-    build: .  
+    build: .
     container_name: tcc-informatica
+
+    restart: always
+
     ports:
       - "8080:80"
+
     volumes:
-      - "./src:/var/www/html"
-    restart: always
+      - ./src:/var/www/html
+
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+
     environment:
-      - SMTP_HOST=${SMTP_HOST}
-      - SMTP_USER=${SMTP_USER}
-      - SMTP_PASS=${SMTP_PASS}
-      - SMTP_PORT=${SMTP_PORT}
-      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
-      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_USER: ${SMTP_USER}
+      SMTP_PASS: ${SMTP_PASS}
+      SMTP_PORT: ${SMTP_PORT}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+
+    networks:
+      - app-network
+
+
+  #################################################
+  # Banco MariaDB da aplicação
+  #################################################
 
   db:
     image: mariadb:10.6
+
     container_name: banco-tcc-informatica
+
+    restart: always
+
+    ports:
+      - "3306:3306"
+
     environment:
       MYSQL_ROOT_PASSWORD: root123
       MYSQL_DATABASE: tccjocelino
       MYSQL_USER: admin
       MYSQL_PASSWORD: 123456
-      TZ: America/Sao_Paulo 
-    ports:
-      - "3306:3306"
+      TZ: America/Sao_Paulo
+
     volumes:
       - db_data:/var/lib/mysql
       - ./src/database/tccjocelino.sql:/docker-entrypoint-initdb.d/tccjocelino.sql
-    restart: always
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+    networks:
+      - app-network
+
+
+  #################################################
+  # phpMyAdmin
+  #################################################
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+
     container_name: phpmyadmin-tcc
+
     restart: always
+
     depends_on:
       - db
+
     ports:
       - "8081:80"
+
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: root123
 
+    networks:
+      - app-network
+
+
+  #################################################
+  # PostgreSQL do SonarQube
+  #################################################
+
+  sonarqube-db:
+    image: postgres:16
+
+    container_name: sonarqube-db
+
+    restart: always
+
+    environment:
+      POSTGRES_USER: sonar
+      POSTGRES_PASSWORD: sonar
+      POSTGRES_DB: sonarqube
+
+    volumes:
+      - sonarqube_db:/var/lib/postgresql/data
+
+    networks:
+      - app-network
+
+
+  #################################################
+  # SonarQube
+  #################################################
+
+  sonarqube:
+    image: sonarqube:community
+
+    container_name: sonarqube
+
+    restart: always
+
+    depends_on:
+      - sonarqube-db
+
+    ports:
+      - "9000:9000"
+
+    environment:
+      SONAR_JDBC_URL: jdbc:postgresql://sonarqube-db:5432/sonarqube
+      SONAR_JDBC_USERNAME: sonar
+      SONAR_JDBC_PASSWORD: sonar
+
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_extensions:/opt/sonarqube/extensions
+
+    networks:
+      - app-network
+
+
+#################################################
+# Volumes
+#################################################
+
 volumes:
+
   db_data:
+
+  sonarqube_db:
+
+  sonarqube_data:
+
+  sonarqube_logs:
+
+  sonarqube_extensions:
+
+
+#################################################
+# Rede
+#################################################
+
+networks:
+
+  app-network:
+    driver: bridge
