@@ -112,7 +112,7 @@ session_start();
 
 <body>
 
-<?php include_once("../includes/header.php"); ?>
+<?php include_once "../includes/header.php"; ?>
 
 <div class="container py-5">
 
@@ -312,7 +312,7 @@ session_start();
 
 </div>
 
-<?php include_once("../includes/footer.php"); ?>
+<?php include_once "../includes/footer.php"; ?>
 
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
 

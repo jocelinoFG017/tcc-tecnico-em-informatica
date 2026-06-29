@@ -1,5 +1,5 @@
 <?php
-include_once("../../conexao/conexao.php");
+include_once "../../conexao/conexao.php";
 
 $sql = "SELECT en.idEndereco, en.bairro, en.rua, en.numero, en.telefone, en.fk_idCidade, c.nome as cidade, est.nome as estado
         FROM endereco AS en

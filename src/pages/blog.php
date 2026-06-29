@@ -172,7 +172,7 @@ $artigoProximo = mysqli_fetch_object($resultProximo);
 
 <body>
 
-  <?php include_once("../includes/header.php"); ?>
+  <?php include_once "../includes/header.php"; ?>
 
   <main>
 
@@ -382,7 +382,7 @@ $artigoProximo = mysqli_fetch_object($resultProximo);
 
   </main>
 
-  <?php include_once("../includes/footer.php"); ?>
+  <?php include_once "../includes/footer.php"; ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

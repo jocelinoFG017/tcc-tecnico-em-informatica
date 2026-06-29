@@ -49,7 +49,7 @@ $resultArtigos = mysqli_query($conn, $sqlArtigos);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<?php include_once("../includes/headerDash.php"); ?>
+<?php include_once "../includes/headerDash.php"; ?>
 <?php include_once("sidebar/sidebar.php"); ?>
 
 <div id="content" class="content">

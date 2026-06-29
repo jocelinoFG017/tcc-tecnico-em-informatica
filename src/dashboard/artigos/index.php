@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once("../../login/verificaAdmin.php");
-include_once("../../conexao/conexao.php");
+include_once "../../login/verificaAdmin.php";
+include_once "../../conexao/conexao.php";
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -18,7 +18,7 @@ include_once("../../conexao/conexao.php");
 
 <body>
 
-   <?php include_once("../../includes/headerDash.php"); ?>
+   <?php include_once "../../includes/headerDash.php"; ?>
 
    <div class="d-flex">
       <?php include_once("../sidebar/sidebar.php"); ?>

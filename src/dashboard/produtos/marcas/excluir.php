@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../../../conexao/conexao.php");
+include_once "../../../conexao/conexao.php";
 
 $idMarca = filter_input(INPUT_GET, 'idMarca', FILTER_SANITIZE_NUMBER_INT);
 

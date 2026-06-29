@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once("../../login/verificaAdmin.php");
-include_once("../../conexao/conexao.php");
+include_once "../../login/verificaAdmin.php";
+include_once "../../conexao/conexao.php";
 
 $sqlNivel = "SELECT idNivelAcesso, cargo FROM nivelacesso ORDER BY cargo ASC";
 $resultNivel = mysqli_query($conn, $sqlNivel);
@@ -21,7 +21,7 @@ $resultNivel = mysqli_query($conn, $sqlNivel);
 </head>
 
 <body>
-    <?php include_once("../../includes/headerDash.php"); ?>
+    <?php include_once "../../includes/headerDash.php"; ?>
     <?php include_once("../sidebar/sidebar.php"); ?>
 
     <!-- CONTEÚDO -->

@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once("../../login/verificaAdmin.php");
-include_once("../../conexao/conexao.php");
+include_once "../../login/verificaAdmin.php";
+include_once "../../conexao/conexao.php";
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ include_once("../../conexao/conexao.php");
 <body>
 
     <!-- HEADER -->
-    <?php include_once("../../includes/headerDash.php"); ?>
+    <?php include_once "../../includes/headerDash.php"; ?>
 
     <!-- SIDEBAR -->
     <?php include_once("../sidebar/sidebar.php"); ?>

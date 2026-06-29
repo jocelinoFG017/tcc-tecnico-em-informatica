@@ -38,7 +38,7 @@ $usuarios = mysqli_query($conn, "SELECT idUsuario, nome FROM usuario ORDER BY no
 
 <body>
 
-    <?php include_once("../../../includes/headerDash.php"); ?>
+    <?php include_once "../../../includes/headerDash.php"; ?>
 
     <div class="d-flex">
 

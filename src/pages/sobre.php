@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 <body>
-    <?php include_once("../includes/header.php"); ?>
+    <?php include_once "../includes/header.php"; ?>
     <section class="py-5">
            <div class="container">
                 <div class="text-center mb-4">
@@ -47,7 +47,7 @@
                 </div>
             </div>      
 </section>  
-    <?php include_once("../includes/footer.php"); ?>
+    <?php include_once "../includes/footer.php"; ?>
     <!-- JS Bootstrap 5 (sem jQuery) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>

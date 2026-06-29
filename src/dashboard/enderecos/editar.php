@@ -1,5 +1,5 @@
 <?php
-include_once("../../conexao/conexao.php");
+include_once "../../conexao/conexao.php";
 
 $idEndereco = $_POST['idEndereco'];
 $bairro     = $_POST['bairro'];

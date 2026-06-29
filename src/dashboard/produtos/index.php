@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../../login/verificaAdmin.php");
+include_once "../../login/verificaAdmin.php";
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -18,7 +18,7 @@ include_once("../../login/verificaAdmin.php");
 <body>
 
     <!-- HEADER -->
-    <?php include_once("../../includes/headerDash.php"); ?>
+    <?php include_once "../../includes/headerDash.php"; ?>
     <!-- SIDEBAR -->
     <?php include_once("../sidebar/sidebar.php"); ?>
 
