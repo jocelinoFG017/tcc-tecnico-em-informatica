@@ -29,7 +29,7 @@ $resPedidos = mysqli_query($conn, $sqlPedidos);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<?php include_once("../templates/header.php"); ?>
+<?php include_once "../includes/header.php"; ?>
 <main>
 <div class="container my-5">
     <h2 class="mb-4">Meus Pedidos</h2>
@@ -84,7 +84,7 @@ $resPedidos = mysqli_query($conn, $sqlPedidos);
     <?php endif; ?>
 </div>
 </main>
-<?php include_once("../templates/footer.php"); ?>
+<?php include_once "../includes/footer.php"; ?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

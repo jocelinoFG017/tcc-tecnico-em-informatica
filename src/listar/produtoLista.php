@@ -48,7 +48,7 @@ $totalPages = ceil($total / $limit);
 </head>
 <body class="bg-light">
 <?php
-include_once("../includes/header.php");
+include_once "../includes/header.php";
 ?>
 <div class="container-fluid">
   <div class="row">
@@ -123,7 +123,7 @@ include_once("../includes/header.php");
   </div>
 </div>
 <?php
-include_once("../includes/footer.php");
+include_once "../includes/footer.php";
 ?>
 </body>
 </html>

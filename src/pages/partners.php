@@ -24,7 +24,7 @@ $parceiros = [
     <link rel="stylesheet" href="../assets/css/cssflex.css">
 </head>
 <body>
-    <?php include_once("../templates/header.php"); ?>
+    <?php include_once "../includes/header.php"; ?>
 <main class="py-5">
     <div class="container">
         <h2 class="text-center mb-5">Nossos Parceiros</h2>
@@ -45,7 +45,7 @@ $parceiros = [
 </main>
 
 
-    <?php include_once("../templates/footer.php"); ?>
+    <?php include_once "../includes/footer.php"; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

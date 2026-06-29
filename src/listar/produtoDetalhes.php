@@ -51,7 +51,7 @@ $produto = mysqli_fetch_object($query);
 
 <body>
   <?php
-  include_once("../includes/header.php");
+  include_once "../includes/header.php";
   ?>
   <main>
 
@@ -107,7 +107,7 @@ $produto = mysqli_fetch_object($query);
     </div>
   </main>
   <?php
-  include_once("../includes/footer.php");
+  include_once "../includes/footer.php";
   ?>
 
   <script>

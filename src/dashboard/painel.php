@@ -50,7 +50,7 @@ $resultArtigos = mysqli_query($conn, $sqlArtigos);
     <link rel="stylesheet" href="styles.css">
 </head>
 <?php include_once "../includes/headerDash.php"; ?>
-<?php include_once("sidebar/sidebar.php"); ?>
+<?php include_once "sidebar/sidebar.php"; ?>
 
 <div id="content" class="content">
 

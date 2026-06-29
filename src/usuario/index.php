@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("../login/verificaUsuario.php");
+include_once "../login/verificaUsuario.php";
 ?>
 
 <!DOCTYPE html>
