@@ -7,6 +7,12 @@ Nome do Projeto: DxD Remaster 2.0
 
 Versão Atual: 1.7
 
+Como rodar o sonar scanner
+
+```sh
+docker compose run --rm sonar-scanner
+```
+
 Versão Anterior: 1.6
 
 ideias para o projeto:

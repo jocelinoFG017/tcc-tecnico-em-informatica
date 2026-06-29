@@ -2,3 +2,9 @@ SMTP_HOST=insirahostaqui
 SMTP_USER=emaildeusuarioaqui.com
 SMTP_PASS=aquiasenha
 SMTP_PORT=aquiaporta
+SONAR_TOKEN=tokendosonaraqui
+
+DB_HOST=hostanameaqui
+DB_USER=usernameadminaqui
+DB_PASS=senhaaquidobanco
+DB_NAME=nomedobancoaqui

@@ -1,5 +1,4 @@
 version: "3.9"
-
 services:
 
   #################################################
@@ -40,7 +39,6 @@ services:
 
   db:
     image: mariadb:10.6
-
     container_name: banco-tcc-informatica
 
     restart: always
@@ -75,7 +73,6 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-
     container_name: phpmyadmin-tcc
 
     restart: always
@@ -101,7 +98,6 @@ services:
 
   sonarqube-db:
     image: postgres:16
-
     container_name: sonarqube-db
 
     restart: always
@@ -124,7 +120,6 @@ services:
 
   sonarqube:
     image: sonarqube:community
-
     container_name: sonarqube
 
     restart: always
@@ -149,20 +144,40 @@ services:
       - app-network
 
 
+  #################################################
+  # SonarScanner (NOVO)
+  #################################################
+
+  sonar-scanner:
+    image: sonarsource/sonar-scanner-cli
+
+    container_name: sonar-scanner
+
+    depends_on:
+      - sonarqube
+
+    volumes:
+      - .:/usr/src
+
+    working_dir: /usr/src
+
+    environment:
+      SONAR_HOST_URL: http://sonarqube:9000
+      SONAR_TOKEN: ${SONAR_TOKEN}
+
+    networks:
+      - app-network
+
+
 #################################################
 # Volumes
 #################################################
 
 volumes:
-
   db_data:
-
   sonarqube_db:
-
   sonarqube_data:
-
   sonarqube_logs:
-
   sonarqube_extensions:
 
 
@@ -171,6 +186,5 @@ volumes:
 #################################################
 
 networks:
-
   app-network:
     driver: bridge
