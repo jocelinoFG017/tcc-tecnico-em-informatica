@@ -9,10 +9,9 @@
     $sql = "INSERT INTO cidade(nome, fk_idEstado)
             VALUES('$nomeCidade', '$idEstado')";
     
-    if($conn->query($sql) === TRUE){
+    if($conn->query($sql) === true){
         $_SESSION['statusCadastro'] = true;
     }
     $conn->close();
     header('Location: /dashboard/cidades/index.php');
     exit;
-?>

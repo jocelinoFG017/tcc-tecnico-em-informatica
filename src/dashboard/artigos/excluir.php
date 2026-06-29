@@ -20,4 +20,3 @@ if(!empty($idArtigo)){
     $_SESSION['msg'] = "<p style='color:red;'> Necessário selecionar um artigo</p>";
     header("Location: /dashboard/artigos/index.php");
 }
-?>

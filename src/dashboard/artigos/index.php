@@ -101,16 +101,16 @@ include_once("../../conexao/conexao.php");
 
                            <!-- Autor -->
                            <div class="col-md-6 mb-3">
-                              <label class="form-label">Autor</label>
+                              <label class="form-label" for="autor">Autor</label>
 
-                              <select name="autor" class="form-select" required>
+                              <select name="autor" id="autor" class="form-select" required>
 
                                  <option value="">Selecione...</option>
 
                                  <?php
                                  $sqlAutor = "SELECT idUsuario, nome
-                             FROM usuario
-                             ORDER BY nome";
+                                                FROM usuario
+                                                ORDER BY nome";
 
                                  $resultadoAutor = mysqli_query($conn, $sqlAutor);
 

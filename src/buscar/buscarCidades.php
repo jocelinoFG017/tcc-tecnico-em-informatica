@@ -12,4 +12,3 @@ if(isset($_GET['estadoId'])){
         echo '<option value="'.$row['idCidade'].'">'.$row['nome'].'</option>';
     }
 }
-?>

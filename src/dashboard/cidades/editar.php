@@ -19,4 +19,3 @@ if (mysqli_query($conn, $sql)) {
 
 header("Location: /dashboard/cidades/index.php");
 exit;
-?>

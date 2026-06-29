@@ -19,11 +19,9 @@ $resultado = mysqli_query($conn, $sql);
         </thead>
 
         <tbody>
-
             <?php 
             $contador = 1;
             while ($dado = mysqli_fetch_array($resultado)) { ?>
-
                 <tr>
                     <td><?= $contador++ ?></td>
                     <td><?= $dado["nome"] ?></td>

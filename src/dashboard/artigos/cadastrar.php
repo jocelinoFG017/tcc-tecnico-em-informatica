@@ -48,7 +48,7 @@ if (isset($_POST['cadastrar'])) {
             $error[] = "A imagem deve ter no máximo {$tamanho} bytes.";
         }
 
-        if (count($error) == 0) {
+        if (empty($error)) {
 
             preg_match("/\.(gif|bmp|png|jpg|jpeg|webp)$/i", $foto["name"], $ext);
 
@@ -120,4 +120,3 @@ if (isset($_POST['cadastrar'])) {
     }
 
 }
-?>
